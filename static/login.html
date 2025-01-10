@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Authentication</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    h1 {
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #9f5f37;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input {
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    button {
+      background: #9f5f37;
+      color: #fff;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #229bd4;
+    }
+    .link {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .link a {
+      color: #9f5f37;
+      text-decoration: none;
+    }
+    .link a:hover {
+      text-decoration: underline;
+       color: #229bd4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="form-container">
+    <!-- Forms will be dynamically injected here -->
+  </div>
+
+  <script src="config.js"></script> <!-- API_BASE configuration -->
+
+  <script>
+    const renderForm = (html) => {
+      document.getElementById('form-container').innerHTML = html;
+    };
+
+    const showLoginForm = () => {
+      renderForm(`
+        <h1>Login HCRF</h1>
+        <form id="login-form">
+          <input type="email" id="email" placeholder="Email" required />
+          <input type="password" id="password" placeholder="Password" required />
+          <button type="submit">Login</button>
+        </form>
+        <div class="link">
+          Don't have an account? <a href="#" onclick="showRegisterForm()">Register</a>
+        </div>
+      `);
+
+      document.getElementById('login-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        try {
+          const res = await fetch(`${API_BASE}/api/auth/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password }),
+          });
+          const data = await res.json();
+          if (res.ok) {
+            localStorage.setItem('authToken', data.token);
+            localStorage.setItem('isAdmin', data.user.isAdmin);
+            localStorage.setItem('isMember', data.user.isMember); 
+            window.location.href = "index.html" 
+          } else {
+            alert(data.message || 'Login failed');
+          }
+        } catch (error) {
+          console.error(error);
+          alert('Something went wrong!');
+        }
+      });
+    };
+
+    const showRegisterForm = () => {
+      renderForm(`
+        <h1>Register HCRF</h1>
+        <form id="register-form">
+          <input type="text" id="name" placeholder="Full Name" required />
+          <input type="email" id="email" placeholder="Email" required />
+          <input type="password" id="password" placeholder="Password" required />
+          <button type="submit">Register</button>
+        </form>
+        <div class="link">
+          Already have an account? <a href="#" onclick="showLoginForm()">Login</a>
+        </div>
+      `);
+
+      document.getElementById('register-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        try {
+          const res = await fetch(`${API_BASE}/api/auth/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, password }),
+          });
+          const data = await res.json();
+          if (res.ok) {
+            alert('Registered successfully!');
+            showOtpVerificationForm(email);
+          } else {
+            alert(data.message || 'Registration failed');
+          }
+        } catch (error) {
+          console.error(error);
+          alert('Something went wrong!');
+        }
+      });
+    };
+
+    const showOtpVerificationForm = (email) => {
+      renderForm(`
+        <h1>Verify OTP</h1>
+        <form id="otp-form">
+          <input type="text" id="otp" placeholder="Enter OTP" required />
+          <button type="submit">Verify</button>
+        </form>
+        <div class="link">
+          Resend OTP? <a href="#" onclick="showRegisterForm()">Register Again</a>
+        </div>
+      `);
+
+      document.getElementById('otp-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const otp = document.getElementById('otp').value;
+        try {
+          const res = await fetch(`${API_BASE}/api/auth/verify-otp`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, otp }),
+          });
+          const data = await res.json();
+          if (res.ok) {
+            alert('OTP verified successfully!');
+            showLoginForm();
+          } else {
+            alert(data.message || 'OTP verification failed');
+          }
+        } catch (error) {
+          console.error(error);
+          alert('Something went wrong!');
+        }
+      });
+    };
+
+    const init = () => {
+      showLoginForm();
+    };
+
+    init();
+</script>
+</body>
+</html>

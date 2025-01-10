@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" />
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const token = localStorage.getItem("authToken");
+        if (token) {
+          try {
+            const decodedToken = JSON.parse(atob(token.split(".")[1]));
+            console.log("Decoded Token:", decodedToken); // Debug
+
+            const currentTime = Math.floor(Date.now() / 1000);
+            if (decodedToken.exp < currentTime) {
+              alert("Session expired. Please log in again.");
+              window.location.href = "index.html";
+              return;
+            }
+
+            if (decodedToken.isAdmin) {
+              console.log("Access Granted: Admin User");
+              // Load admin-specific data
+            } else {
+              alert("Unauthorized access. Admins only.");
+              window.location.href = "index.html";
+            }
+          } catch (error) {
+            console.error("Error decoding token:", error);
+            alert("Invalid token. Please log in again.");
+            window.location.href = "index.html";
+          }
+        } else {
+          alert("No token found. Please log in.");
+          window.location.href = "index.html";
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div class="dashboard">
+      <div class="sidebar">
+        <button class="btn active" onclick="showContent('home', this)">
+          Home
+        </button>
+        <button class="btn" onclick="showContent('users', this)">Users</button>
+        <button class="btn" onclick="showContent('messages', this)">
+          Messages
+        </button>
+        <button class="btn" onclick="showContent('memberships', this)">
+          Memberships
+        </button>
+        <button class="btn" onclick="showContent('collaborations', this)">
+          Collaborations
+        </button>
+
+        <button class="btn" onclick="showContent('donations', this)">
+          Donations
+        </button>
+
+        <button class="btn" onclick="showContent('preorders', this)">
+          Pre Orders
+        </button>
+        
+        <button class="btn" onclick="showContent('badgeApplications', this)">
+          Badge Applications
+        </button>
+        
+
+        <button class="btn" onclick="showContent('settings', this)">
+          Settings
+        </button>
+        <button class="btn" onclick="showContent('reports', this)">
+          Reports
+        </button>
+        <button class="btn" onclick="showContent('logout', this)">
+          Logout
+        </button>
+      </div>
+      <div class="content">
+        <div id="home" class="content-item active">
+          Welcome to the Dashboard
+        </div>
+        <div id="users" class="content-item">
+          <h2>Users</h2>
+          <div id="users-list"></div>
+        </div>
+        <div id="messages" class="content-item">
+          <h2>Messages</h2>
+          <div id="messages-list">Loading messages...</div>
+        </div>
+
+        <div id="memberships" class="content-item">
+          <h2>Membership Requests</h2>
+          <div id="membership-filters">
+            <button
+              class="filter-btn active"
+              onclick="applyMembershipFilter('all')"
+            >
+              All
+            </button>
+            <button
+              class="filter-btn"
+              onclick="applyMembershipFilter('pending')"
+            >
+              Pending
+            </button>
+            <button
+              class="filter-btn"
+              onclick="applyMembershipFilter('approved')"
+            >
+              Approved
+            </button>
+            <button
+              class="filter-btn"
+              onclick="applyMembershipFilter('rejected')"
+            >
+              Rejected
+            </button>
+          </div>
+          <div id="memberships-list">Loading memberships...</div>
+        </div>
+
+        
+
+
+        <div id="collaborations" class="content-item">
+          <h2>Collaboration Requests</h2>
+          <div id="collaboration-filters">
+            <button class="filter-btn active" onclick="applyCollaborationFilter('all')">
+              All
+            </button>
+            <button class="filter-btn" onclick="applyCollaborationFilter('pending')">
+              Pending
+            </button>
+            <button class="filter-btn" onclick="applyCollaborationFilter('approved')">
+              Approved
+            </button>
+            <button class="filter-btn" onclick="applyCollaborationFilter('rejected')">
+              Rejected
+            </button>
+          </div>
+          <div id="collaborations-list">Loading collaborations...</div>
+        </div>
+
+
+
+        <div id="preorders" class="content-item">
+          <h2>Pre-Orders</h2>
+          <div id="preorders-list">Loading pre-orders...</div>
+        </div>
+        
+
+        <div id="badgeApplications" class="content-item">
+          <h2>Badge Applications</h2>
+          <div id="badgeApplications-list">Loading badge applications...</div>
+        </div>
+        
+
+        <div id="donations" class="content-item">
+          <h2>Donations</h2>
+          <div id="donations-list">Loading donations...</div>
+        </div>
+
+
+        <div id="settings" class="content-item">Settings Page</div>
+        <div id="reports" class="content-item">View Reports</div>
+        <div id="logout" class="content-item">Logout Page</div>
+      </div>
+    </div>
+
+    <!-- Include external and inline scripts -->
+    <script src="config.js" defer></script>
+    <script defer>
+      // Show content function
+      // Show content function (updated for preorders)
+function showContent(page, button) {
+  const buttons = document.querySelectorAll(".btn");
+  buttons.forEach((btn) => btn.classList.remove("active"));
+  button.classList.add("active");
+
+  const contentItems = document.querySelectorAll(".content-item");
+  contentItems.forEach((item) => (item.style.display = "none"));
+
+  const selectedContent = document.getElementById(page);
+  if (selectedContent) {
+    selectedContent.style.display = "block";
+  }
+
+  if (page === "users") {
+    fetchUsers();
+  } else if (page === "messages") {
+    fetchMessages();
+  } else if (page === "memberships") {
+    fetchMemberships();
+  } else if (page === "collaborations") {
+    fetchCollaborations();
+  } else if (page === "donations") {
+    fetchDonations();
+  } else if (page === "preorders") { 
+    fetchPreOrders();
+  }
+}
+
+     
+
+
+
+      
+async function fetchUsers() {
+  const usersList = document.getElementById("users-list");
+
+  // Clear existing content before loading new users
+  usersList.innerHTML = "";
+
+  const token = localStorage.getItem("authToken");
+  if (!token) {
+    usersList.innerHTML = "<p>You must be logged in to view users.</p>";
+    return;
+  }
+
+  try {
+    const response = await fetch(`${API_BASE}/api/users`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!response.ok) {
+      const data = await response.json();
+      console.log("Error Response:", data); // Log the error response
+      usersList.innerHTML = `<p>Error fetching users: ${
+        data.message || data.error
+      }</p>`;
+      return;
+    }
+
+    const data = await response.json();
+    console.log("Fetched Users Data:", data); // Log the fetched users data
+
+    if (data && Array.isArray(data)) {
+      // Clear loading message and display actual users
+      usersList.innerHTML = `<ul>${data
+        .map(
+          (user) => `
+                    <li>
+                      <strong>${user.name}</strong><br>
+                      <em>Email:</em> <a href="mailto:${user.email}">${user.email}</a>
+                    </li>
+                `
+        )
+        .join("")}</ul>`;
+    } else {
+      console.log("No users found"); // Log if no users are found
+      usersList.innerHTML = `<p>No users found.</p>`;
+    }
+  } catch (error) {
+    console.error("Error fetching users:", error); // Log the error
+    usersList.innerHTML = `<p>Error fetching users: ${error.message}</p>`;
+  }
+}
+
+      // Fetch and display contact messages
+      async function fetchMessages() {
+        const messagesList = document.getElementById("messages-list");
+        messagesList.innerHTML = "Loading messages...";
+
+        const token = localStorage.getItem("authToken");
+        if (!token) {
+          messagesList.innerHTML =
+            "<p>You must be logged in to view messages.</p>";
+          return;
+        }
+
+        try {
+          const response = await fetch(`${API_BASE}/api/contact`, {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          if (!response.ok) {
+            const data = await response.json();
+            messagesList.innerHTML = `<p>Error fetching messages: ${
+              data.message || data.error
+            }</p>`;
+            return;
+          }
+
+          const data = await response.json();
+          if (data && Array.isArray(data)) {
+            messagesList.innerHTML = `<ul>${data
+              .map(
+                (msg) => `
+                        <li class="message-item">
+                            <strong>${msg.name}</strong>
+                            <p>${msg.message}</p>
+                            <div class="meta">
+                                <em>Email:</em> <a href="mailto:${msg.email}">${
+                  msg.email
+                }</a><br>
+                                <em>Phone:</em> ${
+                                  msg.mobileNumber || "Not provided"
+                                }<br>
+                                <em>Date:</em> ${new Date(
+                                  msg.date
+                                ).toLocaleString()}
+                            </div>
+                        </li>
+                    `
+              )
+              .join("")}</ul>`;
+          } else {
+            messagesList.innerHTML = `<p>No messages found.</p>`;
+          }
+        } catch (error) {
+          messagesList.innerHTML = `<p>Error fetching messages: ${error.message}</p>`;
+        }
+      }
+
+      // Fetch and display membership requests
+      async function fetchMemberships() {
+        const membershipsList = document.getElementById("memberships-list");
+        membershipsList.innerHTML = "Loading memberships...";
+
+        const token = localStorage.getItem("authToken");
+        if (!token) {
+          membershipsList.innerHTML =
+            "<p>You must be logged in to view memberships.</p>";
+          return;
+        }
+
+        try {
+          const response = await fetch(`${API_BASE}/api/form/pending`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          if (!response.ok) {
+            const data = await response.json();
+            membershipsList.innerHTML = `<p>Error fetching memberships: ${
+              data.message || data.error
+            }</p>`;
+            return;
+          }
+
+          const data = await response.json();
+          if (data && Array.isArray(data)) {
+            membershipsList.innerHTML = `<ul>${data
+              .map(
+                (member) => `
+                        <li>
+                            <strong>${member.fullName}</strong><br>
+                            <em>Email:</em> <a href="mailto:${member.email}">${member.email}</a><br>
+                            <em>Membership Type:</em> ${member.membershipType}<br>
+                            <em>Status:</em> ${member.status}<br>
+                            <button onclick="approveMembership(${member.id})">Approve</button>
+                            <button onclick="rejectMembership(${member.id})">Reject</button>
+                        </li>
+                    `
+              )
+              .join("")}</ul>`;
+          } else {
+            membershipsList.innerHTML = `<p>No pending memberships found.</p>`;
+          }
+        } catch (error) {
+          membershipsList.innerHTML = `<p>Error fetching memberships: ${error.message}</p>`;
+        }
+      }
+
+      // Approve membership
+      async function approveMembership(memberId) {
+        const token = localStorage.getItem("authToken");
+        if (!token) {
+          alert("You must be logged in to perform this action.");
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `${API_BASE}/api/form/${memberId}/approve`,
+            {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+              },
+            }
+          );
+
+          if (response.ok) {
+            alert("Membership approved successfully!");
+            fetchMemberships();
+          } else {
+            const data = await response.json();
+            alert(`Error: ${data.message || "Failed to approve membership."}`);
+          }
+        } catch (error) {
+          alert(`Error: ${error.message}`);
+        }
+      }
+
+      // Reject membership
+      async function rejectMembership(memberId) {
+        const token = localStorage.getItem("authToken");
+        if (!token) {
+          alert("You must be logged in to perform this action.");
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `${API_BASE}/api/form/${memberId}/reject`,
+            {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+              },
+            }
+          );
+
+          if (response.ok) {
+            alert("Membership rejected successfully!");
+            fetchMemberships();
+          } else {
+            const data = await response.json();
+            alert(`Error: ${data.message || "Failed to reject membership."}`);
+          }
+        } catch (error) {
+          alert(`Error: ${error.message}`);
+        }
+      }
+
+      let currentMembershipFilter = "all";
+
+      // Apply filter and fetch memberships
+      function applyMembershipFilter(filter) {
+        currentMembershipFilter = filter;
+
+        const buttons = document.querySelectorAll(
+          "#membership-filters .filter-btn"
+        );
+        buttons.forEach((btn) => btn.classList.remove("active"));
+
+        const activeButton = Array.from(buttons).find(
+          (btn) => btn.textContent.toLowerCase() === filter
+        );
+        if (activeButton) activeButton.classList.add("active");
+
+        fetchMemberships();
+      }
+
+      // Fetch and display memberships based on the selected filter
+      async function fetchMemberships() {
+        const membershipsList = document.getElementById("memberships-list");
+        membershipsList.innerHTML = "Loading memberships...";
+
+        const token = localStorage.getItem("authToken");
+        if (!token) {
+          membershipsList.innerHTML =
+            "<p>You must be logged in to view memberships.</p>";
+          return;
+        }
+
+        let apiUrl = `${API_BASE}/api/form`;
+        switch (currentMembershipFilter) {
+          case "pending":
+            apiUrl += "/pending";
+            break;
+          case "approved":
+            apiUrl += "/approved";
+            break;
+          case "rejected":
+            apiUrl += "/rejected";
+            break;
+          default:
+            apiUrl += "/all";
+            break;
+        }
+
+        try {
+          const response = await fetch(apiUrl, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          if (!response.ok) {
+            const data = await response.json();
+            membershipsList.innerHTML = `<p>Error fetching memberships: ${
+              data.message || data.error
+            }</p>`;
+            return;
+          }
+
+          const data = await response.json();
+          if (data && Array.isArray(data)) {
+            membershipsList.innerHTML = `<ul>${data
+              .map(
+                (member) => `
+            <li>
+              <strong>${member.fullName}</strong><br>
+              <em>Email:</em> <a href="mailto:${member.email}">${
+                  member.email
+                }</a><br>
+              <em>Membership Type:</em> ${member.membershipType}<br>
+              <em>Status:</em> ${member.status}<br>
+              ${
+                currentMembershipFilter === "pending"
+                  ? `
+                <button onclick="approveMembership(${member.id})">Approve</button>
+                <button onclick="rejectMembership(${member.id})">Reject</button>
+              `
+                  : ""
+              }
+            </li>
+          `
+              )
+              .join("")}</ul>`;
+          } else {
+            membershipsList.innerHTML = `<p>No memberships found for the selected filter.</p>`;
+          }
+        } catch (error) {
+          membershipsList.innerHTML = `<p>Error fetching memberships: ${error.message}</p>`;
+        }
+      }
+
+
+let currentCollaborationFilter = "all";
+
+// Apply filter and fetch collaborations
+function applyCollaborationFilter(filter) {
+  currentCollaborationFilter = filter;
+
+  const buttons = document.querySelectorAll("#collaboration-filters .filter-btn");
+  buttons.forEach((btn) => btn.classList.remove("active"));
+
+  const activeButton = Array.from(buttons).find((btn) => btn.textContent.toLowerCase() === filter);
+  if (activeButton) activeButton.classList.add("active");
+
+  fetchCollaborations();
+}
+
+// Fetch and display collaboration requests
+async function fetchCollaborations() {
+  const collaborationsList = document.getElementById("collaborations-list");
+  collaborationsList.innerHTML = "Loading collaborations...";
+
+  const token = localStorage.getItem("authToken");
+  if (!token) {
+    collaborationsList.innerHTML = "<p>You must be logged in to view collaborations.</p>";
+    return;
+  }
+
+  let apiUrl = `${API_BASE}/api/collaborations`;
+  if (currentCollaborationFilter !== "all") {
+    apiUrl += `/${currentCollaborationFilter}`;
+  }
+
+  try {
+    const response = await fetch(apiUrl, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!response.ok) {
+      const data = await response.json();
+      collaborationsList.innerHTML = `<p>Error fetching collaborations: ${data.message || data.error}</p>`;
+      return;
+    }
+
+    const data = await response.json();
+    if (Array.isArray(data)) {
+      collaborationsList.innerHTML = `<ul>${data
+        .map(
+          (collaboration) => `
+            <li>
+              <strong>${collaboration.orgName}</strong><br>
+              <em>Collaborator:</em> ${collaboration.contactName}<br>
+              <em>Email:</em> <a href="mailto:${collaboration.email}">${collaboration.email}</a><br>
+              <em>Status:</em> ${collaboration.status}<br>
+              ${
+                currentCollaborationFilter === "pending"
+                  ? `<button onclick="approveCollaboration(${collaboration.id})">Approve</button>
+                     <button onclick="rejectCollaboration(${collaboration.id})">Reject</button>`
+                  : ""
+              }
+            </li>
+          `
+        )
+        .join("")}</ul>`;
+    } else {
+      collaborationsList.innerHTML = "<p>No collaborations found for the selected filter.</p>";
+    }
+  } catch (error) {
+    collaborationsList.innerHTML = `<p>Error fetching collaborations: ${error.message}</p>`;
+  }
+}
+
+// Approve collaboration
+async function approveCollaboration(collaborationId) {
+  const token = localStorage.getItem("authToken");
+  if (!token) {
+    alert("You must be logged in to perform this action.");
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      `${API_BASE}/api/collaborations/${collaborationId}/approve`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (response.ok) {
+      alert("Collaboration approved successfully!");
+      fetchCollaborations();
+    } else {
+      const data = await response.json();
+      alert(`Error: ${data.message || "Failed to approve collaboration."}`);
+    }
+  } catch (error) {
+    alert(`Error: ${error.message}`);
+  }
+}
+
+// Reject collaboration
+async function rejectCollaboration(collaborationId) {
+  const token = localStorage.getItem("authToken");
+  if (!token) {
+    alert("You must be logged in to perform this action.");
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      `${API_BASE}/api/collaborations/${collaborationId}/reject`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (response.ok) {
+      alert("Collaboration rejected successfully!");
+      fetchCollaborations();
+    } else {
+      const data = await response.json();
+      alert(`Error: ${data.message || "Failed to reject collaboration."}`);
+    }
+  } catch (error) {
+    alert(`Error: ${error.message}`);
+  }
+}
+
+
+      // Fetch and display donations
+      async function fetchDonations() {
+        const donationsList = document.getElementById("donations-list");
+        donationsList.innerHTML = "Loading donations...";
+
+        const token = localStorage.getItem("authToken");
+        if (!token) {
+          donationsList.innerHTML =
+            "<p>You must be logged in to view donations.</p>";
+          return;
+        }
+
+        try {
+          const response = await fetch(`${API_BASE}/api/donations/all`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          if (!response.ok) {
+            const data = await response.json();
+            donationsList.innerHTML = `<p>Error fetching donations: ${
+              data.message || data.error
+            }</p>`;
+            return;
+          }
+
+          const data = await response.json();
+          if (data && Array.isArray(data)) {
+            donationsList.innerHTML = `<ul>${data
+              .map(
+                (donation) => `
+                <li>
+                    <strong>${donation.firstName} ${
+                  donation.lastName
+                }</strong><br>
+                    <em>Email:</em> <a href="mailto:${donation.email}">${
+                  donation.email
+                }</a><br>
+                    <em>Amount:</em> $${donation.amount}<br>
+                    <em>Type:</em> ${donation.donationType}<br>
+                    <em>Payment Method:</em> ${donation.paymentMethod}<br>
+                    <em>Country:</em> ${donation.country || "N/A"}<br>
+                    <button onclick="deleteDonation(${
+                      donation.id
+                    })">Delete</button>
+                </li>
+            `
+              )
+              .join("")}</ul>`;
+          } else {
+            donationsList.innerHTML = `<p>No donations found.</p>`;
+          }
+        } catch (error) {
+          donationsList.innerHTML = `<p>Error fetching donations: ${error.message}</p>`;
+        }
+      }
+
+      // Delete donation
+      async function deleteDonation(donationId) {
+        const token = localStorage.getItem("authToken");
+        if (!token) {
+          alert("You must be logged in to perform this action.");
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `${API_BASE}/api/donations/${donationId}`,
+            {
+              method: "DELETE",
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          if (response.ok) {
+            alert("Donation deleted successfully!");
+            fetchDonations();
+          } else {
+            const data = await response.json();
+            alert(`Error: ${data.message || "Failed to delete donation."}`);
+          }
+        } catch (error) {
+          alert(`Error: ${error.message}`);
+        }
+      }
+
+
+
+
+      // Fetch and display pre-orders
+async function fetchPreOrders() {
+  const preOrdersList = document.getElementById("preorders-list");
+  preOrdersList.innerHTML = "Loading pre-orders...";
+
+  const token = localStorage.getItem("authToken");
+  if (!token) {
+    preOrdersList.innerHTML = "<p>You must be logged in to view pre-orders.</p>";
+    return;
+  }
+
+  try {
+    const response = await fetch(`${API_BASE}/api/pre-order/data`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!response.ok) {
+      const data = await response.json();
+      preOrdersList.innerHTML = `<p>Error fetching pre-orders: ${
+        data.message || data.error
+      }</p>`;
+      return;
+    }
+
+    const data = await response.json();
+    if (data && Array.isArray(data)) {
+      preOrdersList.innerHTML = `<ul>${data
+        .map(
+          (order) => `
+            <li>
+              <strong>User: ${order.email}</strong><br>
+              <em>Order ID:</em> ${order._id}<br>
+              <em>Status:</em> ${order.status}<br>
+              <em>Created At:</em> ${new Date(order.createdAt).toLocaleString()}
+            </li>
+          `
+        )
+        .join("")}</ul>`;
+    } else {
+      preOrdersList.innerHTML = `<p>No pre-orders found.</p>`;
+    }
+  } catch (error) {
+    preOrdersList.innerHTML = `<p>Error fetching pre-orders: ${error.message}</p>`;
+  }
+}
+
+
+let currentBadgeApplicationFilter = "all";
+
+// Fetch and display badge applications
+async function fetchBadgeApplications() {
+  const badgeApplicationsList = document.getElementById("badgeApplications-list");
+  badgeApplicationsList.innerHTML = "Loading badge applications...";
+
+  const token = localStorage.getItem("authToken");
+  if (!token) {
+    badgeApplicationsList.innerHTML = "<p>You must be logged in to view badge applications.</p>";
+    return;
+  }
+
+  let apiUrl = `${API_BASE}/api/badge-application`;
+  if (currentBadgeApplicationFilter !== "all") {
+    apiUrl += `?status=${currentBadgeApplicationFilter}`;
+  }
+
+  try {
+    const response = await fetch(apiUrl, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!response.ok) {
+      const data = await response.json();
+      badgeApplicationsList.innerHTML = `<p>Error fetching badge applications: ${
+        data.message || data.error
+      }</p>`;
+      return;
+    }
+
+    const data = await response.json();
+    if (Array.isArray(data)) {
+      badgeApplicationsList.innerHTML = `<ul>${data
+        .map(
+          (application) => `
+            <li>
+              <strong>${application.businessName}</strong><br>
+              <em>Contact Person:</em> ${application.contactPerson}<br>
+              <em>Email:</em> <a href="mailto:${application.emailAddress}">${application.emailAddress}</a><br>
+              <em>Status:</em> ${application.status}<br>
+              <button onclick="viewBadgeApplication(${application.id})">View</button>
+              ${
+                application.status === "pending"
+                  ? `
+                  <button onclick="approveBadgeApplication(${application.id})">Approve</button>
+                  <button onclick="rejectBadgeApplication(${application.id})">Reject</button>
+                `
+                  : ""
+              }
+              <button onclick="deleteBadgeApplication(${application.id})">Delete</button>
+            </li>
+          `
+        )
+        .join("")}</ul>`;
+    } else {
+      badgeApplicationsList.innerHTML = `<p>No badge applications found for the selected filter.</p>`;
+    }
+  } catch (error) {
+    badgeApplicationsList.innerHTML = `<p>Error fetching badge applications: ${error.message}</p>`;
+  }
+}
+
+// View badge application details
+async function viewBadgeApplication(applicationId) {
+  const token = localStorage.getItem("authToken");
+  if (!token) {
+    alert("You must be logged in to perform this action.");
+    return;
+  }
+
+  try {
+    const response = await fetch(`${API_BASE}/api/badge-application/${applicationId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (response.ok) {
+      const application = await response.json();
+      alert(`Business Name: ${application.businessName}\nContact Person: ${application.contactPerson}\nStatus: ${application.status}`);
+    } else {
+      const data = await response.json();
+      alert(`Error: ${data.message || "Failed to fetch application details."}`);
+    }
+  } catch (error) {
+    alert(`Error: ${error.message}`);
+  }
+}
+
+// Approve badge application
+async function approveBadgeApplication(applicationId) {
+  const token = localStorage.getItem("authToken");
+  if (!token) {
+    alert("You must be logged in to perform this action.");
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      `${API_BASE}/api/badge-application/${applicationId}/approve`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (response.ok) {
+      alert("Badge application approved successfully!");
+      fetchBadgeApplications();
+    } else {
+      const data = await response.json();
+      alert(`Error: ${data.message || "Failed to approve badge application."}`);
+    }
+  } catch (error) {
+    alert(`Error: ${error.message}`);
+  }
+}
+
+// Reject badge application
+async function rejectBadgeApplication(applicationId) {
+  const token = localStorage.getItem("authToken");
+  if (!token) {
+    alert("You must be logged in to perform this action.");
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      `${API_BASE}/api/badge-application/${applicationId}/reject`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (response.ok) {
+      alert("Badge application rejected successfully!");
+      fetchBadgeApplications();
+    } else {
+      const data = await response.json();
+      alert(`Error: ${data.message || "Failed to reject badge application."}`);
+    }
+  } catch (error) {
+    alert(`Error: ${error.message}`);
+  }
+}
+
+// Delete badge application
+async function deleteBadgeApplication(applicationId) {
+  const token = localStorage.getItem("authToken");
+  if (!token) {
+    alert("You must be logged in to perform this action.");
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      `${API_BASE}/api/badge-application/${applicationId}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (response.ok) {
+      alert("Badge application deleted successfully!");
+      fetchBadgeApplications();
+    } else {
+      const data = await response.json();
+      alert(`Error: ${data.message || "Failed to delete badge application."}`);
+    }
+  } catch (error) {
+    alert(`Error: ${error.message}`);
+  }
+}
+
+// Apply badge application filter
+function applyBadgeApplicationFilter(filter) {
+  currentBadgeApplicationFilter = filter;
+
+  const buttons = document.querySelectorAll("#badgeApplications-filters .filter-btn");
+  buttons.forEach((btn) => btn.classList.remove("active"));
+
+  const activeButton = Array.from(buttons).find((btn) => btn.textContent.toLowerCase() === filter);
+  if (activeButton) activeButton.classList.add("active");
+
+  fetchBadgeApplications();
+}
+
+// Ensure badge applications are loaded when the content is shown
+function showContent(page, button) {
+  const buttons = document.querySelectorAll(".btn");
+  buttons.forEach((btn) => btn.classList.remove("active"));
+  button.classList.add("active");
+
+  const contentItems = document.querySelectorAll(".content-item");
+  contentItems.forEach((item) => (item.style.display = "none"));
+
+  const selectedContent = document.getElementById(page);
+  if (selectedContent) {
+    selectedContent.style.display = "block";
+  }
+
+  if (page === "badgeApplications") {
+    fetchBadgeApplications();
+  }
+}
+
+
+
+    </script>
+  </body>
+</html>

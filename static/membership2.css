@@ -1,0 +1,78 @@
+
+        .gender_form div {
+            display: inline-block;
+            width: 46%;
+        }
+
+        .con_nat div {
+            display: inline-block;
+            width: 48%;
+        }
+
+        .street_city div {
+            display: inline-block;
+            width: 48%;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        fieldset {
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="number"],
+        input[type="month"],
+        textarea {
+            width: 95%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        .form_next {
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+
+        .form_next:hover {
+            background-color: #9f5f37;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+    

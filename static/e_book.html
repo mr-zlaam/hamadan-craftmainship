@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HCR Foundation</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/favicon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon.png" />
+  <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- plugins css -->
+  <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="assets/vendors/tiny-slider/dist/tiny-slider.css" />
+  <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.carousel.min.css" />
+  <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="assets/vendors/animate/animate.min.css" />
+  <link rel="stylesheet" href="assets/vendors/paroti-icons/style.css" />
+  <link rel="stylesheet" href="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
+  <link rel="stylesheet" href="assets/vendors/youtube-popup/youtube-popup.css" />
+  <!-- template css -->
+  <link rel="stylesheet" href="assets/css/paroti.css" />
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/policy-analysis.css" />
+  <link rel="stylesheet" href="assets/css/common_two.css">
+
+
+
+  <style>
+
+.home-icon {
+  color: black;
+  font-weight: 600;
+  text-decoration: none; /* Optional: Remove underline */
+  display: inline-block; /* Ensures proper padding and background effect */
+  padding: 5px; /* Add some padding for better appearance */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.home-icon:hover {
+  color: #ac5c31; /* Change text color on hover */
+  background-color: white; /* Add white background */
+  border-radius: 4px; /* Optional: Add a slight rounded corner */
+  text-decoration: none; /* Prevent underline */
+}
+
+    .events-card__image2 {
+      background-color: #9f5f37
+    }
+
+    .events-card__footer {
+      padding: 10px;
+      background-color: #229bd4;
+      text-align: center;
+    }
+
+    .events-card__price-cart {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      /* Spacing between price and button */
+    }
+
+    .events-card__price {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .add-to-cart-btn {
+      padding: 8px 16px;
+      font-size: 0.9em;
+      font-weight: bold;
+      color: #fff;
+      background-color: #9f5f37;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #fff;
+      color: #229bd4;
+    }
+    #freefornow{
+  color: white;
+  font-size: x-large;
+  text-decoration-line: line-through;
+  text-decoration-color: red;
+  text-decoration-thickness: 12%;
+}
+/* css for arrow pngs */
+.carousel-navigation {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.carousel-prev img,
+.carousel-next img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background-color: #ffffff; 
+}
+
+.carousel-prev {
+  border: 0px;
+  margin-left: 40px;
+  background-color: #ffffff; 
+
+}
+
+.carousel-next {
+  border: 0px;
+  background-color: #ffffff; 
+  right: 100px;
+
+}
+
+
+
+  </style>
+
+
+
+
+</head>
+
+<body class="analysis-page">
+  <div class="preloader">
+    <div class="preloader__inner">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <!-- /.preloader__inner -->
+  </div>
+  <!-- /.preloader -->
+
+  <div class="page-wrapper">
+    <header class="main-header">
+      <div class="topbar">
+        <div class="container-fluid">
+          <div class="topbar__inner">
+            <ul class="list-unstyled topbar__info">
+              <li class="topbar__title">
+                <span> Hamadan Craft Revival Foundation </span>
+              </li>
+      
+              <li class="topbar__divider">
+                <span> | </span>
+              </li>
+      
+              <li class="topbar__sub-title">
+                <span>A Kashmir Craft Policy Think Tank - Shaping the Future of Artisans</span>
+              </li>
+            </ul>
+            <!-- /.topbar__info -->
+      
+            <ul class="list-unstyled topbar__links" id="topbar-links">
+              <!-- Links will be injected here based on the user's login status -->
+            </ul>
+      
+            <!-- Social icon -->
+            <div class="topbar__social">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-pinterest"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <!-- /.topbar__inner -->
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- /.topbar -->
+      <nav class="main-menu sticky-header">
+        <div class="container-fluid">
+          <a href="index.html" class="main-header__logo">
+            <img src="assets/images/hcrf_logo.png" />
+          </a>
+    
+          
+          <ul class="main-menu__list">
+            <a href="index.html" class="home-icon" >
+              <i class="fa fa-home" aria-hidden="true"></i>
+            </a>
+            <li class="menu-item-has-children">
+              <a href="">Research & Policy</a>
+              <ul>
+                <li><a href="industry_research.html">Industry Research</a></li>
+                <li><a href="policy_insight.html">Policy In-Sights</a></li>
+                <li><a href="Governance.html">Governance</a></li>
+                <li><a href="Regulation.html">Regulations </a></li>
+                <li><a href="Advocacy.html">Advocacy</a></li>
+                <li><a href="Campaigns.html">Campaigns</a></li>
+                <li><a href="legislative_lobby.html">Legislative Lobbying</a></li>
+                <!-- <li><a href="index-3.html">Policy Publications</a></li> -->
+    
+              </ul>
+            </li>
+            <li class="menu-item-has-children"><a href="">E Publications</a>
+              <ul>
+    
+                <li><a href="e_publication_best_practies.html">Best Practices</a></li>
+                <li><a href="e_publication_case_studies.html">Case Studies</a></li>
+                <li><a href="e_publication_research_papers.html">Research Papers</a></li>
+                <li><a href="e_book.html">e Book</a></li>
+    
+    
+    
+              </ul>
+            </li>
+            <li class="menu-item-has-children">
+              <a href="">Business Support</a>
+              <ul>
+                <li><a href="networking.html">Evaulation & Ranking</a></li>
+                <li><a href="grants.html">Grants</a></li>
+                <!-- <li><a href="quality_control.html">Quality Control</a></li> -->
+                <!-- <li><a href="accreditation.html">Accreditations</a></li> -->
+                <li><a href="Accreditation_Badge.html">Accreditation Badge</a></li>
+                <li><a href="entrepreneur_kits.html">Entrepreneurs Kit</a></li>
+    
+                <!-- <li>
+                                    <a href="volunteers.html">Business Evaluation</a>
+                                  </li> -->
+              </ul>
+            </li>
+            <li class="menu-item-has-children"><a href="">About HCRF</a>
+              <ul>
+                <li><a href="mission.html">Mission</a></li>
+                <li><a href="complinance.html">Compliance</a></li>
+                <li><a href="leadership.html">Leadership</a></li>
+                <!-- <li><a href="#">Advisory Board</a></li> -->
+                <li><a href="memberships.html">Memberships</a></li>
+                <li><a href="donations.html">Donations</a></li>
+                <li><a href="partner_network.html">Partner Network</a></li>
+                <li><a href="hcrf_project.html">HCRF Projects</a></li>
+                <li><a href="career.html">Career</a></li>
+                <li><a href="apprenticeship.html">Apprenticeship</a></li>
+                <li><a href="contact.html">Contact </a></li>
+    
+              </ul>
+            </li>
+            <!-- <li class="menu-item-has-children">
+                                <a href="events.html">HCRF Network</a>
+                              </li>
+                
+                              <li class="menu-item-has-children">
+                                <a href="events.html">HCRF People</a>
+                              </li> -->
+          </ul>
+          <!-- /.main-menu__list -->
+    
+          <div class="main-menu__right">
+            <div class="main-menu__cta">
+              <div class="main-menu__cta__icon">
+                <i class="paroti-icon-volunteer"></i>
+              </div>
+              <!-- /.main-menu__cta__icon -->
+              <div class="main-menu__cta__text">
+                <span>Join us now</span>
+                <a href="memberships.html">Become a Member</a>
+              </div>
+              <!-- /.main-menu__cta__text -->
+            </div>
+            <!-- /.main-menu__cta -->
+            <a href="donations.html" class="thm-btn thm-btn--two">
+              <span>Donate Now</span></a>
+            <!-- <i class="fa fa-donate"></i>  -->
+            <!-- <img
+                                  src="assets/images/donate-icon.png"
+                                  style="z-index: 3"
+                                  alt="Donate Now"
+                                /> </a -->
+            <!-- /.thm-btn--two -->
+            <a href="#" class="main-header__btn search-toggler">
+              <!-- <i class="paroti-icon-magnifying-glass"></i> -->
+            </a>
+            <a href="#" class="main-header__toggler mobile-nav__toggler">
+              <span></span>
+              <span></span>
+              <span></span>
+            </a>
+          </div>
+          <!-- /.main-menu__right -->
+        </div>
+        <!-- /.container-fluid -->
+      </nav>
+    
+    </header>
+
+    <section class="slider-one" style="background-color: #9f5f37;">
+      <div style="background-color: #9f5f37;" class="thm-owl__carousel owl-carousel owl-theme" data-owl-options='{
+              				"loop": true,
+              				"autoplay": true,
+              				"autoplayTimeOut": 7000,
+              				"items": 1,
+              				"margin": 0,
+              				"animateIn": "fadeIn",
+              				"animateOut": "slideOutDown",
+              				"nav": true,
+              				"dots": true,
+              				"navText": ["<span class=\"paroti-icon-left-arrow\"></span>","<span class=\"paroti-icon-right-arrow\"></span>"]
+              			}'>
+
+
+
+
+
+        <div class="item" style="background-color: #9f5f37;">
+          <div class="slider-one__item" style="background-color: #9f5f37;">
+
+            <!-- /.slider-one__image -->
+            <div class="container">
+              <h2 class="slider-one__title">Your Gateway to Kashmir’s Craft Heritage</h2>
+              <!-- /.slider-one__title -->
+              <p class="slider-one__text">
+                Explore a vast collection of eBooks on authentic Kashmiri handicrafts.
+              </p>
+              <!-- /.slider-one__text -->
+              <!-- <div class="slider-one__btns">
+                              <a href="about.html" class="thm-btn slider-one__btn">
+                                <span>Discover More</span> </a
+                              >
+                              </div> -->
+              <!-- /.slider-one__btns -->
+            </div>
+            <!-- /.container -->
+          </div>
+          <!-- /.slider-one__item -->
+        </div>
+
+        <div class="item" style="background-color: #9f5f37;">
+          <div class="slider-one__item" style="background-color: #9f5f37;">
+
+            <!-- /.slider-one__image -->
+            <div class="container">
+              <h2 class="slider-one__title">Your Personal Kashmir Craft eBook Library</h2>
+              <!-- /.slider-one__title -->
+              <p class="slider-one__text">
+                Curate, organize, and enjoy your eBook collection with ease.
+              </p>
+              <!-- /.slider-one__text -->
+              <!-- <div class="slider-one__btns">
+                                        <a href="about.html" class="thm-btn slider-one__btn">
+                                          <span>Discover More</span> </a
+                                        >
+                                        </div> -->
+              <!-- /.slider-one__btns -->
+            </div>
+            <!-- /.container -->
+          </div>
+          <!-- /.slider-one__item -->
+        </div>
+
+
+        <div class="item" style="background-color: #9f5f37;">
+          <div class="slider-one__item" style="background-color: #9f5f37;">
+
+            <!-- /.slider-one__image -->
+            <div class="container">
+              <h2 class="slider-one__title">Explore Kashmiri Artistry</h2>
+              <!-- /.slider-one__title -->
+              <p class="slider-one__text">
+                eBooks that uncover the stories behind Kashmir’s iconic crafts.
+              </p>
+              <!-- /.slider-one__text -->
+              <!-- <div class="slider-one__btns">
+                                        <a href="about.html" class="thm-btn slider-one__btn">
+                                          <span>Discover More</span> </a
+                                        >
+                                        </div> -->
+              <!-- /.slider-one__btns -->
+            </div>
+            <!-- /.container -->
+          </div>
+          <!-- /.slider-one__item -->
+        </div>
+
+
+
+        <div class="item" style="background-color: #9f5f37;">
+          <div class="slider-one__item" style="background-color: #9f5f37;">
+
+            <!-- /.slider-one__image -->
+            <div class="container">
+              <h2 class="slider-one__title">Your Writing, Your Platform</h2>
+              <!-- /.slider-one__title -->
+              <p class="slider-one__text">
+                Showcase your work to the world with our free eBook publishing platform.
+              </p>
+              <!-- /.slider-one__text -->
+              <!-- <div class="slider-one__btns">
+                                                  <a href="about.html" class="thm-btn slider-one__btn">
+                                                    <span>Discover More</span> </a
+                                                  >
+                                                  </div> -->
+              <!-- /.slider-one__btns -->
+            </div>
+            <!-- /.container -->
+          </div>
+          <!-- /.slider-one__item -->
+        </div>
+
+
+
+
+
+
+        <!-- /.item -->
+
+      </div>
+      <!-- /.thm-owl__carousel -->
+    </section>
+
+
+
+    <!-- <section class="shop-section section-padding fix pt-0">
+            <div class="container">
+                <div class="section-title-area">
+                    <div class="section-title">
+                        <h2 class="wow fadeInUp" data-wow-delay=".3s">Featured Books</h2>
+                    </div>
+                    <a href="shop.html" class="theme-btn transparent-btn wow fadeInUp" data-wow-delay=".5s">Explore More <i
+                            class="fa-solid fa-arrow-right-long"></i></a>
+                </div>
+                <div class="swiper book-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="shop-box-items style-2">
+                                <div class="book-thumb center">
+                                    <a href="shop-details"><img src="assets/images/book/01.png" alt="img"></a>
+                                    <ul class="post-box">
+                                        <li>
+                                            Hot
+                                        </li>
+                                        <li>
+                                            -30%
+                                        </li>
+                                    </ul>
+                                    <ul class="shop-icon d-grid justify-content-center align-items-center">
+                                        <li>
+                                            <a href="shop-cart.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="shop-cart.html">
+                                                <img class="icon" src="assets/images/icon/shuffle.svg" alt="svg-icon">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="shop-details.html"><i class="far fa-eye"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="shop-content">
+                                    <h5> Design Low Book </h5>
+                                    <h3><a href="shop-details.html">Simple Things You To <br> Save BOOK</a></h3>
+                                    <ul class="price-list">
+                                        <li>$30.00</li>
+                                        <li>
+                                            <del>$39.99</del>
+                                        </li>
+                                    </ul>
+                                    <ul class="author-post">
+                                        <li class="authot-list">
+                                            <span class="thumb">
+                                                <img src="assets/img/testimonial/client-1.png" alt="img">
+                                            </span>
+                                            <span class="content">Wilson</span>
+                                        </li>
+                                        <li class="star">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="shop-button">
+                                    <a href="shop-details.html" class="theme-btn"><i
+                                            class="fa-solid fa-basket-shopping"></i> Add To Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="shop-box-items style-2">
+                                <div class="book-thumb center">
+                                    <a href="shop-details"><img src="assets/img/book/02.png" alt="img"></a>
+                                    <ul class="shop-icon d-grid justify-content-center align-items-center">
+                                        <li>
+                                            <a href="shop-cart.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="shop-cart.html">
+    
+                                                <img class="icon" src="assets/img/icon/shuffle.svg" alt="svg-icon">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="shop-details.html"><i class="far fa-eye"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="shop-content">
+                                    <h5> Design Low Book </h5>
+                                    <h3><a href="shop-details.html">How Deal With Very <br> Bad BOOK</a></h3>
+                                    <ul class="price-list">
+                                        <li>$39.00</li>
+                                    </ul>
+                                    <ul class="author-post">
+                                        <li class="authot-list">
+                                            <span class="thumb">
+                                                <img src="assets/img/testimonial/client-2.png" alt="img">
+                                            </span>
+                                            <span class="content">Esther</span>
+                                        </li>
+                                        <li class="star">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="shop-button">
+                                    <a href="shop-details.html" class="theme-btn"><i
+                                            class="fa-solid fa-basket-shopping"></i> Add To Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="shop-box-items style-2">
+                                <div class="book-thumb center">
+                                    <a href="shop-details"><img src="assets/img/book/03.png" alt="img"></a>
+                                    <ul class="shop-icon d-grid justify-content-center align-items-center">
+                                        <li>
+                                            <a href="shop-cart.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="shop-cart.html">
+    
+                                                <img class="icon" src="assets/img/icon/shuffle.svg" alt="svg-icon">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="shop-details.html"><i class="far fa-eye"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="shop-content">
+                                    <h5> Design Low Book </h5>
+                                    <h3><a href="shop-details.html">The Hidden Mystery <br> Behind</a></h3>
+                                    <ul class="price-list">
+                                        <li>
+                                            $29.00
+                                        </li>
+                                    </ul>
+                                    <ul class="author-post">
+                                        <li class="authot-list">
+                                            <span class="thumb">
+                                                <img src="assets/img/testimonial/client-3.png" alt="img">
+                                            </span>
+                                            <span class="content">Hawkins</span>
+                                        </li>
+                                        <li class="star">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="shop-button">
+                                    <a href="shop-details.html" class="theme-btn"><i
+                                            class="fa-solid fa-basket-shopping"></i> Add To Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="shop-box-items style-2">
+                                <div class="book-thumb center">
+                                    <a href="shop-details"><img src="assets/img/book/04.png" alt="img"></a>
+                                    <ul class="post-box">
+                                        <li>
+                                            -12%
+                                        </li>
+                                    </ul>
+                                    <ul class="shop-icon d-grid justify-content-center align-items-center">
+                                        <li>
+                                            <a href="shop-cart.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="shop-cart.html">
+    
+                                                <img class="icon" src="assets/img/icon/shuffle.svg" alt="svg-icon">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="shop-details.html"><i class="far fa-eye"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="shop-content">
+                                    <h5> Design Low Book </h5>
+                                    <h3><a href="shop-details.html">Qple GPad With Retina <br> Sisplay</a></h3>
+                                    <ul class="price-list">
+                                        <li>$19.00</li>
+                                    </ul>
+                                    <ul class="author-post">
+                                        <li class="authot-list">
+                                            <span class="thumb">
+                                                <img src="assets/img/testimonial/client-4.png" alt="img">
+                                            </span>
+                                            <span class="content">(Author) Albert </span>
+                                        </li>
+                                        <li class="star">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="shop-button">
+                                    <a href="shop-details.html" class="theme-btn"><i
+                                            class="fa-solid fa-basket-shopping"></i> Add To Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="shop-box-items style-2">
+                                <div class="book-thumb center">
+                                    <a href="shop-details"><img src="assets/img/book/05.png" alt="img"></a>
+                                    <ul class="shop-icon d-grid justify-content-center align-items-center">
+                                        <li>
+                                            <a href="shop-cart.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="shop-cart.html">
+    
+                                                <img class="icon" src="assets/img/icon/shuffle.svg" alt="svg-icon">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="shop-details.html"><i class="far fa-eye"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="shop-content">
+                                    <h5> Design Low Book </h5>
+                                    <h3><a href="shop-details.html">Flovely and Unicom <br> Erna</a></h3>
+                                    <ul class="price-list">
+                                        <li>$30.00</li>
+                                    </ul>
+                                    <ul class="author-post">
+                                        <li class="authot-list">
+                                            <span class="thumb">
+                                                <img src="assets/img/testimonial/client-5.png" alt="img">
+                                            </span>
+                                            <span class="content">Alexander</span>
+                                        </li>
+                                        <li class="star">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="shop-button">
+                                    <a href="shop-details.html" class="theme-btn"><i
+                                            class="fa-solid fa-basket-shopping"></i> Add To Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+
+    <section class="event-home-two sec-pad-bottom">
+      <div class="container">
+        <h3 class="title_page">e Book</h3>
+        <div class="row gutter-y-60">
+          <div class="col-xl-3">
+            <div class="event-home-two__content">
+              <div class="sec-title text-start">
+                <p class="sec-title__tagline">HCRF’s eBooks</p><!-- /.sec-title__tagline -->
+                <h2 class="sec-title__title" style="font-size: 42px;">Comprehensive Guides for Craft Industry Success
+                </h2>
+              </div><!-- /.sec-title -->
+              <div class="event-home-two__content__text">Our eBooks offer artisans, entrepreneurs, and policymakers
+                practical knowledge to elevate the craft sector. With topics
+                ranging from sustainable practices to global market strategies, each eBook provides actionable insights
+                and expert
+                guidance. These resources empower stakeholders to innovate, expand influence, and ensure that
+                traditional craftsmanship
+                thrives in a dynamic world.
+              </div>
+              <!-- /.event-home-two__content__text -->
+
+            </div><!-- /.event-home-two__content -->
+          </div><!-- /.col-xl-3 -->
+          <div class="col-xl-9">
+            <div class="event-home-two__carousel">
+              <div class="thm-owl__carousel owl-carousel" data-owl-options='{
+                  							"items": 1,
+                  							"loop": true,
+                  							"autoplay": true,
+                  							"autoplayTimeOut": 5000,
+                  							"autoplayHoverPause": true,
+                  							"responsive": {
+                  								"0": {
+                  									"items": 1
+                  								},
+                  								"576": {
+                  									"items": 2,
+                  									"margin": 30
+                  								}
+                  							}
+                  						}'>
+
+
+
+                <div class="item">
+                  <div class="events-card">
+                    <div class="events-card__image2">
+                      <img src="assets/images/craft_cover/29.png" alt="">
+                      <!-- <img src="assets/images/events/events-1-2.jpg" class="events-card__image--hover" alt=""> -->
+                    </div><!-- /.events-card__image -->
+                  </div><!-- /.events-card -->
+
+                  <!-- Price and Add to Cart Button in a Row -->
+                  <div class="events-card__footer">
+                    <div class="events-card__price-cart">
+                      <!-- Price Section -->
+                      <div class="events-card__price" id="freefornow">$49.99 </div><!-- /.events-card__price -->
+                      <div class="events-card__price">Free now</div>
+                      <!-- Add to Cart Button -->
+                      <button class="add-to-cart-btn" id="membershipButton"
+                        onclick="location.href='memberships.html';">Get Membership</button>
+
+                    </div>
+                  </div><!-- /.events-card__footer -->
+                </div><!-- /.item -->
+
+
+
+                <div class="item">
+                  <div class="events-card">
+                    <div class="events-card__image2">
+                      <img src="assets/images/craft_cover/30.png" alt="">
+                      <!-- <img src="assets/images/events/events-1-2.jpg" class="events-card__image--hover" alt=""> -->
+                    </div><!-- /.events-card__image -->
+                  </div><!-- /.events-card -->
+
+                  <!-- Price and Add to Cart Button in a Row -->
+                  <div class="events-card__footer">
+                    <div class="events-card__price-cart">
+                      <!-- Price Section -->
+                      <div class="events-card__price" id="freefornow">$49.99</div><!-- /.events-card__price -->
+                      <div class="events-card__price">Free now</div>
+
+                      <!-- Add to Cart Button -->
+                      <button class="add-to-cart-btn" id="membershipButton"
+                        onclick="location.href='memberships.html';">Get Membership</button>
+
+                    </div>
+                  </div><!-- /.events-card__footer -->
+                </div><!-- /.item -->
+
+                <div class="item">
+                  <div class="events-card">
+                    <div class="events-card__image2">
+                      <img src="assets/images/craft_cover/31.png" alt="">
+                      <!-- <img src="assets/images/events/events-1-2.jpg" class="events-card__image--hover" alt=""> -->
+                    </div><!-- /.events-card__image -->
+                  </div><!-- /.events-card -->
+
+                  <!-- Price and Add to Cart Button in a Row -->
+                  <div class="events-card__footer">
+                    <div class="events-card__price-cart">
+                      <!-- Price Section -->
+                      <div class="events-card__price" id="freefornow">$49.99</div><!-- /.events-card__price -->
+                      <div class="events-card__price">Free now</div>
+
+                      <!-- Add to Cart Button -->
+                      <button class="add-to-cart-btn" id="membershipButton"
+                        onclick="location.href='memberships.html';">Get Membership</button>
+
+                    </div>
+                  </div><!-- /.events-card__footer -->
+                </div><!-- /.item -->
+
+
+                <div class="item">
+                  <div class="events-card">
+                    <div class="events-card__image2">
+                      <img src="assets/images/craft_cover/32.png" alt="">
+                      <!-- <img src="assets/images/events/events-1-2.jpg" class="events-card__image--hover" alt=""> -->
+                    </div><!-- /.events-card__image -->
+                  </div><!-- /.events-card -->
+
+                  <!-- Price and Add to Cart Button in a Row -->
+                  <div class="events-card__footer">
+                    <div class="events-card__price-cart">
+                      <!-- Price Section -->
+                      <div class="events-card__price" id="freefornow">$49.99</div><!-- /.events-card__price -->
+                      <div class="events-card__price">Free now</div>
+
+                      <!-- Add to Cart Button -->
+                      <button class="add-to-cart-btn" id="membershipButton"
+                        onclick="location.href='memberships.html';">Get Membership</button>
+
+                    </div>
+                  </div><!-- /.events-card__footer -->
+                </div><!-- /.item -->
+
+
+
+                <div class="item">
+                  <div class="events-card">
+                    <div class="events-card__image2">
+                      <img src="assets/images/craft_cover/33.png" alt="">
+                      <!-- <img src="assets/images/events/events-1-2.jpg" class="events-card__image--hover" alt=""> -->
+                    </div><!-- /.events-card__image -->
+                  </div><!-- /.events-card -->
+
+                  <!-- Price and Add to Cart Button in a Row -->
+                  <div class="events-card__footer">
+                    <div class="events-card__price-cart">
+                      <!-- Price Section -->
+                      <div class="events-card__price" id="freefornow">$49.99</div><!-- /.events-card__price -->
+                      <div class="events-card__price">Free now</div>
+
+                      <!-- Add to Cart Button -->
+                      <button class="add-to-cart-btn" id="membershipButton"
+                        onclick="location.href='memberships.html';" >Get Membership</button>
+
+                    </div>
+                  </div><!-- /.events-card__footer -->
+                </div><!-- /.item -->
+
+
+
+                <div class="item">
+                  <div class="events-card">
+                    <div class="events-card__image2">
+                      <img src="assets/images/craft_cover/34.png" alt="">
+                      <!-- <img src="assets/images/events/events-1-2.jpg" class="events-card__image--hover" alt=""> -->
+                    </div><!-- /.events-card__image -->
+                  </div><!-- /.events-card -->
+
+                  <!-- Price and Add to Cart Button in a Row -->
+                  <div class="events-card__footer">
+                    <div class="events-card__price-cart">
+                      <!-- Price Section -->
+                      <div class="events-card__price" id="freefornow">$49.99</div><!-- /.events-card__price -->
+                      <div class="events-card__price">Free now</div>
+
+                      <!-- Add to Cart Button -->
+                      <button class="add-to-cart-btn" id="membershipButton"
+                        onclick="location.href='memberships.html';">Get Membership</button>
+
+                    </div>
+                  </div><!-- /.events-card__footer -->
+                </div><!-- /.item -->
+
+
+
+                <div class="item">
+                  <div class="events-card">
+                    <div class="events-card__image2">
+                      <img src="assets/images/craft_cover/35.png" alt="">
+                      <!-- <img src="assets/images/events/events-1-2.jpg" class="events-card__image--hover" alt=""> -->
+                    </div><!-- /.events-card__image -->
+                  </div><!-- /.events-card -->
+
+                  <!-- Price and Add to Cart Button in a Row -->
+                  <div class="events-card__footer">
+                    <div class="events-card__price-cart">
+                      <!-- Price Section -->
+                      <div class="events-card__price" id="freefornow">$49.99</div><!-- /.events-card__price -->
+                      <div class="events-card__price">Free now</div>
+
+                      <!-- Add to Cart Button -->
+                      <button class="add-to-cart-btn" id="membershipButton"
+                        onclick="location.href='memberships.html';">Get Membership</button>
+
+                    </div>
+                  </div><!-- /.events-card__footer -->
+                </div><!-- /.item -->
+
+
+
+                <div class="item">
+                  <div class="events-card">
+                    <div class="events-card__image2">
+                      <img src="assets/images/craft_cover/36.png" alt="">
+                      <!-- <img src="assets/images/events/events-1-2.jpg" class="events-card__image--hover" alt=""> -->
+                    </div><!-- /.events-card__image -->
+                  </div><!-- /.events-card -->
+
+                  <!-- Price and Add to Cart Button in a Row -->
+                  <div class="events-card__footer">
+                    <div class="events-card__price-cart">
+                      <!-- Price Section -->
+                      <div class="events-card__price" id="freefornow">$49.99</div><!-- /.events-card__price -->
+                      <div class="events-card__price">Free now</div>
+
+                      <!-- Add to Cart Button -->
+                      <button class="add-to-cart-btn" id="membershipButton"
+                        onclick="location.href='memberships.html';">Get Membership</button>
+
+                    </div>
+                  </div><!-- /.events-card__footer -->
+                </div><!-- /.item -->
+
+
+                <div class="item">
+                  <div class="events-card">
+                    <div class="events-card__image2">
+                      <img src="assets/images/craft_cover/37.png" alt="">
+                      <!-- <img src="assets/images/events/events-1-2.jpg" class="events-card__image--hover" alt=""> -->
+                    </div><!-- /.events-card__image -->
+                  </div><!-- /.events-card -->
+
+                  <!-- Price and Add to Cart Button in a Row -->
+                  <div class="events-card__footer">
+                    <div class="events-card__price-cart">
+                      <!-- Price Section -->
+                      <div class="events-card__price" id="freefornow">$49.99</div><!-- /.events-card__price -->
+                      <div class="events-card__price">Free now</div>
+
+
+                      <!-- Add to Cart Button -->
+                      <button class="add-to-cart-btn" id="membershipButton"
+                        onclick="location.href='memberships.html';">Get Membership</button>
+
+                    </div>
+                  </div><!-- /.events-card__footer -->
+                </div><!-- /.item -->
+
+
+
+
+
+
+
+
+              </div><!-- /.thm-owl__carousel owl-carousel -->
+            </div><!-- /.event-home-two__carousel -->
+
+          </div><!-- /.col-xl-9 -->
+
+
+
+          <!-- arrow button -->
+          <div class="carousel-navigation">
+            <button class="carousel-prev">
+              <img src="https://i.ibb.co/R4M5n4z/Untitled-design-15.png" alt="Previous">
+            </button>
+            <button class="carousel-next">
+              <img src="https://i.ibb.co/ydcgLjf/Untitled-design-14.png" alt="Next">
+            </button>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.event-home-two -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="sec-pad-top sec-pad-bottom about-four">
+      <img src="assets/images/shapes/about-4-2.png" alt="" class="float-bob-x about-four__shape">
+      <div class="container">
+        <div class="sec-title text-center">
+          <p class="sec-title__tagline" style="text-align: left;">HCRF E-book Portal stands out as a truly unique
+            platform</p><!-- /.sec-title__tagline -->
+          <h2 class="sec-title__title" style="text-align: left;">Why Read E-book at HCRF ?</h2>
+        </div><!-- /.sec-title -->
+
+        <div class="row gutter-y-60">
+          <div class="col-md-12 col-lg-6">
+            <div class="about-four__image wow fadeInLeft" data-wow-duration="1500ms">
+              <img src="assets/images/ebook_why.png" alt="">
+            </div><!-- /.about-four__image -->
+          </div><!-- /.col-md-12 -->
+          <div class="col-md-12 col-lg-6">
+            <div class="about-four__content">
+              <div class="about-four__content__text" style="color: #000;">The HCRF E-book Portal is more than a reading
+                experience, it’s a dynamic, culturally rich, and technologically advanced
+                platform for preserving and promoting Kashmiri crafts.
+                <!-- <a class="read-more-link" href="https://google.com">&nbsp;&nbsp;Read more</a> -->
+              </div>
+              <!-- /.about-four__content__text -->
+              <ul class="list-unstyled about-four__list">
+                <li class="about-four__list__item">
+                  <i class="fa fa-check-circle"></i>
+                  <h3 class="about-four__list__title" style="padding-top: 20px;">Exclusive Focus on Kashmiri Crafts:
+                  </h3>
+                  <!-- /.about-four__list__title -->
+                  <!-- <p class="about-four__list__text" >
+                            </p> -->
+                  <!-- /.about-four__list__text -->
+                </li>
+                <li class="about-four__list__item">
+                  <i class="fa fa-check-circle"></i>
+                  <h3 class="about-four__list__title" style="padding-top: 20px;">Comprehensive Craft Knowledge Base</h3>
+                  <!-- /.about-four__list__title -->
+                  <!-- <p class="about-four__list__text">Understanding market dynamics, opportunities, & challenges in the Kashmir handicrafts sector -->
+                  <!-- /.about-four__list__text -->
+                </li>
+                <li class="about-four__list__item">
+                  <i class="fa fa-check-circle"></i>
+                  <h3 class="about-four__list__title" style="padding-top: 20px;">Interactive and Accessible Format</h3>
+                  <!-- /.about-four__list__title -->
+                  <!-- <p class="about-four__list__text">Focused on evaluating and analyzing existing policies related to Kashmiri crafts. -->
+                  </p>
+                  <!-- /.about-four__list__text -->
+                </li>
+              </ul><!-- /.list-unstyled -->
+            </div><!-- /.about-four__content -->
+          </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.about-four -->
+
+
+
+
+
+
+
+
+
+
+    <!-- CONTENT SECTIONS -->
+
+
+    <section class="sec-pad-top sec-pad-bottom mission-section">
+      <div class="container">
+        <div class="row gutter-y-60">
+
+          <div class="col-md-12 col-lg-12">
+            <div class="sec-title">
+              <p class="sec-title__tagline" style="font-size: 20px;">
+
+                For Readers:
+
+              </p>
+              <!-- /.sec-title__tagline -->
+              <h2 class="sec-title__title">Discover Untold Stories of Kashmiri Craft & Culture</h2>
+              <!-- <h4 class="sec-title__title">Protecting Kashmir Crafts & Empowering Artisan Communities</h4> -->
+              <p style="color: #fff;">As a reader, the HCRF E-Book Platform provides you with an unparalleled
+                opportunity to dive deep into the history,
+                techniques, and stories behind Kashmir’s renowned handicrafts. From the centuries-old tradition of
+                Pashmina weaving to
+                the intricate artistry of Khatamband, every e-book on this platform is a treasure trove of knowledge
+                that will captivate
+                your imagination and deepen your understanding of Kashmiri culture.
+              </p>
+              <!-- </h2> -->
+            </div>
+          </div>
+
+          <!-- <div class="col-md-12 col-lg-1"></div> -->
+          <!-- /.col-md-12 -->
+          <div class="col-md-12 col-lg-10 col-sm-12">
+            <div class="thm-owl__carousel owl-carousel owl-theme donation-two__carousel" data-owl-options='{
+      							"items": 1,
+      							"margin": 0,
+      							"loop": false,
+      							"nav": false,
+      							"dots": false,
+      							"autoplay": false,
+      							"responsive": {
+      								"0": {
+      									"items": 1
+      								},
+      								"576": {
+                  									"items": 1,
+                  									"margin": 10
+                  								},
+                                  "768": {
+                  									"items": 1,
+                  									"margin": 10
+                  								},
+                                  "992": {
+                  									"items": 2,
+                  									"margin": 10
+                  								}
+      							}
+      						}'>
+              <div class="item">
+                <div class="donation-card-two" style="--accent-color: #9f5f37">
+                  <div class="donation-card-two__bg"></div>
+                  <!-- /.donation-card-two__bg -->
+                  <h3 class="donation-card-two__title">
+                    <a href="#">Dive Into a Wealth of Knowledge</a>
+                  </h3>
+                  <!-- /.donation-card-two__title -->
+                  <p class="donation-card-two__text">
+                    Unlock centuries of Kashmiri artistry through the HCRF E-Book Platform. Discover the origins of
+                    Pashmina, traded along
+                    the Silk Route, and the architectural brilliance of Khatamband. Every e-book is a portal to a world
+                    where craftsmanship
+                    is intertwined with cultural identity. Each page reveals how these timeless traditions have adapted
+                    and flourished, from
+                    local markets to global fame. As you explore, you’ll gain a deeper appreciation for the resilience
+                    and mastery behind
+                    Kashmir’s celebrated crafts.
+
+                    <!-- <ul class="donation-card-two__text">
+                      <li>Revitalize crafts through preservation & innovation.</li>
+                      <li>Advance Kashmir's craftsmanship with research.</li>
+                      <li>Promoting eco-friendly, sustainable handicrafts.</li>
+                      <li>Support policies protecting Kashmiri artisans.</li>
+                      <li>Forge impactful partnerships for our initiatives.</li>
+                      <li>Empowering artisans with resources & tools.</li>
+                    </ul> -->
+                  </p>
+
+                  <!-- /.donation-card-two__text -->
+
+                  <div class="donation-card-two__shape"></div>
+                  <!-- /.donation-card-two__shape -->
+                </div>
+                <!-- /.donation-card-two -->
+              </div>
+
+              <!-- /.item -->
+              <div class="item">
+                <div class="donation-card-two" style="--accent-color: #9f5f37">
+                  <div class="donation-card-two__bg"></div>
+                  <!-- /.donation-card-two__bg -->
+                  <h3 class="donation-card-two__title">
+                    <a href="#">A Sustainable Way to Support Craft Heritage
+                    </a>
+                  </h3>
+                  <!-- /.donation-card-two__title -->
+                  <p class="donation-card-two__text">
+                    By choosing digital e-books, you’re making a conscious decision to support sustainability while
+                    immersing yourself in
+                    Kashmir’s rich craft heritage. Digital reading reduces the environmental impact of traditional
+                    publishing, helping
+                    preserve the very landscapes that inspire these timeless art forms. Every download supports
+                    eco-friendly practices,
+                    ensuring that cultural preservation goes hand-in-hand with environmental responsibility. Join the
+                    movement for a
+                    greener, more thoughtful world of craft appreciation.
+
+                  </p>
+                  <!-- /.donation-card-two__text -->
+
+                  <div class="donation-card-two__shape"></div>
+                  <!-- /.donation-card-two__shape -->
+                </div>
+                <!-- /.donation-card-two -->
+              </div>
+
+              <!-- /.item -->
+              <div class="item">
+                <div class="donation-card-two" style="--accent-color: #9f5f37">
+                  <div class="donation-card-two__bg"></div>
+                  <!-- /.donation-card-two__bg -->
+                  <h3 class="donation-card-two__title">
+                    <a href="#">Support Kashmir’s Living Craft Legacy</a>
+                  </h3>
+                  <!-- /.donation-card-two__title -->
+                  <p class="donation-card-two__text">
+                    Your engagement with HCRF e-books is more than just learning—it’s a celebration of Kashmir’s vibrant
+                    craft traditions.
+                    Each story you explore helps uplift the artisans who dedicate their lives to preserving these
+                    cultural treasures.
+                    Through your support, you contribute to their livelihoods and ensure the survival of centuries-old
+                    techniques. Become
+                    part of a global community that values heritage, craftsmanship, and the enduring spirit of Kashmir’s
+                    living craft legacy
+
+                  </p>
+                  <!-- /.donation-card-two__text -->
+
+                  <div class="donation-card-two__shape"></div>
+                  <!-- /.donation-card-two__shape -->
+                </div>
+                <!-- /.donation-card-two -->
+              </div>
+
+
+
+              <!-- /.item -->
+            </div>
+            <!-- /.donation-two__carousel -->
+          </div>
+          <!-- /.col-md-12 col-lg-6 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+
+
+
+    <section class="sec-pad-top sec-pad-bottom mission-section" style="background-color: #fff;">
+      <div class="container">
+        <div class="row gutter-y-60">
+
+          <div class="col-md-12 col-lg-12">
+            <div class="sec-title">
+              <p class="sec-title__tagline" style="font-size: 20px; color: #229bd4;">
+
+                FOR WRITERS
+              </p>
+              <!-- /.sec-title__tagline -->
+              <h2 class="sec-title__title" style="color: #9f5f37;">Inspiring a New Generation of Storytellers
+              </h2>
+              <!-- <h4 class="sec-title__title">Protecting Kashmir Crafts & Empowering Artisan Communities</h4> -->
+              <p style="">At HCRF, we believe in the power of words to shape the future of Kashmir’s cultural heritage.
+                The E-Book Platform is a
+                space for historians, scholars, artisans, and new-generation writers to contribute their voices to the
+                enduring legacy
+                of Kashmiri crafts. By publishing your work here, you play a crucial role in preserving and documenting
+                the intricate
+                narratives of craftsmanship and culture that have shaped this region.
+
+              </p>
+              <!-- </h2> -->
+            </div>
+          </div>
+
+          <!-- <div class="col-md-12 col-lg-1"></div> -->
+          <!-- /.col-md-12 -->
+          <div class="col-md-12 col-lg-10 col-sm-12">
+            <div class="thm-owl__carousel owl-carousel owl-theme donation-two__carousel" data-owl-options='{
+            							"items": 1,
+            							"margin": 0,
+            							"loop": false,
+            							"nav": false,
+            							"dots": false,
+            							"autoplay": false,
+            							"responsive": {
+            								"0": {
+            									"items": 1
+            								},
+            								"576": {
+                  									"items": 1,
+                  									"margin": 10
+                  								},
+                                  "768": {
+                  									"items": 1,
+                  									"margin": 10
+                  								},
+                                  "992": {
+                  									"items": 2,
+                  									"margin": 10
+                  								}
+            							}
+            						}'>
+              <div class="item">
+                <div class="donation-card-two" style="--accent-color: #9f5f37">
+                  <div class="donation-card-two__bg"></div>
+                  <!-- /.donation-card-two__bg -->
+                  <h3 class="donation-card-two__title">
+                    <a href="#">Encouraging New Voices</a>
+                  </h3>
+                  <!-- /.donation-card-two__title -->
+                  <p class="donation-card-two__text">
+                    We invite new-generation historians, artisans, and cultural scholars to share their unique
+                    perspectives on Kashmir’s
+                    handicraft traditions. Our platform provides an open space for fresh voices to engage with these
+                    time-honored practices
+                    and reimagine them for today’s readers. Whether you are exploring the historical evolution of a
+                    particular craft or
+                    highlighting the stories of artisans, your insights will deepen the understanding of Kashmiri crafts
+                    and cultural
+                    identity, contributing valuable new narratives to this heritage.
+
+                    <!-- <ul class="donation-card-two__text">
+                            <li>Revitalize crafts through preservation & innovation.</li>
+                            <li>Advance Kashmir's craftsmanship with research.</li>
+                            <li>Promoting eco-friendly, sustainable handicrafts.</li>
+                            <li>Support policies protecting Kashmiri artisans.</li>
+                            <li>Forge impactful partnerships for our initiatives.</li>
+                            <li>Empowering artisans with resources & tools.</li>
+                          </ul> -->
+                  </p>
+
+                  <!-- /.donation-card-two__text -->
+
+                  <div class="donation-card-two__shape"></div>
+                  <!-- /.donation-card-two__shape -->
+                </div>
+                <!-- /.donation-card-two -->
+              </div>
+
+              <!-- /.item -->
+              <div class="item">
+                <div class="donation-card-two" style="--accent-color: #9f5f37">
+                  <div class="donation-card-two__bg"></div>
+                  <!-- /.donation-card-two__bg -->
+                  <h3 class="donation-card-two__title">
+                    <a href="#">Reach a Global Audience
+                    </a>
+                  </h3>
+                  <!-- /.donation-card-two__title -->
+                  <p class="donation-card-two__text">
+                    Publishing with the HCRF E-Book Platform provides an opportunity to share your work with readers
+                    around the world. Your
+                    writing will transcend borders, reaching audiences who may never have encountered Kashmir’s cultural
+                    heritage. By
+                    offering your insights, you help broaden the global appreciation for these centuries-old crafts and
+                    introduce new
+                    perspectives to diverse readers. This platform allows your work to contribute to a larger cultural
+                    dialogue, bringing
+                    Kashmiri craftsmanship into the global spotlight.
+                    <!-- <ul class="donation-card-two__text">
+                            <li>Market research and analysis.</li>
+                            <li>Policy research and advocacy.</li>
+                            <li>Skill development and capacity building.</li>
+                            <li>Cultural preservation and documentation. </li>
+                            <li>Market access facilitation.</li>
+                            <li>Innovation in product design and development.</li>
+                          </ul> -->
+                  </p>
+                  <!-- /.donation-card-two__text -->
+
+                  <div class="donation-card-two__shape"></div>
+                  <!-- /.donation-card-two__shape -->
+                </div>
+                <!-- /.donation-card-two -->
+              </div>
+
+              <!-- /.item -->
+              <div class="item">
+                <div class="donation-card-two" style="--accent-color: #9f5f37">
+                  <div class="donation-card-two__bg"></div>
+                  <!-- /.donation-card-two__bg -->
+                  <h3 class="donation-card-two__title">
+                    <a href="#">Make a Lasting Impact</a>
+                  </h3>
+                  <!-- /.donation-card-two__title -->
+                  <p class="donation-card-two__text">
+                    Every piece you write has the potential to make a significant and lasting impact on Kashmir’s craft
+                    heritage. Whether
+                    you're documenting a craft’s evolution or writing the stories of the artisans, your contribution
+                    helps preserve these
+                    traditions for future generations. Your words not only celebrate the beauty of the crafts but also
+                    advocate for their
+                    survival in a rapidly changing world. The HCRF E-Book Platform allows you to leave an indelible mark
+                    on Kashmir’s
+                    cultural legacy, ensuring its continued vibrancy.
+                    <!-- <ul class="donation-card-two__text">
+                            <li>Artisans and craft communities.</li>
+                            <li>Government agencies and policymakers.</li>
+                            <li>NGOs and development organizations.</li>
+                            <li>Private sector stakeholders.</li>
+                            <li>Educational institutions & training centers.</li>
+                            <li>General public interested in art and crafts.</li>
+                          </ul> -->
+                  </p>
+                  <!-- /.donation-card-two__text -->
+
+                  <div class="donation-card-two__shape"></div>
+                  <!-- /.donation-card-two__shape -->
+                </div>
+                <!-- /.donation-card-two -->
+              </div>
+
+
+
+              <!-- /.item -->
+            </div>
+            <!-- /.donation-two__carousel -->
+          </div>
+          <!-- /.col-md-12 col-lg-6 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+
+
+
+
+
+
+
+
+    <section class="about-six about-six--pad-top about-six--pad-bottom">
+      <div class="about-six__bg">
+      </div><!-- /.about-six__bg -->
+      <div class="about-six__shape float-bob-x"></div>
+      <!-- /.about-six__shape -->
+      <div class="container">
+        <div class="row gutter-y-60">
+          <div class="col-lg-6">
+            <div class="about-six__images">
+              <img src="assets/images/get_involved/4.png" alt="">
+              <!-- <img src="assets/images/entre_blue_banner.png" alt=""> -->
+            </div><!-- /.about-six__images -->
+          </div><!-- /.col-lg-6 -->
+          <div class="col-lg-6">
+            <div class="about-six__content">
+              <div class="sec-title text-start">
+                <p class="sec-title__tagline">Empowering Book Writers with HCRF</p>
+                <!-- /.sec-title__tagline -->
+                <h2 class="sec-title__title">How to Submit Your Manuscript to HCRF </h2>
+              </div><!-- /.sec-title -->
+              <div class="about-six__content__text">
+
+
+              </div>
+              <!-- /.about-six__content__text -->
+
+
+              <ul class="list-unstyled ">
+                <li class="about-six__list__item">
+                  <i class="about-six__list__icon fa fa-check-circle" style="color: #229bd4;"></i>
+                  <h3 class="about-six__list__title" style="color: #229bd4;">Email Your Manuscript or Proposal</h3>
+                  <!-- /.about-six__list__title -->
+                  <p class="about-six__list__text"> After registering, send an email to <span style="color: #229bd4;">
+                      <a href="mailto:ebook@khcrf.org">ebook@khcrf.org</a> </span> with the subject line: "Book
+                    Manuscript Submission." Attach a brief outline or the full manuscript, along with a
+                    description of your work and author bio.</p>
+                  <!-- /.about-six__list__text -->
+                </li> <br>
+                <li class="about-six__list__item">
+                  <i class="about-six__list__icon fa fa-check-circle" style="color: #229bd4;"></i>
+                  <h3 class="about-six__list__title" style="color: #229bd4;">Receive Writer Guidelines</h3>
+                  <!-- /.about-six__list__title -->
+                  <p class="about-six__list__text">Once your manuscript or proposal is reviewed, you will receive a
+                    digital copy of the HCRF Writer Guidelines with details
+                    about the submission process, timelines, and publishing steps.</p>
+                  <!-- /.about-six__list__text -->
+                </li>
+
+              </ul><!-- /.list-unstyled about-six__list -->
+
+              <div class="about-six__btns">
+                <!-- <a href="about.html" class="thm-btn about-six__btn" style="background-color: #9f5f37;">
+          									<span>Discover More</span>
+          								</a> -->
+                <!-- /.thm-btn about-six__btn -->
+              </div><!-- /.about-six__btns -->
+            </div><!-- /.about-six__content -->
+          </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.about-six -->
+
+
+
+
+
+
+
+
+    <section class="cta-three">
+      <div class="container">
+        <div class="cta-three__inner wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+          <!-- <div class="cta-three__inner__bg" style="background-image: url(assets/images/shapes/cta-3-bg-1-1.png);"></div> -->
+          <!-- /.cta-three__inner__bg -->
+          <div class="cta-three__icon">
+            <!-- <i class="paroti-icon-support"></i> -->
+            <!-- <i class="fa-solid fa-check"></i> -->
+            <!-- <i class="fa-light fa-bell"></i> -->
+            <a href="memberships.html" style="color: #fff;"> <i class="fa fa-user-plus" aria-hidden="true"></i></a>
+
+          </div><!-- /.cta-three__icon -->
+          <h3 class="cta-three__title" style="font-size: 20px;">Stay Connected With HCR-Foundation<span
+              style="font-size: 23px;"> Kashmir's Craft Policy Think-Tank</span></h3><!-- /.cta-three__title -->
+          <div class="cta-three__btns mt-lg-0 mt-4">
+            <a href="memberships.html" class="thm-btn cta-three__btn">
+              <span>Subscribe Today</span>
+            </a><!-- /.thm-btn cta-three__btn -->
+          </div><!-- /.cta-three__btns -->
+        </div><!-- /.cta-three__inner -->
+      </div><!-- /.container -->
+    </section><!-- /.cta-three -->
+
+    <footer class="site-footer footer-main">
+      <div class="site-footer__top">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-duration="1500ms"
+              data-wow-delay="000ms">
+              <div class="site-footer__widget site-footer__widget__about">
+                <a href="index.html" class="site-footer__widget__logo">
+                  <img src="assets/images/hcrf_logo.png" width="100px" height="100px" alt="">
+                </a>
+                <p class="" style="padding-right: 70px;">HCRF, a pioneering Section 8 entity, is the first Craft Policy
+                  Think Tank devoted
+                  to preserving, promoting, and sustainably advancing Kashmir’s unique handicraft heritage and artisan
+                  empowerment
+
+
+                </p>
+                <!-- <h3 class="site-footer__widget__title"><a href="mailto:info@khcrf.org"></a></h3> -->
+
+              </div><!-- /.site-footer__widget -->
+            </div><!-- /.col-sm-12 col-md-6 col-lg-6 col-xl-3 wow fadeInUp -->
+
+
+
+
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl wow fadeInUp" data-wow-duration="1500ms"
+              data-wow-delay="100ms">
+              <div class="site-footer__widget">
+                <h3 class="site-footer__widget__title">Policy Action</h3><!-- /.site-footer__widget__title -->
+                <ul class="list-unstyled site-footer__widget__links">
+                  <li><a href="Advocacy.html">Policy Advocacy</a></li>
+                  <li><a href="Campaigns.html">Policy Campaign</a></li>
+                  <li><a href="legislative_lobby.html">Policy Lobbying</a></li>
+
+
+                  <br>
+                  <h3 class="site-footer__widget__title_second">Publications</h3><!-- /.site-footer__widget__title -->
+                  <li><a href="e_publication_best_practies.html">Best Practices</a></li>
+                  <li><a href="e_publication_case_studies.html">Case Studies</a></li>
+                  <li><a href="e_publication_research_papers.html">Research Papers<a></li>
+                  <li><a href="e_book.html">e-Books</a></li>
+                  <!-- <li><a href="about.html">HCRF People</a></li> -->
+                </ul><!-- /.list-unstyled site-footer__widget__links -->
+              </div><!-- /.site-footer__widget -->
+            </div><!-- /.col-sm-12 col-md-6 col-lg-6 col-xl-2 wow fadeInUp -->
+
+
+
+
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl wow fadeInUp" data-wow-duration="1500ms"
+              data-wow-delay="200ms">
+              <div class="site-footer__widget">
+                <h3 class="site-footer__widget__title">Business support</h3>
+                <!-- /.site-footer__widget__title -->
+                <ul class="list-unstyled site-footer__widget__links text-start">
+                  <li><a href="networking.html">Business Evaluation</a></li>
+                  <li><a href="grants.html">Grants Support</a></li>
+                  <li><a href="accreditation.html">Accreditation</a></li>
+                  <li><a href="entrepreneur_kits.html">Entrepreneurs Kit</a></li>
+
+
+                  <h3 class="site-footer__widget__title_second">About HCRF</h3><!-- /.site-footer__widget__title -->
+                  <li><a href="partner_network.html">Partner Network</a></li>
+                  <li><a href="hcrf_project.html">Projects</a></li>
+                  <li><a href="career.html">Career</a></li>
+                  <li><a href="apprenticeship.html">Apprenticeship</a></li>
+                </ul><!-- /.list-unstyled site-footer__widget__links -->
+              </div><!-- /.site-footer__widget -->
+            </div><!-- /.col-sm-12 col-md-6 col-lg-6 col-xl-2 wow fadeInUp -->
+
+
+
+
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl wow fadeInUp" data-wow-duration="1500ms"
+              data-wow-delay="200ms">
+              <div class="site-footer__widget">
+                <h3 class="site-footer__widget__title">Membership<h3>
+                    <!-- /.site-footer__widget__title -->
+                    <ul class="list-unstyled site-footer__widget__links">
+                      <li><a href="memberships.html#membership_form">Artisan</a></li>
+                      <li><a href="memberships.html#membership_form">Individual</a></li>
+                      <li><a href="memberships.html#membership_form">Professional</a></li>
+                      <li><a href="memberships.html#membership_form">Corporate Patron</a></li>
+                      <h3 class="site-footer__widget__title_second">Donation </h3><!-- /.site-footer__widget__title -->
+                      <li><a href="donations.html">Artisan Support Fund</a></li>
+                      <li><a href="donations.html">In-Kind</a></li>
+                      <!-- <li><a href="donations.html">In-Kind</a></li> -->
+                      <li><a href="donations.html">Legacy & Planned Giving</a></li>
+                      <li><a href="donations.html">Event Sponsorships</a></li>
+                    </ul><!-- /.list-unstyled site-footer__widget__links -->
+              </div>
+            </div>
+
+
+
+
+
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl wow fadeInUp" data-wow-duration="1500ms"
+              data-wow-delay="400ms">
+              <div class="site-footer__widget site-footer__widget__cta">
+                <h3 class="site-footer__widget__title"><span>Let's come together to raise donations & help amplify the
+                    voices of Kashmiri artisans.</span></h3>
+                <!-- /.site-footer__widget__title -->
+                <a href="donations.html" class="thm-btn thm-btn--two" style="background-color: #9f5f37; margin: 0px;">
+                  <span>Donate Now</span>
+                </a><!-- /.thm-btn--two -->
+              </div><!-- /.site-footer__widget -->
+              <div style="height: 200px; width: 200px; position: relative; left: 0px;">
+                <!-- <div style="height: 60px;">
+                        Hamadan Craft Revival Foundation
+                        <small>tm 001415319@jkb
+                          0005040100006000
+                        </small> -->
+                <img src="assets/images/scan1.png" alt="">
+              </div>
+
+            </div>
+
+          </div><!-- /.site-footer__widget -->
+
+
+
+
+
+        </div>
+      </div><!-- /.col-sm-12 col-md-6 col-lg-6 col-xl-3 wow fadeInUp -->
+      <!-- /.container -->
+      <!-- /.site-footer__top -->
+
+
+
+
+
+
+      <div class="site-footer__bottom  text-white py-4">
+        <div class="container">
+          <div class="row">
+            <!-- Left Section -->
+            <div class="col-md-3 text-center text-md-start mb-4 mb-md-0">
+              <p class="mb-2">© Copyright <span class="dynamic-year"></span> by HCRF</p>
+              <div class="site-footer__social d-flex justify-content-center justify-content-md-start">
+                <a href="https://x.com/artisanvoice?t=aQ_Monm6LFsvuZ8QQtqsaA&s=09" class=""><i
+                    class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61567325408681&mibextid=ZbWKwL" class=""><i
+                    class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/company/105864580/" class="icon_footer"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/kashmirhcrf/" class="icon_footer"><i
+                    class="fab fa-instagram"></i></a>
+              </div>
+              <div class="policy-links mt-3">
+                <a href="terms.html" class="text-white me-2">Legal</a> |
+                <a href="privacy.html" class="text-white ms-2">Privacy Policy</a>
+              </div>
+            </div>
+
+            <!-- Right Section -->
+            <div class="col-md-9 text-center text-md-end">
+              <p class="mb-2">
+                HCRF 2 Darul Zamrood - Gousia Colony Ext, Zakura - Srinagar, Jammu & Kashmir India 190006
+              </p>
+              <p class="mb-0 footer_btm_txt">
+                Website Developed & Maintained by
+                <a href="https://primelogicsol.com" class="text-white">
+                  Prime Logic Solutions -USA
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+      <!-- /.container -->
+      <!-- /.site-footer__bottom -->
+    </footer>
+  </div>
+
+
+
+  <div class="mobile-nav__wrapper">
+    <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+
+    <div class="mobile-nav__content">
+      <a href="#" class="mobile-nav__close mobile-nav__toggler">
+        <span></span>
+        <span></span>
+      </a>
+
+      <div class="logo-box">
+        <a href="index.html" aria-label="logo image"><img src="assets/images/hcrf_logo.png" width="127" height="127"
+            alt="logo" /></a>
+      </div>
+      <!-- /.logo-box -->
+      <div class="mobile-nav__container"></div>
+      <!-- /.mobile-nav__container -->
+
+      <ul class="mobile-nav__contact list-unstyled">
+        <li>
+          <i class="fa fa-phone"></i>
+          <a href="tel:+919419070707">+919419070707</a>
+        </li>
+        <li>
+          <i class="fa fa-envelope"></i>
+          <a href="mailto:info@khcrf.org">info@khcrf.org</a>
+        </li>
+        <li>
+          <i class="fa fa-map-marker-alt"></i>
+          2 Gousia Colony Extension,
+
+          <br />
+          Zakura Srinagar, J&K India 190006
+        </li>
+      </ul>
+      <!-- /.mobile-nav__contact -->
+      <ul class="mobile-nav__social">
+        <li>
+          <a href="https://x.com/artisanvoice?t=aQ_Monm6LFsvuZ8QQtqsaA&s=09"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/profile.php?id=61567325408681&mibextid=ZbWKwL"><i
+              class="fab fa-facebook-f"></i></a>
+        </li>
+
+        <li>
+          <a href="https://www.instagram.com/kashmirhcrf/"><i class="fab fa-instagram"></i></a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/company/105864580/"><i class="fa-brands fa-linkedin"></i></a>
+        </li>
+      </ul>
+      <!-- /.mobile-nav__social -->
+    </div>
+    <!-- /.mobile-nav__content -->
+  </div>
+  <!-- /.mobile-nav__wrapper -->
+
+  <div class="search-popup">
+    <div class="search-popup__overlay search-toggler"></div>
+    <!-- /.search-popup__overlay -->
+    <div class="search-popup__content">
+      <form action="#">
+        <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
+        <input type="text" id="search" placeholder="Search Here..." />
+        <button type="submit" aria-label="search submit" class="thm-btn">
+          <span><i class="paroti-icon-magnifying-glass"></i></span>
+        </button>
+      </form>
+    </div>
+    <!-- /.search-popup__content -->
+  </div>
+  <!-- /.search-popup -->
+
+  <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+
+  <!-- plugins js -->
+  <script src="assets/vendors/jquery/jquery-3.6.1.min.js"></script>
+  <script src="assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendors/tiny-slider/dist/min/tiny-slider.js"></script>
+  <script src="assets/vendors/jquery-validation/jquery.validate.min.js"></script>
+  <script src="assets/vendors/wow/wow.js"></script>
+  <script src="assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+  <script src="assets/vendors/jquery-appear/jquery.appear.min.js"></script>
+  <script src="assets/vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="assets/vendors/youtube-popup/youtube-popup.jquery.js"></script>
+  <!-- template js -->
+  <script src="assets/js/paroti.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <script>
+    // Function to check login status and update the topbar
+    const updateTopbar = () => {
+      const token = localStorage.getItem('authToken'); // Get the token from localStorage
+      const isAdmin = localStorage.getItem('isAdmin') === 'true'; // Get and parse the isAdmin field
+      const topbarLinks = document.getElementById('topbar-links');
+
+      if (token) {
+        // If logged in, check if the user is an admin
+        if (isAdmin) {
+          topbarLinks.innerHTML = `
+            <li><a href="dashboard.html">Admin Dashboard</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+          `;
+        } else {
+          // If the user is not an admin
+          topbarLinks.innerHTML = `
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+          `;
+        }
+      } else {
+        // If not logged in, show login and register links
+        topbarLinks.innerHTML = `
+          <li><a href="login.html">Login</a></li>
+        `;
+      }
+    };
+
+    // Call updateTopbar on page load
+    window.onload = updateTopbar;
+
+    // Logout function to clear the token and role
+    const logout = () => {
+      localStorage.removeItem('authToken'); // Clear token
+      localStorage.removeItem('isAdmin'); // Clear admin status
+      updateTopbar();  // Update the top bar after logout
+      window.location.href = 'index.html';  // Redirect to the homepage after logout
+    };
+
+  </script>
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/67685880af5bfec1dbe01adf/1ifnpjeom';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
+
+
+  <script src="config.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Retrieve the auth token from localStorage
+        const authToken = localStorage.getItem('authToken');
+
+        if (!authToken) {
+            console.log('No auth token available');
+            return; // Exit if no token is found
+        }
+
+        // Decode the token to extract user information
+        const decodedToken = decodeJWT(authToken);
+        console.log('Decoded Token:', decodedToken);
+
+        // Create a user info object for logging
+        const userInfo = {
+            userId: decodedToken.userId,
+            email: decodedToken.email,
+            isAdmin: decodedToken.isAdmin,
+            isMember: decodedToken.isMember,
+            iat: decodedToken.iat,
+            exp: decodedToken.exp,
+        };
+        console.log('User Info:', userInfo);
+
+        // Select all buttons with the 'membership-button' class
+        const membershipButtons = document.querySelectorAll('.add-to-cart-btn');
+
+        // Update each button based on the user's membership status
+        membershipButtons.forEach(button => {
+            if (decodedToken.isMember) {
+                button.textContent = 'Pre Order'; // Update text for members
+                button.onclick = () => {
+                    // Show an alert
+                    alert('Request submitted successfully');
+
+                    // Save to the database via the backend
+                    savePreOrderToDB(userInfo.userId)
+                        .then(response => {
+                            if (response.success) {
+                                alert('Your pre-order has been saved!');
+                            } else {
+                                console.log('Failed to save pre-order. Please try again.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error saving pre-order:', error);
+                            alert('An error occurred. Please try again.');
+                        });
+                };
+            } else {
+                button.textContent = 'Get Membershi'; // Update text for non-members
+                button.onclick = () => {
+                    // Redirect to memberships.html
+                    window.location.href = 'memberships.html';
+                };
+            }
+        });
+    });
+
+    // Helper function to decode a JWT token
+    function decodeJWT(token) {
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+
+        return JSON.parse(jsonPayload);
+    }
+
+    // Function to save pre-order to the database via backend API
+    async function savePreOrderToDB(userId) {
+        try {
+            const response = await fetch(`${API_BASE}/api/pre-order/save`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${localStorage.getItem('authToken')}`,
+                },
+                body: JSON.stringify({ userId }),
+            });
+
+            // Check if the response is ok
+            if (!response.ok) {
+                throw new Error('Failed to save pre-order');
+            }
+
+            return response.json();
+        } catch (error) {
+            console.error('Failed to save pre-order:', error);
+            throw error;
+        }
+    }
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Initialize Owl Carousel
+    const owl = $(".thm-owl__carousel").owlCarousel({
+      items: 1,
+      loop: true,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        576: {
+          items: 2,
+          margin: 30,
+        },
+      },
+    });
+
+    // Previous button functionality
+    document.querySelector(".carousel-prev").addEventListener("click", function () {
+      owl.trigger("prev.owl.carousel");
+    });
+
+    // Next button functionality
+    document.querySelector(".carousel-next").addEventListener("click", function () {
+      owl.trigger("next.owl.carousel");
+    });
+  });
+</script>
+
+
+
+</body>
+
+</html>

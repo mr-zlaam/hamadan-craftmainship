@@ -1,0 +1,7900 @@
+/*===============================================
+Template Name: Solutek - Technology & IT Solution HTML5 Template
+Author:  https://themeforest.net/user/themeservices
+Description: Description
+Version: 1.0.0
+Text Domain: Solutek
+Tags:     agency, business, consulting, corporate, cyber security, finance, it agency, it services, it solutions, multipurpose, software company, startup, technology, technology company.
+================================================*/
+
+/*TABLE OF CONTENTS*/
+/*=====================
+01. solutek Nav Menu Area Css
+02. solutek hero Area Css
+03. solutek feature Area Css
+04. solutek section-title Area Css
+05. solutek contact Area Css
+06. solutek blog Area Css 
+07. solutek about Area Css
+08. solutek service Area Css
+09. solutek project Area Css
+10. solutek brand Area Css
+11. solutek pricing Area Css
+12. solutek faq-area Css
+13. solutek testimonial-area Css
+14. solutek address-area Css
+15. solutek footer-area Css
+17. solutek copyright css
+18. solutek Home two Css
+19. solutek home page 03 css
+20. solutek marquee section css
+21. solutek team Area css
+22. solutek Breadcumb Area Css
+23. solutek about us Area css
+24. solutek Team Details Area css
+25. solutek skill bar css
+26. solutek services details area css
+27. solutek case study area css
+28. solutek project details area css
+29. solutek blog details css
+
+=======================*/
+
+/*=====================================
+<-- 01. solutek Nav Menu Area Css -->
+=======================================*/
+
+.solutek_nav_manu {
+  padding: 35px 39px 0;
+}
+
+.sticky {
+  left: 0;
+  margin: auto;
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+  -webkit-box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.1);
+  background: #050a1e !important;
+  z-index: 500;
+  padding: 0 100px 0;
+  transition: 0.5s !important;
+  z-index: 500;
+  -webkit-animation: 300ms running fadeInDown;
+  animation: 500ms running fadeInUp;
+  animation-name: slideInDown;
+}
+
+.sticky .logo {
+  margin-top: 0;
+}
+
+.sticky.solutek_nav_manu:before {
+  display: none;
+}
+
+/* solutek Menu Css*/
+
+nav.solutek_menu {
+  align-items: center !important;
+  justify-content: center;
+  display: flex;
+}
+
+.solutek_menu ul {
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+}
+
+.solutek_menu>ul>li {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+}
+
+.solutek_menu>ul>li>a {
+  display: block;
+  margin: 23px 21px 23px;
+  -webkit-transition: 0.5s;
+  text-decoration: none;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 400;
+  font-family: "Fira Sans";
+}
+
+nav.solutek_menu ul li a i {
+  display: inline-block;
+  font-size: 12px;
+  padding-left: 5px;
+}
+
+nav.solutek_menu span {
+  font-size: 13px;
+  padding-left: 6px;
+  font-family: FontAwesome;
+  opacity: 0.5;
+}
+
+.sticky .solutek_menu>ul>li>a:hover {
+  color: #fff;
+}
+
+.logo {
+  position: relative;
+  top: -3px;
+  z-index: 1;
+}
+
+.solutek_menu>ul>li>a:hover {
+  color: #ff3c00;
+}
+
+/*** Sub Menu Style ***/
+.solutek_menu ul .sub-menu {
+  position: absolute;
+  left: 0;
+  top: 150%;
+  width: 217px;
+  text-align: left;
+  background: #fff;
+  margin: 0;
+  z-index: 1;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  transition: 0.5s;
+  visibility: hidden;
+  opacity: 0;
+  border-bottom: 3px solid #ff3b00;
+  border-top: 3px solid #ff3b00;
+}
+
+.solutek_menu ul li:hover>.sub-menu {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  visibility: visible;
+  top: 100%;
+  opacity: 1;
+  z-index: 9999;
+}
+
+.solutek_menu ul .sub-menu li {
+  position: relative;
+}
+
+.solutek_menu ul .sub-menu li a {
+  display: block;
+  padding: 12px 20px;
+  margin: 0;
+  line-height: 1.3;
+  letter-spacing: normal;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: capitalize;
+  -webkit-transition: 0.1s;
+  visibility: inherit !important;
+  color: #211e3b !important;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.solutek_menu ul .sub-menu li:hover>a,
+.solutek_menu ul .sub-menu .sub-menu li:hover>a,
+.solutek_menu ul .sub-menu .sub-menu .sub-menu li:hover>a,
+.solutek_menu ul .sub-menu .sub-menu .sub-menu .sub-menu li:hover>a {
+  background: #ff3b00;
+  color: #fff !important;
+}
+
+/* sub menu 2 */
+
+.solutek_menu ul .sub-menu .sub-menu {
+  left: 100%;
+  top: 130%;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  visibility: hidden;
+}
+
+.solutek_menu ul .sub-menu li:hover>.sub-menu {
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  visibility: visible;
+  top: 0%;
+}
+
+/* sub menu 3 */
+
+.solutek_menu ul .sub-menu .sub-menu li {
+  position: relative;
+}
+
+.solutek_menu ul .sub-menu .sub-menu .sub-menu {
+  right: 100%;
+  left: auto;
+  top: 130%;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  visibility: hidden;
+}
+
+.solutek_menu ul .sub-menu .sub-menu li:hover>.sub-menu {
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  visibility: visible;
+  top: 0%;
+}
+
+/* sub menu 4 */
+
+.solutek_menu ul .sub-menu .sub-menu .sub-menu li {
+  position: relative;
+}
+
+.solutek_menu ul .sub-menu .sub-menu .sub-menu li:hover>.sub-menu {
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  visibility: visible;
+  top: 0%;
+}
+
+.solutek_menu li a:hover:before {
+  width: 100%;
+}
+
+.solutek_nav_manu.sticky .logo_img {
+  display: none;
+}
+
+.main_sticky {
+  display: none;
+}
+
+.solutek_nav_manu.sticky .main_sticky {
+  display: inherit;
+}
+
+.sticky .solutek_menu li a {
+  color: #fff;
+}
+
+.solutek_nav_manu.sticky a.dtbtn {
+  color: #fff;
+  background: #f16722;
+  border: 2px solid #f16722;
+}
+
+.solutek_nav_manu.sticky a.dtbtn:hover {
+  color: #43baff;
+}
+
+.mobile-menu.mean-container {
+  overflow: hidden;
+}
+
+.header-btn {
+  text-align: right;
+}
+
+.header-btn a {
+  display: inline-block;
+  font-size: 15px;
+  line-height: 48px;
+  text-transform: uppercase;
+  color: #ff3c00;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+
+.header-btn a::before {
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 0%;
+  background: #ff3c00;
+  bottom: 15px;
+  transition: 0.5s;
+}
+
+.header-btn a i {
+  display: inline-block;
+  font-size: 20px;
+  position: relative;
+  top: 2px;
+  margin-left: 3px;
+}
+
+.header-btn a:hover::before {
+  width: 84%;
+}
+
+/*=====================================
+<-- 02.start solutek hero Area Css -->
+=======================================*/
+
+.hero-area {
+  height: 890px;
+  background: url(assets/images/hero-bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: -78px 50px 0;
+}
+
+.hero-contant h5 {
+  font-size: 16px;
+  color: #ff3c00;
+  font-weight: 600;
+  font-family: "Poppins";
+  border-radius: 20px;
+  background-color: #161a2b;
+  border: 2px solid #40465d;
+  display: inline-block;
+  padding: 6px 28px;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 20px;
+  line-height: 25px;
+}
+
+.hero-contant h5::before {
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 7px;
+  background: #ff3d00;
+  border-radius: 30px;
+  left: -8%;
+  top: 14px;
+}
+
+.hero-contant h1 {
+  font-size: 55px;
+  line-height: 70px;
+  color: #ffffff;
+  font-weight: 700;
+  font-family: "Poppins";
+  margin: 0;
+}
+
+.hero-contant p {
+  opacity: 0.702;
+  font-size: 19px;
+  line-height: 30px;
+  color: #ffffff;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  width: 91%;
+  margin: 0;
+  padding: 13px 0 43px;
+}
+
+.hero-area .solutek-hover-btn {
+  background-color: #ffff;
+}
+
+.solutek-btn a:hover {
+  color: #ff3d00;
+}
+
+.hero-video-icon {
+  display: inline-block;
+}
+
+.hero-video-icon a i {
+  display: inline-block;
+  background: #ff3d00;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 30px;
+  position: relative;
+  top: 6px;
+  margin-left: 39px;
+  z-index: 1;
+}
+
+.hero-video-icon a i:after {
+  position: absolute;
+  content: "";
+  height: 80px;
+  width: 80px;
+  left: -12px;
+  border-radius: 50%;
+  top: -13px;
+  border: 2px solid #40465d;
+  z-index: -1;
+}
+
+.hero-video-icon a span {
+  display: inline-block;
+  opacity: 0.702;
+  font-size: 15px;
+  line-height: 26px;
+  text-decoration: underline;
+  color: #ffffff;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  margin-left: 32px;
+}
+
+.hero-thumb {
+  text-align: right;
+  margin-top: 118px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-thumb::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: url(assets/images/hero-shape.png);
+  background-repeat: no-repeat;
+  z-index: -1;
+  right: -10%;
+  top: -25%;
+  -webkit-animation-name: rotateme;
+  -webkit-animation-duration: 15s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  background-position: center;
+}
+
+/*=====================================
+<--  end solutek hero Area Css -->
+=======================================*/
+
+
+
+/*=====================================
+<-- 03.start solutek feature Area Css -->
+=======================================*/
+
+.feature-area {
+  padding: 0 0 88px;
+  margin-top: -60px;
+}
+
+.feature-box {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+}
+
+.feature-sinble-single-box {
+  border-radius: 15px;
+  background-color: #f4f4f4;
+  border: 1px solid #e1e1e1;
+  text-align: center;
+  padding: 36px 0 32px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  margin-bottom: 30px;
+  transition: 0.5s;
+}
+
+.feature-sinble-single-box::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: url(assets/images/feature6.png);
+  left: -17%;
+  top: -3%;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.feature-sinble-single-box:after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  transition: 0.5s;
+  z-index: -1;
+  background: url(assets/images/feature7.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  right: 0;
+  bottom: 0;
+  transform: perspective(500px) rotateX(-90deg);
+  opacity: 0;
+}
+
+.feature-sinble-single-box:hover:after {
+  transform: perspective(500px) rotateX(0deg);
+  opacity: 1;
+}
+
+.feature-icon {
+  width: 75px;
+  height: 75px;
+  border-radius: 38px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 2px solid #ffffff;
+  line-height: 70px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-icon img {
+  transition: 0.5s;
+  filter: brightness(1) invert(0);
+}
+
+.feature-icon::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: #171a2b;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+h3.feature-title {
+  font-size: 18px;
+  color: #050a1e;
+  font-weight: 600;
+  font-family: "Poppins";
+  margin: 0;
+  padding: 6px 0 0px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+p.feature-text {
+  font-size: 16px;
+  line-height: 26px;
+  color: #7a7a7a;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  margin: 0;
+  transition: 0.5s;
+}
+
+.feature-sinble-single-box:hover {
+  border: 1px solid #ff4208;
+}
+
+.feature-sinble-single-box:hover .feature-icon::before {
+  transform: scale(1);
+}
+
+.feature-sinble-single-box:hover .feature-icon img {
+  filter: brightness(0) invert(1);
+}
+
+.feature-sinble-single-box:hover h3.feature-title {
+  color: #fff;
+}
+
+.feature-sinble-single-box:hover p.feature-text {
+  color: #fff;
+}
+
+/*=====================================
+<--  end solutek feature Area Css -->
+=======================================*/
+
+
+
+/*==============================================
+<-- 04.start solutek section-title Area Css -->
+================================================*/
+
+.section-title.text-center {
+  margin-bottom: 45px;
+}
+
+.section-title.text-left {
+  margin-bottom: 55px;
+}
+
+h5.section-sub-title {
+  font-size: 16px;
+  color: #9f5f37;
+  font-weight: 600;
+  font-family: "Poppins";
+  border-radius: 20px;
+  background-color: rgba(255, 60, 0, 0.03137254901960784);
+  border: 1px solid rgba(122, 122, 122, 0.15);
+  display: inline-block;
+  padding: 6px 29px;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 22px;
+  line-height: 25px;
+}
+
+h5.section-sub-title::before {
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 7px;
+  background: #9f5f37;
+  border-radius: 30px;
+  left: -8%;
+  top: 14px;
+}
+
+h1.section-main-title {
+  font-size: 42px;
+  line-height: 55px;
+  color: #050a1e;
+  font-weight: 700;
+  font-family: "Poppins";
+  margin: 0;
+}
+
+h1.section-main-title span {
+  display: inline-block;
+  color: #9f5f37;
+}
+
+p.section-title-descr {
+  width: 84%;
+  margin: 0;
+  padding: 19px 0 25px;
+}
+
+p.section-descr {
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+p.section-descr::before {
+  position: absolute;
+  content: "";
+  height: 100px;
+  width: 2px;
+  background: #ffe2d9;
+  left: -22%;
+  top: -29px;
+}
+
+.about-area .section-title.text-left {
+  margin-bottom: 0;
+}
+
+.pricing-area .section-title.text-left {
+  margin-bottom: 47px;
+}
+
+.testimonial-area h1.section-main-title {
+  color: #fff;
+}
+
+.testimonial-area h5.section-sub-title {
+  background-color: #161a2b;
+  border: 2px solid #40465d;
+}
+
+.contact-area h1.section-main-title {
+  margin: 0;
+  font-size: 28px;
+  line-height: 38px;
+  color: #050a1e;
+  font-weight: 600;
+  font-family: "Poppins";
+}
+
+.contact-area .section-title.text-left {
+  margin-bottom: 34px;
+}
+
+.contact-area h5.section-sub-title {
+  margin-bottom: 14px;
+  background-color: #f4f4f4;
+  border: 2px solid #ffffff;
+}
+
+/* section title home three */
+h6.section-sub-title {
+  display: inline-block;
+  font-size: 17px;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: #9f5f37;
+  font-weight: 600;
+  font-family: "Poppins";
+  position: relative;
+  z-index: 1;
+  margin-bottom: 15px;
+}
+
+h6.section-sub-title::before {
+  position: absolute;
+  content: '';
+  width: 70px;
+  height: 2px;
+  background-image: linear-gradient(270deg, #ffffff 0%, #9f5f37 100%);
+  left: -76px;
+  top: 12px;
+}
+
+h6.section-sub-title::after {
+  position: absolute;
+  content: '';
+  width: 70px;
+  height: 2px;
+  background-image: linear-gradient(270deg, #9f5f37 0%, #ffffff 100%);
+  right: -74px;
+  top: 12px;
+}
+
+h1.section-main-title2 {
+  font-size: 45px;
+  line-height: 55px;
+  text-transform: uppercase;
+  color: #050a1e;
+  font-weight: 600;
+  font-family: "Poppins";
+}
+
+.about-section h6.section-sub-title {
+  margin-left: 70px;
+}
+
+.about-section h6.section-sub-title::before {
+  width: 60px;
+  left: -69px;
+}
+
+.about-section h6.section-sub-title::after {
+  display: none;
+}
+
+.about-section p.section-title-descr {
+  width: 100%;
+  margin: 0;
+  padding: 12px 0 0px;
+}
+
+.about-section .section-title.text-left {
+  margin-bottom: 36px;
+}
+
+.case-studies-area h6.section-sub-title::before {
+  background-image: linear-gradient(270deg, #05091d 0%, #ff3b00 100%);
+}
+
+.case-studies-area h6.section-sub-title::after {
+  background-image: linear-gradient(270deg, #ff3b00 0%, #05091d 100%);
+}
+
+.case-studies-area h1.section-main-title2 {
+  color: #fff;
+}
+
+.testimonial-area.style-four h1.section-main-title {
+  color: #050a1e;
+}
+
+.testimonial-area.style-four h6.section-sub-title {
+  margin-left: 70px;
+}
+
+.testimonial-area.style-four h6.section-sub-title::before {
+  width: 60px;
+  left: -69px;
+}
+
+.testimonial-area.style-four h6.section-sub-title::after {
+  display: none;
+}
+
+.testimonial-area.style-four .section-title.text-left {
+  margin-bottom: 40px;
+}
+
+.faq-area.style-two h6.section-sub-title {
+  margin-left: 70px;
+}
+
+.faq-area.style-two h6.section-sub-title::before {
+  width: 60px;
+  left: -69px;
+}
+
+.faq-area.style-two h6.section-sub-title::after {
+  display: none;
+}
+
+
+/*=====================================
+<--  end solutek section-title Area Css -->
+=======================================*/
+
+
+
+/*=====================================
+<-- 05.start solutek contact Area Css -->
+=======================================*/
+
+.contact-area {
+  background: url(assets/images/contact-bg2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 120px 0 120px;
+  position: relative;
+}
+
+.contact-area .form_box input {
+  border: 1px solid rgba(122, 122, 122, 0.5);
+  height: 60px;
+  border-radius: 15px;
+  padding: 0 23px 0;
+  margin-bottom: 21px;
+  width: 100%;
+  transition: 0.5s;
+  font-size: 16px;
+  line-height: 26px;
+  color: #7a7a7a;
+  font-weight: 400;
+  font-family: "Fira Sans";
+}
+
+.form_box input::placeholder {
+  font-size: 16px;
+  line-height: 26px;
+  color: #7a7a7a;
+  font-weight: 400;
+  font-family: "Fira Sans";
+}
+
+.form_box textarea {
+  border: 1px solid rgba(122, 122, 122, 0.5);
+  outline: 0;
+  width: 100%;
+  padding: 17px 23px 0;
+  height: 150px;
+  margin-bottom: 22px;
+  transition: 0.5s;
+  border-radius: 25px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #7a7a7a;
+  font-weight: 400;
+  font-family: "Fira Sans";
+}
+
+.form_box textarea::placeholder {
+  font-size: 16px;
+  line-height: 26px;
+  color: #7a7a7a;
+  font-weight: 400;
+  font-family: "Fira Sans";
+}
+
+.quote_button button {
+  background: #ff3d00;
+  padding: 14px 48px 14px;
+  border-radius: 30px;
+  transition: 0.5s;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 500;
+  font-family: "Fira Sans";
+}
+
+.quote_button button i {
+  display: inline-block;
+  font-size: 20px;
+  position: relative;
+  top: 2px;
+  margin-left: 8px;
+  transform: rotate(-45deg);
+}
+
+.form_box input:focus,
+.form_box textarea:focus {
+  border-color: #ff3d00;
+  outline: 0;
+  box-shadow: 0 0 4px rgb(255, 61, 0, 0.5);
+}
+
+.quote_button button:hover {
+  color: #fff;
+  background: #050a1e;
+}
+
+.contact-box {
+  padding: 62px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-box::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: url(assets/images/contact-shape.png);
+  left: -20%;
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 33%;
+  -webkit-animation-name: rotateme;
+  -webkit-animation-duration: 15s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+.contact-video-icon a {
+  display: inline-block;
+  font-size: 18px;
+  color: #ff3c00;
+  font-weight: 500;
+  font-family: "Fira Sans";
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+  line-height: 100%;
+  position: absolute;
+  right: -27%;
+  top: 77%;
+}
+
+/*=====================================
+<--  end solutek contact Area Css -->
+=======================================*/
+
+
+/*=====================================
+<-- 06. start solutek blog Area Css -->
+=======================================*/
+
+.blog-area {
+  padding: 120px 0 89px;
+  background: #f4f4f4;
+}
+
+.blog-singele-box {
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.blog-content {
+  background: #ffff;
+  padding: 58px 40px 35px;
+  position: relative;
+  z-index: 1;
+  border-radius: 0 0 30px 30px;
+}
+
+.blog-date {
+  background: #fe3c00;
+  border-radius: 10px;
+  padding: 10px 24px;
+  position: absolute;
+  top: -10%;
+}
+
+.blog-date h4 {
+  font-size: 16px;
+  line-height: 36px;
+  color: #ffffff;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  margin: 0;
+}
+
+.blog-date h4 i {
+  font-size: 16px;
+  margin-right: 15px;
+  display: inline-block;
+}
+
+.blog-date h4 span {
+  display: inline-block;
+  margin-left: 147px;
+  position: relative;
+  z-index: 1;
+}
+
+.blog-date h4 span::before {
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 60%;
+  background: #ff9d7f;
+  left: -93%;
+  top: 47%;
+}
+
+h3.blog-title a {
+  display: inline-block;
+  font-size: 26px;
+  line-height: 36px;
+  color: #050a1e;
+  font-weight: 600;
+  font-family: "Poppins";
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+h3.blog-title a:hover {
+  color: #ff3b00;
+}
+
+h3.blog-title {
+  margin: 0;
+}
+
+p.blog-tex {
+  margin: 0;
+  padding: 10px 0 18px;
+}
+
+.blog-btn a {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 28px;
+  color: #7a7a7a;
+  font-weight: 500;
+  font-family: "Fira Sans";
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.blog-btn a:hover {
+  color: #ff3b00;
+}
+
+.blog-btn a i {
+  display: inline-block;
+  font-size: 20px;
+  position: relative;
+  top: 1px;
+  margin-left: 8px;
+}
+
+/*---blog-content-two*/
+
+.blog-singele-box-tow {
+  margin-bottom: 28px;
+}
+
+.blog-content-tow {
+  background: #fff;
+  border-radius: 20px 20px 20px 20px;
+  padding: 36px 29px 26px 0;
+}
+
+.blog-thumb-tow {
+  float: left;
+  margin-right: 29px;
+}
+
+.blog-date-tow {
+  background: #f4f4f4;
+  display: inline-block;
+  padding: 6px 25px 6px;
+  border-radius: 10px;
+}
+
+.blog-date-tow h4 {
+  font-size: 16px;
+  line-height: 36px;
+  color: #7a7a7a;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  margin: 0;
+}
+
+.blog-date-tow h4 i {
+  display: inline-block;
+  font-size: 16px;
+  color: #ff3d00;
+  margin-right: 16px;
+}
+
+.blog-date-tow h4 span {
+  display: inline-block;
+  margin-left: 86px;
+  position: relative;
+  z-index: 1;
+}
+
+.blog-date-tow h4 span::before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 1px;
+  background: #ff3d00;
+  left: -48px;
+  top: 8px;
+}
+
+h3.blog-title-two {
+  line-height: 32px;
+  margin: 0;
+  padding: 24px 0 10px;
+}
+
+h3.blog-title-two a {
+  font-size: 22px;
+  color: #050a1e;
+  font-weight: 600;
+  font-family: "Poppins";
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+h3.blog-title-two a:hover {
+  color: #ff3b00;
+}
+
+.blog-btn-tow a {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 28px;
+  color: #7a7a7a;
+  font-weight: 500;
+  font-family: "Fira Sans";
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.blog-btn-tow a:hover {
+  color: #ff3b00;
+}
+
+.blog-btn-tow a i {
+  display: inline-block;
+  font-size: 20px;
+  position: relative;
+  top: 1px;
+  margin-left: 8px;
+}
+
+/*=====================================
+<--  start solutek blog Area Css -->
+=======================================*/
+
+
+
+
+
+/*=====================================
+<--  start solutek about Area Css -->
+=======================================*/
+
+.about-area {
+  padding: 0 0 120px;
+  position: relative;
+  z-index: 1;
+}
+
+.about-area::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: url(assets/images/about5.png);
+  background-repeat: no-repeat;
+  right: -72%;
+  top: -8%;
+}
+
+.about-thumb {
+  position: relative;
+  z-index: 1;
+  margin-left: -96px;
+}
+
+h4.about-title {
+  position: absolute;
+  bottom: 18%;
+  font-size: 20px;
+  line-height: 75px;
+  color: #ffffff;
+  font-weight: 600;
+  font-family: "Poppins";
+  left: 12%;
+  margin: 0;
+}
+
+.about-shape {
+  position: absolute;
+  top: 20%;
+  right: 44%;
+}
+
+.about-shape img {
+  animation: dance 3s alternate infinite;
+  -webkit-animation: dance 2s alternate infinite;
+  animation: dance 3s alternate infinite;
+}
+
+.about-icon {
+  width: 50px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+  line-height: 60px;
+  margin-right: 14px;
+  text-align: center;
+}
+
+.about-icon img {
+  margin-left: -22px;
+}
+
+.about-tiltle h3 {
+  font-size: 18px;
+  line-height: 55px;
+  color: #050a1e;
+  font-weight: 600;
+  font-family: "Poppins";
+  margin: 0;
+}
+
+.about-text p {
+  width: 92%;
+  margin: 0;
+  padding: 16px 0 41px;
+}
+
+/* button style */
+
+.solutek-btn {
+  display: inline-block;
+}
+
+.solutek-btn a {
+  display: inline-block;
+  background: #ff3b00;
+  text-decoration: none;
+  padding: 16px 28px;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  border-radius: 30px;
+  transition: 0.5s;
+}
+
+.hero-area.style-three .solutek-btn a:hover {
+  color: #fff;
+}
+
+.solutek-hover-btn {
+  background-color: #050a1e;
+  height: 100%;
+  top: 0;
+  opacity: 0;
+  position: absolute;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  width: 25%;
+  z-index: -1;
+}
+
+.hover-bx {
+  left: 0;
+  -webkit-transition-delay: 0.105s;
+  transition-delay: 0.105s;
+  border-radius: 30px 0 0px 30px;
+}
+
+.hover-bx2 {
+  left: 25%;
+  -webkit-transition-delay: 0.105s;
+  transition-delay: 0.105s;
+}
+
+.hover-bx3 {
+  left: 50%;
+  -webkit-transition-delay: 0.105s;
+  transition-delay: 0.105s;
+}
+
+.hover-bx4 {
+  left: 75%;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+  border-radius: 0 30px 30px 0;
+}
+
+.solutek-btn a:hover .solutek-hover-btn {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+/* btn-2 hover style */
+.solutek-button {
+  display: inline-block;
+}
+
+.solutek-button a {
+  display: inline-block;
+  background: #ff3b00;
+  text-decoration: none;
+  padding: 16px 28px;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 30px;
+}
+
+
+.btn-2:hover {
+  background-image: linear-gradient(90deg,
+      #ff3b00 0%,
+      #ffcf00 49%,
+      #a52600 80%,
+      #ff3b00 100%);
+  animation: slidebg 5s linear infinite;
+  color: #fff;
+}
+
+@keyframes slidebg {
+  to {
+    background-position: 20vw;
+  }
+}
+
+/*=====================================
+<--  end solutek about Area Css -->
+=======================================*/
+
+
+
+/*=====================================
+<--  start solutek service Area Css -->
+=======================================*/
+
+.sservice-area {
+  background: #f4f4f4;
+  padding: 120px 0 88px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.service-single-box {
+  background: #ffff;
+  border-radius: 15px;
+  padding: 45px 35px 42px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 30px;
+}
+
+.service-single-box::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: url(assets/images/service6.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  clip-path: polygon(50% 0, 50% 0, 50% 50%, 50% 100%, 50% 100%, 50% 50%);
+  transition: 0.4s;
+}
+
+.service-icon {
+  margin-bottom: 33px;
+}
+
+.service-icon img {
+  filter: brightness(1) invert(0);
+  transition: 0.5s;
+}
+
+h3.service-title {
+  font-size: 22px;
+  color: #050a1e;
+  font-weight: 600;
+  font-family: "Poppins";
+  margin: 0;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+p.service-text {
+  margin: 0;
+  padding: 11px 0 38px;
+  transition: 0.5s;
+}
+
+.service-btn a {
+  display: inline-block;
+  font-size: 15px;
+  line-height: 26px;
+  color: #ffff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.service-btn i {
+  display: inline-block;
+  color: #ff3c00;
+  background: #f4f4f4;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  border-radius: 50%;
+  font-size: 14px;
+  margin-right: 11px;
+  transition: 0.5s;
+}
+
+.service-single-box:hover::before {
+  clip-path: polygon(25% -70%,
+      75% -70%,
+      120% 50%,
+      75% 170%,
+      25% 170%,
+      -20% 50%);
+}
+
+.service-single-box:hover .service-icon img {
+  filter: brightness(0) invert(1);
+}
+
+.service-single-box:hover h3.service-title {
+  color: #fff;
+}
+
+.service-single-box:hover p.service-text {
+  color: #fff;
+}
+
+.service-single-box:hover .service-btn i {
+  color: #fff;
+  background: #ff6d3e;
+}
+
+.service-shape {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.service-shape2 {
+  position: absolute;
+  top: 16%;
+  left: 3%;
+}
+
+.service-shape2 img {
+  animation: dance 3s alternate infinite;
+  -webkit-animation: dance 2s alternate infinite;
+  animation: dance 3s alternate infinite;
+}
+
+.service-shape3 {
+  position: absolute;
+  top: 2%;
+  left: 0;
+}
+
+/*=====================================
+<--  end solutek service Area Css -->
+=======================================*/
+
+/*=====================================
+<--  start solutek project Area Css -->
+=======================================*/
+
+.project-area {
+  padding: 120px 0 88px;
+  background: url(assets/images/project-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.row.project {
+  padding: 0 297px 0;
+}
+
+.row.carousel {
+  padding: 0 37px 0;
+}
+
+.project-single-box {
+  margin-bottom: 30px;
+}
+
+.project-right {
+  position: relative;
+  z-index: 1;
+  text-align: right;
+  margin-top: -81px;
+}
+
+.project-right::before {
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 100%;
+  background: #e4e4e4;
+  bottom: -52px;
+  left: 0;
+}
+
+.project-thumb img {
+  width: 100%;
+}
+
+.project-content {
+  background: #171a2b;
+  padding: 33px 0 41px;
+  text-align: center;
+  border-radius: 0 0 20px 20px;
+}
+
+h3.project-title {
+  margin: 0;
+  line-height: 28px;
+}
+
+h3.project-title a {
+  display: inline-block;
+  font-size: 22px;
+  color: #fefefe;
+  font-weight: 600;
+  font-family: "Poppins";
+  margin: 0;
+  text-decoration: none;
+  transition: 0.5s;
+  margin-bottom: 23px;
+}
+
+p.project-text {
+  display: inline-block;
+  border-radius: 20px;
+  background-color: #050a1e;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #fefefe;
+  font-weight: 400;
+  padding: 7px 35px 7px;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  cursor: pointer;
+}
+
+p.project-text::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: #ff3d00;
+  left: 0;
+  top: 0;
+  z-index: -12;
+  border-radius: 20px;
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+p.project-text:hover::before {
+  transform: scale(1);
+}
+
+h3.project-title a:hover {
+  color: #ff3d00;
+}
+
+.project-area .owl-dots {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.project-area .owl-dot,
+.owl-dot.active {
+  width: 10px;
+  height: 10px;
+  background: #ff3d00;
+  display: inline-block;
+  margin-right: 26px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+.project-area .owl-dot::before,
+.owl-dot.active::before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  border: 1px dashed #fff;
+  border-radius: 50%;
+  left: -5px;
+  top: -5px;
+}
+
+.project-area .owl-dot.active {
+  background: #fff;
+  line-height: 10px;
+}
+
+.project-area .owl-dot.active .owl-dot::before,
+.owl-dot.active::before {
+  border: 1px dashed #fff !important;
+}
+
+/*=====================================
+<--  end solutek project Area Css -->
+=======================================*/
+
+/*=====================================
+<--  start solutek brand Area Css -->
+=======================================*/
+
+.brand-area {
+  background: #ff3d00;
+  padding: 41px 0;
+  margin: 0 49px 0;
+  left: 0;
+  right: 0;
+  border-radius: 0 0 50px 50px;
+}
+
+.brand-box {
+  text-align: center;
+}
+
+.owl-carousel .owl-item img {
+  display: inline;
+}
+
+/*=====================================
+<--  end solutek brand Area Css -->
+=======================================*/
+
+/*=====================================
+<--  start solutek pricing Area Css -->
+=======================================*/
+
+.pricing-area {
+  padding: 120px 0 88px;
+}
+
+.pricing-single-box {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.pricing-head {
+  background: #fff5f3;
+  padding: 47px 0 36px;
+  margin-bottom: 5px;
+  border-radius: 15px 40px 15px 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.pricing-head::before {
+  position: absolute;
+  content: "";
+  width: 85%;
+  border: 1px dashed;
+  height: 80%;
+  border-radius: 15px 40px 15px 15px;
+  left: 24px;
+  top: 16px;
+}
+
+.pricing-head:after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 0;
+  background: url(assets/images/pricing2.png);
+  right: 0;
+  top: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: 0.5s;
+}
+
+h1.priching-doller {
+  font-size: 45px;
+  color: #ff3c00;
+  font-weight: 600;
+  font-family: "Poppins";
+  margin: 0;
+  line-height: 26px;
+  transition: 0.5s;
+}
+
+h3.priching-title {
+  font-size: 20px;
+  line-height: 26px;
+  color: #041424;
+  font-weight: 600;
+  font-family: "Poppins";
+  margin: 0;
+  margin-top: 21px;
+  transition: 0.5s;
+}
+
+.pricing-body {
+  position: relative;
+  z-index: 1;
+  padding: 29px 40px 39px;
+  text-align: left;
+}
+
+.pricing-body::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: url(assets/images/pricing1.png);
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+ul.pricing-list {
+  margin-bottom: 35px;
+}
+
+ul.pricing-list li {
+  list-style: none;
+  line-height: 48px;
+}
+
+ul.pricing-list li i {
+  color: #ff3d00;
+  font-size: 18px;
+  position: relative;
+  top: 2px;
+  margin-right: 14px;
+}
+
+.pricing-area .solutek-hover-btn {
+  background-color: #ff3d00;
+}
+
+.pricing-area .solutek-btn a {
+  background: #f5ebe8;
+  padding: 16px 55px;
+  color: #ff3d00;
+}
+
+.pricing-area .solutek-btn a:hover {
+  color: #ffff;
+}
+
+.pricing-single-box:hover .pricing-head:after {
+  width: 100%;
+  left: 0;
+}
+
+.pricing-single-box:hover h1.priching-doller {
+  color: #fff;
+}
+
+.pricing-single-box:hover h3.priching-title {
+  color: #fff;
+}
+
+.pricing-single-box:hover .pricing-head::before {
+  border: none;
+}
+
+/*=====================================
+<--  end solutek pricing Area Css -->
+=======================================*/
+
+/*=====================================
+<--  start solutek faq-area Css -->
+=======================================*/
+
+.faq-area {
+  background: #f4f4f4;
+  padding: 120px 0 120px;
+  position: relative;
+  z-index: 1;
+}
+
+.faq-shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.faq-shape2 {
+  position: absolute;
+  bottom: 8%;
+  left: 0;
+  z-index: -1;
+}
+
+/*accordion*/
+
+h3.faq-title {
+  font-size: 28px;
+  line-height: 56px;
+  color: #050a1e;
+  font-weight: 600;
+  font-family: "Poppins";
+  margin: 0;
+}
+
+h3.faq-title span {
+  display: inline-block;
+  color: #ff3c00;
+}
+
+p.faq-description {
+  padding: 10px 0 29px;
+}
+
+.tab_container {
+  position: relative;
+}
+
+ul.accordion {
+  padding: 0;
+  margin: 0;
+}
+
+.accordion li {
+  list-style: none;
+  padding: 0 0 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.accordion li a {
+  position: relative;
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff !important;
+  z-index: 1;
+}
+
+.accordion li p {
+  display: none;
+  font-size: 16px;
+  color: #b1b2b4;
+  padding: 25px 0 10px 30px;
+  margin: 0;
+}
+
+.accordion a:before {
+  width: 3px;
+  height: 16px;
+  background: #ff3d00;
+  position: absolute;
+  right: 32px;
+  content: " ";
+  top: 22px;
+  transform: rotate(0deg);
+  transition: all 0.2s ease-in-out;
+  border-radius: 30px;
+}
+
+.accordion a:after {
+  width: 16px;
+  height: 3px;
+  background: #ff3d00;
+  position: absolute;
+  right: 26px;
+  content: " ";
+  top: 29px;
+  transition: all 0.2s ease-in-out;
+  border-radius: 30px;
+}
+
+.accordion a.active:after {
+  transform: rotate(0deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  background: #ff3d00;
+  z-index: -1;
+}
+
+.accordion a.active:before {
+  display: none;
+}
+
+a.active {
+  background: #fff !important;
+}
+
+.accordion li a span {
+  position: relative;
+  z-index: 1;
+  font-size: 18px;
+  color: #050a1e;
+  font-weight: 500;
+  font-family: "Poppins";
+}
+
+/*accordion start*/
+
+.faq-sectiions .dreamit-icon-list ul li i {
+  width: inherit;
+  height: inherit;
+  line-height: inherit;
+  border-radius: 0;
+  background-color: inherit;
+  display: inline-block;
+  color: #d0a37c;
+  font-size: 22px;
+  margin-right: 8px;
+  position: relative;
+  top: 4px;
+}
+
+.study-button a i {
+  transition: 0.5s;
+}
+
+.study-button a:hover i {
+  color: #d0a37c;
+}
+
+/* Faq New Style */
+
+.faq-area .accordion li a {
+  padding: 16px 20px 16px 30px;
+  text-decoration: none;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.30196078431372547);
+  border: 2px solid #ffffff;
+}
+
+.faq-area .accordion li a.active {
+  border-radius: 15px 15px 0px 0px;
+}
+
+.faq-area .accordion li a span:after {
+  display: none;
+}
+
+.faq-area .accordion li p {
+  padding: 44px 20px 31px 25px;
+  color: #646464;
+  background: #fff;
+  border-radius: 0 0 15px 15px;
+  line-height: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.faq-area .accordion li p::before {
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 92%;
+  background: #ebebeb;
+  left: 32px;
+  top: 21px;
+}
+
+/*=====================================
+<--  end solutek faq-area Css -->
+=======================================*/
+
+
+/*=====================================
+<--  start solutek testimonial-area Css -->
+=======================================*/
+
+.testimonial-area {
+  background: url(assets/images/testi-bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 0 50px 0;
+  padding: 120px 0 120px;
+}
+
+.testi-single-box {
+  background: #171a2b;
+  border-radius: 20px;
+  padding: 39px 27px 32px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p.testi-text {
+  color: #fff;
+  opacity: 0.702;
+  padding: 35px 0 29px;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+p.testi-text::before {
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 100%;
+  border: 1px solid #292c3b;
+  bottom: 0;
+}
+
+h3.testi-title {
+  font-size: 20px;
+  line-height: 28px;
+  color: #ffffff;
+  font-weight: 600;
+  font-family: "Fira Sans";
+  margin: 0;
+}
+
+h3.testi-title span {
+  display: inline-block;
+  font-size: 15px;
+  line-height: 28px;
+  color: #ff3c00;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  margin-left: 14px;
+}
+
+ul.testi-rating {
+  padding: 28px 0 13px;
+}
+
+ul.testi-rating li i {
+  display: inline-block;
+  color: #ffc600;
+  font-size: 15px;
+  margin: 0 4px 0;
+}
+
+ul.testi-rating li {
+  list-style: none;
+  display: inline-block;
+}
+
+.testi-author {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.testi-author::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: url(assets/images/testi7.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  right: -31%;
+}
+
+.testi-author::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: url(assets/images/testi8.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  left: -31%;
+}
+
+/*=====================================
+<--  end solutek testimonial-area Css -->
+=======================================*/
+
+
+
+/*
+<!-- ==========================================-->
+<!-- Start solutek testimonial Area css style-two-->
+<!-- =========================================-->*/
+.testimonial-area.style-two {
+  background: #fff;
+  padding: 120px 0 120px;
+}
+
+.testimonial-area.style-two .section-title.text-center {
+  margin-bottom: 49px;
+}
+
+.testimonial-area.style-two h5.section-sub-title {
+  background-color: #f4f4f4;
+  border: 2px solid rgba(255, 60, 0, 0.15);
+}
+
+.testimonial-area.style-two h1.section-main-title {
+  color: #050a1e;
+}
+
+.testimonial-area.style-two .testi-single-box {
+  background: url(assets/images/home-two/test-box-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  border-radius: 20px 0px 20px 20px;
+  transition: 0.5s;
+  padding: 39px 27px 82px;
+  margin-top: 33px;
+  transition: 0.5s;
+  margin-bottom: 35px;
+}
+
+.testimonial-area.style-two .testi-single-box::before {
+  position: absolute;
+  content: "";
+  width: 175px;
+  height: 3px;
+  background-color: #050a1e;
+  top: -3px;
+  right: 0;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.testimonial-area.style-two .testi-single-box::after {
+  position: absolute;
+  content: "";
+  width: 175px;
+  height: 3px;
+  background-color: #ff3c00;
+  left: 66px;
+  top: -3px;
+  margin: 0 auto;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.testimonial-area.style-two .testi-box-inner::after {
+  position: absolute;
+  content: "";
+  height: 0;
+  width: 100%;
+  background: url(assets/images/home-two/test-box.png);
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: 0.5s;
+  border-radius: 20px 0px 20px 20px;
+  z-index: -1;
+}
+
+.testimonial-area.style-two p.testi-desc {
+  padding: 35px 0 29px;
+  margin: 0;
+  z-index: 1;
+  font-size: 16px;
+  line-height: 28px;
+  color: #7a7a7a;
+  transition: 0.5s;
+  position: relative;
+}
+
+.testimonial-area.style-two p.testi-desc::before {
+  position: absolute;
+  content: "";
+  width: 340px;
+  height: 1px;
+  background: rgb(122 122 122 / 40%);
+  margin: 0 auto;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+}
+
+.testimonial-area.style-two h3.testi-user-name {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  font-family: "Fira Sans";
+  margin: 0;
+  color: #050a1e;
+  transition: 0.5s;
+}
+
+.testimonial-area.style-two h3.testi-user-name span {
+  display: inline-block;
+  font-size: 15px;
+  line-height: 28px;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  margin-left: 14px;
+  color: #7a7a7a;
+  transition: 0.5s;
+}
+
+.testimonial-area.style-two .testi-author::before {
+  display: none;
+}
+
+.testimonial-area.style-two .testi-author::after {
+  display: none;
+}
+
+.testimonial-area.style-two .testi-author {
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  bottom: -33px;
+  left: 0;
+  right: 0;
+}
+
+/*all hover testimonial */
+.testimonial-area.style-two .testi-single-box:hover .testi-box-inner::after {
+  height: 100%;
+  top: 0;
+}
+
+.testimonial-area.style-two .testi-single-box:hover {
+  transform: translateY(-30px);
+}
+
+.testimonial-area.style-two .testi-single-box:hover .testi-icon img {
+  filter: brightness(0) invert(1);
+}
+
+.testimonial-area.style-two .testi-single-box:hover p {
+  color: #fff;
+}
+
+.testimonial-area.style-two .testi-single-box:hover p.testi-desc::before {
+  background: #fff;
+}
+
+.testimonial-area.style-two .testi-single-box:hover h3.testi-user-name {
+  color: #fff;
+}
+
+.testimonial-area.style-two .testi-single-box:hover h3.testi-user-name span {
+  color: #fff;
+}
+
+/*---=====================================================
+ <!-- Start solutek testimonial Area  style-three-->
+=========================================================---*/
+.testimonial-area.style-three {
+  background: #fff;
+  padding: 120px 0 120px;
+  margin: 0;
+}
+
+.testimonial-area.style-three h5.section-sub-title {
+  background-color: transparent;
+  border: 2px solid #eeeeee;
+}
+
+.testimonial-area.style-three h1.section-main-title {
+  color: #050a1e;
+}
+
+.testimonial-area.style-three .testi-single-box {
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-area.style-three .test-user-img {
+  margin-right: 38px;
+}
+
+.testimonial-area.style-three .owl-dots {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.testimonial-area.style-three .owl-dot {
+  display: inline-block;
+  width: 30px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #161a2b;
+  margin-right: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-area.style-three .owl-dot.active {
+  display: inline-block;
+  width: 20px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #ff3c00;
+}
+
+.testimonial-area.style-three .owl-dot.active::before {
+  display: none;
+}
+
+
+
+/*---=====================================================
+   <!-- Start solutek testimonial Area style-four-->
+=========================================================---*/
+
+.testimonial-area.style-four {
+  /* background: url(assets/images/home-3/test-bg.png); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 0;
+  padding: 110px 0 75px;
+}
+
+.testimonial-area.style-four h4.testi-user-name {
+  font-size: 24px;
+  line-height: 42px;
+  color: #fff;
+  font-weight: 600;
+  font-family: "Poppins";
+  text-align: center;
+  position: relative;
+}
+
+.testimonial-area.style-four h4.testi-user-name::before {
+  position: absolute;
+  content: '';
+  width: 36px;
+  height: 2px;
+  background-image: linear-gradient(270deg, #9f5f37 0%, #ffffff 100%);
+  left: 13px;
+  bottom: 13px;
+}
+
+.testimonial-area.style-four h4.testi-user-name::after {
+  position: absolute;
+  content: '';
+  width: 36px;
+  height: 2px;
+  background-image: linear-gradient(270deg, #ffffff 0%, #9f5f37 100%);
+  right: 13px;
+  bottom: 13px;
+}
+
+.testimonial-area.style-four h4.testi-user-name span {
+  display: block;
+  font-size: 15px;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 500;
+  font-family: "Fira Sans";
+  text-align: center;
+}
+
+.testimonial-area.style-four .testi-thumb {
+  position: relative;
+}
+
+.testimonial-area.style-four .testi-autor {
+  position: absolute;
+  bottom: 12px;
+  left: 70px;
+}
+
+.testimonial-area.style-four .testi-box {
+  margin-left: 80px;
+  margin-bottom: 30px;
+}
+
+.testimonial-area.style-four .testimonial-single-box {
+  padding: 35px 40px 15px 40px;
+  border-radius: 20px;
+  background-color: rgba(244, 244, 244, 0.5019607843137255);
+  border: 2px solid #ffffff;
+}
+
+.testimonial-area.style-four p.testi-desc {
+  font-size: 17px;
+  line-height: 28px;
+  color: #7a7a7a;
+  font-weight: 400;
+  font-style: italic;
+  font-family: "Fira Sans";
+}
+
+.testimonial-area.style-four .testi-review-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.testimonial-area.style-four .testi-review-user h3,
+.testi-review-user h3 span {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #050a1e;
+  font-weight: 500;
+  font-family: "Fira Sans";
+}
+
+.testimonial-area.style-four .testi-review-user h3 span {
+  color: #9f5f37;
+}
+
+.testimonial-area.style-four ul.testi-rating {
+  padding: 0px 0 28px;
+  margin-left: 57px;
+  position: relative;
+}
+
+.testimonial-area.style-four ul.testi-rating::before {
+  position: absolute;
+  content: "";
+  width: 50px;
+  height: 2px;
+  background-image: linear-gradient(270deg, #f3f3f3 0%, #9f5f37 100%);
+  left: -57px;
+  top: 13px;
+}
+
+.testimonial-area.style-four .testi-quote-icon {
+  position: relative;
+}
+
+.testimonial-area.style-four .testi-quote-icon::before {
+  position: absolute;
+  content: "";
+  opacity: 0.200;
+  width: 370px;
+  height: 2px;
+  background-image: linear-gradient(270deg, #f3f3f3 0%, #797979 100%);
+  left: 50px;
+  top: 14px;
+}
+
+.testimonial-area.style-four .slide-shape {
+  position: absolute;
+  right: 37px;
+  bottom: 8px;
+}
+
+.testimonial-area.style-four .slide-shape-inner {
+  position: relative;
+}
+
+.testimonial-area.style-four .slide-shape-inner::before {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 120px;
+  background-image: linear-gradient(0deg, #9f5f37 0%, #ffffff 100%);
+  left: 34px;
+  top: 65px;
+}
+
+.slide-shape-inner::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 120px;
+  background-image: linear-gradient(0deg, #ffffff 0%, #9f5f37 100%);
+  left: 34px;
+  bottom: 72px;
+}
+
+
+
+
+/*=====================================
+<--  start solutek address-area Css -->
+=======================================*/
+
+.address-area {
+  background: #ff3d00;
+  margin: 0 50px 0;
+  padding: 25px 0 25px;
+  border-radius: 40px 40px 0 0;
+}
+
+.address-title h3 {
+  font-size: 28px;
+  color: #ffffff;
+  font-weight: 600;
+  font-family: "Poppins";
+  margin: 0;
+}
+
+.address-box,
+.address-box2 {
+  display: flex;
+  align-items: center;
+}
+
+.address-icon {
+  position: relative;
+  z-index: 1;
+  margin-right: 41px;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+}
+
+.address-icon::before {
+  position: absolute;
+  content: "";
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  border: 2px dashed #fff;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  -webkit-animation-name: rotateme;
+  -webkit-animation-duration: 15s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+.address-box2 {
+  float: right;
+}
+
+.address-area .solutek-btn a {
+  display: inline-block;
+  background: #050a1e;
+  text-decoration: none;
+  padding: 16px 28px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  border-radius: 30px;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  font-weight: 500;
+  font-family: "Poppins";
+  transition: 0.5s;
+}
+
+.address-area .solutek-hover-btn {
+  background-color: #ffff;
+}
+
+.address-area .solutek-btn a:hover {
+  color: #ff3d00;
+}
+
+/*=====================================
+<--  end solutek address-area Css -->
+=======================================*/
+
+/*=====================================
+<--  start solutek footer-area Css -->
+=======================================*/
+
+.footer-area {
+  background: url(assets/images/footer-bg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0 0 20px;
+  margin: 0 50px 35px;
+}
+
+.row.footer {
+  padding: 118px 0 101px;
+}
+
+p.footer-widget-text {
+  opacity: 0.6;
+  font-size: 16px;
+  line-height: 26px;
+  color: #ffffff;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  margin: 0;
+  padding: 38px 0 68px;
+}
+
+.footer-widget-social a i {
+  display: inline-block;
+  color: #9e9e9e;
+  font-size: 17px;
+  margin-right: 30px;
+  transition: 0.5s;
+}
+
+.widget-title h2 {
+  font-size: 22px;
+  line-height: 41px;
+  color: #ffffff;
+  font-weight: 600;
+  font-family: "Poppins";
+  margin-bottom: 31px;
+}
+
+.footer-widget.left ul li {
+  list-style: none;
+}
+
+.footer-widget.left ul li a {
+  display: inline-block;
+  opacity: 0.6;
+  font-size: 16px;
+  line-height: 40px;
+  color: #ffffff;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.footer-widget.left ul li a::before {
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 0;
+  background: #ff3c00;
+  bottom: 10px;
+  transition: 0.5s;
+}
+
+.footer-widget-newsletter {
+  margin-left: -20px;
+}
+
+p.newsletter-text {
+  opacity: 0.6;
+  font-size: 16px;
+  line-height: 26px;
+  color: #ffffff;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  margin: 0;
+  padding: 0 0 38px;
+}
+
+.form-field2 input {
+  outline: 0;
+  width: 79%;
+  border: none;
+  height: 56px;
+  border-radius: 10px 0 0 10px;
+  background-color: #161a2b;
+  font-size: 15px;
+  line-height: 26px;
+  color: #7a7a7a;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  padding: 0 21px 0;
+}
+
+.form-field2 input::placeholder {
+  font-size: 15px;
+  line-height: 26px;
+  color: #7a7a7a;
+  font-weight: 400;
+  font-family: "Fira Sans";
+}
+
+.form-field2 button {
+  color: #fff;
+  outline: 0;
+  border: none;
+  width: 65px;
+  height: 56px;
+  border-radius: 0 10px 10px 0;
+  background-color: #ff3c00;
+  font-size: 22px;
+  margin-left: -4px;
+  position: relative;
+  top: 2px;
+}
+
+.footer-widget-social a i:hover {
+  color: #ff3d00;
+}
+
+.footer-widget.left ul li a:hover {
+  color: #ff3d00;
+}
+
+.footer-widget.left ul li a:hover::before {
+  width: 100%;
+}
+
+/*----solutek copyright css-----*/
+
+.row.copyright {
+  border-top: 1px solid #1c2030;
+  padding: 29px 0 0;
+}
+
+.copyright-list {
+  text-align: right;
+}
+
+.copyright-list ul li {
+  list-style: none;
+  display: inline-block;
+}
+
+.copyright-list ul li a {
+  display: inline-block;
+  opacity: 0.6;
+  font-size: 16px;
+  line-height: 40px;
+  color: #ffffff;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  text-decoration: none;
+  margin-left: 37px;
+  transition: 0.5s;
+}
+
+.copyright-text p {
+  opacity: 0.6;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  margin: 0;
+}
+
+.copyright-list ul li a:hover {
+  color: #ff3d00;
+}
+
+/*=====================================
+<--  end solutek footer-area Css -->
+=======================================*/
+
+
+
+/*=====================================
+<-- start solutek Home two Css -->
+=======================================*/
+
+/*nav button*/
+.search-box-btn.search-box-outer {
+  display: inline-block;
+}
+
+.nav-btn.navSidebar-button a i {
+  font-size: 18px;
+  color: #fff;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.xs-sidebar-group .xs-overlay {
+  left: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 101;
+  height: 100%;
+  opacity: 0;
+  width: 100%;
+  visibility: hidden;
+  -webkit-transition: all 0.4s ease-in 0.8s;
+  -o-transition: all 0.4s ease-in 0.8s;
+  transition: all 0.4s ease-in 0.8s;
+}
+
+.widget-heading a {
+  text-decoration: none;
+}
+
+.xs-sidebar-group .widget-heading {
+  position: absolute;
+  top: 23px;
+  right: 0;
+  padding: 25px;
+}
+
+.xs-sidebar-widget {
+  position: fixed;
+  right: -100%;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 360px;
+  z-index: 999999;
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: #fff;
+  -webkit-transition: all 0.5s cubic-bezier(0.9, 0.03, 0, 0.96) 0.6s;
+  -o-transition: all 0.5s cubic-bezier(0.9, 0.03, 0, 0.96) 0.6s;
+  transition: all 0.5s cubic-bezier(0.9, 0.03, 0, 0.96) 0.6s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.xs-sidebar-group.isActive .xs-overlay {
+  opacity: 0.5;
+  visibility: visible;
+  -webkit-transition: all 0.8s ease-out 0s;
+  -o-transition: all 0.8s ease-out 0s;
+  transition: all 0.8s ease-out 0s;
+  left: 0;
+}
+
+.xs-sidebar-group.isActive .xs-sidebar-widget {
+  opacity: 1;
+  visibility: visible;
+  right: 0;
+  -webkit-transition: all 0.7s cubic-bezier(0.9, 0.03, 0, 0.96) 0.4s;
+  -o-transition: all 0.7s cubic-bezier(0.9, 0.03, 0, 0.96) 0.4s;
+  transition: all 0.7s cubic-bezier(0.9, 0.03, 0, 0.96) 0.4s;
+}
+
+.sidebar-textwidget {
+  padding: 40px 32px;
+}
+
+.close-side-widget i {
+  color: #0e264f;
+  font-size: 28px;
+  display: block;
+}
+
+.sidebar-widget-container {
+  position: relative;
+  top: 150px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease-in 0.3s;
+  -o-transition: all 0.3s ease-in 0.3s;
+  transition: all 0.3s ease-in 0.3s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.xs-sidebar-group.isActive .sidebar-widget-container {
+  top: 0px;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all 1s ease-out 1.2s;
+  -o-transition: all 1s ease-out 1.2s;
+  transition: all 1s ease-out 1.2s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.xs-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.xs-bg-black {
+  background-color: #ff3b00;
+}
+
+/*html css*/
+.nav-logo {
+  padding: 0 0 40px;
+}
+
+.nav-btn.navSidebar-button a {
+  color: #ff3b00;
+}
+
+.sidebar-info-contents .widget-search {
+  padding: 0 0 15px;
+}
+
+.sidebar-info-contents .widget {
+  display: block;
+}
+
+.sidebar-info-contents h3.widget-title {
+  font-size: 25px;
+  padding: 8px 0 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.recent-gallery ul li {
+  list-style: none;
+}
+
+.sidebar-info-contents h3.widget-title {
+  font-size: 25px;
+  padding: 15px 0 15px;
+}
+
+.widget form {
+  position: relative;
+}
+
+.widget input {
+  border-radius: 4px;
+  padding-left: 20px;
+  height: 56px;
+  width: 100%;
+  color: #303030;
+  border: 1px solid #e9e9e9;
+}
+
+button.icon {
+  border: 0;
+  font-size: 18px;
+  color: #fff;
+  padding: 1px 15px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 56px;
+  width: 60px;
+  background: #ff3b00;
+  border-radius: 0 4px 4px 0;
+}
+
+ul.list-style-one li {
+  display: block;
+  color: #fff;
+  margin: 16px 0 0;
+  overflow: hidden;
+}
+
+ul.list-style-one li span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #062462;
+  display: inline-block;
+  width: 27px;
+  height: 27px;
+  line-height: 27px;
+  text-align: center;
+  transition: 0.5s;
+}
+
+ul.list-style-one li a {
+  transition: 0.5s;
+  color: #062462;
+  text-decoration: none;
+}
+
+.recent-gallery ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.widget-gallery-thumb img {
+  width: 100%;
+}
+
+/* Sidber Widget Tags CSS */
+
+.sidebar-tag-item ul li {
+  display: inline-block;
+  list-style: none;
+}
+
+li.item1 {
+  padding: 15px 0 0 !important;
+}
+
+.sidebar-tag-item a {
+  background: #fff;
+  padding: 6px 12px;
+  display: inline-block;
+  margin: 0px 6px 15px 0;
+  border: 0;
+  font-weight: 500;
+  color: #ff3b00;
+  border: 2px solid #ff3b00;
+  transition: 0.5s;
+  border-radius: 30px;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+}
+
+.sidebar-tag-item a:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #ff3b00;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  z-index: -1;
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+.sidebar-tag-item a:hover:before {
+  transform: scale(1);
+}
+
+.sidebar-tag-item a:hover {
+  color: #fff;
+}
+
+/* Social Icon */
+.follow-company-icon.style-two a {
+  color: #062462;
+}
+
+.follow-company-icon.style-two a:hover {
+  color: #fff;
+}
+
+ul.list-style-one li a:hover span {
+  background: #ff3b00;
+  border-radius: 30px;
+  color: #fff;
+}
+
+ul.list-style-one li a:hover {
+  color: #ff3b00;
+}
+
+.follow-company-icon {
+  display: inline-block;
+  line-height: 0;
+}
+
+.follow-company-icon a {
+  display: inline-block;
+  color: #fff;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  border-radius: 3px;
+  background-color: rgb(255, 255, 255, 0.19);
+  position: relative;
+  z-index: 1;
+  margin-right: 15px;
+  overflow: hidden;
+}
+
+.follow-company-icon.style-two a {
+  color: #062462;
+}
+
+.follow-company-icon a::before {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  right: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #ff3b00;
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.follow-company-icon a:hover::before {
+  left: 0;
+  opacity: 1;
+  visibility: visible;
+  width: 100%;
+}
+
+/* home style-two manu-area */
+.solutek_nav_manu.style-two {
+  padding: 15px 39px 12px;
+}
+
+.solutek_nav_manu.style-two .solutek_menu>ul>li>a {
+  color: #232323 !important;
+}
+
+.solutek_nav_manu.style-two.sticky .solutek_menu>ul>li>a {
+  color: #fff !important;
+}
+
+.solutek_nav_manu.style-two .solutek_menu>ul>li>a:hover {
+  color: #ff3c00 !important;
+}
+
+.solutek_nav_manu.style-two .header-menu-btn {
+  text-align: right;
+}
+
+.solutek_nav_manu.style-two .sidebar-button {
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.solutek_nav_manu.style-two .sidebar-button a {
+  color: #ff3b00;
+  display: inline-block;
+  background-color: rgb(255 59 0/7%);
+  height: 45px;
+  width: 45px;
+  padding: 12px 15px;
+}
+
+.solutek_nav_manu.style-two .solutek-btn a:hover {
+  color: #fff;
+}
+
+/* hero-area style-two*/
+.hero-area.style-two {
+  background: url(assets/images/home-two/hero2-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 70px;
+  margin: 0 50px;
+  border-radius: 40px 40px 0 0;
+  height: 850px;
+}
+
+.hero-area.style-two .hero-contant h5 {
+  margin-left: 18px;
+}
+
+.hero-area.style-two .hero-btn-shape {
+  display: inline-block;
+}
+
+.hero-area.style-two .solutek-btn {
+  display: inline-block;
+  margin-right: 56px;
+}
+
+.hero-area.style-two .solutek-btn a:hover {
+  color: #fff;
+}
+
+.hero-area.style-two .hero-thumb {
+  position: relative;
+  margin-top: 18px;
+}
+
+.hero-area.style-two .hero-thumb::before {
+  display: none;
+}
+
+.hero-area.style-two .hero-thumb-shape {
+  position: absolute;
+  top: -27px;
+  right: -120px;
+}
+
+.hero-area.style-two .hero-thumb-shape2 {
+  position: absolute;
+  left: 165px;
+  bottom: -120px;
+  z-index: -1;
+}
+
+.hero-area.style-two .hero-video-icon {
+  display: inline-block;
+  position: absolute;
+  bottom: -25px;
+  left: 295px;
+}
+
+.hero-area.style-two .hero-video-icon a i {
+  margin-left: 39px;
+  z-index: revert-layer;
+  top: -3px;
+  left: 10px;
+}
+
+.hero-area.style-two .hero-video-icon a i:after {
+  position: absolute;
+  content: "";
+  height: 100px;
+  width: 100px;
+  left: -22px;
+  border-radius: 50%;
+  top: -22px;
+  border: 2px solid #fff;
+  background: #fff;
+  z-index: -1;
+}
+
+/*
+<!-- =====================================-->
+<!-- Start solutek marquee section css -->
+<!-- =====================================-->*/
+.marquee-section {
+  position: relative;
+  background-color: #ff3c00;
+  padding: 33px 0 33px;
+  z-index: 1;
+  margin: 0 50px;
+  border-radius: 0 0 40px 40px;
+}
+
+.marquee-section .inner-container {
+  max-width: 1820px;
+  margin: 0 auto;
+}
+
+.marquee-section .marquee {
+  position: relative;
+  --duration: 30s;
+  --gap: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  gap: 0px;
+}
+
+.marquee-section .marquee-block {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  gap: 0px;
+  min-width: 100%;
+  -webkit-animation: scroll 30s linear infinite;
+  animation: scroll 30s linear infinite;
+}
+
+.marquee-section .marquee-block .content-box {
+  position: relative;
+}
+
+.marquee-section .marquee-block .content-box:last-child {
+  margin-right: 0;
+}
+
+.marquee-section .marquee-block .content-box:last-child::before {
+  display: none;
+}
+
+.marquee-section .marquee-block .content-box .title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+.content-box .title a {
+  display: inline-block;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.content-box .title a:hover {
+  color: #050a1e;
+}
+
+.content-box .title a i {
+  margin-right: 39px;
+}
+
+/*
+<!-- =====================================-->
+<!-- Start solutek service Area style two  -->
+<!-- =====================================-->*/
+.service-area.style-two {
+  padding: 120px 0 125px;
+}
+
+.service-area.style-two .section-title.text-center {
+  margin-bottom: 82px;
+}
+
+.service-area.style-two .single-service-box {
+  background: url(assets/images/home-two/serice-two-img.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 35px 0 35px 35px;
+  padding: 32px 20px 56px;
+  text-align: center;
+  position: relative;
+  transition: 0.5s;
+  margin-bottom: 30px;
+}
+
+.service-area.style-two .single-service-box::before {
+  position: absolute;
+  content: "";
+  width: 175px;
+  height: 5px;
+  background-color: #050a1e;
+  top: -5px;
+  right: 0;
+  z-index: 1;
+}
+
+.service-area.style-two .single-service-box::after {
+  position: absolute;
+  content: "";
+  width: 175px;
+  height: 5px;
+  background-color: #ff3c00;
+  left: 66px;
+  top: -5px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.service-area.style-two .service-box-inner::after {
+  position: absolute;
+  content: "";
+  height: 0;
+  width: 100%;
+  background: url(assets/images/home-two/service-hover.png);
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: 0.5s;
+  border-radius: 35px 0 35px 35px;
+  z-index: -1;
+}
+
+.service-area.style-two .service-title {
+  font-size: 24px;
+  color: #050a1e;
+  font-weight: 600;
+  position: relative;
+  transition: 0.5s;
+}
+
+.service-area.style-two .service-title::before {
+  position: absolute;
+  content: "";
+  width: 340px;
+  height: 1px;
+  background: rgb(122 122 122 / 20%);
+  margin: 0 auto;
+  bottom: -22px;
+  left: 0;
+  right: 0;
+}
+
+.service-area.style-two .service-des {
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  padding: 44px 0 14px;
+  transition: 0.5s;
+}
+
+.service-area.style-two .service-icon {
+  margin-bottom: 0px;
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  border-radius: 35px;
+  background-color: #f4f4f4;
+  position: absolute;
+  bottom: -34px;
+  left: 0;
+  right: 0;
+  margin: 0 auto 0;
+}
+
+/*all hover service */
+.service-area.style-two .single-service-box:hover .service-box-inner::after {
+  height: 100%;
+  top: 0;
+}
+
+.service-area.style-two .single-service-box:hover {
+  transform: translateY(-30px);
+}
+
+.service-area.style-two .single-service-box:hover .service-title {
+  color: #fff;
+}
+
+.service-area.style-two .single-service-box:hover .service-des {
+  color: #fff;
+}
+
+.service-area.style-two .single-service-box:hover .service-icon {
+  background: #ff3b00;
+}
+
+.service-area.style-two .single-service-box:hover .service-icon img {
+  filter: brightness(0) invert(1);
+}
+
+.service-area.style-two .single-service-box:hover .service-title::before {
+  background: #fff;
+}
+
+/*
+<!-- =====================================-->
+<!-- Start solutek about Area style-two  -->
+<!-- =====================================-->*/
+.about-area.style-two {
+  border-radius: 40px;
+  background: url(assets/images/home-two/about-bg.png);
+  margin: 0 50px;
+  padding: 120px 0 120px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.about-area.style-two h5.section-sub-title {
+  margin-left: 18px;
+}
+
+.about-area.style-two:before {
+  display: none;
+}
+
+.about-area.style-two p.section-title-descr {
+  width: 96%;
+}
+
+.about-area.style-two .about-shape {
+  position: absolute;
+  top: 0;
+  left: -2px;
+  z-index: -1;
+}
+
+.about-area.style-two .about-shape img {
+  animation-name: float-bob6;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -moz-animation-name: float-bob6;
+  -moz-animation-duration: 6s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: float-bob6;
+  -ms-animation-duration: 6s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  -o-animation-name: float-bob6;
+  -o-animation-duration: 6s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-timing-function: linear;
+}
+
+.about-area.style-two .about-thumbail {
+  position: relative;
+}
+
+.about-area.style-two .about-thumb {
+  position: relative;
+  z-index: 1;
+  margin-left: 72px;
+}
+
+.about-area.style-two .about-list-item ul li {
+  list-style: none;
+  font-size: 15px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #050a1e;
+  font-weight: 400;
+  border-bottom: 1px dashed rgb(122 122 122 / 40%);
+  margin-bottom: 23px;
+  padding-bottom: 15px;
+}
+
+.about-area.style-two .about-list-item ul li img {
+  margin-right: 22px;
+}
+
+.about-area.style-two .about-section-content {
+  margin-left: 100px;
+}
+
+.about-area.style-two .about-list-item {
+  margin-top: 13px;
+  margin-bottom: 48px;
+}
+
+.about-area.style-two .about-contact-box {
+  display: inline-block;
+}
+
+.about-area.style-two .call-box {
+  display: flex;
+  align-items: center;
+}
+
+.about-area.style-two .about-contact {
+  display: inline-block;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  border-radius: 100%;
+  background-color: #ffffff;
+  margin-right: 15px;
+  transition: 0.5s;
+}
+
+.about-area.style-two .solutek-btn {
+  display: inline-block;
+  margin-right: 24px;
+}
+
+.about-area.style-two .about-contact-content h4 {
+  font-size: 15px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #7a7a7a;
+  font-weight: 400;
+  margin-bottom: 0;
+  font-family: "Fira Sans";
+}
+
+.about-area.style-two .about-contact-content p {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #050a1e;
+  font-weight: 500;
+  margin: 0;
+}
+
+.about-area.style-two .solutek-btn a:hover {
+  color: #fff;
+}
+
+/*
+<!-- =====================================-->
+<!--start solutek team Area style-two-->
+<!-- =====================================-->*/
+.team-area.style-two {
+  padding: 110px 0 90px;
+}
+
+.team-area.style-two .section-title.text-center {
+  margin-bottom: 52px;
+}
+
+.team-area.style-two .single-team-box {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.team-area.style-two .single-team-box::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 0;
+  background: #050a1e;
+  left: 0;
+  right: 0;
+  transition: 0.5s;
+  border-radius: 20px 0 20px 20px;
+}
+
+.team-area.style-two .single-team-thumb::before {
+  position: absolute;
+  content: "";
+  width: 115px;
+  height: 3px;
+  background-color: #050a1e;
+  right: 0;
+  top: -3px;
+}
+
+.team-area.style-two .single-team-thumb::after {
+  position: absolute;
+  content: "";
+  width: 145px;
+  height: 3px;
+  background-color: #ff3c00;
+  left: 46px;
+  top: -3px;
+}
+
+.team-area.style-two .single-team-thumb img {
+  width: 100%;
+}
+
+.team-area.style-two .team-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.team-area.style-two .team-inner-title {
+  background-color: #ff3c00;
+  border-radius: 20px 0 20px 20px;
+  padding: 30px 0;
+  opacity: 0;
+  transition: 0.5s;
+  transform: perspective(500px) rotateX(-90deg);
+  transform-origin: 50% 0%;
+  z-index: 9999;
+}
+
+.team-area.style-two .team-content h4 {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+}
+
+.team-area.style-two .team-content h4 a {
+  transition: 0.5s;
+}
+
+.team-area.style-two .team-content p {
+  font-size: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+}
+
+.team-area.style-two .team-social-icon {
+  text-align: center;
+  padding-top: 118px;
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.team-area.style-two .team-social-icon ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 8px;
+}
+
+.team-area.style-two .team-social-icon ul li a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Poppins";
+  text-transform: uppercase;
+  color: #fff;
+  transition: 0.5s;
+}
+
+/*all hover team */
+.team-area.style-two .single-team-box:hover::before {
+  width: 100%;
+  bottom: 0;
+}
+
+.team-area.style-two .single-team-box:hover .team-inner-title {
+  opacity: 1;
+}
+
+.team-area.style-two .single-team-box:hover .team-inner-title {
+  opacity: 1;
+  transform: perspective(500px) rotateX(0deg);
+}
+
+.team-area.style-two .single-team-box:hover .team-social-icon {
+  opacity: 1;
+}
+
+.team-area.style-two .team-social-icon ul li a:hover {
+  color: #ff3c00;
+  text-decoration: underline;
+}
+
+.team-area.style-two .team-content h4 a:hover {
+  color: #fff;
+}
+
+/*
+<!-- =====================================-->
+<!-- start solutek project Area style-two-->
+<!-- =====================================-->*/
+.project-area.styl-two {
+  padding: 120px 0 65px;
+  background: url(assets/images/home-two/project-bg-two.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 0 50px;
+  border-radius: 40px 40px 0px 0px;
+  position: relative;
+}
+
+.project-area.styl-two .project-section {
+  margin: 0 240px;
+}
+
+.project-area.styl-two h5.section-sub-title {
+  margin-left: 18px;
+  background-color: #161a2b;
+  border: 2px solid #40465d;
+}
+
+.project-area.styl-two .section-title.text-left {
+  margin-bottom: 50px;
+}
+
+.project-area.styl-two .project-carousel {
+  margin: 0 29px;
+}
+
+.project-area.styl-two h1.section-main-title {
+  color: #fff;
+}
+
+.project-area.styl-two .project-single-box {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  margin: 3px 0 90px;
+}
+
+.project-area.styl-two .project-single-box::before {
+  position: absolute;
+  content: "";
+  width: 175px;
+  height: 3px;
+  background-color: #fff;
+  right: 0;
+  top: -3px;
+}
+
+.project-area.styl-two .project-single-box::after {
+  position: absolute;
+  content: "";
+  width: 175px;
+  height: 3px;
+  background-color: #ff3c00;
+  left: 66px;
+  top: -3px;
+}
+
+.project-thumb::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 0;
+  background: url(assets/images/home-two/project-effect.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  left: 0;
+  right: 0;
+
+  transition: 0.5s;
+}
+
+.project-thumb.style-two::before {
+  background: url(assets/images/home-two/project-effect2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.project-thumb.style-three::before {
+  background: url(assets/images/home-two/project-effect3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.project-thumb.style-four::before {
+  background: url(assets/images/home-two/project-effect4.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.project-area.styl-two .project-content {
+  display: inline-block;
+  text-align: center;
+  position: absolute;
+  bottom: 63px;
+  left: 0;
+  right: 0;
+  background: transparent;
+  border: 1px dashed #fff;
+  padding: 4px 0 16px;
+  width: 84%;
+  margin: 0 auto;
+  border-radius: 20px 0px 20px 20px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.project-area.styl-two h4.project-title {
+  margin: 0;
+  line-height: 42px;
+  transition: 0.5s;
+}
+
+.project-area.styl-two h4.project-title a {
+  display: inline-block;
+  text-decoration: none;
+  transition: 0.5s;
+  font-size: 24px;
+  line-height: 55px;
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0;
+}
+
+.project-area.styl-two p.project-des {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-family: "Poppins";
+  margin: 0;
+}
+
+.project-area.styl-two .project-icon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -35px;
+}
+
+.project-area.styl-two .project-icon span {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  border-radius: 100%;
+  background-color: #161a2b;
+  text-align: center;
+  color: #ff3c00;
+  font-size: 32px;
+  transform: rotate(-45deg);
+}
+
+.project-area.styl-two .project-shape {
+  position: absolute;
+  z-index: -1;
+  bottom: -85px;
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.project-area.styl-two .project-bg-shape {
+  position: absolute;
+  top: 75px;
+  right: 165px;
+}
+
+/* all hover projcet two */
+.project-area.styl-two .project-single-box:hover .project-thumb::before {
+  width: 100%;
+  top: 0;
+}
+
+.project-area.styl-two .project-single-box:hover .project-content {
+  opacity: 1;
+}
+
+.project-area.styl-two .project-single-box:hover .project-shape {
+  opacity: 1;
+}
+
+.project-area.styl-two .project-single-box:hover .project-icon span {
+  background: #ff3b00;
+  color: #fff;
+}
+
+/* project owl nav */
+.project-area.styl-two .owl-prev,
+.owl-next {
+  display: inline-block;
+}
+
+.project-area.styl-two .owl-prev {
+  margin-right: 32px;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  background-color: #161a2b;
+  display: inline-block;
+  text-align: center;
+  border-radius: 10px 0px 10px 10px;
+  color: #ff3b00;
+  font-size: 22px;
+  transition: 0.5s;
+}
+
+.project-area.styl-two .owl-prev:hover {
+  background-color: #ff3b00;
+  color: #fff;
+}
+
+.project-area.styl-two .owl-next {
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  background: #ff3b00;
+  display: inline-block;
+  text-align: center;
+  border-radius: 10px 0px 10px 10px;
+  color: #fff;
+  font-size: 22px;
+  transition: 0.5s;
+}
+
+.project-area.styl-two .owl-next:hover {
+  background: #ff3b00;
+  color: #fff;
+}
+
+.project-area.styl-two .owl-nav {
+  position: absolute;
+  right: 228px;
+  top: -118px;
+}
+
+
+/*
+<!-- ==========================================-->
+<!-- start solutek project-area styl-three -->
+<!-- =========================================-->*/
+.project-area.style-three {
+  background: url(assets/images/home-two/project-bg3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding: 120px 0 116px;
+  margin: 0 50px;
+  border-radius: 40px;
+  position: relative;
+}
+
+.project-area.style-three .section-title.text-left {
+  margin-bottom: 86px;
+}
+
+.project-area.style-three .project-single-box {
+  text-align: center;
+  background: #fff;
+  border-radius: 10px 0 10px 10px;
+  padding: 44px 30px 40px;
+  margin: 0 22px 30px;
+  position: relative;
+}
+
+.project-area.style-three .project-single-box.box-1::before {
+  position: absolute;
+  content: "";
+  background: url(assets/images/home-two/project-shape1.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  left: -26px;
+  top: -20px;
+  height: 100%;
+  width: 130%;
+}
+
+.project-area.style-three .project-single-box.box-2::after {
+  position: absolute;
+  content: "";
+  background: url(assets/images/home-two/project-shape2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  left: -22px;
+  bottom: -130px;
+  height: 100%;
+  width: 130%;
+}
+
+.project-area.style-three .project-single-box.box-3::after {
+  position: absolute;
+  content: "";
+  background: url(assets/images/home-two/project-shape3.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  left: -15px;
+  top: -20px;
+  height: 100%;
+  width: 128%;
+}
+
+.project-single-box.down.box-4::after {
+  position: absolute;
+  content: "";
+  background: url(assets/images/home-two/project-shape4.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  left: -17px;
+  bottom: -135px;
+  height: 100%;
+  width: 115%;
+}
+
+.project-area.style-three .project-single-box.down {
+  border-radius: 10px 10px 0px 10px;
+}
+
+.project-area.style-three h5.section-sub-title {
+  background-color: rgba(255, 255, 255, 0);
+  border: 2px solid #ffffff;
+  margin-left: 18px;
+}
+
+.project-area.style-three p.section-des {
+  font-size: 16px;
+  line-height: 28px;
+  color: #7a7a7a;
+}
+
+.project-area.style-three .project-title {
+  margin-top: 18px;
+  font-size: 20px;
+  color: #050a1e;
+  font-weight: 600;
+}
+
+.project-area.style-three .project-title a {
+  display: inline-block;
+  font-size: 20px;
+  color: #050a1e;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.project-area.style-three .project-des {
+  font-size: 16px;
+  line-height: 28px;
+  color: #7a7a7a;
+  margin: 0;
+}
+
+.project-area.style-three .project-bg-shape1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.project-area.style-three .project-bg-shape2 {
+  position: absolute;
+  right: 0;
+  top: 240px;
+}
+
+/*
+<!-- ==========================================-->
+<!-- start solutek blog Area style-two-->
+<!-- =========================================-->*/
+.blog-area.style-two {
+  background: #fff;
+  padding: 120px 0 90px;
+}
+
+.blog-area.style-two h5.section-sub-title {
+  background-color: #ffffff;
+  border: 2px solid #f4f4f4;
+}
+
+.blog-area.style-two .single-blog-box {
+  position: relative;
+  background: url(assets/images/home-two/blog-box.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin-bottom: 30px;
+}
+
+.blog-area.style-two .single-blog-box::before {
+  position: absolute;
+  content: "";
+  width: 155px;
+  height: 3px;
+  background-color: #050a1e;
+  top: -3px;
+  right: 0;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.blog-area.style-two .single-blog-box::after {
+  position: absolute;
+  content: "";
+  width: 175px;
+  height: 3px;
+  background-color: #ff3c00;
+  left: 86px;
+  top: -3px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.blog-area.style-two .single-blog-thumb {
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.blog-area.style-two .single-blog-thumb img {
+  width: 100%;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.blog-area.style-two .blog-meta-top {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  transition: 0.5s;
+}
+
+.blog-area.style-two .blog-meta-top a {
+  display: inline-block;
+  font-size: 15px;
+  text-decoration: none;
+  color: #fff;
+  background: #ff3d00;
+  padding: 7px 19px;
+  border-radius: 20px;
+  font-family: "Fira Sans";
+  font-weight: 400;
+  transition: 0.5s;
+}
+
+.blog-area.style-two .blog-box-content {
+  padding: 25px 30px 36px;
+}
+
+.blog-area.style-two .blog-box-content h3 {
+  margin: 0;
+}
+
+.blog-area.style-two .meta-blog a span {
+  display: inline-block;
+  font-size: 15px;
+  color: #7a7a7a;
+  font-weight: 400;
+  font-family: "Fira Sans";
+}
+
+.blog-area.style-two .meta-blog span i {
+  display: inline-block;
+  color: #ff3c00;
+  width: 37px;
+  height: 37px;
+  line-height: 37px;
+  background: #fff;
+  text-align: center;
+  border-radius: 10px 0 10px 10px;
+  margin-right: 15px;
+}
+
+.blog-area.style-two .meta-blog p {
+  display: inline-block;
+  margin-left: 15px;
+  margin-bottom: 0;
+}
+
+.blog-area.style-two .meta-blog p span {
+  display: inline-block;
+  width: 37px;
+  height: 37px;
+  line-height: 37px;
+  background: #fff;
+  text-align: center;
+  border-radius: 10px 0 10px 10px;
+  margin-right: 15px;
+}
+
+.blog-area.style-two .blog-box-content h3 a {
+  display: inline-block;
+  font-size: 22px;
+  line-height: 34px;
+  color: #050a1e;
+  font-weight: 600;
+  font-family: "Fira Sans";
+  text-decoration: none;
+  padding: 22px 0 34px;
+  transition: 0.5s;
+}
+
+.blog-area.style-two .blog-button a {
+  display: inline-block;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #ff3c00;
+  font-weight: 500;
+  font-family: "Fira Sans";
+  border-radius: 24px;
+  background-color: #ffffff;
+  padding: 8px 32px;
+  transition: 0.5s;
+}
+
+/* blog hover */
+.blog-area.style-two .blog-button a:hover {
+  color: #fff !important;
+}
+
+.blog-area.style-two .blog-meta-top a:hover {
+  background: #fff;
+  color: #ff3b00;
+}
+
+.blog-area.style-two .single-blog-box:hover .blog-box-content a {
+  color: #ff3b00;
+}
+
+.blog-area.style-two .single-blog-box:hover .single-blog-thumb img {
+  transform: scale(1.1);
+}
+
+.blog-area.style-two .single-blog-box:hover:before {
+  width: 100%;
+}
+
+.blog-area.style-two .single-blog-box:hover .blog-meta-top {
+  left: 134px;
+}
+
+.blog-area.style-two .single-blog-box:hover::after {
+  left: 0;
+  right: 0;
+}
+
+/* <!--solutek home page three Css--> */
+
+
+/*---=====================================================
+   <!--solutek top header area Css-->
+=========================================================---*/
+.top-header-area {
+  background-color: #050a1e;
+  padding: 12px 0;
+}
+
+.header-info ul li {
+  display: inline-block;
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: 400;
+  margin-right: 50px;
+}
+
+.header-info li.exam-gmail {
+  margin-right: 43px;
+}
+
+.header-info ul li i {
+  display: inline-block;
+  color: #fff;
+  margin-right: 8px;
+}
+
+.top-header-social-icon ul li {
+  list-style: none;
+}
+
+.top-header-social-icon {
+  text-align: right;
+}
+
+.top-header-social-icon ul li {
+  display: inline-block;
+  color: #fff;
+}
+
+.top-header-social-icon ul li i {
+  color: #050a1e;
+  display: inline-block;
+  font-size: 14px;
+  margin-left: 13px;
+  transition: 0.5s;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.top-header-social-icon ul li i:hover {
+  background-color: #ff3c00;
+  color: #fff;
+}
+
+/*solutek home page 03 css 
+  -----------------------*/
+
+/* home style-three manu-area */
+.solutek_nav_manu.style-three {
+  padding: 15px 90px 12px 140px;
+}
+
+.solutek_nav_manu.style-three .solutek_menu>ul>li>a {
+  color: #232323 !important;
+}
+
+.solutek_nav_manu.style-three.sticky .solutek_menu>ul>li>a {
+  color: #fff !important;
+}
+
+.solutek_nav_manu.style-three .solutek_menu>ul>li>a:hover {
+  color: #ff3c00 !important;
+}
+
+.solutek_nav_manu.style-three .header-menu-btn {
+  text-align: right;
+}
+
+.solutek_nav_manu.style-three .sidebar-button {
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.solutek_nav_manu.style-three .sidebar-button a {
+  color: #ff3b00;
+  display: inline-block;
+  background-color: rgb(255 59 0/7%);
+  height: 45px;
+  width: 45px;
+  padding: 12px 15px;
+}
+
+.solutek_nav_manu.style-three .solutek-btn a:hover {
+  color: #fff;
+}
+
+.solutek_nav_manu.style-three .solutek-btn {
+  display: inline-block;
+  margin-left: 18px;
+}
+
+/* hero area home 03 */
+
+/*---=====================================================
+   <!--solutek hero Area style-three-->
+=========================================================---*/
+.hero-area.style-three {
+  height: 800px;
+  background: #050a1e;
+  margin: 0;
+  padding-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-area.style-three .hero-contant {
+  position: relative;
+  padding-top: 130px;
+}
+
+.hero-area.style-three .hero-contant h6 {
+  font-size: 16px;
+  line-height: 42px;
+  color: #ff3c00;
+  font-weight: 600;
+  margin-left: 58px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0;
+}
+
+.hero-area.style-three .hero-contant h6::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 6px;
+  border-radius: 3px;
+  background-color: #ff3c00;
+  top: 20px;
+  left: -57px;
+}
+
+.hero-area.style-three .hero-contant h6::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 6px;
+  border-radius: 3px;
+  background-color: #ff3c00;
+  top: 20px;
+  left: -33px;
+}
+
+.hero-area.style-three .hero-contant h1 {
+  margin: 0;
+  font-size: 65px;
+  line-height: 80px;
+  color: #ffffff;
+  font-weight: 700;
+  display: inline;
+}
+
+.hero-area.style-three .hero-contant span {
+  display: inline-block;
+  font-size: 65px;
+  line-height: 80px;
+  color: #ff3c00;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.hero-area.style-three .hero-contant p {
+  font-size: 19px;
+  line-height: 28px;
+  color: #7a7a7a;
+  width: 100%;
+  opacity: 1;
+  padding: 18px 0 40px;
+}
+
+.hero-area.style-three .solutek-btn {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.hero-area.style-three .hero-btn-3 {
+  display: inline-block;
+}
+
+.hero-area.style-three .hero-btn-profile img {
+  border: 2px solid #ff3c00;
+  border-radius: 100%;
+  margin-right: 5px;
+}
+
+.hero-area.style-three .hero-btn-profile a {
+  display: inline-block;
+  font-size: 15px !important;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-area.style-three .hero-btn-profile a span {
+  display: inline-block;
+  font-size: 15px !important;
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: #ff3c00;
+  font-weight: 700;
+  margin-right: 5px;
+}
+
+.hero-area.style-three .hero-thumb-3 {
+  position: relative;
+  padding-top: 10px;
+}
+
+.hero-area.style-three .hero-thumb-shape {
+  position: absolute;
+  top: 10px;
+}
+
+.hero-area.style-three .hero-left-shape {
+  position: absolute;
+  top: -50px;
+  left: -154px;
+  -webkit-animation-name: rotateme;
+  -webkit-animation-duration: 15s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+.hero-active .owl-prev {
+  font-size: 16px;
+  line-height: 28px;
+  color: #f4f4f4;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  margin: 0;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  position: absolute;
+  top: 190px;
+  left: 55px;
+}
+
+.hero-active .owl-next {
+  font-size: 16px;
+  line-height: 28px;
+  color: #f4f4f4;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  margin: 0;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  position: absolute;
+  bottom: 190px;
+  left: 55px;
+
+}
+
+.hero-active {
+  position: relative;
+}
+
+.hero-active .owl-prev::before {
+  position: absolute;
+  content: '';
+  width: 2px;
+  height: 166px;
+  background-image: linear-gradient(0deg, #ff3b00 0%, #05091d 100%);
+  left: 13px;
+  bottom: 200px;
+}
+
+.hero-active .owl-prev::after {
+  position: absolute;
+  content: '';
+  width: 2px;
+  height: 166px;
+  background-image: linear-gradient(0deg, #05091d 0%, #ff3b00 100%);
+  left: 13px;
+  bottom: 36px;
+}
+
+/*---=====================================================
+  <!-- Start solutek our service section  -->
+=========================================================---*/
+.our-service-section {
+  background: url(assets/images/home-3/service-bg.png);
+  padding: 110px 0 170px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.our-service-section .service-box {
+  position: relative;
+}
+
+.our-service-section .single-service-box {
+  background: url(assets/images/home-3/ser-box-bg.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 35px 30px 135px 30px;
+  border: 2px solid #fff;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.our-service-section .service-icon {
+  margin-bottom: 15px;
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
+  border-radius: 50%;
+  background-color: #ff3c00;
+  text-align: center;
+}
+
+.our-service-section h4.service-title {
+  font-size: 24px;
+  color: #050a1e;
+  font-weight: 600;
+  transition: 0.5s;
+  position: relative;
+}
+
+.our-service-section h4.service-title:hover {
+  color: #ff3c00
+}
+
+.our-service-section h4.service-title::before {
+  position: absolute;
+  content: "";
+  width: 80px;
+  height: 2px;
+  background-image: linear-gradient(270deg, #ffffff 0%, #ff3b00 100%);
+  left: 0;
+  bottom: -5px;
+}
+
+.our-service-section p.service-desc {
+  font-size: 16px;
+  line-height: 26px;
+  color: #7a7a7a;
+  padding-top: 18px;
+}
+
+.our-service-section .service-thumb {
+  position: absolute;
+  bottom: -80px;
+  left: 28px;
+}
+
+.our-service-section .service-thumb img {
+  width: 100%;
+}
+
+/*---=====================================================
+  <!-- start solutek about section -->
+=========================================================---*/
+.about-section {
+  background: url(assets/images/home-3/about3-bg.png);
+  padding: 120px 0 125px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.about-section .about-contact {
+  margin-left: 80px;
+}
+
+.about-section .about-box-item {
+  display: flex;
+  gap: 45px;
+  padding-bottom: 40px;
+}
+
+.about-item-list {
+  margin-bottom: 46px;
+}
+
+.about-section .about-item-list ul li {
+  list-style: none;
+  margin-left: 54px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.about-section .about-item-list ul li::before {
+  position: absolute;
+  content: '';
+  width: 45px;
+  height: 2px;
+  background-image: linear-gradient(270deg, #ffffff 0%, #ff3b00 100%);
+  left: -53px;
+  top: 12px;
+}
+
+/*---=====================================================
+   <!-- start solutek counter area -->
+=========================================================---*/
+.counter-area {
+  position: relative;
+  z-index: 1;
+}
+
+.counter-area .row.counter-item {
+  background: url(assets/images/home-3/counter-bg.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 63px 0 60px;
+  border-radius: 50px 0 0 0;
+}
+
+.counter-area .counter-single-box {
+  text-align: center;
+  position: relative;
+}
+
+.counter-area .counter-single-box::before {
+  position: absolute;
+  content: '';
+  opacity: 0.302;
+  width: 2px;
+  height: 90px;
+  background-color: #ffffff;
+  top: 0;
+  right: -16px;
+}
+
+.counter-area .counter-content h4,
+.counter-content span {
+  display: inline-block;
+  font-size: 40px;
+  line-height: 28px;
+  color: #f4f4f4 !important;
+  font-weight: 700;
+}
+
+.counter-area .counter-content p {
+  font-size: 18px;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: #f4f4f4;
+  font-weight: 500;
+  margin: 0;
+}
+
+.counter-area .counter-thumb {
+  position: absolute;
+  right: -17px;
+  top: 0;
+  bottom: 0;
+}
+
+.counter-area .counter-thumb img {
+  width: 95%;
+  height: 100%;
+}
+
+/*---=====================================================
+   <!-- start solutek case studies area -->
+=========================================================---*/
+.case-studies-area {
+  background-color: #050a1e;
+  padding: 110px 0 65px;
+}
+
+.case-studies-box {
+  border-radius: 25px;
+  padding: 34px 80px;
+  margin-bottom: 25px;
+  background: linear-gradient(to bottom, #161A2B, #131729, #05091D);
+}
+
+.case-studies-content h4 a {
+  font-size: 24px;
+  line-height: 28px;
+  color: #f4f4f4;
+  font-weight: 600;
+}
+
+.case-studies-content h4 {
+  font-size: 24px;
+  color: #f4f4f4;
+  font-weight: 600;
+  font-family: "Poppins";
+}
+
+.case-studies-content h4 a {
+  display: inline-block;
+  transition: 0.5s;
+}
+
+.case-studies-content h5 {
+  font-size: 17px;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: #ff3c00;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  margin-left: 60px;
+  position: relative;
+  padding-bottom: 163px;
+}
+
+.case-studies-content h5::before {
+  position: absolute;
+  content: "";
+  width: 50px;
+  height: 2px;
+  background-image: linear-gradient(270deg, #15192b 0%, #ff3b00 100%);
+  left: -60px;
+  top: 12px;
+}
+
+.case-studies-content h5 a {
+  display: inline-block;
+  transition: 0.5s;
+}
+
+.case-studies-btn a {
+  display: inline-block;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 500;
+  font-family: "Fira Sans";
+  border-radius: 29px;
+  background-color: #ff3c00;
+  padding: 13px 40px;
+  transition: 0.5s;
+}
+
+.case-studies-btn a:hover {
+  background: #fff;
+  color: #ff3c00;
+}
+
+.case-studies-single-box {
+  transition: 0.5s;
+}
+
+.case-studies-thumb {
+  position: relative;
+}
+
+.case-studies-single-box .case-studies-thumb img {
+  width: 100%;
+}
+
+.case-studies-thumb::before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  background-image: linear-gradient(180deg, rgba(255, 60, 0, 0) 37%, rgba(255, 60, 0, 0.9999999999999999) 100%);
+  bottom: 0;
+  right: 0;
+  transition: 0.5s;
+  border-radius: 30px;
+}
+
+.case-studie-content {
+  position: absolute;
+  bottom: 25px;
+  left: 78px;
+}
+
+.case-studie-content h3 {
+  font-size: 22px;
+  line-height: 44px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.case-studie-content h6 {
+  font-size: 17px;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: #ff3c00;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  margin-left: 60px;
+  position: relative;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.case-studie-content h6::before {
+  position: absolute;
+  content: '';
+  width: 50px;
+  height: 2px;
+  background-image: linear-gradient(270deg, #05091d 0%, #ff3b00 100%);
+  left: -62px;
+  top: 12px;
+}
+
+.case-studies-icon {
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  border-radius: 28px;
+  background-color: #ff3c00;
+  text-align: center;
+  transition: 0.5s;
+  float: right;
+  transform: translateY(-95px);
+  margin-right: 85px;
+}
+
+.case-studies-icon i {
+  color: #fff;
+  font-size: 22px;
+}
+
+/* all hover case studies */
+.case-studies-single-box:hover .case-studies-thumb::before {
+  width: 100%;
+  left: 0;
+}
+
+.case-studies-single-box:hover .case-studie-content h6 {
+  color: #fff;
+}
+
+.case-studies-single-box:hover .case-studie-content h6::before {
+  background-image: linear-gradient(270deg, #ff3b00 0%, #ffffff 100%);
+}
+
+.case-studies-single-box:hover .case-studies-icon {
+  background: #050a1e;
+}
+
+
+/*---=====================================================
+   <!--start solutek working proces area -->
+=========================================================---*/
+.working-proces-area {
+  padding: 110px 0 90px;
+}
+
+.working-proces-area .section-title.text-center {
+  margin-bottom: 62px;
+}
+
+.working-process-box {
+  text-align: center;
+  padding: 0 50px 0;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.working-process-box:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: -81px;
+  top: 73px;
+  background: url(assets/images/home-3/process-shpae1.png);
+  background-repeat: no-repeat;
+}
+
+.working-process-box:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: -81px;
+  top: 73px;
+  background: url(assets/images/home-3/process-shape2.png);
+  background-repeat: no-repeat;
+}
+
+.working-process-box.before-transprent:before {
+  background: transparent;
+}
+
+.working-process-box.after-transprent:after {
+  background: transparent;
+}
+
+.process-thumb {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.process-thumb:before {
+  position: absolute;
+  content: "";
+  width: 240px;
+  height: 240px;
+  left: 36px;
+  top: -13px;
+  border: 2px dashed #ff3c00;
+  border-radius: 50%;
+  animation: rotateme 20s linear infinite;
+}
+
+.process-number span {
+  position: absolute;
+  left: 8%;
+  top: 13%;
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  font-weight: 600;
+  border-radius: 50px;
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  background-color: #ff3c00;
+  transition: .5s;
+  text-align: center;
+}
+
+.process-content h4 {
+  margin: 20px 0 10px;
+  transition: .5s;
+  font-size: 20px;
+  line-height: 36px;
+  color: #050a1e;
+  font-weight: 600;
+}
+
+.process-content p {
+  font-size: 16px;
+  line-height: 28px;
+  color: #7a7a7a;
+  font-weight: 400;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.working-process-bottom p,
+.working-process-bottom p span {
+  font-size: 17px;
+  line-height: 50px;
+  color: #7a7a7a;
+  font-weight: 400;
+  font-family: "Poppins";
+  text-align: center;
+  padding-top: 28px;
+}
+
+.working-process-bottom p span {
+  color: #ff3c00;
+}
+
+/*---=====================================================
+   <!-- start solutek-faq Area style-two-->
+=========================================================---*/
+.faq-area.style-two {
+  background: url(assets/images/home-3/faq-bg.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 0;
+}
+
+.faq-area.style-two .section-title.text-left {
+  margin-bottom: 55px;
+  padding-top: 115px;
+}
+
+.faq-area.style-two .faq-thumb {
+  position: relative;
+  right: -54px;
+}
+
+.faq-area.style-two .accordion li a {
+  padding: 16px 20px 16px 30px;
+  text-decoration: none;
+  border-radius: 15px;
+  border: 2px solid #ffffff;
+  background: #f4f4f4;
+}
+
+.faq-area.style-two ul.accordion a.active span {
+  color: #ff3c00 !important;
+}
+
+.faq-area.style-two .accordion li p {
+  padding: 44px 20px 21px 25px;
+}
+
+.faq-area.style-two .accordion li {
+  padding: 0 0 30px;
+}
+
+/*---=====================================================
+   <!--solutek Breadcumb Area Css-->
+=========================================================---*/
+.breadcumb-area {
+  background: url(assets/images/inner/breadcumb-bg.png);
+  padding: 230px 0 170px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  margin: -77px 0px 0 -16px;
+}
+
+.breadcumb-area.about {
+  padding: 230px 0 180px;
+}
+
+.breadcumb-content {
+  text-align: center;
+}
+
+.breadcumb-content h4 {
+  font-size: 55px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 600;
+  font-family: "Fira Sans";
+}
+
+ul.breadcumb-list {
+  margin-top: 24px;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 5px;
+  background-color: #161a2b;
+}
+
+.breadcumb-content ul li {
+  display: inline-block;
+  margin: 0 6px;
+  font-size: 16px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #ff3b00;
+  font-weight: 500;
+  font-family: "Fira Sans";
+}
+
+li.list-arrow {
+  color: #fff !important;
+}
+
+.breadcumb-content ul li a {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 500;
+  font-family: "Fira Sans";
+  cursor: pointer;
+}
+
+
+/* <!--==================================================-- */
+/* <!--start solutek about us Area -- */
+/* <!--==================================================--> */
+.about-us-area {
+  background: #fff;
+  padding: 144px 0 95px;
+  position: relative;
+}
+
+.about-us-area .section-title.text-left {
+  margin-bottom: 10px;
+}
+
+.about-us-content {
+  position: relative;
+}
+
+.about-us-list {
+  margin-bottom: 53px;
+}
+
+.about-us-list ul li {
+  list-style: none;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.about-us-list ul li::before {
+  position: absolute;
+  content: "";
+  width: 11px;
+  height: 11px;
+  background: #ff3b00;
+  left: 0;
+  top: 5px;
+  border-radius: 50%;
+}
+
+.about-us-list ul li span {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 26px;
+  color: #050a1e;
+  font-weight: 400;
+  font-family: "Fira Sans";
+  margin-left: 30px;
+}
+
+.single-counter-box {
+  background-color: #f4f4f4;
+  text-align: center;
+  position: absolute;
+  border-radius: 10px;
+  right: 103px;
+  top: 8px;
+  padding: 65px 45px 30px;
+}
+
+.counter-icon {
+  position: absolute;
+  top: -38px;
+  right: 0;
+  left: 0;
+}
+
+.about-us-area .counter-content h4,
+.counter-content span {
+  display: inline-block;
+  font-size: 40px;
+  line-height: 26px;
+  color: #ff3c00;
+  font-weight: 600;
+}
+
+.counter-content h4 span {
+  display: inline-block;
+}
+
+.counter-content p {
+  font-size: 17px;
+  text-transform: uppercase;
+  color: #7a7a7a;
+}
+
+.about-us-thumb {
+  position: relative;
+  z-index: 1;
+}
+
+.about-us-video-icon {
+  background: #fff;
+  display: inline-block;
+  padding: 45px 30px 45px 60px;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  right: 1px;
+  z-index: 0;
+}
+
+.about-us-video-icon a i {
+  display: inline-block;
+  color: #fff;
+  font-size: 30px;
+  background: #ff3b00;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.about-us-video-icon a i::after {
+  position: absolute;
+  content: "";
+  width: 75px;
+  height: 75px;
+  background: #050a1e;
+  line-height: 75px;
+  text-align: center;
+  border-radius: 50%;
+  top: 33px;
+  left: 48px;
+  z-index: -1;
+}
+
+.about-us-video-icon a span {
+  display: inline-block;
+  font-size: 15px;
+  text-decoration: underline;
+  color: #ff3c00;
+  padding-left: 30px;
+}
+
+.about2-us-shape {
+  position: absolute;
+  left: 20px;
+  top: 170px;
+  animation: bounceleft 4s linear infinite;
+}
+
+.about-us-shape {
+  position: absolute;
+  left: 45px;
+  bottom: 0;
+  animation: bounceleft 4s linear infinite;
+}
+
+.about-us-shape2 {
+  position: absolute;
+  right: 0;
+  top: -6px;
+}
+
+/*---=====================================================
+  <!-- start solutek project Area style-two -->
+=========================================================---*/
+.project-area.style-two {
+  padding: 130px 0 88px;
+  background: url(assets/images/inner/project-bg-3.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border-radius: 40px 40px 0 0;
+  margin: 0 50px;
+}
+
+.project-area.style-two .row.project {
+  padding: 0 260px 0;
+}
+
+/*---=====================================================
+<!-- start solutek service Area style-two-->
+=========================================================---*/
+.sservice-area.style-two {
+  padding: 120px 0 58px;
+}
+
+.sservice-area.style-two .single-service-box {
+  padding: 0 0 38px;
+  position: relative;
+  background: #fff;
+  border-radius: 15px;
+  transition: 0.5s;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.sservice-area.style-two .service-thumb {
+  transition: 0.5s;
+  transform: scale(1);
+}
+
+.sservice-area.style-two .service-thumb img {
+  width: 100%;
+}
+
+.sservice-area.style-two .service-icon {
+  margin-bottom: 33px;
+  width: 65px;
+  height: 65px;
+  line-height: 65px;
+  border-radius: 33px;
+  background-color: #ff3c00;
+  text-align: center;
+  position: absolute;
+  left: 31px;
+  top: 39%;
+  transition: 0.5s;
+}
+
+.sservice-area.style-two .service-content {
+  padding: 37px 10px 0 28px;
+}
+
+.sservice-area.style-two h3.service-title {
+  font-size: 22px;
+  color: #050a1e;
+  font-weight: 600;
+  font-family: "Poppins";
+  margin: 0;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.sservice-area.style-two h3 .service-btn a {
+  display: inline-block;
+  font-size: 15px;
+  line-height: 26px;
+  color: #ffff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.sservice-area.style-two .service-btn i {
+  display: inline-block;
+  color: #ff3c00;
+  background: #f4f4f4;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  border-radius: 50%;
+  font-size: 14px;
+  margin-right: 11px;
+  transition: 0.5s;
+}
+
+.sservice-area.style-two p.service-text {
+  margin: 0;
+  padding: 9px 0 23px;
+  transition: 0.5s;
+  color: #7a7a7a;
+}
+
+.sservice-area.style-two .services-shape {
+  position: absolute;
+  bottom: 27px;
+  right: 30px;
+  transition: 0.5s;
+}
+
+/* all hover */
+.sservice-area.style-two .single-service-box:hover h3.service-title {
+  color: #ff3b00;
+}
+
+.sservice-area.style-two .single-service-box:hover .service-btn a {
+  color: #ff3b00;
+}
+
+.sservice-area.style-two .single-service-box:hover .service-btn i {
+  background: #ff3b00;
+  color: #fff;
+}
+
+.sservice-area.style-two .single-service-box:hover .services-shape {
+  filter: brightness(1) invert(0);
+}
+
+.sservice-area.style-two .single-service-box:hover .service-thumb {
+  transform: scale(1.1);
+}
+
+/*---=====================================================
+<!--start solutek team Area style-inner-->
+=========================================================---*/
+.team-area.style-inner {
+  padding: 110px 0 90px;
+  background-color: #f4f4f4;
+}
+
+.team-area.style-inner .section-title.text-center {
+  margin-bottom: 52px;
+}
+
+.team-area.style-inner .single-team-box {
+  position: relative;
+  background: #fff;
+  text-align: center;
+  border-radius: 20px 0px 0px 0px;
+  margin-bottom: 30px;
+}
+
+.team-area.style-inner .single-team-box::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 0;
+  background: #050a1e;
+  left: 0;
+  right: 0;
+  transition: 0.5s;
+  border-radius: 20px 0 0px 0px;
+}
+
+.team-area.style-inner .single-team-box::after {
+  position: absolute;
+  content: "";
+  width: 304px;
+  height: 300px;
+  background-image: url(assets/images/inner/team-shape.png);
+  background-repeat: no-repeat;
+  bottom: -150px;
+  left: 0;
+  border-radius: 100%;
+}
+
+.team-area.style-inner .single-team-thumb::before {
+  position: absolute;
+  content: "";
+  width: 115px;
+  height: 3px;
+  background-color: #050a1e;
+  right: 0;
+  top: -3px;
+}
+
+.team-area.style-inner .single-team-thumb::after {
+  position: absolute;
+  content: "";
+  width: 145px;
+  height: 3px;
+  background-color: #ff3c00;
+  left: 46px;
+  top: -3px;
+}
+
+.team-area.style-inner .single-team-thumb img {
+  width: 73%;
+  padding-top: 200px;
+  z-index: 2;
+  position: relative;
+}
+
+.team-area.style-inner .team-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.team-area.style-inner .team-inner-title {
+  background-color: #ff3c00;
+  border-radius: 20px 0 20px 20px;
+  padding: 30px 0;
+  transition: 0.5s;
+}
+
+.team-area.style-inner .team-content h4 {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+}
+
+.team-area.style-inner .team-content h4 a {
+  transition: 0.5s;
+}
+
+.team-area.style-inner li.list-line a {
+  color: red !important;
+  text-decoration: underline !important;
+}
+
+.team-area.style-inner .team-content p {
+  font-size: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+}
+
+.team-area.style-inner .team-social-icon {
+  text-align: center;
+  padding-top: 23px;
+  transition: 0.5s;
+}
+
+.team-area.style-inner .team-social-icon ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 8px;
+}
+
+.team-area.style-inner .team-social-icon ul li a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Poppins";
+  text-transform: uppercase;
+  color: #050a1e;
+  transition: 0.5s;
+}
+
+/*all hover team */
+.team-area.style-inner .single-team-box:hover::before {
+  width: 100%;
+  bottom: 0;
+}
+
+.team-area.style-inner .single-team-box:hover .team-social-icon ul li a {
+  color: #fff;
+}
+
+/*---=====================================================
+<!-- Start solutek Team Details Area-->
+=========================================================---*/
+.team-details-area {
+  padding: 122px 0 88px;
+  background: #f4f4f4;
+}
+
+.team-thumb img {
+  width: 100%;
+}
+
+.team-details-area .team-member-title h4 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.team-details-area p.desc {
+  margin-top: 34px;
+  margin-bottom: 45px;
+}
+
+.team-details-area .contact-info-box {
+  background: #fff;
+  padding: 29px 25px 27px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  gap: 11px;
+}
+
+.team-details-area .contact-info-icon i {
+  display: inline-block;
+  color: #ff3b00;
+  border: 2px solid #ff3b00;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 56px;
+  font-size: 22px;
+  transition: 0.5s;
+}
+
+.team-details-area .contact-info-content h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  transition: 0.5s;
+}
+
+.team-details-area .contact-info-content p {
+  font-size: 26px;
+  color: #ff3b00;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  transition: 0.5s;
+}
+
+.team-details-area .team-details-social-icon ul li {
+  font-size: 22px;
+  color: #041424;
+  font-weight: 600;
+  margin-top: 49px;
+  display: inline-block;
+}
+
+.team-details-area .team-details-social-icon ul li i {
+  background: #e5e7e9;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 38px;
+  color: #111;
+  font-size: 14px;
+  margin-left: 7px;
+  transition: 0.5s;
+}
+
+.team-details-area .team-details-social-icon ul li i:hover {
+  background: #ff3b00;
+  color: #fff;
+}
+
+.team-details-area .team-details-location-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 46px;
+}
+
+.team-details-area .team-details-location-box .contact-info-content p {
+  font-size: 17px;
+  color: #7a7a7a;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  transition: 0.5s;
+}
+
+.team-details-area .team-details-skills {
+  margin-top: 115px;
+}
+
+.team-details-area .team-details-skills h4 {
+  font-size: 36px;
+  margin: 0 0 49px;
+}
+
+.team-details-area .skill {
+  margin-bottom: 38px;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-details-area .contact_from_box {
+  margin-top: 115px;
+}
+
+.team-details-area .form_box input {
+  background: transparent;
+}
+
+.team-details-area .form_box input {
+  border: 1px solid rgba(122, 122, 122, 0.5);
+  height: 60px;
+  border-radius: 15px;
+  padding: 0 23px 0;
+  margin-bottom: 21px;
+  width: 100%;
+  transition: 0.5s;
+  font-size: 16px;
+  line-height: 26px;
+  color: #7a7a7a;
+  font-weight: 400;
+  font-family: "Fira Sans";
+}
+
+.team-details-area .form_box textarea {
+  background: transparent;
+}
+
+.team-details-area .form_box textarea {
+  border: 1px solid rgba(122, 122, 122, 0.5);
+  outline: 0;
+  width: 100%;
+  padding: 17px 23px 0;
+  height: 150px;
+  margin-bottom: 22px;
+  transition: 0.5s;
+  border-radius: 25px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #7a7a7a;
+  font-weight: 400;
+  font-family: "Fira Sans";
+}
+
+/*---=====================================================
+   <!--solutek skill bar-->
+=========================================================---*/
+
+.skill {
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill>p {
+  margin: 0 0 11px;
+  font-size: 17px;
+  color: #7a7a7a;
+}
+
+.skill:before {
+  width: 85%;
+  height: 7px;
+  content: "";
+  display: block;
+  position: absolute;
+  background: #d1dff9;
+  bottom: 0;
+  border-radius: 100px;
+}
+
+.skill-bar {
+  width: 74% !important;
+  height: 7px;
+  background: #ff3b00;
+  display: block;
+  position: relative;
+  border-radius: 100px;
+}
+
+/* SKILL 1 */
+.skill1 {
+  width: 95%;
+}
+
+.skill-bar span {
+  position: absolute;
+  top: -40px;
+  padding: 0;
+  font-size: 18px;
+  padding: 3px 0;
+  font-weight: 500;
+  color: #ff3b00;
+}
+
+.skill-bar {
+  position: relative;
+}
+
+.skill1 .skill-count1 {
+  right: 0;
+}
+
+.skill2 .skill-count2 {
+  right: 0;
+}
+
+/*---=====================================================
+   <!--solutek skill bar-->
+=========================================================---*/
+
+.skill {
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill>p {
+  margin: 0 0 11px;
+  font-size: 17px;
+  color: #7a7a7a;
+}
+
+.skill:before {
+  width: 85%;
+  height: 7px;
+  content: "";
+  display: block;
+  position: absolute;
+  background: #d1dff9;
+  bottom: 0;
+  border-radius: 100px;
+}
+
+.skill-bar {
+  width: 74% !important;
+  height: 7px;
+  background: #ff3b00;
+  display: block;
+  position: relative;
+  border-radius: 100px;
+}
+
+/* SKILL 1 */
+.skill1 {
+  width: 95%;
+}
+
+.skill-bar span {
+  position: absolute;
+  top: -40px;
+  padding: 0;
+  font-size: 18px;
+  padding: 3px 0;
+  font-weight: 500;
+  color: #ff3b00;
+}
+
+.skill-bar {
+  position: relative;
+}
+
+.skill1 .skill-count1 {
+  right: 0;
+}
+
+.skill2 .skill-count2 {
+  right: 0;
+}
+
+/*---=====================================================
+ <!-- Start solutek services details area css-->
+=========================================================---*/
+.services-details-area {
+  padding: 122px 0 121px;
+  background-color: #f4f4f4;
+}
+
+.services-details-thumb img {
+  width: 100%;
+}
+
+.services-details-content {
+  padding-top: 18px;
+}
+
+h4.services-details-title {
+  margin-bottom: 10px;
+  font-size: 28px;
+  color: #050a1e;
+  font-weight: 700;
+}
+
+p.services-details-desc {
+  margin-top: 24px;
+  font-size: 17px;
+  color: #7a7a7a;
+}
+
+.service-details-content h4 {
+  font-size: 24px;
+  color: #050a1e;
+  font-weight: 600;
+}
+
+.service-details-content p {
+  font-size: 17px;
+  color: #7a7a7a;
+}
+
+.service-details-list {
+  padding-top: 12px;
+}
+
+.service-details-list li {
+  list-style: none;
+  font-size: 20px;
+  line-height: 46px;
+  color: #050a1e;
+  font-weight: 500;
+}
+
+.service-details-list li i {
+  color: #ff3b00;
+  margin-right: 12px;
+}
+
+.service-detalis-text-box,
+.service-details-icon-box {
+  border-radius: 15px;
+  border: 2px solid #fff;
+  padding: 20px 36px 32px;
+  margin-top: 28px;
+}
+
+.service-det-content h3 {
+  font-size: 24px;
+  line-height: 48px;
+  color: #050a1e;
+  font-weight: 600;
+  margin: 40px 0 15px;
+}
+
+.service-details-icon-box {
+  padding: 41px 36px 32px;
+}
+
+.services-details-area .tab_container {
+  position: relative;
+  margin-top: 95px;
+}
+
+.services-details-area .accordion li a {
+  position: relative;
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 18px;
+  color: #ff3b00 !important;
+  font-weight: 500;
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  padding: 0px 20px 0px 30px;
+}
+
+.services-details-area .accordion li a span {
+  position: relative;
+  z-index: 1;
+  font-size: 18px;
+  color: #050a1e;
+  font-weight: 500;
+  font-family: "Poppins";
+  font-size: 18px;
+  line-height: 66px;
+  font-weight: 500;
+  margin-left: 20px;
+}
+
+.services-details-area ul.accordion a.active {
+  color: #fff !important;
+  background: #050a1e !important;
+}
+
+.services-details-area ul.accordion a.active span {
+  color: #fff !important;
+  background: #050a1e !important;
+}
+
+.services-details-area .accordion li p {
+  display: none;
+  font-size: 16px;
+  color: #7a7a7a;
+  padding: 25px 0 10px 30px;
+  margin: 0;
+}
+
+/*widget-sidber css*/
+.widget-sidber {
+  background-color: #f4f4f4;
+  padding: 32px 41px 29px;
+  margin-bottom: 27px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+}
+
+.widget-sidber-content h4 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 46px;
+  position: relative;
+}
+
+.widget-sidber-content h4:before {
+  position: absolute;
+  content: "";
+  width: 29px;
+  height: 2px;
+  left: 0;
+  bottom: -8px;
+  background: #ff3b00;
+}
+
+.widget-category ul li img {
+  margin-right: 12px;
+  transition: 0.5s;
+}
+
+.widget-category ul li a:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.widget-category ul li {
+  list-style: none;
+}
+
+.widget-category ul li a {
+  padding: 14px 26px;
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #001819;
+  font-weight: 500;
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  transition: 0.5s;
+  border: 2px solid #ffff;
+  text-transform: uppercase;
+}
+
+.widget-category ul li a:hover {
+  color: #fff;
+}
+
+.widget-category ul li a:before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  background: #ff3c00;
+  z-index: -1;
+  border-radius: 5px;
+  transition: 0.5s;
+}
+
+.widget-category ul li a:hover:before {
+  width: 100%;
+  left: 0;
+}
+
+.widget-category ul li i {
+  color: black;
+  display: inline-block;
+  float: right;
+  font-size: 17px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.widget-category ul li a:hover i {
+  opacity: 1;
+  color: #fff;
+}
+
+.widget-sidber-download-button a {
+  display: inline-block;
+  background: #00181a;
+  width: 100%;
+  color: #fff;
+  padding: 15px 23px;
+  border-radius: 5px;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.widget-sidber-download-button a.active {
+  background: #ff3b00 !important;
+}
+
+.widget-sidber-download-button i {
+  color: #fff;
+  display: inline-block;
+  font-size: 22px;
+  margin-right: 9px;
+  position: relative;
+  top: 3px;
+}
+
+.widget-sidber-download-button a.active i {
+  color: #fff;
+}
+
+.widget-sidber-download-button span i {
+  float: right;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.widget-sidber-download-button a.active span i {
+  color: #fff;
+}
+
+/*sidber contact*/
+
+.widget-sidber-contact-box {
+  background: url(assets/images/inner/sidber-contact.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  padding: 48px 43px 48px;
+}
+
+p.widget-sidber-contact-text {
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 500;
+  margin: 0;
+  padding: 25px 0 13px;
+}
+
+h3.widget-sidber-contact-number {
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: 600;
+  margin: 0 0 14px;
+}
+
+span.widget-sidber-contact-gmail {
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 400;
+  margin: 0;
+}
+
+span.widget-sidber-contact-gmail i {
+  display: inline-block;
+  font-size: 17px;
+  color: #ff3b00;
+  position: relative;
+  top: 2px;
+  margin-right: 6px;
+}
+
+.widget-sidber-contact-btn a {
+  display: inline-block;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 400;
+  text-decoration: none;
+  background: #ff3b00;
+  padding: 16px 98px 15px;
+  border-radius: 5px;
+  margin-top: 55px;
+  transition: 0.5s;
+  border: 2px solid #ff3b00;
+}
+
+.widget-sidber-contact-btn a:hover {
+  background: transparent;
+  color: #ff3b00;
+}
+
+.widget-sidber-contact-btn a i {
+  display: inline-block;
+  font-size: 18px;
+  position: relative;
+  top: 2px;
+  margin-left: 3px;
+}
+
+/* widget search */
+.widget-sidber {
+  border-radius: 5px;
+  background-color: #f4f4f4;
+  padding: 32px 41px 29px;
+  margin-bottom: 27px;
+}
+
+.widget_search form {
+  position: relative;
+}
+
+.widget_search input {
+  border-radius: 4px;
+  padding-left: 20px !important;
+  height: 60px;
+  width: 100% !important;
+  position: relative;
+  color: #012549;
+  outline: 0 !important;
+  border: transparent !important;
+}
+
+button.icons {
+  border: 0;
+  font-size: 16px;
+  position: absolute;
+  right: 14px;
+  top: 20px;
+  color: #1e1e1e;
+  background: transparent;
+  opacity: 0.7;
+}
+
+/* recent post */
+.sidber-widget-recent-post {
+  margin-bottom: 27px;
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+
+.recent-widget-content a {
+  transition: 0.5s;
+  width: 95%;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 24px;
+  color: #050a1e;
+  font-weight: 600;
+}
+
+.sidber-widget-recent-post:hover .recent-widget-content a {
+  color: #ff3b00 !important;
+}
+
+.recent-widget-content p {
+  font-size: 14px;
+  margin: 0;
+  color: #ff3b00;
+}
+
+/* widget tag */
+.widget-catefories-tags a {
+  display: inline-block;
+  color: #101010;
+  font-weight: 500;
+  background: #fff;
+  padding: 6px 19px;
+  margin: 6px 3px;
+  position: relative;
+  z-index: 1;
+  font-size: 15px;
+}
+
+.widget-catefories-tags a:before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  background: #ff3b00;
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.widget-catefories-tags a:hover {
+  color: #fff;
+}
+
+.widget-catefories-tags a:hover:before {
+  width: 100%;
+  left: 0;
+}
+
+/*---=====================================================
+	<!-- Start solutek case study area css -->
+=========================================================---*/
+.case-study-area {
+  padding: 100px 0 90px;
+}
+
+.case_study_nav {
+  margin: 0 0 60px;
+}
+
+.case_study_menu {
+  text-align: center;
+}
+
+.case_study_menu ul {
+  background: #f4f4f4;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.case_study_menu ul li {
+  background: transparent;
+  border: medium none;
+  font-size: 16px;
+  line-height: 1;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  text-transform: capitalize;
+  padding: 14px 30px;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+  margin: 0 3px;
+  display: inline-block;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.case_study_menu ul li:hover {
+  color: #fff;
+}
+
+.case_study_menu ul li::before {
+  animation: opacityFallbackOut 0.5s step-end forwards;
+  backface-visibility: hidden;
+  background-color: #ff3b00;
+  clip-path: polygon(-1% 0, 0 0, -25% 104%, -1% 100%);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: 0.5s;
+  width: 100%;
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.case_study_menu ul li:hover:before {
+  animation: opacityFallbackIn 0s step-start forwards;
+  clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+}
+
+.case_study_menu ul li:hover::before {
+  width: 100%;
+  z-index: -1;
+}
+
+li.current_menu_item {
+  color: #fff !important;
+  background: #ff3b00 !important;
+}
+
+.case-study-single-box {
+  margin-bottom: 85px;
+  margin-right: 70px;
+}
+
+.case-study-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 35px 27px;
+  border-radius: 20px;
+  background-color: #f4f4f4;
+  position: absolute;
+  bottom: 30px;
+  left: 90px;
+  width: 84%;
+  transition: 0.5s;
+}
+
+.case-study-thumb {
+  position: relative;
+}
+
+.case-study-thumb img {
+  width: 100%;
+}
+
+.case-study-title h5 {
+  font-size: 16px;
+  line-height: 26px;
+  color: #ff3c00;
+  font-weight: 400;
+  margin: 0;
+}
+
+.case-study-title h3 {
+  margin: 0;
+  line-height: 44px;
+}
+
+.case-study-title h3 a {
+  font-size: 22px;
+  text-transform: uppercase;
+  color: #000000;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.case-study-title h3 a:hover {
+  color: #ff3b00;
+}
+
+.case-study-icon {
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  border-radius: 28px;
+  background-color: #050a1e;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.case-study-content:hover .case-study-icon {
+  background: #ff3b00;
+}
+
+.case-study-icon i {
+  color: #ffffff;
+  font-size: 26px;
+}
+
+/*---=====================================================
+<!--start solutek project details area css -->
+=========================================================---*/
+.project-details-area {
+  padding: 123px 0 93px;
+  background: #f4f4f4;
+}
+
+.project-details-thumb img {
+  width: 100%;
+}
+
+.row.project-box-info {
+  border-radius: 25px;
+  background-color: #ffffff;
+  margin: 60px 0 68px;
+  padding: 55px 0 15px;
+}
+
+.project-details-box p {
+  font-size: 18px;
+  color: #7a7a7a;
+  margin: 0;
+}
+
+.project-details-box h6 {
+  font-size: 24px;
+  line-height: 46px;
+  color: #050a1e;
+  font-weight: 600;
+  font-family: 'Fira Sans';
+}
+
+.project-details-box {
+  padding-left: 96px;
+  margin-bottom: 20px;
+}
+
+.project-details-content h4 {
+  font-size: 30px;
+  color: #050a1e;
+  font-weight: 600;
+}
+
+p.project-details-desc {
+  font-size: 17px;
+  margin-bottom: 27px;
+  width: 96%;
+}
+
+.project-details-content h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  margin-top: 54px;
+}
+
+.project-details-list-item h4 {
+  font-size: 28px;
+}
+
+.project-details-list-item ul li {
+  list-style: none;
+  font-size: 17px;
+  line-height: 39px;
+}
+
+.project-details-list-item ul li i {
+  display: inline-block;
+  color: #ff3b00;
+  font-size: 19px;
+  margin-right: 11px;
+  position: relative;
+  top: 2px;
+}
+
+a.project-details-text {
+  display: inline-block;
+  font-size: 28px;
+  line-height: 38px;
+  color: #ff3b00;
+  font-weight: 700;
+  margin-top: 50px;
+  margin-bottom: 19px;
+}
+
+.project-details-item-images img {
+  width: 100%;
+}
+
+.widget-sidber-contact-btn a {
+  padding: 16px 70px 15px;
+}
+
+/*---=====================================================
+<!-- Start solutek blog Area css style-grid-->
+=========================================================---*/
+.blog-area.style-grid .single-blog-box {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px 26px 36px;
+  margin-bottom: 30px;
+}
+
+.blog-area.style-grid .single-blog-thumb {
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.blog-area.style-grid .single-blog-thumb img {
+  width: 100%;
+  transition: 0.5s;
+}
+
+.blog-area.style-grid .blog-box-content {
+  padding: 25px 20px 5px 10px;
+}
+
+.blog-area.style-grid .meta-blog a span {
+  display: inline-block;
+  font-size: 15px;
+  color: #7a7a7a;
+  font-weight: 400;
+  font-family: "Fira Sans";
+}
+
+.blog-area.style-grid .meta-blog span i {
+  display: inline-block;
+  color: #ff3c00;
+  margin-right: 15px;
+}
+
+.blog-area.style-grid .meta-blog p {
+  display: inline-block;
+  margin-left: 15px;
+  margin-bottom: 0;
+}
+
+.blog-area.style-grid .meta-blog p span {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.blog-area.style-grid .blog-box-content h3 {
+  margin: 0;
+}
+
+.blog-area.style-grid .blog-box-content h3 a {
+  display: inline-block;
+  font-size: 22px;
+  line-height: 34px;
+  color: #050a1e;
+  font-weight: 600;
+  font-family: "Fira Sans";
+  text-decoration: none;
+  padding: 22px 0 34px;
+  transition: 0.5s;
+}
+
+.blog-area.style-grid .blog-button a {
+  display: inline-block;
+  font-size: 17px;
+  text-transform: uppercase;
+  color: #050a1e;
+  font-family: "Fira Sans";
+  border-radius: 22px;
+  padding: 10px 30px;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgb(122 122 122 /25%);
+  transition: 0.5s;
+}
+
+.blog-area.style-grid .blog-button a i {
+  margin-left: 10px;
+}
+
+.blog-area.style-grid .blog-button a::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: #ff3d00;
+  left: 0;
+  top: 0;
+  border-radius: 20px;
+  transform: scale(0);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+/* all hover grid */
+.blog-area.style-grid .blog-box-content h3 a:hover {
+  color: #ff3b00;
+}
+
+.blog-area.style-grid .blog-button:hover a {
+  color: #fff;
+}
+
+.blog-area.style-grid .blog-button a:hover::before {
+  transform: scale(1);
+}
+
+.blog-area.style-grid .single-blog-box:hover .single-blog-thumb img {
+  transform: scale(1.1);
+}
+
+/*---=====================================================
+<!-- Start solutek blog details css-->
+=========================================================---*/
+.blog-details-area {
+  padding: 119px 0 119px;
+}
+
+.blog-details-thumb {
+  overflow: hidden;
+}
+
+.blog-details-thumb img {
+  width: 100%;
+  transition: 0.5s;
+}
+
+.blog-details-thumb img:hover {
+  transform: scale(1.2);
+}
+
+.blog-details-content {
+  padding: 27px 36px 20px;
+  border: 1px solid #2222;
+}
+
+.blog-details-area .meta-blog span {
+  display: inline-block;
+  margin-right: 28px;
+  font-weight: 500;
+}
+
+.blog-details-area span.mate-text {
+  padding-left: 36px;
+  position: relative;
+}
+
+.blog-details-area span.mate-text:before {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 2px;
+  left: 5px;
+  top: 11px;
+  background: #ff3b00;
+}
+
+.blog-details-area .meta-blog i {
+  display: inline-block;
+  color: #ff3b00;
+  padding-right: 9px;
+}
+
+.blog-details-area .meta-blog img {
+  margin-right: 8px;
+  position: relative;
+  top: -1px;
+}
+
+h4.blog-details-title {
+  font-size: 32px;
+  margin: 12px 0 19px;
+}
+
+p.blog-details-desc {
+  font-size: 17px;
+  margin-bottom: 25px;
+}
+
+.blog-details-author-talk {
+  display: flex;
+  gap: 26px;
+  background: #f4f4f4;
+  padding: 41px 51px 40px;
+  margin-top: 48px;
+  border-radius: 10px;
+}
+
+.blog-details-quote img {
+  position: relative;
+  top: 8px;
+}
+
+.blog-details-author-title p {
+  font-size: 20px;
+  font-style: italic;
+  line-height: 30px;
+  color: #001819;
+}
+
+.blog-details-quote img {
+  position: relative;
+  top: 8px;
+  color: #001819;
+}
+
+.blog-details-author-title span {
+  margin-left: 58px;
+  display: inline-block;
+  color: #001819;
+  position: relative;
+}
+
+.blog-details-author-title span:before {
+  position: absolute;
+  content: "";
+  width: 50px;
+  height: 2px;
+  left: -58px;
+  top: 12px;
+  background: #ff3b00;
+}
+
+h3.blog-details-title {
+  font-size: 28px;
+  margin: 54px 0 16px;
+}
+
+p.blog-details-desc.two {
+  width: 95%;
+}
+
+.blog-details-list-item {
+  margin-bottom: 40px;
+}
+
+.blog-details-list-item ul li {
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+.blog-details-list-item ul li {
+  list-style: none;
+}
+
+.blog-details-list-item ul li i {
+  display: inline-block;
+  color: #ff3b00;
+  font-size: 18px;
+  margin-right: 16px;
+}
+
+h3.blog-details-title.two {
+  font-size: 28px;
+  margin: 38px 0 16px;
+}
+
+p.blog-details-desc.three {
+  width: 100%;
+}
+
+.blog-details-socila-box {
+  border: 1px solid #2222;
+  border-top: transparent;
+  padding: 19px 35px 18px;
+  border-radius: 0 0 5px 5px;
+}
+
+.blog-details-category span a {
+  display: inline-block;
+  background: #f4f4f4;
+  padding: 6px 16px;
+  font-weight: 500;
+  color: #001819;
+  border-radius: 3px;
+  margin-right: 7px;
+  transition: 0.5s;
+}
+
+.blog-details-category span a:hover {
+  background: #ff3b00;
+  color: #fff;
+}
+
+.blog-details-category span a.active-class {
+  background: #ff3b00;
+  color: #fff;
+}
+
+.blog-details-social-icon {
+  text-align: right;
+}
+
+.blog-details-social-icon ul li {
+  display: inline-block;
+}
+
+.blog-details-social-icon ul li i {
+  display: inline-block;
+  background: #ff3b00;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%;
+  font-size: 13px;
+  margin-left: 5px;
+}
+
+.blog-details-social-icon ul li:nth-child(2) i {
+  background: #00aff5;
+}
+
+.blog-details-social-icon ul li:nth-child(3) i {
+  background: #050a1e;
+}
+
+.blog-details-social-icon ul li:nth-child(4) i {
+  background: #b7071c;
+}
+
+/* Comment CSS */
+
+.single-comment-area {
+  background: #f4f4f4;
+  padding: 49px 41px 56px;
+  margin-top: 61px;
+  border-radius: 5px;
+}
+
+.blog-details-comment-title h4 {
+  font-size: 28px;
+  margin: 0 0 28px;
+}
+
+.blog-details-comment {
+  margin-bottom: 19px;
+  position: relative;
+  border: 1px solid #22222214;
+  padding: 29px 29px 25px;
+}
+
+.blog-details-comment.style-two {
+  margin-left: 105px;
+}
+
+.blog-details-comment-thumb {
+  float: left;
+  margin-right: 30px;
+}
+
+.blog-details-comment-content {
+  overflow: hidden;
+}
+
+.blog-details-comment-content h2 {
+  font-size: 20px;
+  margin-top: 0;
+  display: inline-block;
+  font-weight: 700;
+  margin-right: 30px;
+}
+
+.blog-details-comment-content p {
+  font-size: 15px;
+  margin: 13px 0 0;
+}
+
+.blog-details-comment-reply {
+  position: absolute;
+  right: 22px;
+  top: 21px;
+}
+
+.blog-details-comment-reply a {
+  background: #ff3b00;
+  padding: 3px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.blog-details-comment.reply {
+  margin-left: 70px;
+  padding-top: 35px;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.blog-details-contact-title h4 {
+  font-size: 23px;
+  font-weight: 600;
+  padding-bottom: 31px;
+}
+
+.blog-details-area .contact-input-box input {
+  background: #fff;
+  border: transparent;
+  width: 100%;
+  height: 60px;
+  padding: 22px;
+  outline: 0;
+  margin-bottom: 11px;
+}
+
+.blog-details-area .contact-input-box textarea {
+  background: #fff;
+  border: transparent;
+  width: 100%;
+  height: 170px;
+  padding: 12px 22px 0;
+  outline: 0;
+  margin-top: 11px;
+  margin-bottom: 20px;
+}
+
+.input-check-box span {
+  font-size: 15px;
+  margin-left: 7px;
+}
+
+.blog-details-submi-button button {
+  background: #ff3b00;
+  color: #fff;
+  text-transform: uppercase;
+  border: transparent;
+  padding: 12px 26px;
+  font-size: 15px;
+  margin-top: 34px;
+  position: relative;
+  z-index: 1;
+  transition: 0.5s;
+  border: 2px solid #ff3b00;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.blog-details-submi-button button:hover {
+  color: #ff3b00;
+}
+
+.blog-details-submi-button button:before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  background: #fff;
+  transition: 0.5s;
+  z-index: -1;
+  border-radius: 5px;
+}
+
+.blog-details-submi-button button:hover:before {
+  width: 100%;
+  left: 0;
+}
+
+/*---=====================================================
+<!-- Start solutek google map area -->
+=========================================================---*/
+.google-map iframe {
+  width: 100%;
+  height: 600px;
+}
+
+
+
+
+
+
+
+
+/*---start-curser---*/
+.curser {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ff3d00;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: 0.1s;
+}
+
+.curser2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: #ff3d00;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: 0.15s;
+  animation: Ripple 1.6s ease-in-out infinite;
+  -webkit-animation: Ripple 1.6s ease-in-out infinite;
+  -moz-animation: Ripple 1.6s ease-in-out infinite;
+}
+
+/*
+<!-- ============================================================== -->
+<!-- solutek Scrollup Section -->
+<!-- ============================================================== -->*/
+
+.scroll-area {
+  position: relative;
+  z-index: 999;
+}
+
+.scroll-area .go-top {
+  position: fixed;
+  cursor: pointer;
+  top: 0;
+  right: 30px;
+  color: #ffffff;
+  background-image: -moz-linear-gradient(0deg, #d1651a 0%, #c1282a 100%);
+  background-image: -webkit-linear-gradient(0deg, #d1651a 0%, #c1282a 100%);
+  z-index: 9999;
+  width: 45px;
+  text-align: center;
+  height: 45px;
+  line-height: 42px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.9s ease-out 0s;
+  -moz-transition: all 0.9s ease-out 0s;
+  border-radius: 10px;
+}
+
+.scroll-area .go-top i {
+  position: absolute;
+  top: 50%;
+  left: -4px;
+  right: 0;
+  margin: 0 auto;
+  font-size: 15px;
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: all 0.5s ease-out 0s;
+  -moz-transition: all 0.5s ease-out 0s;
+}
+
+.scroll-area .go-top i:last-child {
+  opacity: 0;
+  visibility: hidden;
+  top: 60%;
+}
+
+.scroll-area .go-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: linear-gradient(to right, #ffc704 0%, #ffc704 100%);
+  background-image: -ms-linear-gradient(0deg, #ffc704 0%, #ffc704 100%);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.5s ease-out 0s;
+  -moz-transition: all 0.5s ease-out 0s;
+  border-radius: 100%;
+}
+
+.scroll-area .go-top:focus,
+.scroll-area .go-top:hover {
+  color: #fff;
+}
+
+.scroll-area .go-top:focus::before,
+.scroll-area .go-top:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-area .go-top:focus i:first-child,
+.scroll-area .go-top:hover i:first-child {
+  opacity: 0;
+  top: 0;
+  visibility: hidden;
+}
+
+.scroll-area .go-top:focus i:last-child,
+.scroll-area .go-top:hover i:last-child {
+  opacity: 1;
+  visibility: visible;
+  top: 50%;
+}
+
+.scroll-area .go-top.active {
+  top: 95%;
+  -webkit-transform: translateY(-98%);
+  -moz-transform: translateY(-98%);
+  opacity: 1;
+  visibility: visible;
+  border-radius: 0;
+  right: 30px;
+  border-radius: 100%;
+}
+
+.top-wrap {
+  position: relative;
+}
+
+.top-wrap .go-top-button {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  top: 3px;
+  z-index: 1;
+  background: #ff3b00;
+}
+
+.top-wrap .go-top-button i {
+  font-size: 20px;
+  font-weight: 700;
+  padding-left: 4px;
+  color: #fff;
+}
+
+.top-wrap .go-top-button::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 45px;
+  height: 45px;
+  -webkit-animation: ripple 1.6s ease-out infinite;
+  -moz-animation: ripple 1.6s ease-out infinite;
+  opacity: 0;
+  background-image: -moz-linear-gradient(0deg, #ffc704 0%, #ffc704 100%);
+  background-image: -webkit-linear-gradient(0deg, #ffc704 0%, #ffc704 100%);
+  border-radius: 100%;
+}
+
+.top-wrap .go-top-button:hover {
+  background-color: #222;
+  color: #fff;
+}
+
+.scroll-area.home-two .top-wrap .go-top-button {
+  background: #00aff5;
+}
+
+.scroll-area.home-two .top-wrap .go-top-button::after {
+  background-image: -moz-linear-gradient(0deg, #00aff5 0%, #00aff5 100%);
+  background-image: -webkit-linear-gradient(0deg, #00aff5 0%, #00aff5 100%);
+}
+
+@keyframes ripple {
+
+  0%,
+  35% {
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  50% {
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -ms-transform: scale(2);
+    -o-transform: scale(2);
+    transform: scale(2);
+  }
+}
+
+/*===========================
+<-- solutek Loader Css -->
+=============================*/
+
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.8s 1s ease;
+  z-index: 666;
+}
+
+.loader {
+  position: relative;
+  display: block;
+  z-index: 201;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin: -50px 0 0 -50px;
+  border-radius: 50%;
+  transition: all 1s 1s ease;
+  border: 3px solid transparent;
+  border-top-color: #ff3b00;
+  -webkit-animation: spin 1.5s linear infinite;
+  -moz-animation: spin 1.5s linear infinite;
+  -o-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+
+.loader:before {
+  position: absolute;
+  content: "";
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-left-color: #ff3d00;
+  -webkit-animation: spin 2s linear infinite;
+  -moz-animation: spin 2s linear infinite;
+  -o-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+.loader:after {
+  position: absolute;
+  content: "";
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-right-color: #ffff;
+  -webkit-animation: spin 2.5s linear infinite;
+  -moz-animation: spin 2.5s linear infinite;
+  -o-animation: spin 2.5s linear infinite;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+/*/ Here comes the Magic /*/
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.loader-wrapper .loder-section {
+  position: fixed;
+  top: 0;
+  width: 52%;
+  height: 100%;
+  background: #111;
+  z-index: 2;
+}
+
+.loader-wrapper .loder-section.left-section {
+  left: 0;
+  transition: 1s 1.4s ease;
+}
+
+.loader-wrapper .loder-section.right-section {
+  right: 0;
+  transition: 1s 1.4s ease;
+}
+
+/*/ When page loaded /*/
+.loaded .loder-section.left-section {
+  left: -100%;
+}
+
+.loaded .loder-section.right-section {
+  right: -100%;
+}
+
+.loaded .loader-wrapper {
+  visibility: hidden;
+}
+
+.loaded .loader {
+  top: -100%;
+  opacity: 0;
+}
+
+/*===========================
+<-- corporate Bounce Animation Css -->
+=============================*/
+
+.bounce-animate {
+  animation-name: float-bob;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -moz-animation-name: float-bob;
+  -moz-animation-duration: 2s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: float-bob;
+  -ms-animation-duration: 2s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  -o-animation-name: float-bob;
+  -o-animation-duration: 2s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-timing-function: linear;
+}
+
+.bounce-animate2 {
+  animation-name: float-bob2;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -moz-animation-name: float-bob2;
+  -moz-animation-duration: 3s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: float-bob2;
+  -ms-animation-duration: 3s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  -o-animation-name: float-bob2;
+  -o-animation-duration: 3s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-timing-function: linear;
+}
+
+.bounce-animate3 {
+  animation-name: float-bob3;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -moz-animation-name: float-bob3;
+  -moz-animation-duration: 3s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: float-bob3;
+  -ms-animation-duration: 3s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  -o-animation-name: float-bob3;
+  -o-animation-duration: 3s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-timing-function: linear;
+}
+
+.bounce-animate4 {
+  animation-name: float-bob4;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -moz-animation-name: float-bob4;
+  -moz-animation-duration: 5s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: float-bob4;
+  -ms-animation-duration: 5s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  -o-animation-name: float-bob4;
+  -o-animation-duration: 5s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-timing-function: linear;
+}
+
+.bounce-animate5 {
+  animation-name: float-bob5;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -moz-animation-name: float-bob5;
+  -moz-animation-duration: 6s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: float-bob5;
+  -ms-animation-duration: 6s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  -o-animation-name: float-bob5;
+  -o-animation-duration: 6s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-timing-function: linear;
+}
+
+.bounce-animate-slow {
+  animation-name: float-bob5;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -moz-animation-name: float-bob5;
+  -moz-animation-duration: 15s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: float-bob5;
+  -ms-animation-duration: 15s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  -o-animation-name: float-bob5;
+  -o-animation-duration: 15s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-timing-function: linear;
+}
+
+.bounce-animate-3 {
+  animation-name: float-bob6;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -moz-animation-name: float-bob6;
+  -moz-animation-duration: 6s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: float-bob6;
+  -ms-animation-duration: 6s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  -o-animation-name: float-bob6;
+  -o-animation-duration: 6s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-timing-function: linear;
+}
+
+@-webkit-keyframes float-bob {
+  0% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  50% {
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+
+  100% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+}
+
+@-webkit-keyframes float-bob2 {
+  0% {
+    -webkit-transform: translateY(-60px);
+    transform: translateY(-60px);
+  }
+
+  50% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  100% {
+    -webkit-transform: translateY(-60px);
+    transform: translateY(-60px);
+  }
+}
+
+@-webkit-keyframes float-bob3 {
+  0% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+  }
+
+  50% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  100% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+  }
+}
+
+@-webkit-keyframes float-bob4 {
+  0% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+  }
+
+  50% {
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+
+  100% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+  }
+}
+
+@-webkit-keyframes float-bob5 {
+  0% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+  }
+
+  50% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+
+  100% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+  }
+}
+
+@-webkit-keyframes float-bob6 {
+  0% {
+    -webkit-transform: translateY(-40px);
+    transform: translateY(-40px);
+  }
+
+  50% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  100% {
+    -webkit-transform: translateY(-40px);
+    transform: translateY(-40px);
+  }
+}
+
+@-webkit-keyframes movebounce {
+  0% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+
+  50% {
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+
+@keyframes movebounce {
+  0% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+
+  50% {
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+
+@-webkit-keyframes moveleftbounce {
+  0% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+
+  50% {
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+}
+
+@keyframes moveleftbounce {
+  0% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+
+  50% {
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+}
+
+/*--==============================================->
+  <!-- corporate Animation Dance -->
+ ==================================================-*/
+/**/
+.dance3 {
+  -webkit-animation: dance3 8s alternate infinite;
+}
+
+@keyframes dance3 {
+  0% {
+    -webkit-transform: scale(0.5);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+.dance {
+  -webkit-animation: dance 2s alternate infinite;
+}
+
+@keyframes dance {
+  0% {
+    -webkit-transform: scale(0.5);
+  }
+
+  100% {
+    -webkit-transform: scale(1.2);
+  }
+}
+
+.dance2 {
+  -webkit-animation: dance2 4s alternate infinite;
+}
+
+@keyframes dance2 {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    -webkit-transform: translate3d(25px, -25px, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, -25px, 25px);
+  }
+}
+
+.watermark-animate {
+  -webkit-animation: watermark-animate 8s infinite;
+  animation: watermark-animate 8s infinite;
+  animation-direction: alternate-reverse;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+@keyframes watermark-animate {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes rotateIt2 {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/*rotateme animation*/
+.rotateme {
+  -webkit-animation-name: rotateme;
+  animation-name: rotateme;
+  -webkit-animation-duration: 20s;
+  animation-duration: 20s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+@keyframes rotateme {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* ripple-red */
+.ripple {
+  -webkit-animation: ripple-red 1s linear infinite;
+  animation: ripple-red 1s linear infinite;
+  -webkit-transition: 0.5s;
+}
+
+@-webkit-keyframes ripple-red {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3),
+      0 0 0 10px rgba(255, 255, 255, 0.3), 0 0 0 20px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3),
+      0 0 0 10px rgba(255, 255, 255, 0.3), 0 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+
+  100% {
+    -webkit-box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.3),
+      0 0 0 20px rgba(255, 255, 255, 0.3), 0 0 0 30px rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.3),
+      0 0 0 20px rgba(255, 255, 255, 0.3), 0 0 0 30px rgba(212, 90, 219, 0);
+  }
+}
+
+/* scroll animation marquee */
+@-webkit-keyframes scroll {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    -webkit-transform: translateX(calc(-100% - var(--gap)));
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes scroll {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    -webkit-transform: translateX(calc(-100% - var(--gap)));
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+.rotateme {
+  animation: rotate-1 15s linear infinite;
+}
+
+@keyframes rotate-1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/*bounce-left-right-animation*/
+
+@keyframes bounceleft {
+  0% {
+    -webkit-transform: translateX(-50px);
+    transform: translateX(-50px);
+  }
+
+  50% {
+    -webkit-transform: translateX(-15px);
+    transform: translateX(-15px);
+  }
+
+  100% {
+    -webkit-transform: translateX(-50px);
+    transform: translateX(-50px);
+  }
+}

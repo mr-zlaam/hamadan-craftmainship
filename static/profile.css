@@ -1,0 +1,245 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f9f9f9, #eaeaea); /* Adjusted for lighter gradient */
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2.5em;
+    color: #69392f; /* Dark brown */
+    animation: fadeInDown 1s ease-out;
+}
+
+h2 {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 2em;
+    color: #7d4e3a; /* Slightly lighter brown */
+    animation: fadeIn 1s ease-out;
+}
+
+/* Container Styles */
+#user-details {
+    width: 50%;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    animation: slideIn 0.8s ease-out;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+th, td {
+    text-align: left;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background: #7d4e3a; /* Darker brown for table headers */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+td {
+    background: #f9f9f9;
+    color: #555;
+}
+
+/* Hover Effects for Table */
+table tr:hover td {
+    background: #f4e7d5; /* Light beige */
+    color: #69392f; /* Dark brown */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Button Styles */
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    background: #7d4e3a; /* Slightly lighter brown */
+    border: none;
+    border-radius: 4px;
+    margin: 10px 0;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: bounceIn 1s ease-in-out;
+}
+
+button:hover {
+    background: #69392f; /* Darker brown for hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #user-details {
+        width: 95%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    button {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Profile Card Hover Effect */
+#user-details:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Table Header Animation */
+th {
+    position: relative;
+    overflow: hidden;
+}
+
+th:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-30deg);
+    transition: all 0.4s ease-in-out;
+}
+
+th:hover:after {
+    left: 100%;
+}
+
+/* Tooltip Effect for Table Rows */
+table tr td:hover::after {
+    content: "Click for more details!";
+    position: absolute;
+    background: #7d4e3a; /* Matching button color */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    top: -10px;
+    right: 10px;
+    font-size: 0.8em;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #7d4e3a; /* Matching button color */
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #69392f; /* Matching hover color */
+}
+
+/* Footer Style */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    background: #7d4e3a; /* Slightly lighter brown */
+    color: white;
+    font-size: 1em;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Footer Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HCRF Membership Form</title>
+    <style>
+      .gender_form div {
+        display: inline-block;
+        width: 46%;
+      }
+    
+      .con_nat div {
+        display: inline-block;
+        width: 48%;
+      }
+    
+      .street_city div {
+        display: inline-block;
+        width: 48%;
+      }
+    
+      .form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    
+      fieldset {
+        margin-bottom: 20px;
+      }
+    
+      legend {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        color: #7d4e3a; /* Slightly lighter brown */
+      }
+    
+      label {
+        display: block;
+        margin-top: 10px;
+        color: #7d4e3a; /* Slightly lighter brown */
+      }
+    
+      input[type="text"],
+      input[type="email"],
+      input[type="date"],
+      input[type="tel"],
+      input[type="url"],
+      input[type="number"],
+      input[type="month"],
+      textarea {
+        width: 95%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        outline: none;
+      }
+    
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="date"]:focus,
+      input[type="tel"]:focus,
+      input[type="url"]:focus,
+      input[type="number"]:focus,
+      input[type="month"]:focus,
+      textarea:focus {
+        border-color: #7d4e3a; /* Slightly lighter brown */
+        box-shadow: 0 0 5px rgba(125, 78, 58, 0.5);
+      }
+    
+      .form_next {
+        padding: 10px 15px;
+        background-color: #7d4e3a; /* Slightly lighter brown */
+        color: #ffffff;
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+        margin-top: 10px;
+      }
+    
+      .form_next:hover {
+        background-color: #69392f; /* Darker brown */
+      }
+    
+      .form_next:active {
+        background-color: #4f2a21; /* Even darker brown */
+      }
+    
+      .hidden {
+        display: none;
+      }
+    
+      .form-step {
+        display: none;
+      }
+    
+      .form-step.active {
+        display: block;
+      }
+    
+      /* Copy Button Styles */
+      button {
+        padding: 8px 12px;
+        background-color: #7d4e3a; /* Slightly lighter brown */
+        color: #ffffff;
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+        font-size: 14px;
+        margin-top: 10px;
+        transition: background-color 0.3s ease;
+      }
+    
+      button:hover {
+        background-color: #69392f; /* Darker brown */
+      }
+    
+      button:active {
+        background-color: #4f2a21; /* Even darker brown */
+        transform: scale(0.98);
+      }
+    
+      /* Headings for Payment Sections */
+      .upi-section h3,
+      .bank-section h3 {
+        margin-top: 20px;
+        color: #7d4e3a; /* Slightly lighter brown */
+        font-size: 1.1em;
+        border-bottom: 1px solid #f4e7d5; /* Light beige */
+        padding-bottom: 5px;
+      }
+    
+      /* Payment Information Paragraphs */
+      .upi-section p,
+      .bank-section p {
+        margin: 8px 0;
+        font-size: 14px;
+        color: #555555;
+      }
+    
+      .upi-section span,
+      .bank-section span {
+        font-weight: bold;
+        color: #7d4e3a; /* Slightly lighter brown */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="form-container">
+      <h1>Membership Form</h1>
+
+      <form id="multi-step-form">
+        <!-- Step 1: Personal Information -->
+        <div class="form-step active">
+          <fieldset>
+            <legend>Personal Information</legend>
+            <label for="full-name">Full Name: *</label>
+            <input type="text" id="full-name" name="fullName" required />
+
+            <label for="dob">Date of Birth: *</label>
+            <input type="date" id="dob" name="dob" required />
+
+            <label>Gender:</label>
+            <div class="gender_form">
+              <div>
+                <label
+                  ><input type="radio" name="gender" value="male" required />
+                  Male</label
+                >
+              </div>
+              <div>
+                <label
+                  ><input type="radio" name="gender" value="female" required />
+                  Female</label
+                >
+              </div>
+            </div>
+
+            <label for="email">Email Address: *</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="phone">Phone Number: *</label>
+            <input type="tel" id="phone" name="phone" required />
+
+            <div class="con_nat">
+              <div>
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" />
+              </div>
+              <div style="margin-left: 5px">
+                <label for="nationality">Nationality: *</label>
+                <input
+                  type="text"
+                  id="nationality"
+                  name="nationality"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="street_city">
+              <div>
+                <label for="state">State/Province:</label>
+                <input type="text" id="state" name="state" />
+              </div>
+              <div style="margin-left: 5px">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" />
+              </div>
+            </div>
+
+            <label for="postal">Postal Code:</label>
+            <input type="text" id="postal" name="postalCode" />
+
+            <label for="street">Address:</label>
+            <input type="text" id="street" name="streetAddress" />
+          </fieldset>
+          <button class="form_next" type="button" onclick="nextStep()">
+            Next
+          </button>
+        </div>
+
+        <!-- Step 2: Membership Category -->
+        <div class="form-step">
+          <fieldset>
+            <legend>Membership Category and Fees</legend>
+            <label
+              ><input
+                type="radio"
+                name="membershipType"
+                value="artisan"
+                required
+              />
+              Artisan — $50</label
+            >
+            <label
+              ><input
+                type="radio"
+                name="membershipType"
+                value="individual"
+                required
+              />
+              Individual — $75</label
+            >
+            <label
+              ><input
+                type="radio"
+                name="membershipType"
+                value="professional"
+                required
+              />
+              Professional — $150</label
+            >
+            <label
+              ><input
+                type="radio"
+                name="membershipType"
+                value="corporate"
+                required
+              />
+              Corporate — $500</label
+            >
+            <label
+              ><input
+                type="radio"
+                name="membershipType"
+                value="patron"
+                required
+              />
+              Patron — $1,000</label
+            >
+            <label
+              ><input
+                type="radio"
+                name="membershipType"
+                value="student"
+                required
+              />
+              Student — $30</label
+            >
+          </fieldset>
+          <button class="form_next" type="button" onclick="previousStep()">
+            Previous
+          </button>
+          <button class="form_next" type="button" onclick="nextStep()">
+            Next
+          </button>
+        </div>
+
+       <!-- Step 3: Payment Information -->
+<div class="form-step">
+    <fieldset>
+      <legend>Payment Information</legend>
+  
+     <!-- Payment Method Selection -->
+<div class="payment-method">
+  <label>
+    <input type="radio" name="paymentMethod" value="upi" onclick="togglePaymentDetails()"> UPI Payment
+  </label>
+  <label>
+    <input type="radio" name="paymentMethod" value="bankTransfer" onclick="togglePaymentDetails()"> Bank Transfer
+  </label>
+</div>
+
+  
+      <!-- UPI Payment Information -->
+      <div class="upi-section hidden" id="upi-details">
+        <h3>UPI Payment Details</h3>
+        <p>UPI ID: <span id="upi-id">JKBMERC00558651@jkb</span></p>
+        <p>
+          Payee Name: <strong>HAMADAN CRAFT REVIVAL FOUNDATION</strong>
+        </p>
+        <button type="button" onclick="copyToClipboard('upi-id')">
+          Copy UPI ID
+        </button>
+      </div>
+  
+      <!-- Bank Account Details -->
+      <div class="bank-section hidden" id="bank-details">
+        <h3>Bank Account Details</h3>
+        <p>
+          Account Holder:
+          <strong>HAMADAN CRAFT REVIVAL FOUNDATION</strong>
+        </p>
+        <p>
+          Account Number:
+          <span id="account-number">0440010100001057</span>
+        </p>
+        <p>MICR Code: <span id="micr-code">190051029</span></p>
+        <p>Branch Code: <span id="branch-code">INTDIV</span></p>
+        <p>Branch: <strong>INTERNATIONAL BANKING DIV SRINAGAR</strong></p>
+        <button type="button" onclick="copyToClipboard('account-number')">
+          Copy Account Number
+        </button>
+        <button type="button" onclick="copyToClipboard('micr-code')">
+          Copy MICR Code
+        </button>
+        <button type="button" onclick="copyToClipboard('branch-code')">
+          Copy Branch Code
+        </button>
+      </div>
+    </fieldset>
+  
+    <!-- Navigation Buttons -->
+    <button class="form_next" type="button" onclick="previousStep()">
+      Previous
+    </button>
+    <button class="form_next" type="submit">Submit</button>
+  </div>
+  
+      </form>
+    </div>
+
+    <script src="config.js"></script>
+    <script>
+      let currentStep = 0;
+      const formSteps = document.querySelectorAll(".form-step");
+
+      document.addEventListener("DOMContentLoaded", () => {
+        showStep(currentStep);
+      });
+
+      function showStep(step) {
+        formSteps.forEach((formStep, index) => {
+          formStep.classList.remove("active");
+          if (index === step) {
+            formStep.classList.add("active");
+          }
+        });
+      }
+
+      function nextStep() {
+        if (currentStep < formSteps.length - 1) {
+          currentStep++;
+          showStep(currentStep);
+        }
+      }
+
+      function previousStep() {
+        if (currentStep > 0) {
+          currentStep--;
+          showStep(currentStep);
+        }
+      }
+
+      // Form submission with API integration
+      document
+        .getElementById("multi-step-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const formData = new FormData(this);
+          const data = Object.fromEntries(formData);
+
+          console.log("Form Data:", data); // Debugging: Log payload before sending
+
+          try {
+            const response = await fetch(`${API_BASE}/api/form/register`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data),
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+              alert("Form submitted successfully!");
+              this.reset();
+              currentStep = 0;
+              showStep(currentStep);
+            } else {
+              console.error("API Error:", result);
+              alert(result.error || "Error submitting the form.");
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert("An error occurred while submitting the form.");
+          }
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+  const token = localStorage.getItem("authToken"); // Use the same token key as in the working script
+  const isAdmin = localStorage.getItem("isAdmin") === "true"; // Check admin status
+
+  if (!token) {
+    alert("You must be logged in to access this page.");
+    window.location.href = "login.html"; // Redirect if no token
+    return;
+  }
+
+  try {
+    // Decode the token to verify it
+    const base64Url = token.split(".")[1];
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    const jsonPayload = JSON.parse(atob(base64));
+
+    // Debugging - Log the decoded payload
+    console.log("Token Payload:", jsonPayload);
+
+    // Check if token is expired
+    const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
+    if (jsonPayload.exp < currentTime) {
+      alert("Your session has expired. Please log in again.");
+      window.location.href = "login.html";
+      return;
+    }
+
+    // Pre-fill the email field with the email from the decoded token
+    const userEmail = jsonPayload.email; // Assuming the email is in the token payload
+    document.getElementById("email").value = userEmail;
+
+    // If admin, optionally display a message or redirect
+    if (isAdmin) {
+      console.log("Admin privileges detected.");
+    }
+  } catch (error) {
+    console.error("Invalid token:", error);
+    alert("Invalid session. Please log in again.");
+    window.location.href = "login.html";
+  }
+});
+
+      function copyToClipboard(elementId) {
+    const text = document.getElementById(elementId).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        alert("Copied to clipboard: " + text);
+    }).catch(err => {
+        console.error("Failed to copy: ", err);
+    });
+}
+
+function togglePaymentDetails() {
+  const upiDetails = document.getElementById("upi-details");
+  const bankDetails = document.getElementById("bank-details");
+  const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+
+  if (paymentMethod === "upi") {
+    upiDetails.classList.remove("hidden");
+    bankDetails.classList.add("hidden");
+  } else if (paymentMethod === "bankTransfer") {
+    bankDetails.classList.remove("hidden");
+    upiDetails.classList.add("hidden");
+  }
+}
+    </script>
+  </body>
+</html>

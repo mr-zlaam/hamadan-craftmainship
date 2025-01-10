@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HCR Foundation</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/images/favicons/favicon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicons/favicon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/images/favicons/favicon.png"
+
+    />
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- plugins css -->
+    <link
+      rel="stylesheet"
+      href="assets/vendors/bootstrap/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="assets/vendors/tiny-slider/dist/tiny-slider.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/vendors/owl-carousel/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/vendors/owl-carousel/owl.theme.default.min.css"
+    />
+    <link rel="stylesheet" href="assets/vendors/animate/animate.min.css" />
+    <link rel="stylesheet" href="assets/vendors/paroti-icons/style.css" />
+    <link
+      rel="stylesheet"
+      href="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/vendors/youtube-popup/youtube-popup.css"
+    />
+    <!-- template css -->
+    <link rel="stylesheet" href="assets/css/paroti.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <style>
+      .home-icon {
+  color: black;
+  font-weight: 600;
+  text-decoration: none; /* Optional: Remove underline */
+  display: inline-block; /* Ensures proper padding and background effect */
+  padding: 5px; /* Add some padding for better appearance */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.home-icon:hover {
+  color: #ac5c31; /* Change text color on hover */
+  background-color: white; /* Add white background */
+  border-radius: 4px; /* Optional: Add a slight rounded corner */
+  text-decoration: none; /* Prevent underline */
+}
+
+      .gender_form div {
+        display: inline-block;
+        width: 46%;
+    
+      }
+    
+      .con_nat div {
+        display: inline-block;
+        width: 48%;
+    
+      }
+    
+      .street_city div {
+        display: inline-block;
+        width: 48%;
+      }
+    
+      .form-container {
+        max-width: 40%;
+        margin: 50px auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        /* box-shadow: 0 0 30px #9f5f37 */
+        border: 0.5px solid #beb6b1;
+      }
+    
+      fieldset {
+        margin-bottom: 20px;
+      }
+    
+      legend {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+    
+      label {
+        display: block;
+        margin-top: 10px;
+
+      }
+    
+      input[type="text"],
+      input[type="email"],
+      input[type="date"],
+      input[type="tel"],
+      input[type="url"],
+      input[type="number"],
+      input[type="month"],
+      textarea {
+        width: 95%;
+        padding: 8px;
+        margin-top: 5px;
+        border-top:1px solid #beb6b1;
+        border-bottom:1px solid #beb6b1;
+
+        border-left:1px solid #beb6b1;
+        border-right:1px solid #beb6b1;
+    
+      }
+    
+      .form_next {
+        padding: 10px 15px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+        margin-top: 10px;
+      }
+    
+      .form_next:hover {
+        background-color: #9f5f37;
+      }
+    
+      .hidden {
+        display: none;
+      }
+    
+      .form-step {
+        display: none;
+      }
+    
+      .form-step.active {
+        display: block;
+      }
+
+      
+
+      /* Styles for the .form-container to be 100% width on mobile devices */
+@media (max-width: 768px) {
+    .form-container {
+        max-width: 100%;
+        margin: 20px auto; /* Adjusted margin for smaller screens */
+        padding: 15px; /* Optional: Adjust padding for better spacing */
+    }
+
+    .gender_form div,
+    .con_nat div,
+    .street_city div {
+        width: 100%; /* Make child divs take full width on mobile */
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="number"],
+    input[type="month"],
+    textarea {
+        width: 100%; /* Ensure inputs are full-width */
+    }
+}
+
+
+    </style>
+  </head>
+
+  <body>
+    <div class="preloader">
+      <div class="preloader__inner">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <!-- /.preloader__inner -->
+    </div>
+    <!-- /.preloader -->
+
+    <div class="page-wrapper" >
+      <header class="main-header">
+        <div class="topbar">
+          <div class="container-fluid">
+            <div class="topbar__inner">
+              <ul class="list-unstyled topbar__info">
+                <li class="topbar__title">
+                  <span> Hamadan Craft Revival Foundation </span>
+                </li>
+        
+                <li class="topbar__divider">
+                  <span> | </span>
+                </li>
+        
+                <li class="topbar__sub-title">
+                  <span>A Kashmir Craft Policy Think Tank - Shaping the Future of Artisans</span>
+                </li>
+              </ul>
+              <!-- /.topbar__info -->
+        
+              <ul class="list-unstyled topbar__links" id="topbar-links">
+                <!-- Links will be injected here based on the user's login status -->
+              </ul>
+                  <!-- Left Section -->
+                  <div class="col-md-3 text-center text-md-start mb-4 mb-md-0" style="margin-left: 20px; font-size: 20px;">
+                    <div class="site-footer__social d-flex justify-content-center justify-content-md-start">
+                      <a style="font-size: 15px;" href="https://x.com/artisanvoice?t=aQ_Monm6LFsvuZ8QQtqsaA&s=09" class=""><i
+                          class="fab fa-twitter"></i></a>
+                      <a style="font-size: 15px;" href="https://www.facebook.com/profile.php?id=61567325408681&mibextid=ZbWKwL" class=""><i
+                          class="fab fa-facebook"></i></a>
+                      <a style="font-size: 15px;" href="https://www.linkedin.com/company/105864580/" class="icon_footer"><i
+                          class="fa-brands fa-linkedin"></i></a>
+                      <a style="font-size: 15px;" href="https://www.instagram.com/kashmirhcrf/" class="icon_footer"><i class="fab fa-instagram"></i></a>
+                    </div>
+            </div>
+            <!-- /.topbar__inner -->
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- /.topbar -->
+        <nav class="main-menu sticky-header">
+          <div class="container-fluid">
+            <a href="index.html" class="main-header__logo">
+              <img src="assets/images/hcrf_logo.png" />
+            </a>
+      
+            
+            <ul class="main-menu__list">
+              <a href="index.html" class="home-icon" >
+                <i class="fa fa-home" aria-hidden="true"></i>
+              </a>
+              <li class="menu-item-has-children">
+                <a href="">Research & Policy</a>
+                <ul>
+                  <li><a href="industry_research.html">Industry Research</a></li>
+                  <li><a href="policy_insight.html">Policy In-Sights</a></li>
+                  <li><a href="Governance.html">Governance</a></li>
+                  <li><a href="Regulation.html">Regulations </a></li>
+                  <li><a href="Advocacy.html">Advocacy</a></li>
+                  <li><a href="Campaigns.html">Campaigns</a></li>
+                  <li><a href="legislative_lobby.html">Legislative Lobbying</a></li>
+                  <!-- <li><a href="index-3.html">Policy Publications</a></li> -->
+      
+                </ul>
+              </li>
+              <li class="menu-item-has-children"><a href="">E Publications</a>
+                <ul>
+      
+                  <li><a href="e_publication_best_practies.html">Best Practices</a></li>
+                  <li><a href="e_publication_case_studies.html">Case Studies</a></li>
+                  <li><a href="e_publication_research_papers.html">Research Papers</a></li>
+                  <li><a href="e_book.html">e Book</a></li>
+      
+      
+      
+                </ul>
+              </li>
+              <li class="menu-item-has-children">
+                <a href="">Business Support</a>
+                <ul>
+                  <li><a href="networking.html">Evaulation & Ranking</a></li>
+                  <li><a href="grants.html">Grants</a></li>
+                  <!-- <li><a href="quality_control.html">Quality Control</a></li> -->
+                  <!-- <li><a href="accreditation.html">Accreditations</a></li> -->
+                  <li><a href="Accreditation_Badge.html">Accreditation Badge</a></li>
+                  <li><a href="entrepreneur_kits.html">Entrepreneurs Kit</a></li>
+      
+                  <!-- <li>
+                                      <a href="volunteers.html">Business Evaluation</a>
+                                    </li> -->
+                </ul>
+              </li>
+              <li class="menu-item-has-children"><a href="">About HCRF</a>
+                <ul>
+                  <li><a href="mission.html">Mission</a></li>
+                  <li><a href="complinance.html">Compliance</a></li>
+                  <li><a href="leadership.html">Leadership</a></li>
+                  <!-- <li><a href="#">Advisory Board</a></li> -->
+                  <li><a href="memberships.html">Memberships</a></li>
+                  <li><a href="donations.html">Donations</a></li>
+                  <li><a href="partner_network.html">Partner Network</a></li>
+                  <li><a href="hcrf_project.html">HCRF Projects</a></li>
+                  <li><a href="career.html">Career</a></li>
+                  <li><a href="apprenticeship.html">Apprenticeship</a></li>
+                  <li><a href="contact.html">Contact </a></li>
+      
+                </ul>
+              </li>
+              <!-- <li class="menu-item-has-children">
+                                  <a href="events.html">HCRF Network</a>
+                                </li>
+                  
+                                <li class="menu-item-has-children">
+                                  <a href="events.html">HCRF People</a>
+                                </li> -->
+            </ul>
+            <!-- /.main-menu__list -->
+      
+            <div class="main-menu__right">
+              <div class="main-menu__cta">
+                <div class="main-menu__cta__icon">
+                  <i class="paroti-icon-volunteer"></i>
+                </div>
+                <!-- /.main-menu__cta__icon -->
+                <div class="main-menu__cta__text">
+                  <span>Join us now</span>
+                  <a href="memberships.html">Become a Member</a>
+                </div>
+                <!-- /.main-menu__cta__text -->
+              </div>
+              <!-- /.main-menu__cta -->
+              <a href="donations.html" class="thm-btn thm-btn--two">
+                <span>Donate Now</span></a>
+              <!-- <i class="fa fa-donate"></i>  -->
+              <!-- <img
+                                    src="assets/images/donate-icon.png"
+                                    style="z-index: 3"
+                                    alt="Donate Now"
+                                  /> </a -->
+              <!-- /.thm-btn--two -->
+              <a href="#" class="main-header__btn search-toggler">
+                <!-- <i class="paroti-icon-magnifying-glass"></i> -->
+              </a>
+              <a href="#" class="main-header__toggler mobile-nav__toggler">
+                <span></span>
+                <span></span>
+                <span></span>
+              </a>
+            </div>
+            <!-- /.main-menu__right -->
+          </div>
+          <!-- /.container-fluid -->
+        </nav>
+      
+      </header>
+
+      <section class="slider-one" style="background-color: #9f5f37;">
+        <div class="thm-owl__carousel owl-carousel owl-theme" data-owl-options='{
+            				"loop": true,
+            				"autoplay": true,
+            				"autoplayTimeOut": 7000,
+            				"items": 1,
+            				"margin": 0,
+            				"animateIn": "fadeIn",
+            				"animateOut": "slideOutDown",
+            				"nav": true,
+            				"dots": true,
+            				"navText": ["<span class=\"paroti-icon-left-arrow\"></span>","<span class=\"paroti-icon-right-arrow\"></span>"]
+            			}'>
+      
+          <div class="item" style="background-color: #9f5f37;">
+            <div class="slider-one__item" style="background-color: #9f5f37;">
+              <div class="slider-one__image"></div>
+              <!-- /.slider-one__image -->
+              <div class="container">
+                <h2 class="slider-one__title">
+                Join the Craft Revival Movement
+      
+                </h2>
+                <!-- /.slider-one__title -->
+                <p class="slider-one__text">
+                ecome a member and support the preservation of Kashmir’s rich artisanal heritage
+                </p>
+                <!-- /.slider-one__text -->
+                <!-- <div class="slider-one__btns">
+                            <a href="about.html" class="thm-btn slider-one__btn">
+                              <span>Discover More</span> </a
+                            >
+                          </div> -->
+                <!-- /.slider-one__btns -->
+              </div>
+              <!-- /.container -->
+            </div>
+            <!-- /.slider-one__item -->
+          </div>
+      
+          <div class="item" style="background-color: #9f5f37;">
+            <div class="slider-one__item" style="background-color: #9f5f37;">
+              <div class="slider-one__image"></div>
+              <!-- /.slider-one__image -->
+              <div class="container">
+                <h2 class="slider-one__title">
+                Empowering Crafts, Empowering Communities
+                  <br />
+                </h2>
+                <!-- /.slider-one__title -->
+                <p class="slider-one__text">
+                Be part of a global community dedicated to sustaining and promoting Kashmiri craftsmanship.</p>
+                <!-- /.slider-one__text -->
+                <!-- <div class="slider-one__btns">
+                            <a href="about.html" class="thm-btn slider-one__btn">
+                              <span>Discover More</span> </a
+                            >
+                          </div> -->
+                <!-- /.slider-one__btns -->
+              </div>
+              <!-- /.container -->
+            </div>
+            <!-- /.slider-one__item -->
+          </div>
+      
+          <div class="item" style="background-color: #9f5f37;">
+            <div class="slider-one__item" style="background-color: #9f5f37;">
+      
+              <!-- /.slider-one__image -->
+              <div class="container">
+                <h2 class="slider-one__title">Together, We Craft a Future</h2>
+                <!-- /.slider-one__title -->
+                <p class="slider-one__text">
+              Your membership fuels the revival and global recognition of Kashmir’s artisan legacy.
+                </p>
+                <!-- /.slider-one__text -->
+                <!-- <div class="slider-one__btns">
+                            <a href="about.html" class="thm-btn slider-one__btn">
+                              <span>Discover More</span> </a
+                            >
+                            </div> -->
+                <!-- /.slider-one__btns -->
+              </div>
+              <!-- /.container -->
+            </div>
+            <!-- /.slider-one__item -->
+          </div>
+      
+          <div class="item" style="background-color: #9f5f37;">
+            <div class="slider-one__item" style="background-color: #9f5f37;">
+      
+              <!-- /.slider-one__image -->
+              <div class="container">
+                <h2 class="slider-one__title">
+              Unite for Craft Excellence
+                </h2>
+                <!-- /.slider-one__title -->
+                <p class="slider-one__text">
+                  Join hands with us to protect, promote, and uplift the artisans of Kashmir.</p>
+                <!-- /.slider-one__text -->
+                <!-- <div class="slider-one__btns">
+                            <a href="about.html" class="thm-btn slider-one__btn">
+                              <span>Discover More</span> </a
+                            >
+                            </div> -->
+                <!-- /.slider-one__btns -->
+              </div>
+              <!-- /.container -->
+            </div>
+            <!-- /.slider-one__item -->
+          </div>
+      
+      
+      
+      
+      
+      
+          <!-- /.item -->
+      
+        </div>
+        <!-- /.thm-owl__carousel -->
+      </section>
+
+    
+      <section class="">
+        <div class="container">
+          <h3 class="title_page">Memberships</h3>
+        </div>
+      </section>
+      <section class="" style="padding-bottom: 300px; padding-top: 300px;">
+        <div class="container">
+          <div class="row gutter-y-60">
+            <div class="col-md-12 col-lg-4">
+              <div class="sec-title">
+                <p class="sec-title__tagline">Explore Our Initiatives 
+                  <span style="color: #9f5f37">|</span> Get Involved</p>
+                <!-- /.sec-title__tagline -->
+                <h2 class="sec-title__title">Membership Opportunities</h2>
+              </div>
+              <!-- /.sec-title -->
+              <p class="donation-two__text">
+          We offer various membership categories to individuals and organizations that wish to support our mission and engage with
+          the thriving world of Kashmiri handicrafts.   </p>
+              <!-- /.donation-two__text -->
+            </div>
+
+            <!-- <div class="col-md-12 col-lg-1"></div> -->
+            <!-- /.col-md-12 -->
+            <div class="col-md-12 col-lg-8">
+              <div
+                class="thm-owl__carousel owl-carousel owl-theme donation-two__carousel"
+                data-owl-options='{
+							"items": 1,
+							"margin": 0,
+							"loop": false,
+							"nav": false,
+							"dots": false,
+							"autoplay": false,
+							"responsive": {
+								"0": {
+									"items": 1
+								},
+								"576": {
+									"items": 2,
+									"margin": 10
+								},
+                "768": {
+									"items": 2,
+									"margin": 10
+								},
+                "992": {
+									"items": 3,
+									"margin": 10
+								}
+							}
+						}'
+              >
+                <div class="item">
+                  <div class="donation-card-two"  style="--accent-color: #9f5f37">
+                    <div class="donation-card-two__bg"></div>
+                    <!-- /.donation-card-two__bg -->
+                    <h3 class="donation-card-two__title">
+                      <a href="#">Artisan Membership</a>
+                    </h3>
+                    <!-- /.donation-card-two__title -->
+                    <p class="donation-card-two__text">
+                  Support artisans directly, access business resources, join policy discussions, and participate in programs that enhance
+                  livelihoods and craft development. </p>
+                    <!-- /.donation-card-two__text -->
+                    
+                    <div class="donation-card-two__shape"></div>
+                    <!-- /.donation-card-two__shape -->
+                  </div>
+                  <!-- /.donation-card-two -->
+                </div>
+                <!-- /.item -->
+                <div class="item">
+                  <div
+                    class="donation-card-two"
+                    style="--accent-color: #9f5f37"
+                  >
+                    <div class="donation-card-two__bg"></div>
+                    <!-- /.donation-card-two__bg -->
+                    <h3 class="donation-card-two__title">
+                      <a href="#">Individual Membership</a>
+                    </h3>
+                    <!-- /.donation-card-two__title -->
+                    <p class="donation-card-two__text">
+                  Contribute to advocacy and research efforts, stay updated on industry developments, and participate in exclusive events
+                  to support Kashmir crafts. </p>
+                    <!-- /.donation-card-two__text -->
+                    
+                    <div class="donation-card-two__shape"></div>
+                    <!-- /.donation-card-two__shape -->
+                  </div>
+                  <!-- /.donation-card-two -->
+                </div>
+
+                <!-- /.item -->
+                <div class="item">
+                  <div
+                    class="donation-card-two"
+                    style="--accent-color: #9f5f37"
+                  >
+                    <div class="donation-card-two__bg"></div>
+                    <!-- /.donation-card-two__bg -->
+                    <h3 class="donation-card-two__title">
+                      <a href="#">Professional Membership</a>
+                    </h3>
+                    <!-- /.donation-card-two__title -->
+                    <p class="donation-card-two__text">
+                    Ideal for craft-related professionals, offering opportunities to collaborate on projects, gain insights, and influence
+                    the craft industry’s future.</p>
+                    <!-- /.donation-card-two__text -->
+                    
+                    <div class="donation-card-two__shape"></div>
+                    <!-- /.donation-card-two__shape -->
+                  </div>
+                  <!-- /.donation-card-two -->
+                </div>
+
+                <div class="item">
+                  <div
+                    class="donation-card-two"
+                    style="--accent-color: #9f5f37"
+                  >
+                    <div class="donation-card-two__bg"></div>
+                    <!-- /.donation-card-two__bg -->
+                    <h3 class="donation-card-two__title">
+                      <a href="#">Corporate Membership</a>
+                    </h3>
+                    <!-- /.donation-card-two__title -->
+                    <p class="donation-card-two__text">
+                  Corporations supporting artisans can benefit from CSR opportunities, contribute to preservation, and gain visibility as
+                  patrons of Kashmir crafts.
+                    </p>
+                    <!-- /.donation-card-two__text -->
+                    
+                    <div class="donation-card-two__shape"></div>
+                    <!-- /.donation-card-two__shape -->
+                  </div>
+                  <!-- /.donation-card-two -->
+                </div>
+
+
+
+                <div class="item">
+                  <div class="donation-card-two" style="--accent-color: #9f5f37">
+                    <div class="donation-card-two__bg"></div>
+                    <!-- /.donation-card-two__bg -->
+                    <h3 class="donation-card-two__title">
+                      <a href="#">Patron Membership</a>
+                    </h3>
+                    <!-- /.donation-card-two__title -->
+                    <p class="donation-card-two__text">
+                    Significant contributors help fund projects, influence policies, and preserve Kashmiri crafts, playing a pivotal role in
+                    heritage conservation.
+                    </p>
+                    <!-- /.donation-card-two__text -->
+                    <a href="#"><i class="fa fa-angle-double-right donation-card-two__link"></i></a>
+                    <div class="donation-card-two__shape"></div>
+                    <!-- /.donation-card-two__shape -->
+                  </div>
+                  <!-- /.donation-card-two -->
+                </div>
+
+
+
+
+                <div class="item">
+                  <div class="donation-card-two" style="--accent-color: #9f5f37">
+                    <div class="donation-card-two__bg"></div>
+                    <!-- /.donation-card-two__bg -->
+                    <h3 class="donation-card-two__title">
+                      <a href="#">Student Membership</a>
+                    </h3>
+                    <!-- /.donation-card-two__title -->
+                    <p class="donation-card-two__text">
+                    For students passionate about cultural heritage, offering research, internship opportunities, and participation in
+                    meaningful projects for craft advocacy.
+                    </p>
+                    <!-- /.donation-card-two__text -->
+                    <a href="#"><i class="fa fa-angle-double-right donation-card-two__link"></i></a>
+                    <div class="donation-card-two__shape"></div>
+                    <!-- /.donation-card-two__shape -->
+                  </div>
+                  <!-- /.donation-card-two -->
+                </div>
+
+                
+                <!-- /.item -->
+              </div>
+              <!-- /.donation-two__carousel -->
+            </div>
+            <!-- /.col-md-12 col-lg-6 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container -->
+      </section>
+
+      <section class="sec-pad-top sec-pad-bottom mission-section">
+        <div class="container">
+          <div class="row gutter-y-60">
+
+            <div class="col-md-12 col-lg-12">
+              <div class="sec-title">
+                <p class="sec-title__tagline">
+                  
+                  Preserve Tradition, Empower Artisans, Shape the Future
+                 </p>
+                <!-- /.sec-title__tagline -->
+                <h2 class="sec-title__title">Why Join HCRF?</h2>
+                    <h4 class="sec-title__title">Becoming a member of the Hamdan Craft Revival Foundation offers exclusive opportunities to contribute to the
+                    preservation and advancement of Kashmiri handicrafts.</h4>
+              <!-- </h2> -->
+              </div>
+            </div>
+
+            <!-- <div class="col-md-12 col-lg-1"></div> -->
+            <!-- /.col-md-12 -->
+            <div class="col-md-12 col-lg-10">
+              <div
+                class="thm-owl__carousel owl-carousel owl-theme donation-two__carousel"
+                data-owl-options='{
+							"items": 1,
+							"margin": 0,
+							"loop": true,
+							"nav": false,
+							"dots": false,
+							"autoplay": true,
+							"responsive": {
+								"0": {
+									"items": 1
+								},
+								"576": {
+									"items": 1,
+									"margin": 10
+								},
+                "768": {
+									"items": 1,
+									"margin": 10
+								},
+                "992": {
+									"items": 2,
+									"margin": 10
+								}
+							}
+						}'
+              >
+                <div class="item">
+                  <div class="donation-card-two"  style="--accent-color: #9f5f37">
+                    <div class="donation-card-two__bg"></div>
+                    <!-- /.donation-card-two__bg -->
+                    <h3 class="donation-card-two__title">
+                      <a href="#">Exclusive Access</a>
+                    </h3>
+                    <!-- /.donation-card-two__title -->
+                    <p class="donation-card-two__text">
+                    As a member, you’ll gain early access to cutting-edge research publications, detailed industry reports, and insights
+                    into emerging policy trends. Stay ahead of developments that affect the handicraft sector and understand how shifts in
+                    policies and markets will impact artisans. You can better advocate for
+                    sustainable practices and participate in shaping solutions that preserve the rich heritage of Kashmiri crafts for future
+                    generations.
+              
+                      <!-- <ul class="donation-card-two__text">
+                        <li>Revitalize crafts through preservation & innovation.</li>
+                        <li>Advance Kashmir's craftsmanship with research.</li>
+                        <li>Promoting eco-friendly, sustainable handicrafts.</li>
+                        <li>Support policies protecting Kashmiri artisans.</li>
+                        <li>Forge impactful partnerships for our initiatives.</li>
+                        <li>Empowering artisans with resources & tools.</li>
+                      </ul> -->
+                    </p>
+                 
+                    <!-- /.donation-card-two__text -->
+                    <!--  -->
+                    <div class="donation-card-two__shape"></div>
+                    <!-- /.donation-card-two__shape -->
+                  </div>
+                  <!-- /.donation-card-two -->
+                </div>
+
+                <!-- /.item -->
+                <div class="item">
+                  <div
+                    class="donation-card-two"
+                    style="--accent-color: #9f5f37"
+                  >
+                    <div class="donation-card-two__bg"></div>
+                    <!-- /.donation-card-two__bg -->
+                    <h3 class="donation-card-two__title">
+                      <a href="#">Networking
+                      </a>
+                    </h3>
+                    <!-- /.donation-card-two__title -->
+                    <p class="donation-card-two__text">
+                      Join a vibrant community of artisans, industry leaders, and policymakers dedicated to preserving Kashmir’s
+                      craftsmanship. HCRF membership offers opportunities to connect with influential figures passionate about safeguarding
+                      traditional crafts and building a sustainable future for artisans. Build relationships, exchange knowledge,
+                      and collaborate on initiatives.
+                      <!-- <ul class="donation-card-two__text">
+                        <li>Market research and analysis.</li>
+                        <li>Policy research and advocacy.</li>
+                        <li>Skill development and capacity building.</li>
+                        <li>Cultural preservation and documentation. </li>
+                        <li>Market access facilitation.</li>
+                        <li>Innovation in product design and development.</li>
+                      </ul> -->
+                    </p>
+                    <!-- /.donation-card-two__text -->
+                    <!--  -->
+                    <div class="donation-card-two__shape"></div>
+                    <!-- /.donation-card-two__shape -->
+                  </div>
+                  <!-- /.donation-card-two -->
+                </div>
+
+                <!-- /.item -->
+                <div class="item">
+                  <div
+                    class="donation-card-two"
+                    style="--accent-color: #9f5f37"
+                  >
+                    <div class="donation-card-two__bg"></div>
+                    <!-- /.donation-card-two__bg -->
+                    <h3 class="donation-card-two__title">
+                      <a href="#">Impact</a>
+                    </h3>
+                    <!-- /.donation-card-two__title -->
+                    <p class="donation-card-two__text">
+                    Your membership directly supports the protection and promotion of Kashmir’s cultural heritage. Through advocacy, help
+                    influence policies, improve artisans' working conditions, and create sustainable opportunities.
+                    Together, we work to safeguard endangered craft techniques, provide artisans with tools, and ensure their craft is
+                     respected and recognized. Your involvement helps shape a brighter future for Kashmiri crafts.
+                      <!-- <ul class="donation-card-two__text">
+                        <li>Artisans and craft communities.</li>
+                        <li>Government agencies and policymakers.</li>
+                        <li>NGOs and development organizations.</li>
+                        <li>Private sector stakeholders.</li>
+                        <li>Educational institutions & training centers.</li>
+                        <li>General public interested in art and crafts.</li>
+                      </ul> -->
+                    </p>
+                    <!-- /.donation-card-two__text -->
+                    <!--  -->
+                    <div class="donation-card-two__shape"></div>
+                    <!-- /.donation-card-two__shape -->
+                  </div>
+                  <!-- /.donation-card-two -->
+                </div>
+
+
+                <div class="item">
+                  <div class="donation-card-two" style="--accent-color: #9f5f37">
+                    <div class="donation-card-two__bg"></div>
+                    <!-- /.donation-card-two__bg -->
+                    <h3 class="donation-card-two__title">
+                      <a href="#">Events & Workshops</a>
+                    </h3>
+                    <!-- /.donation-card-two__title -->
+                    <p class="donation-card-two__text">
+                      HCRF members enjoy access to exclusive events and workshops addressing the key challenges in the handicraft sector.
+                      These events unite experts, artisans, and leaders to discuss topics like sustainability, innovation, and market trends.
+                      Participate in hands-on workshops, gain new skills, explore innovative solutions, and engage in discussions that shape
+                      the future of Kashmir’s handicraft industry.
+                      <!-- <ul class="donation-card-two__text">
+                                        <li>Artisans and craft communities.</li>
+                                        <li>Government agencies and policymakers.</li>
+                                        <li>NGOs and development organizations.</li>
+                                        <li>Private sector stakeholders.</li>
+                                        <li>Educational institutions & training centers.</li>
+                                        <li>General public interested in art and crafts.</li>
+                                      </ul> -->
+                    </p>
+                    <!-- /.donation-card-two__text -->
+                    <!-- <a href="#"
+                                      ><i
+                                        class="fa fa-angle-double-right donation-card-two__link"
+                                      ></i
+                                    ></a> -->
+                    <div class="donation-card-two__shape"></div>
+                    <!-- /.donation-card-two__shape -->
+                  </div>
+                  <!-- /.donation-card-two -->
+                </div>
+
+
+                
+                <!-- /.item -->
+              </div>
+              <!-- /.donation-two__carousel -->
+            </div>
+            <!-- /.col-md-12 col-lg-6 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container -->
+      </section>
+
+    
+
+
+
+
+
+     
+
+
+
+      <!-- <section style="padding: 30px;" id="membership_form"> -->
+        <div class="form-container">
+          <h1 style="color: #333;">Membership Form</h1>
+    
+          <form id="multi-step-form">
+            <!-- Step 1: Personal Information -->
+            <div class="form-step active">
+              <fieldset>
+                <legend>Personal Information</legend>
+                <label for="full-name">Full Name: *</label>
+                <input type="text" id="full-name" name="fullName" required />
+    
+                <label for="dob">Date of Birth: *</label>
+                <input type="date" id="dob" name="dob" required />
+    
+                <label>Gender:</label>
+                <div class="gender_form">
+                  <div>
+                    <label
+                      ><input type="radio" name="gender" value="male" required />
+                      Male</label
+                    >
+                  </div>
+                  <div>
+                    <label
+                      ><input type="radio" name="gender" value="female" required />
+                      Female</label
+                    >
+                  </div>
+                </div>
+    
+                <label for="email">Email Address: *</label>
+                <input type="email" id="email" name="email" required />
+    
+                <label for="phone">Phone Number: *</label>
+                <input type="tel" id="phone" name="phone" required />
+    
+                <div class="con_nat">
+                  <div>
+                    <label for="country">Country:</label>
+                    <input type="text" id="country" name="country" />
+                  </div>
+                  <div style="margin-left: 5px">
+                    <label for="nationality">Nationality: *</label>
+                    <input
+                      type="text"
+                      id="nationality"
+                      name="nationality"
+                      required
+                    />
+                  </div>
+                </div>
+    
+                <div class="street_city">
+                  <div>
+                    <label for="state">State/Province:</label>
+                    <input type="text" id="state" name="state" />
+                  </div>
+                  <div style="margin-left: 5px">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" />
+                  </div>
+                </div>
+    
+                <label for="postal">Postal Code:</label>
+                <input type="text" id="postal" name="postalCode" />
+    
+                <label for="street">Address:</label>
+                <input type="text" id="street" name="streetAddress" />
+              </fieldset>
+              <button class="form_next" type="button" onclick="nextStep()">
+                Next
+              </button>
+            </div>
+    
+            <!-- Step 2: Membership Category -->
+            <div class="form-step">
+              <fieldset>
+                <legend>Membership Category and Fees</legend>
+                <label
+                  ><input
+                    type="radio"
+                    name="membershipType"
+                    value="artisan"
+                    required
+                  />
+                  Artisan — ₹50</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="membershipType"
+                    value="individual"
+                    required
+                  />
+                  Individual — ₹75</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="membershipType"
+                    value="professional"
+                    required
+                  />
+                  Professional — ₹150</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="membershipType"
+                    value="corporate"
+                    required
+                  />
+                  Corporate — ₹500</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="membershipType"
+                    value="patron"
+                    required
+                  />
+                  Patron — ₹1,000</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="membershipType"
+                    value="student"
+                    required
+                  />
+                  Student — ₹30</label
+                >
+              </fieldset>
+              <button class="form_next" type="button" onclick="previousStep()">
+                Previous
+              </button>
+              <button class="form_next" type="button" onclick="nextStep()">
+                Next
+              </button>
+            </div>
+    
+           <!-- Step 3: Payment Information -->
+    <div class="form-step">
+        <fieldset>
+          <legend>Payment Information</legend>
+      
+         <!-- Payment Method Selection -->
+    <div class="payment-method">
+      <label>
+        <input type="radio" name="paymentMethod" value="upi" onclick="togglePaymentDetails()"> UPI Payment
+      </label>
+      <label>
+        <input type="radio" name="paymentMethod" value="bankTransfer" onclick="togglePaymentDetails()"> Bank Transfer
+      </label>
+    </div>
+    
+      
+          <!-- UPI Payment Information -->
+          <div class="upi-section hidden" id="upi-details">
+            <h3>UPI Payment Details</h3>
+            <p>UPI ID: <span id="upi-id">JKBMERC00558651@jkb</span></p>
+            <p>
+              Payee Name: <strong>HAMADAN CRAFT REVIVAL FOUNDATION</strong>
+            </p>
+            <button type="button" onclick="copyToClipboard('upi-id')">
+              Copy UPI ID
+            </button>
+          </div>
+      
+          <!-- Bank Account Details -->
+          <div class="bank-section hidden" id="bank-details">
+            <h3>Bank Account Details</h3>
+            <p>
+              Account Holder:
+              <strong>HAMADAN CRAFT REVIVAL FOUNDATION</strong>
+            </p>
+            <p>
+              Account Number:
+              <span id="account-number">0440010100001057</span>
+            </p>
+            <p>MICR Code: <span id="micr-code">190051029</span></p>
+            <p>Branch Code: <span id="branch-code">INTDIV</span></p>
+            <p>Branch: <strong>INTERNATIONAL BANKING DIV SRINAGAR</strong></p>
+            <button type="button" onclick="copyToClipboard('account-number')">
+              Copy Account Number
+            </button>
+            <button type="button" onclick="copyToClipboard('micr-code')">
+              Copy MICR Code
+            </button>
+            <button type="button" onclick="copyToClipboard('branch-code')">
+              Copy Branch Code
+            </button>
+          </div>
+        </fieldset>
+      
+        <!-- Navigation Buttons -->
+        <button class="form_next" type="button" onclick="previousStep()">
+          Previous
+        </button>
+        <button class="form_next" type="submit">Submit</button>
+      </div>
+      
+          </form>
+        </div>
+
+        <script src="config.js"></script>
+        <script>
+        
+    
+          // Form submission with API integration
+          document
+            .getElementById("multi-step-form")
+            .addEventListener("submit", async function (e) {
+              e.preventDefault();
+    
+              const formData = new FormData(this);
+              const data = Object.fromEntries(formData);
+    
+              console.log("Form Data:", data); // Debugging: Log payload before sending
+    
+              try {
+                const response = await fetch(`${API_BASE}/api/form/register`, {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(data),
+                });
+    
+                const result = await response.json();
+                if (response.ok) {
+                  alert("Form submitted successfully!");
+                  this.reset();
+                  currentStep = 0;
+                  showStep(currentStep);
+                } else {
+                  console.error("API Error:", result);
+                  alert(result.error || "Error submitting the form.");
+                }
+              } catch (error) {
+                console.error("Error:", error);
+                alert("An error occurred while submitting the form.");
+              }
+            });
+            document.addEventListener("DOMContentLoaded", () => {
+      const token = localStorage.getItem("authToken"); // Use the same token key as in the working script
+      const isAdmin = localStorage.getItem("isAdmin") === "true"; // Check admin status
+    
+      if (!token) {
+        alert("You must be logged in to access this page.");
+        window.location.href = "login.html"; // Redirect if no token
+        return;
+      }
+    
+      try {
+        // Decode the token to verify it
+        const base64Url = token.split(".")[1];
+        const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+        const jsonPayload = JSON.parse(atob(base64));
+    
+        // Debugging - Log the decoded payloadCC
+        console.log("Token Payload:", jsonPayload);
+    
+        // Check if token is expired
+        const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
+        if (jsonPayload.exp < currentTime) {
+          alert("Your session has expired. Please log in again.");
+          window.location.href = "login.html";
+          return;
+        }
+    
+        // Pre-fill the email field with the email from the decoded token
+        const userEmail = jsonPayload.email; // Assuming the email is in the token payload
+        document.getElementById("email").value = userEmail;
+    
+        // If admin, optionally display a message or redirect
+        if (isAdmin) {
+          console.log("Admin privileges detected.");
+        }
+      } catch (error) {
+        console.error("Invalid token:", error);
+        alert("Invalid session. Please log in again.");
+        window.location.href = "login.html";
+      }
+    });
+    
+          function copyToClipboard(elementId) {
+        const text = document.getElementById(elementId).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Copied to clipboard: " + text);
+        }).catch(err => {
+            console.error("Failed to copy: ", err);
+        });
+    }
+    
+    function togglePaymentDetails() {
+      const upiDetails = document.getElementById("upi-details");
+      const bankDetails = document.getElementById("bank-details");
+      const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+    
+      if (paymentMethod === "upi") {
+        upiDetails.classList.remove("hidden");
+        bankDetails.classList.add("hidden");
+      } else if (paymentMethod === "bankTransfer") {
+        bankDetails.classList.remove("hidden");
+        upiDetails.classList.add("hidden");
+      }
+    }
+        </script>
+
+
+      <section class="funfact-two sec-pad-top sec-pad-bottom">
+      <!-- <div class="funfact-two__shape"></div> -->
+      <!-- /.funfact-two__shape -->
+      <div class="container">
+        <div class="sec-title text-center">
+          <p class="sec-title__tagline">Crafting a Future - Reviving Kashmir's Craft Heritage Together</p>
+          <!-- /.sec-title__tagline -->
+          <h2 class="sec-title__title">
+            Join our network for a better future <br>of our Artisans and Craft Industry
+          </h2>
+        </div>
+        <!-- /.sec-title -->
+        <ul class="list-unstyled funfact-two__list" >
+          <li class="funfact-two__list__item" style="--accent-color: #229bd4">
+            <div class="funfact-two__list__icon">
+              <i class="paroti-icon-campaign"></i>
+            </div>
+            <!-- /.funfact-two__list__icon -->
+            <h3 class="funfact-two__list__count count-box">
+              <span
+                class="count-text"
+                data-stop="2556"
+                data-speed="1500"
+              ></span
+              ><!-- /.count-text -->
+            </h3>
+            <!-- /.funfact-two__list__count count-box -->
+            <p class="funfact-two__list__text">Artisan Membership</p>
+            <!-- /.funfact-two__list__text -->
+          </li>
+          <!-- /.funfact-two__list__item -->
+          
+
+
+          <li class="funfact-two__list__item" style="--accent-color: #229bd4">
+            <div class="funfact-two__list__icon">
+              <i class="paroti-icon-budget"></i>
+            </div>
+            <!-- /.funfact-two__list__icon -->
+            <h3 class="funfact-two__list__count count-box">
+              <span class="count-text" data-stop="18" data-speed="1500"></span><!-- /.count-text -->
+            </h3>
+            <!-- /.funfact-two__list__count count-box -->
+            <p class="funfact-two__list__text">Individual Membership</p>
+            <!-- /.funfact-two__list__text -->
+          </li>
+          <!-- /.funfact-two__list__item -->
+          <li class="funfact-two__list__item" style="--accent-color: #229bd4">
+            <div class="funfact-two__list__icon">
+              <i class="paroti-icon-social-campaign"></i>
+            </div>
+            <!-- /.funfact-two__list__icon -->
+            <h3 class="funfact-two__list__count count-box">
+              <span
+                class="count-text"
+                data-stop="321"
+                data-speed="1000"
+              ></span
+              ><!-- /.count-text -->
+            </h3>
+            <!-- /.funfact-two__list__count count-box -->
+            <p class="funfact-two__list__text">Professional Membership</p>
+            <!-- /.funfact-two__list__text -->
+          </li>
+          <!-- /.funfact-two__list__item -->
+          <li class="funfact-two__list__item" style="--accent-color: #229bd4">
+            <div class="funfact-two__list__icon">
+              <i class="paroti-icon-help"></i>
+            </div>
+            <!-- /.funfact-two__list__icon -->
+            <h3 class="funfact-two__list__count count-box">
+              <span
+                class="count-text"
+                data-stop="5"
+                data-speed="1500"
+              ></span
+              ><!-- /.count-text -->
+            </h3>
+            <!-- /.funfact-two__list__count count-box -->
+            <p class="funfact-two__list__text">Patron Membership</p>
+            <!-- /.funfact-two__list__text -->
+          </li>
+
+          <li class="funfact-two__list__item" style="--accent-color: #229bd4">
+            <div class="funfact-two__list__icon">
+              <i class="paroti-icon-help"></i>
+            </div>
+            <!-- /.funfact-two__list__icon -->
+            <h3 class="funfact-two__list__count count-box">
+              <span
+                class="count-text"
+                data-stop="4"
+                data-speed="1000"
+              ></span
+              ><!-- /.count-text -->
+            </h3>
+            <!-- /.funfact-two__list__count count-box -->
+            <p class="funfact-two__list__text">Student Membership</p>
+            <!-- /.funfact-two__list__text -->
+          </li>
+          <!-- /.funfact-two__list__item -->
+        </ul>
+        <!-- /.list-unstyled -->
+      </div>
+      <!-- /.container -->
+    </section>
+
+
+   
+
+
+  
+
+   
+  
+
+    <section class="cta-three">
+      <div class="container">
+        <div class="cta-three__inner wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+          <!-- <div class="cta-three__inner__bg" style="background-image: url(assets/images/shapes/cta-3-bg-1-1.png);"></div> -->
+          <!-- /.cta-three__inner__bg -->
+          <div class="cta-three__icon">
+            <!-- <i class="paroti-icon-support"></i> -->
+            <!-- <i class="fa-solid fa-check"></i> -->
+            <!-- <i class="fa-light fa-bell"></i> -->
+            <a href="memberships.html" style="color: #fff;"> <i class="fa fa-user-plus" aria-hidden="true"></i></a>
+    
+          </div><!-- /.cta-three__icon -->
+          <h3 class="cta-three__title" style="font-size: 20px;">Stay Connected With HCR-Foundation<span
+              style="font-size: 23px;"> Kashmir's Craft Policy Think-Tank</span></h3><!-- /.cta-three__title -->
+          <div class="cta-three__btns mt-lg-0 mt-4">
+            <a href="memberships.html" class="thm-btn cta-three__btn">
+              <span>Subscribe Today</span>
+            </a><!-- /.thm-btn cta-three__btn -->
+          </div><!-- /.cta-three__btns -->
+        </div><!-- /.cta-three__inner -->
+      </div><!-- /.container -->
+    </section><!-- /.cta-three -->
+    
+    <footer class="site-footer footer-main">
+      <div class="site-footer__top">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-duration="1500ms"
+              data-wow-delay="000ms">
+              <div class="site-footer__widget site-footer__widget__about">
+                <a href="index.html" class="site-footer__widget__logo">
+                  <img src="assets/images/hcrf_logo.png" width="100px" height="100px" alt="">
+                </a>
+                <p class="" style="padding-right: 70px;">HCRF, a pioneering Section 8 entity, is the first Craft Policy
+                  Think Tank devoted
+                  to preserving, promoting, and sustainably advancing Kashmir’s unique handicraft heritage and artisan
+                  empowerment
+    
+    
+                </p>
+                <!-- <h3 class="site-footer__widget__title"><a href="mailto:info@khcrf.org"></a></h3> -->
+    
+              </div><!-- /.site-footer__widget -->
+            </div><!-- /.col-sm-12 col-md-6 col-lg-6 col-xl-3 wow fadeInUp -->
+    
+    
+    
+    
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+              <div class="site-footer__widget">
+                <h3 class="site-footer__widget__title">Policy Action</h3><!-- /.site-footer__widget__title -->
+                <ul class="list-unstyled site-footer__widget__links">
+                  <li><a href="Advocacy.html">Policy Advocacy</a></li>
+                  <li><a href="Campaigns.html">Policy Campaign</a></li>
+                  <li><a href="legislative_lobby.html">Policy Lobbying</a></li>
+    
+    
+                  <br>
+                  <h3 class="site-footer__widget__title_second">Publications</h3><!-- /.site-footer__widget__title -->
+                  <li><a href="e_publication_best_practies.html">Best Practices</a></li>
+                  <li><a href="e_publication_case_studies.html">Case Studies</a></li>
+                  <li><a href="e_publication_research_papers.html">Research Papers<a></li>
+                  <li><a href="e_book.html">e-Books</a></li>
+                  <!-- <li><a href="about.html">HCRF People</a></li> -->
+                </ul><!-- /.list-unstyled site-footer__widget__links -->
+              </div><!-- /.site-footer__widget -->
+            </div><!-- /.col-sm-12 col-md-6 col-lg-6 col-xl-2 wow fadeInUp -->
+    
+    
+    
+    
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+              <div class="site-footer__widget">
+                <h3 class="site-footer__widget__title">Business support</h3>
+                <!-- /.site-footer__widget__title -->
+                <ul class="list-unstyled site-footer__widget__links text-start">
+                  <li><a href="networking.html">Business Evaluation</a></li>
+                  <li><a href="grants.html">Grants Support</a></li>
+                  <li><a href="accreditation.html">Accreditation</a></li>
+                  <li><a href="entrepreneur_kits.html">Entrepreneurs Kit</a></li>
+    
+    
+                  <h3 class="site-footer__widget__title_second">About HCRF</h3><!-- /.site-footer__widget__title -->
+                  <li><a href="partner_network.html">Partner Network</a></li>
+                  <li><a href="hcrf_project.html">Projects</a></li>
+                  <li><a href="career.html">Career</a></li>
+                  <li><a href="apprenticeship.html">Apprenticeship</a></li>
+                </ul><!-- /.list-unstyled site-footer__widget__links -->
+              </div><!-- /.site-footer__widget -->
+            </div><!-- /.col-sm-12 col-md-6 col-lg-6 col-xl-2 wow fadeInUp -->
+    
+    
+    
+    
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+              <div class="site-footer__widget">
+                <h3 class="site-footer__widget__title">Membership<h3>
+                    <!-- /.site-footer__widget__title -->
+                    <ul class="list-unstyled site-footer__widget__links">
+                      <li><a href="memberships.html#membership_form">Artisan</a></li>
+                      <li><a href="memberships.html#membership_form">Individual</a></li>
+                      <li><a href="memberships.html#membership_form">Professional</a></li>
+                      <li><a href="memberships.html#membership_form">Corporate Patron</a></li>
+                      <h3 class="site-footer__widget__title_second">Donation </h3><!-- /.site-footer__widget__title -->
+                      <li><a href="donations.html">Artisan Support Fund</a></li>
+                      <li><a href="donations.html">In-Kind</a></li>
+                      <!-- <li><a href="donations.html">In-Kind</a></li> -->
+                      <li><a href="donations.html">Legacy & Planned Giving</a></li>
+                      <li><a href="donations.html">Event Sponsorships</a></li>
+                    </ul><!-- /.list-unstyled site-footer__widget__links -->
+              </div>
+            </div>
+    
+    
+    
+    
+    
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="400ms">
+              <div class="site-footer__widget site-footer__widget__cta">
+                <h3 class="site-footer__widget__title"><span>Let's come together to raise donations & help amplify the
+                    voices of Kashmiri artisans.</span></h3>
+                <!-- /.site-footer__widget__title -->
+                <a href="donations.html" class="thm-btn thm-btn--two" style="background-color: #9f5f37; margin: 0px;">
+                  <span>Donate Now</span>
+                </a><!-- /.thm-btn--two -->
+              </div><!-- /.site-footer__widget -->
+              <div style="height: 200px; width: 200px; position: relative; left: 0px;">
+                <!-- <div style="height: 60px;">
+                        Hamadan Craft Revival Foundation
+                        <small>tm 001415319@jkb
+                          0005040100006000
+                        </small> -->
+                <img src="assets/images/scan1.png" alt="">
+              </div>
+    
+            </div>
+    
+          </div><!-- /.site-footer__widget -->
+    
+    
+    
+    
+    
+        </div>
+      </div><!-- /.col-sm-12 col-md-6 col-lg-6 col-xl-3 wow fadeInUp -->
+      <!-- /.container -->
+      <!-- /.site-footer__top -->
+    
+    
+    
+    
+    
+    
+      <div class="site-footer__bottom  text-white py-4">
+        <div class="container">
+          <div class="row">
+            <!-- Left Section -->
+            <div class="col-md-3 text-center text-md-start mb-4 mb-md-0">
+              <p class="mb-2">© Copyright <span class="dynamic-year"></span> by HCRF</p>
+              <div class="site-footer__social d-flex justify-content-center justify-content-md-start">
+                <a href="#" class=""><i class="fab fa-twitter"></i></a>
+                <a href="#" class=""><i class="fab fa-facebook"></i></a>
+                <a href="#" class="icon_footer"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="icon_footer"><i class="fab fa-instagram"></i></a>
+              </div>
+              <div class="policy-links mt-3">
+                <a href="terms.html" class="text-white me-2">Legal</a> |
+                <a href="privacy.html" class="text-white ms-2">Privacy Policy</a>
+              </div>
+            </div>
+    
+            <!-- Right Section -->
+            <div class="col-md-9 text-center text-md-end">
+              <p class="mb-2">
+                HCRF 2 Darul Zamrood - Gousia Colony Ext, Zakura - Srinagar, Jammu & Kashmir India 190006
+              </p>
+              <p class="mb-0 footer_btm_txt">
+                Website Developed & Maintained by
+                <a href="https://primelogicsol.com" class="text-white">
+                  Prime Logic Solutions -USA
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+    
+    
+    
+    
+    
+      <!-- /.container -->
+      <!-- /.site-footer__bottom -->
+    </footer>
+    </div>
+    
+    
+    
+    <div class="mobile-nav__wrapper">
+      <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+    
+      <div class="mobile-nav__content">
+        <a href="#" class="mobile-nav__close mobile-nav__toggler">
+          <span></span>
+          <span></span>
+        </a>
+    
+        <div class="logo-box">
+          <a href="index.html" aria-label="logo image"><img src="assets/images/hcrf_logo.png" width="127" height="127"
+              alt="logo" /></a>
+        </div>
+        <!-- /.logo-box -->
+        <div class="mobile-nav__container"></div>
+        <!-- /.mobile-nav__container -->
+    
+        <ul class="mobile-nav__contact list-unstyled">
+          <li>
+            <i class="fa fa-phone"></i>
+            <a href="tel:+919419070707">+919419070707</a>
+          </li>
+          <li>
+            <i class="fa fa-envelope"></i>
+            <a href="mailto:info@khcrf.org">info@khcrf.org</a>
+          </li>
+          <li>
+            <i class="fa fa-map-marker-alt"></i>
+            2 Gousia Colony Extension,
+    
+            <br />
+            Zakura Srinagar, J&K India 190006
+          </li>
+        </ul>
+        <!-- /.mobile-nav__contact -->
+        <ul class="mobile-nav__social">
+          <li>
+            <a href="https://x.com/artisanvoice?t=aQ_Monm6LFsvuZ8QQtqsaA&s=09"><i class="fab fa-twitter"></i></a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/profile.php?id=61567325408681&mibextid=ZbWKwL"><i
+                class="fab fa-facebook-f"></i></a>
+          </li>
+    
+          <li>
+            <a href="https://www.instagram.com/kashmirhcrf/"><i class="fab fa-instagram"></i></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/105864580/"><i class="fa-brands fa-linkedin"></i></a>
+          </li>
+        </ul>
+        <!-- /.mobile-nav__social -->
+      </div>
+      <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+    
+    <div class="search-popup">
+      <div class="search-popup__overlay search-toggler"></div>
+      <!-- /.search-popup__overlay -->
+      <div class="search-popup__content">
+        <form action="#">
+          <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
+          <input type="text" id="search" placeholder="Search Here..." />
+          <button type="submit" aria-label="search submit" class="thm-btn">
+            <span><i class="paroti-icon-magnifying-glass"></i></span>
+          </button>
+        </form>
+      </div>
+      <!-- /.search-popup__content -->
+    </div>
+    <!-- /.search-popup -->
+    
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+    
+    <!-- plugins js -->
+    <script src="assets/vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script src="assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendors/tiny-slider/dist/min/tiny-slider.js"></script>
+    <script src="assets/vendors/jquery-validation/jquery.validate.min.js"></script>
+    <script src="assets/vendors/wow/wow.js"></script>
+    <script src="assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/vendors/jquery-appear/jquery.appear.min.js"></script>
+    <script src="assets/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="assets/vendors/youtube-popup/youtube-popup.jquery.js"></script>
+    <!-- template js -->
+    <script src="assets/js/paroti.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+      // Function to check login status and update the topbar
+      const updateTopbar = () => {
+        const token = localStorage.getItem('authToken'); // Get the token from localStorage
+        const isAdmin = localStorage.getItem('isAdmin') === 'true'; // Get and parse the isAdmin field
+        const topbarLinks = document.getElementById('topbar-links');
+
+        if (token) {
+          // If logged in, check if the user is an admin
+          if (isAdmin) {
+            topbarLinks.innerHTML = `
+            <li><a href="dashboard.html">Admin Dashboard</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+          `;
+          } else {
+            // If the user is not an admin
+            topbarLinks.innerHTML = `
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+          `;
+          }
+        } else {
+          // If not logged in, show login and register links
+          topbarLinks.innerHTML = `
+          <li><a href="login.html">Login</a></li>
+        `;
+        }
+      };
+
+      // Call updateTopbar on page load
+      window.onload = updateTopbar;
+
+      // Logout function to clear the token and role
+      const logout = () => {
+        localStorage.removeItem('authToken'); // Clear token
+        localStorage.removeItem('isAdmin'); // Clear admin status
+        updateTopbar();  // Update the top bar after logout
+        window.location.href = 'index.html';  // Redirect to the homepage after logout
+      };
+
+    </script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/67685880af5bfec1dbe01adf/1ifnpjeom';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+
+    <script>
+      // Helper function to display error messages
+function showError(input, message) {
+    const formControl = input.parentElement;
+    let error = formControl.querySelector(".error-message");
+
+    if (!error) {
+        error = document.createElement("small");
+        error.className = "error-message";
+        error.style.color = "red";
+        formControl.appendChild(error);
+    }
+
+    error.textContent = message;
+    input.style.borderColor = "red";
+}
+
+// Helper function to clear error messages
+function clearError(input) {
+    const formControl = input.parentElement;
+    const error = formControl.querySelector(".error-message");
+    if (error) {
+        formControl.removeChild(error);
+    }
+
+    input.style.borderColor = "";
+}
+
+// Validate Full Name
+function validateFullName() {
+    const fullName = document.getElementById("full-name");
+    if (fullName.value.trim() === "") {
+        showError(fullName, "Full Name is required.");
+        return false;
+    } else if (fullName.value.trim().length < 3) {
+        showError(fullName, "Full Name must be at least 3 characters long.");
+        return false;
+    } else {
+        clearError(fullName);
+        return true;
+    }
+}
+
+// Validate Date of Birth
+function validateDOB() {
+    const dob = document.getElementById("dob");
+    if (dob.value === "") {
+        showError(dob, "Date of Birth is required.");
+        return false;
+    } else {
+        clearError(dob);
+        return true;
+    }
+}
+
+// Validate Gender
+function validateGender() {
+    const gender = document.querySelector('input[name="gender"]:checked');
+    if (!gender) {
+        showError(document.querySelector(".gender_form"), "Please select a gender.");
+        return false;
+    } else {
+        clearError(document.querySelector(".gender_form"));
+        return true;
+    }
+}
+
+// Validate Email
+function validateEmail() {
+    const email = document.getElementById("email");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email.value.trim() === "") {
+        showError(email, "Email is required.");
+        return false;
+    } else if (!emailRegex.test(email.value.trim())) {
+        showError(email, "Enter a valid email address.");
+        return false;
+    } else {
+        clearError(email);
+        return true;
+    }
+}
+
+// Validate Phone Number (only required, no length validation)
+function validatePhone() {
+    const phone = document.getElementById("phone");
+    if (phone.value.trim() === "") {
+        showError(phone, "Phone Number is required.");
+        return false;
+    } else {
+        clearError(phone);
+        return true;
+    }
+}
+
+// Validate Nationality
+function validateNationality() {
+    const nationality = document.getElementById("nationality");
+    if (nationality.value.trim() === "") {
+        showError(nationality, "Nationality is required.");
+        return false;
+    } else {
+        clearError(nationality);
+        return true;
+    }
+}
+
+// Validate Membership Type
+function validateMembershipType() {
+    const membershipType = document.querySelector('input[name="membershipType"]:checked');
+    if (!membershipType) {
+        showError(document.querySelector("fieldset"), "Please select a membership type.");
+        return false;
+    } else {
+        clearError(document.querySelector("fieldset"));
+        return true;
+    }
+}
+
+// Validate Payment Method
+function validatePaymentMethod() {
+    const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+    if (!paymentMethod) {
+        showError(document.querySelector(".payment-method"), "Please select a payment method.");
+        return false;
+    } else {
+        clearError(document.querySelector(".payment-method"));
+        return true;
+    }
+}
+
+// Function to validate step 1
+function validateStep1() {
+    return (
+        validateFullName() &&
+        validateDOB() &&
+        validateGender() &&
+        validateEmail() &&
+        validatePhone() &&
+        validateNationality()
+    );
+}
+
+// Function to validate step 2
+function validateStep2() {
+    return validateMembershipType();
+}
+
+// Function to validate step 3
+function validateStep3() {
+    return validatePaymentMethod();
+}
+
+// Step navigation logic
+let currentStep = 0;
+const formSteps = document.querySelectorAll(".form-step");
+
+document.addEventListener("DOMContentLoaded", () => {
+    showStep(currentStep);
+});
+
+// Function to show the current step
+function showStep(step) {
+    formSteps.forEach((formStep, index) => {
+        formStep.classList.remove("active");
+        if (index === step) {
+            formStep.classList.add("active");
+        }
+    });
+}
+
+// Function to navigate to the next step
+function nextStep() {
+    const currentFormStep = formSteps[currentStep];
+    let isValid = true;
+
+    // Validate the current step based on the index
+    if (currentStep === 0) {
+        isValid = validateStep1(); // Step 1 validation
+    } else if (currentStep === 1) {
+        isValid = validateStep2(); // Step 2 validation
+    } else if (currentStep === 2) {
+        isValid = validateStep3(); // Step 3 validation
+    }
+
+    // Move to the next step only if the current step is valid
+    if (isValid) {
+        if (currentStep < formSteps.length - 1) {
+            currentStep++;
+            showStep(currentStep);
+        }
+    } else {
+        alert("Please complete all required fields before proceeding.");
+    }
+}
+
+// Function to navigate to the previous step
+function previousStep() {
+    if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+    }
+}
+
+// Attach validation to form submission
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("multi-step-form");
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (validateStep1() && validateStep2() && validateStep3()) {
+            alert("Form submitted successfully!");
+        }
+    });
+});
+    </script>
+    
+  </body>
+</html>

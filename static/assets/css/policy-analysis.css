@@ -1,0 +1,107 @@
+.how-we-do-work-section {
+  background-color: #fff;
+}
+
+.how-we-do-work-section .donation-card-two {
+  box-shadow: 0 0 20px rgb(159, 95, 55, 0.2);
+}
+
+.how-we-do-work-section .donation-two__carousel .donation-card-two {
+  height: 500px;
+}
+
+.how-we-do-work-section h4.sec-title__title {
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.analysis-page .about-four__list__item i {
+  cursor: pointer;
+}
+
+.analysis-page .section {
+  scroll-margin: 3rem;
+}
+
+.analysis-page .subsection-content {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 7rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  position: relative;
+  scroll-margin: 14rem;
+}
+
+.analysis-page .subsection-content .subsection-content-title {
+  color: var(--hcrf-primary-color);
+}
+
+.analysis-page .cross-icon {
+  position: absolute;
+  right: 0rem;
+  bottom: 5rem;
+}
+
+.analysis-page .about-four__list__item.cross-icon > i {
+  background-color: var(--hcrf-accent-color);
+  color: #fff;
+}
+
+.analysis-page .about-four__list__item.cross-icon > i:hover {
+  color: var(--hcrf-accent-color);
+  background-color: #ddd;
+}
+
+.section:nth-child(odd) {
+  background-color: var(--hcrf-accent-color);
+}
+
+.section:nth-child(odd) .sec-title__tagline {
+  color: #fff;
+}
+
+.section:nth-child(odd) .sec-title__tagline::after {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.section:nth-child(odd) .sec-title__title {
+  color: #fff;
+}
+
+.section:nth-child(odd) .about-four__list__text {
+  color: #fff;
+}
+
+.section:nth-child(odd) .subsection-content {
+  background-color: #fff;
+}
+
+.analysis-page .section:nth-child(odd) .about-four__list__item:hover i {
+  background-color: var(--hcrf-primary-color);
+}
+
+.analysis-page .get-involved-image img {
+  height: 40rem;
+}
+
+.analysis-page .about-three__image::after {
+  background-color: var(--hcrf-primary-color);
+}
+
+.analysis-page .about-three__image::before {
+  background-color: var(--hcrf-accent-color);
+}
+
+.cta-three {
+  background-color: #fff;
+}
+
+.footer-main .site-footer__top {
+  background-color: #eee;
+}
+
+.slider-one__image {
+  background-color: #e7610d;
+}

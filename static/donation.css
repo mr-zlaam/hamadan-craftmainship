@@ -1,0 +1,267 @@
+    /* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+#donationForm {
+  max-width: 40%;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+  color: #7d4e3a; /* Slightly lighter brown */
+  font-weight: bold;
+}
+
+/* Form Section Headers */
+h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #f4e7d5; /* Light beige */
+  padding-bottom: 5px;
+}
+
+/* Form Group Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  color: #7d4e3a; /* Slightly lighter brown */
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select
+ {
+  width: 60%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+button{
+    
+        width: 30%;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        outline: none;
+      
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: #7d4e3a; /* Slightly lighter brown */
+  box-shadow: 0 0 5px rgba(125, 78, 58, 0.5);
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+  resize: vertical;
+}
+
+textarea:focus {
+  border-color: #7d4e3a; /* Slightly lighter brown */
+  box-shadow: 0 0 5px rgba(125, 78, 58, 0.5);
+}
+
+/* Button Styles */
+button {
+  background-color: #7d4e3a; /* Slightly lighter brown */
+  color: #ffffff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #69392f; /* Darker brown */
+}
+
+button:active {
+  background-color: #4f2a21; /* Even darker brown */
+}
+
+/* Optional Sections */
+.optional-section {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f4e7d5; /* Light beige */
+  border-radius: 8px;
+}
+
+.optional-section h2 {
+  color: #69392f; /* Darker brown */
+}
+
+/* Radio and Checkbox Groups */
+.radio-group, .checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.radio-group label,
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+}
+
+.radio-group label:hover,
+.checkbox-group label:hover {
+  background-color: #f4e7d5; /* Light beige */
+}
+
+.radio-group input[type="radio"]:checked + label,
+.checkbox-group input[type="checkbox"]:checked + label {
+  background-color: #7d4e3a; /* Slightly lighter brown */
+  color: #ffffff;
+  border-color: #69392f; /* Darker brown */
+}
+
+/* Select Menu */
+select {
+  background-color: #ffffff;
+  font-size: 14px;
+  padding: 8px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+select:focus {
+  border-color: #7d4e3a; /* Slightly lighter brown */
+  box-shadow: 0 0 5px rgba(125, 78, 58, 0.5);
+}
+
+/* Payment Details */
+.payment-method label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.payment-method input[type="radio"] {
+  margin-right: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.upi-section,
+.bank-section {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+button[type="button"] {
+  background-color: #69392f; /* Darker brown */
+  border: none;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+button[type="button"]:hover {
+  background-color: #4f2a21; /* Even darker brown */
+}
+
+/* Address Fields */
+input[name="streetAddress"],
+input[name="city"],
+input[name="state"],
+input[name="zip"],
+input[name="country"] {
+  /* width: calc(100% - 10px); */
+  
+  margin-bottom: 10px;
+}
+
+input[name="city"],
+input[name="state"],
+input[name="zip"],
+input[name="country"] {
+  width: 60%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+  .radio-group,
+  .checkbox-group {
+    flex-direction: column;
+  }
+
+  input[name="city"],
+  input[name="state"],
+  input[name="zip"],
+  input[name="country"] {
+    width: 100%;
+  }
+}
+
+/* Placeholder Styles */
+::placeholder {
+  font-style: italic;
+  color: #aaaaaa;
+}
+    
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column; /* Ensures items stack in a column */
+  }
+  .checkbox-item {
+    display: flex;
+    align-items: center; /* Align checkbox and label vertically */
+    margin-bottom: 8px; /* Adds space between each checkbox-item */
+  }
+  .checkbox-item input[type="checkbox"] {
+    margin-right: 8px; /* Adds space between the checkbox and label */
+  }

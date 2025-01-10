@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <!-- Welcome Message -->
+    <h1 id="welcome-message">Welcome to Your Profile</h1>
+
+    <!-- User Details Section -->
+    <div id="user-details"></div>
+
+    <!-- Link to config.js that holds the base URL for the API -->
+    <script src="config.js"></script> <!-- Ensure config.js is accessible -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const token = localStorage.getItem("authToken");
+
+            if (!token) {
+                alert("You must be logged in to view your profile.");
+                window.location.href = "login.html"; // Redirect to login if not logged in
+                return;
+            }
+
+            try {
+                // Fetch user profile based on the token
+                const response = await fetch(`${API_BASE}/api/users/profile`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch user data.");
+                }
+
+                const userData = await response.json();
+                console.log(userData); // For debugging
+
+                // Update welcome message with user's name
+                document.getElementById('welcome-message').textContent = `Welcome to Your Profile, ${userData.name}`;
+
+                // Pass the user data object to fetchMembershipData
+                fetchMembershipData(userData);
+            } catch (error) {
+                console.error("Error fetching user profile:", error);
+                alert("Error fetching your profile.");
+            }
+        });
+
+        // Function to fetch membership data using the user's email
+        async function fetchMembershipData(userData) {
+            try {
+                // Correct endpoint to fetch the membership data by email
+                const response = await fetch(`${API_BASE}/api/form/membership/${userData.email}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch membership data.");
+                }
+
+                const membershipData = await response.json();
+                console.log(membershipData); // For debugging
+
+                // Display both user profile and membership details
+                displayUserProfile(userData, membershipData);
+            } catch (error) {
+                console.error("Error fetching membership data:", error);
+                alert("Error fetching your membership data.");
+            }
+        }
+
+        // Function to display user profile and membership data in a table
+        function displayUserProfile(user, membership) {
+            const userDetailsDiv = document.getElementById('user-details');
+            userDetailsDiv.innerHTML = `
+                <!-- Dynamic Table Heading -->
+                <h2>${user.name}'s Profile and Membership Data</h2>
+                <table>
+                    <tr><th>Field</th><th>Details</th></tr>
+                    <tr><td>Name</td><td>${user.name}</td></tr>
+                    <tr><td>Email</td><td>${user.email}</td></tr>
+                    <tr><td>Phone</td><td>${membership.phone || "N/A"}</td></tr>
+                    <tr><td>Address</td><td>${membership.streetAddress || "N/A"}, ${membership.city || "N/A"}, ${membership.state || "N/A"}, ${membership.postalCode || "N/A"}</td></tr>
+                    <tr><td>Country</td><td>${membership.country || "N/A"}</td></tr>
+                    <tr><td>Nationality</td><td>${membership.nationality || "N/A"}</td></tr>
+                    <tr><td>Date of Birth</td><td>${membership.dob || "N/A"}</td></tr>
+                    <tr><td>Gender</td><td>${membership.gender || "N/A"}</td></tr>
+                    <tr><td>Membership Type</td><td>${membership.membershipType || "N/A"}</td></tr>
+                    <tr><td>Status</td><td>${membership.status || "N/A"}</td></tr>
+                    <tr><td>Payment Method</td><td>${membership.paymentMethod || "N/A"}</td></tr>
+                    <tr><td>Account Created</td><td>${membership.createdAt || "N/A"}</td></tr>
+                    <tr><td>Last Updated</td><td>${membership.updatedAt || "N/A"}</td></tr>
+                </table>
+            `;
+        }
+    </script>
+</body>
+</html>
