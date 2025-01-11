@@ -835,25 +835,25 @@
           <h1>Support the Legacy of Kashmir's Handicrafts</h1>
           <form id="donationForm">
            <!-- Section 1: Donation Amount -->
-  <h2>Choose Donation Amount</h2>
+  <h2>Donation Amount</h2>
   <div class="form-groups">
     <label>Select Amount:</label>
     <div class="radio-groups">
       <div class="radio-item">
         <input type="radio" id="amount25" name="amount" value="25" required />
-        <label for="amount25">₹25</label>
+        <label for="amount25">₹25 – Provides tools for artisans</label>
       </div>
       <div class="radio-item">
         <input type="radio" id="amount50" name="amount" value="50" />
-        <label for="amount50">₹50 </label>
+        <label for="amount50">₹50 – Supports craft education programs</label>
       </div>
       <div class="radio-item">
         <input type="radio" id="amount100" name="amount" value="100" />
-        <label for="amount100">₹100</label>
+        <label for="amount100">₹100 – Contributes to policy advocacy</label>
       </div>
       <div class="radio-item">
         <input type="radio" id="amount250" name="amount" value="250" />
-        <label for="amount250">₹250</label>
+        <label for="amount250">₹250 – Enables fair-trade certifications</label>
       </div>
       <div class="radio-item">
         <input type="radio" id="custom" name="amount" value="custom" />
@@ -868,11 +868,6 @@
       style="display: none; margin-top: 10px"
     />
   </div>
-
-
-
-
-              
   
     
             <!-- Section 2: Donation Type -->
@@ -887,14 +882,43 @@
                 <option value="eventSponsorship">Event Sponsorship</option>
               </select>
             </div>
-
-
-
-
-
-
-
-                 <!-- Section 4: Tools and Materials Support -->
+    
+            <!-- Section 3: Donor Information -->
+            <h2>Donor Information</h2>
+            <div class="form-groups">
+              <label>First Name:</label>
+              <input type="text" name="firstName" required />
+            </div>
+            <div class="form-groups">
+              <label>Last Name:</label>
+              <input type="text" name="lastName" required />
+            </div>
+            <div class="form-groups">
+              <label>Email Address:</label>
+              <input type="email" name="email" required />
+            </div>
+            <div class="form-groups">
+              <label>Phone Number:</label>
+              <input type="tel" name="phone" />
+            </div>
+            <div class="form-groups">
+              <label>Address:(Optional)</label>
+              <input
+                type="text"
+                name="streetAddress"
+                placeholder="Street Address"
+              />
+              <input type="text" name="city" placeholder="City" />
+              <input type="text" name="state" placeholder="State/Province" />
+              <input type="text" name="zip" placeholder="Zip/Postal Code" />
+              <input type="text" name="country" placeholder="Country" />
+            </div>
+            <div class="form-groups">
+              <label>Would you like to remain anonymous?</label>
+              <input type="checkbox" name="anonymous" /> Yes
+            </div>
+    
+            <!-- Section 4: Tools and Materials Support -->
             <section class="optional-sections">
               <h2 style="margin-top: 40px; margin-bottom: 30px;">Guide us on where you want your donation to support. Select the appropriate one or multiple options below</h2>
               <h2 style="margin-top: 20px;">Tools  </h2>
@@ -1225,49 +1249,6 @@
                   </div>
                 </div>
               </section>
-
-
-
-
-
-              
-    
-            <!-- Section 3: Donor Information -->
-            <h2>Donor Information</h2>
-            <div class="form-groups">
-              <label>First Name:</label>
-              <input type="text" name="firstName" required />
-            </div>
-            <div class="form-groups">
-              <label>Last Name:</label>
-              <input type="text" name="lastName" required />
-            </div>
-            <div class="form-groups">
-              <label>Email Address:</label>
-              <input type="email" name="email" required />
-            </div>
-            <div class="form-groups">
-              <label>Phone Number:</label>
-              <input type="tel" name="phone" />
-            </div>
-            <div class="form-groups">
-              <label>Address:(Optional)</label>
-              <input
-                type="text"
-                name="streetAddress"
-                placeholder="Street Address"
-              />
-              <input type="text" name="city" placeholder="City" />
-              <input type="text" name="state" placeholder="State/Province" />
-              <input type="text" name="zip" placeholder="Zip/Postal Code" />
-              <input type="text" name="country" placeholder="Country" />
-            </div>
-            <div class="form-groups">
-              <label>Would you like to remain anonymous?</label>
-              <input type="checkbox" name="anonymous" /> Yes
-            </div>
-    
-         
               
     
             <div class="form-steps">
