@@ -1363,10 +1363,11 @@
                             alert('An error occurred. Please try again.');
                         });
                 };
-            } else {
-                button.textContent = 'Get Membershi'; // Update text for non-members
-                button.onclick = () => alert('This item is available to approved members only.');
-            }
+            }else {
+    button.textContent = 'Get Membership'; 
+    button.onclick = () => window.location.href = 'memberships.html';
+}
+
         });
     });
 
