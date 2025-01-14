@@ -48,18 +48,19 @@
       cursor: pointer;
     }
     button:hover {
-      background: #0056b3;
+      background: #229bd4;
     }
     .link {
       margin-top: 1rem;
       text-align: center;
     }
     .link a {
-      color: #007bff;
+      color: #9f5f37;
       text-decoration: none;
     }
     .link a:hover {
       text-decoration: underline;
+      color: #229bd4;
     }
   </style>
 </head>
@@ -84,6 +85,7 @@
           <button type="submit">Login</button>
         </form>
         <div class="link">
+          <a href="#" onclick="showForgotPasswordForm()">Forgot Password?</a><br />
           Don't have an account? <a href="#" onclick="showRegisterForm()">Register</a>
         </div>
       `);
@@ -101,11 +103,46 @@
           const data = await res.json();
           if (res.ok) {
             localStorage.setItem('authToken', data.token);
-            localStorage.setItem('isAdmin', data.user.isAdmin); // Save isAdmin here
-            // Redirect to the home page (index.html)
+            localStorage.setItem('isAdmin', data.user.isAdmin);
+            localStorage.setItem('isMember', data.user.isMember); 
             window.location.href = "index.html";
           } else {
             alert(data.message || 'Login failed');
+          }
+        } catch (error) {
+          console.error(error);
+          alert('Something went wrong!');
+        }
+      });
+    };
+
+    const showForgotPasswordForm = () => {
+      renderForm(`
+        <h1>Forgot Password</h1>
+        <form id="forgot-password-form">
+          <input type="email" id="email" placeholder="Enter your email" required />
+          <button type="submit">Send Reset Link</button>
+        </form>
+        <div class="link">
+          Remembered your password? <a href="#" onclick="showLoginForm()">Login</a>
+        </div>
+      `);
+
+      document.getElementById('forgot-password-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        try {
+          const res = await fetch(`${API_BASE}/api/auth/forgot-password`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email }),
+          });
+          const data = await res.json();
+          if (res.ok) {
+            alert('Password reset link has been sent to your email.');
+            showLoginForm();
+          } else {
+            alert(data.message || 'Failed to send reset link');
           }
         } catch (error) {
           console.error(error);
@@ -189,10 +226,10 @@
     };
 
     const init = () => {
-        showRegisterForm();
+      showRegisterForm();
     };
 
     init();
-</script>
+  </script>
 </body>
 </html>
