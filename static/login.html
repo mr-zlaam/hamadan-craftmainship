@@ -77,43 +77,126 @@
     };
 
     const showLoginForm = () => {
-      renderForm(`
-        <h1>Login HCRF</h1>
-        <form id="login-form">
-          <input type="email" id="email" placeholder="Email" required />
-          <input type="password" id="password" placeholder="Password" required />
-          <button type="submit">Login</button>
-        </form>
-        <div class="link">
-          Don't have an account? <a href="#" onclick="showRegisterForm()">Register</a>
-        </div>
-      `);
+  renderForm(`
+    <h1>Login HCRF</h1>
+    <form id="login-form">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <div class="link">
+      <a href="#" onclick="showForgotPasswordForm()">Forgot Password?</a><br />
+      Don't have an account? <a href="#" onclick="showRegisterForm()">Register</a>
+    </div>
+  `);
 
-      document.getElementById('login-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        try {
-          const res = await fetch(`${API_BASE}/api/auth/login`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password }),
-          });
-          const data = await res.json();
-          if (res.ok) {
-            localStorage.setItem('authToken', data.token);
-            localStorage.setItem('isAdmin', data.user.isAdmin);
-            localStorage.setItem('isMember', data.user.isMember); 
-            window.location.href = "index.html" 
-          } else {
-            alert(data.message || 'Login failed');
-          }
-        } catch (error) {
-          console.error(error);
-          alert('Something went wrong!');
-        }
+  document.getElementById('login-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    try {
+      const res = await fetch(`${API_BASE}/api/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
       });
-    };
+      const data = await res.json();
+      if (res.ok) {
+        localStorage.setItem('authToken', data.token);
+        localStorage.setItem('isAdmin', data.user.isAdmin);
+        localStorage.setItem('isMember', data.user.isMember); 
+        window.location.href = "index.html" 
+      } else {
+        alert(data.message || 'Login failed');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Something went wrong!');
+    }
+  });
+};
+
+
+
+const showForgotPasswordForm = () => {
+  renderForm(`
+    <h1>Forgot Password</h1>
+    <form id="forgot-password-form">
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <button type="submit">Send Reset Link</button>
+    </form>
+    <div class="link">
+      Remembered your password? <a href="#" onclick="showLoginForm()">Login</a>
+    </div>
+  `);
+
+  document.getElementById('forgot-password-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    try {
+      const res = await fetch(`${API_BASE}/api/auth/forgot-password`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        alert('Password reset link has been sent to your email.');
+        showLoginForm();
+      } else {
+        alert(data.message || 'Failed to send reset link');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Something went wrong!');
+    }
+  });
+};
+
+
+
+
+const showResetPasswordForm = (token) => {
+  renderForm(`
+    <h1>Reset Password</h1>
+    <form id="reset-password-form">
+      <input type="password" id="password" placeholder="New Password" required />
+      <input type="password" id="confirm-password" placeholder="Confirm New Password" required />
+      <button type="submit">Reset Password</button>
+    </form>
+  `);
+
+  document.getElementById('reset-password-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    if (password !== confirmPassword) {
+      alert('Passwords do not match!');
+      return;
+    }
+
+    try {
+      const res = await fetch(`${API_BASE}/api/auth/reset-password`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token, password }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        alert('Password reset successfully!');
+        showLoginForm();
+      } else {
+        alert(data.message || 'Failed to reset password');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Something went wrong!');
+    }
+  });
+};
+
+
 
     const showRegisterForm = () => {
       renderForm(`
