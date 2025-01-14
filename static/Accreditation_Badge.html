@@ -1394,42 +1394,51 @@
 
 <script>
     document.getElementById('singleStepForm').addEventListener('submit', async function (event) {
-        event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); // Prevent default form submission
 
-        const formData = new FormData(this);
+    const formData = new FormData(this);
 
-        // Log all form data to verify
-        console.log('Form Data (raw):');
-        for (let [key, value] of formData.entries()) {
-            console.log(`${key}:`, value); // Logs each form field
+    // Combine checkbox values into arrays
+    const badges = formData.getAll('badge');
+    const documentation = formData.getAll('documentation');
+
+    // Add the arrays back to the formData as JSON strings
+    formData.set('badges', JSON.stringify(badges));
+    formData.set('documentation', JSON.stringify(documentation));
+
+    // Log the processed formData to verify
+    console.log('Processed Form Data:');
+    for (let [key, value] of formData.entries()) {
+        console.log(`${key}:`, value); // Logs each form field
+    }
+
+    // Ensure at least one file is uploaded
+    const uploadedFiles = formData.getAll('uploadedFiles');
+    if (uploadedFiles.length === 0 || uploadedFiles[0].size === 0) {
+        alert('Please upload at least one file.');
+        return;
+    }
+
+    try {
+        const res = await fetch(`${API_BASE}/api/badge-application/submit`, {
+            method: 'POST',
+            body: formData, // Send formData directly
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+            alert('Application submitted successfully!');
+            console.log('Response Data:', data);
+        } else {
+            alert('Failed to submit the application. Please try again.');
+            console.error('Error Response:', data);
         }
+    } catch (error) {
+        alert('An error occurred while submitting the application.');
+        console.error('Submission Error:', error);
+    }
+});
 
-        // Ensure at least one file is uploaded
-        const uploadedFiles = formData.getAll('uploadedFiles');
-        if (uploadedFiles.length === 0 || uploadedFiles[0].size === 0) {
-            alert('Please upload at least one file.');
-            return;
-        }
-
-        try {
-            const res = await fetch(`${API_BASE}/api/badge-application/submit`, {
-                method: 'POST',
-                body: formData, // Send formData directly
-            });
-
-            const data = await res.json();
-            if (res.ok) {
-                alert('Application submitted successfully!');
-                console.log('Response Data:', data);
-            } else {
-                alert('Failed to submit the application. Please try again.');
-                console.error('Error Response:', data);
-            }
-        } catch (error) {
-            alert('An error occurred while submitting the application.');
-            console.error('Submission Error:', error);
-        }
-    });
 </script>
 
 
