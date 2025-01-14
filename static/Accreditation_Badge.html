@@ -794,7 +794,7 @@
             <div class="container" style="border: 0.5px solid #beb6b1; padding: 20px; border-radius: 5px;">
                 <h2 class="form-title text-center mb-4" style="color: #333; text-align: left;">HCRF Badge Application Form</h2>
                 <hr class="form-divider mb-5">
-                <form id="singleStepForm">
+                <form id="singleStepForm" enctype="multipart/form-data">
                     <!-- Business Information -->
                     <div class="form-group mb-5">
                         <h3 class="form-heading mb-4">Business Information</h3>
@@ -885,13 +885,18 @@
                                 <label>Other: <input type="text" name="otherDocumentation" class="form-control"></label>
                             </div>
                         </div>
+                        <!-- File Upload Section -->
+                        <div class="mt-4">
+                            <label for="uploadDocumentation" class="form-label">Upload Supporting Documents (PDF, Images):</label>
+                            <input type="file" id="uploadDocumentation" name="uploadedFiles" class="form-control" multiple accept=".pdf,.jpg,.jpeg,.png">
+                        </div>
                     </div>
         
                     <!-- Certification & Signature -->
-                    <div class="form-group mb-5">
-                        <h3 class="form-heading mb-4">Certification & Signature</h3>
-                        <label><input type="checkbox" name="certification" required> I certify that the information provided is accurate and true to the best of my knowledge.</label>
-                    </div>
+                    <label>
+                        <input type="checkbox" name="certification" value="1" required> 
+                        I certify that the information provided is accurate and true to the best of my knowledge.
+                    </label>
         
                     <!-- Submit Button -->
                     <div class="form-actions text-center">
@@ -900,6 +905,7 @@
                 </form>
             </div>
         </section>
+        
         
        
 
@@ -1386,39 +1392,45 @@
 
     </script>
 
-    <script>
-        
-        document.getElementById('singleStepForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); // Prevent page refresh
-    
-            const formData = new FormData(this);
-            const formObject = Object.fromEntries(formData.entries());
-            formObject.badge = formData.getAll('badge'); // Get all selected badges
-            formObject.documentation = formData.getAll('documentation'); // Get all selected documentation
-    
-            try {
-                const res = await fetch(`${API_BASE}/api/badge-application/submit`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formObject)
-                });
-    
-                const data = await res.json();
-                if (res.ok) {
-                    alert('Application submitted successfully!');
-                    console.log(data);
-                } else {
-                    alert('Failed to submit the application. Please try again.');
-                    console.error(data);
-                }
-            } catch (error) {
-                alert('An error occurred while submitting the application.');
-                console.error(error);
+<script>
+    document.getElementById('singleStepForm').addEventListener('submit', async function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const formData = new FormData(this);
+
+        // Log all form data to verify
+        console.log('Form Data (raw):');
+        for (let [key, value] of formData.entries()) {
+            console.log(`${key}:`, value); // Logs each form field
+        }
+
+        // Ensure at least one file is uploaded
+        const uploadedFiles = formData.getAll('uploadedFiles');
+        if (uploadedFiles.length === 0 || uploadedFiles[0].size === 0) {
+            alert('Please upload at least one file.');
+            return;
+        }
+
+        try {
+            const res = await fetch(`${API_BASE}/api/badge-application/submit`, {
+                method: 'POST',
+                body: formData, // Send formData directly
+            });
+
+            const data = await res.json();
+            if (res.ok) {
+                alert('Application submitted successfully!');
+                console.log('Response Data:', data);
+            } else {
+                alert('Failed to submit the application. Please try again.');
+                console.error('Error Response:', data);
             }
-        });
-    </script>
+        } catch (error) {
+            alert('An error occurred while submitting the application.');
+            console.error('Submission Error:', error);
+        }
+    });
+</script>
 
 
 <script>
