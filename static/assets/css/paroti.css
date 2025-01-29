@@ -927,7 +927,7 @@ h4.sec-title__title {
   margin: 0;
   width: 5.875rem;
   height: 5rem;
-  background-color: #9f5f37;
+  background-color: transparent;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
