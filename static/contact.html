@@ -680,6 +680,50 @@ const logout = () => {
 };
 
   </script>
+
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // Collect form data
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      const data = {
+          name,
+          phone,
+          email,
+          message
+      };
+
+      // Log the data to check it
+      console.log('Contact Form Data:', data);
+
+      try {
+          const response = await fetch(`${API_BASE}/api/contact`, {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+          });
+
+          const result = await response.json();
+          if (response.ok) {
+              alert('Message sent successfully!');
+              document.getElementById('contact-form').reset(); // Reset form
+          } else {
+              alert(result.msg || 'Error submitting the form.');
+          }
+      } catch (error) {
+          console.error('Error:', error);
+          alert('An error occurred while submitting the form.');
+      }
+  });
+</script>
       
 </body>
 
