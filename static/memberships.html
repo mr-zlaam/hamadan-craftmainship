@@ -1109,106 +1109,194 @@
 
         <script src="config.js"></script>
         <script>
-        
-    
           // Form submission with API integration
           document
-            .getElementById("multi-step-form")
-            .addEventListener("submit", async function (e) {
-              e.preventDefault();
-    
-              const formData = new FormData(this);
-              const data = Object.fromEntries(formData);
-    
-              console.log("Form Data:", data); // Debugging: Log payload before sending
-    
-              try {
-                const response = await fetch(`${API_BASE}/api/form/register`, {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(data),
-                });
-    
-                const result = await response.json();
-                if (response.ok) {
-                  alert("Form submitted successfully!");
-                  this.reset();
-                  currentStep = 0;
-                  showStep(currentStep);
-                } else {
-                  console.error("API Error:", result);
-                  alert(result.error || "Error submitting the form.");
-                }
-              } catch (error) {
-                console.error("Error:", error);
-                alert("An error occurred while submitting the form.");
+              .getElementById("multi-step-form")
+              .addEventListener("submit", async function (e) {
+                  e.preventDefault();
+      
+                  const formData = new FormData(this);
+                  const data = Object.fromEntries(formData);
+      
+                  console.log("Form Data:", data); // Debugging: Log payload before sending
+      
+                  try {
+                      const response = await fetch(`${API_BASE}/api/form/register`, {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify(data),
+                      });
+      
+                      const result = await response.json();
+                      if (response.ok) {
+                          alert("Form submitted successfully!");
+                          
+                          // Show success popup
+                          createMembershipPopup(formData.get("name"));
+      
+                          this.reset();
+                          currentStep = 0;
+                          showStep(currentStep);
+                      } else {
+                          console.error("API Error:", result);
+                          alert(result.error || "Error submitting the form.");
+                      }
+                  } catch (error) {
+                      console.error("Error:", error);
+                      alert("An error occurred while submitting the form.");
+                  }
+              });
+      
+          document.addEventListener("DOMContentLoaded", () => {
+              const token = localStorage.getItem("authToken"); // Use the same token key as in the working script
+              const isAdmin = localStorage.getItem("isAdmin") === "true"; // Check admin status
+      
+              if (!token) {
+                  alert("You must be logged in to access this page.");
+                  window.location.href = "login.html"; // Redirect if no token
+                  return;
               }
-            });
-            document.addEventListener("DOMContentLoaded", () => {
-      const token = localStorage.getItem("authToken"); // Use the same token key as in the working script
-      const isAdmin = localStorage.getItem("isAdmin") === "true"; // Check admin status
-    
-      if (!token) {
-        alert("You must be logged in to access this page.");
-        window.location.href = "login.html"; // Redirect if no token
-        return;
-      }
-    
-      try {
-        // Decode the token to verify it
-        const base64Url = token.split(".")[1];
-        const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-        const jsonPayload = JSON.parse(atob(base64));
-    
-        // Debugging - Log the decoded payloadCC
-        console.log("Token Payload:", jsonPayload);
-    
-        // Check if token is expired
-        const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
-        if (jsonPayload.exp < currentTime) {
-          alert("Your session has expired. Please log in again.");
-          window.location.href = "login.html";
-          return;
-        }
-    
-        // Pre-fill the email field with the email from the decoded token
-        const userEmail = jsonPayload.email; // Assuming the email is in the token payload
-        document.getElementById("email").value = userEmail;
-    
-        // If admin, optionally display a message or redirect
-        if (isAdmin) {
-          console.log("Admin privileges detected.");
-        }
-      } catch (error) {
-        console.error("Invalid token:", error);
-        alert("Invalid session. Please log in again.");
-        window.location.href = "login.html";
-      }
-    });
-    
+      
+              try {
+                  // Decode the token to verify it
+                  const base64Url = token.split(".")[1];
+                  const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+                  const jsonPayload = JSON.parse(atob(base64));
+      
+                  // Debugging - Log the decoded payload
+                  console.log("Token Payload:", jsonPayload);
+      
+                  // Check if token is expired
+                  const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
+                  if (jsonPayload.exp < currentTime) {
+                      alert("Your session has expired. Please log in again.");
+                      window.location.href = "login.html";
+                      return;
+                  }
+      
+                  // Pre-fill the email field with the email from the decoded token
+                  const userEmail = jsonPayload.email; // Assuming the email is in the token payload
+                  document.getElementById("email").value = userEmail;
+      
+                  // If admin, optionally display a message or redirect
+                  if (isAdmin) {
+                      console.log("Admin privileges detected.");
+                  }
+              } catch (error) {
+                  console.error("Invalid token:", error);
+                  alert("Invalid session. Please log in again.");
+                  window.location.href = "login.html";
+              }
+          });
+      
           function copyToClipboard(elementId) {
-        const text = document.getElementById(elementId).innerText;
-        navigator.clipboard.writeText(text).then(() => {
-            alert("Copied to clipboard: " + text);
-        }).catch(err => {
-            console.error("Failed to copy: ", err);
-        });
-    }
-    
-    function togglePaymentDetails() {
-      const upiDetails = document.getElementById("upi-details");
-      const bankDetails = document.getElementById("bank-details");
-      const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-    
-      if (paymentMethod === "upi") {
-        upiDetails.classList.remove("hidden");
-        bankDetails.classList.add("hidden");
-      } else if (paymentMethod === "bankTransfer") {
-        bankDetails.classList.remove("hidden");
-        upiDetails.classList.add("hidden");
-      }
-    }
-        </script>
+              const text = document.getElementById(elementId).innerText;
+              navigator.clipboard.writeText(text).then(() => {
+                  alert("Copied to clipboard: " + text);
+              }).catch(err => {
+                  console.error("Failed to copy: ", err);
+              });
+          }
+      
+          function togglePaymentDetails() {
+              const upiDetails = document.getElementById("upi-details");
+              const bankDetails = document.getElementById("bank-details");
+              const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+      
+              if (paymentMethod === "upi") {
+                  upiDetails.classList.remove("hidden");
+                  bankDetails.classList.add("hidden");
+              } else if (paymentMethod === "bankTransfer") {
+                  bankDetails.classList.remove("hidden");
+                  upiDetails.classList.add("hidden");
+              }
+          }
+      
+          function createMembershipPopup(userName) {
+              console.log("Creating popup for:", userName); // Debugging
+      
+              // Remove existing popup if present
+              const existingPopup = document.querySelector('#membership-popup');
+              if (existingPopup) existingPopup.remove();
+      
+              // Create the popup container
+              const popup = document.createElement('div');
+              popup.id = 'membership-popup';
+              popup.style.position = 'fixed';
+              popup.style.top = '0';
+              popup.style.left = '0';
+              popup.style.width = '100%';
+              popup.style.height = '100%';
+              popup.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+              popup.style.display = 'flex';
+              popup.style.justifyContent = 'center';
+              popup.style.alignItems = 'center';
+              popup.style.zIndex = '9999';
+      
+              // Create the popup content
+              const popupContent = document.createElement('div');
+              popupContent.style.backgroundColor = '#fff';
+              popupContent.style.padding = '20px';
+              popupContent.style.borderRadius = '10px';
+              popupContent.style.maxWidth = '600px';
+              popupContent.style.width = '90%';
+              popupContent.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+              popupContent.style.textAlign = 'left';
+              popupContent.style.fontFamily = 'Arial, sans-serif';
+              popupContent.style.lineHeight = '1.5';
+      
+              // Add content to the popup
+              popupContent.innerHTML = `
+                  <h2 style="color: #2c3e50; font-size: 24px; margin-bottom: 10px;">
+                      Your HCRF Membership Payment Has Been Processed
+                  </h2>
+                  <p>Dear user,</p>
+                  <p>We are pleased to inform you that your HCRF Membership payment has been successfully processed! 
+                     Welcome aboard as a valued member of the Hamadan Craft Revival Foundation (HCRF).</p>
+                  <p>Your membership opens doors to a wide range of resources, programs, and networking opportunities 
+                     designed to help you grow and promote your Kashmiri craftsmanship.</p>
+                  <p>Please keep an eye on your inbox for updates on upcoming events, initiatives, and special 
+                     opportunities available to our members.</p>
+                  <p>Thank you for your commitment to the craft industry and for being part of the HCRF family!</p>
+                  <p>Best regards,<br>Director Membership <br>Hamadan Craft Revival Foundation (HCRF)</p>
+              `;
+      
+              // Create the close button
+              const closeButton = document.createElement('button');
+              closeButton.textContent = 'Close';
+              closeButton.style.marginTop = '20px';
+              closeButton.style.padding = '10px 20px';
+              closeButton.style.backgroundColor = '#3498db';
+              closeButton.style.color = '#fff';
+              closeButton.style.border = 'none';
+              closeButton.style.borderRadius = '5px';
+              closeButton.style.cursor = 'pointer';
+              closeButton.style.fontSize = '16px';
+              closeButton.addEventListener('click', () => {
+                  popup.remove();
+                  console.log("Popup closed."); // Debugging
+              });
+      
+              closeButton.addEventListener('mouseover', () => {
+                  closeButton.style.backgroundColor = '#2980b9';
+              });
+      
+              closeButton.addEventListener('mouseout', () => {
+                  closeButton.style.backgroundColor = '#3498db';
+              });
+      
+              // Append content and close button to the popup content
+              popupContent.appendChild(closeButton);
+      
+              // Append the popup content to the popup container
+              popup.appendChild(popupContent);
+      
+              // Append the popup to the body
+              document.body.appendChild(popup);
+              console.log("Popup appended to body."); // Debugging
+          }
+      </script>
+      
 
 
       <section class="funfact-two sec-pad-top sec-pad-bottom">
