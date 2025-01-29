@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HCR Foundation</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon.png" />
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- plugins css -->
+    <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="assets/vendors/tiny-slider/dist/tiny-slider.css" />
+    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="assets/vendors/animate/animate.min.css" />
+    <link rel="stylesheet" href="assets/vendors/paroti-icons/style.css" />
+    <link rel="stylesheet" href="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="assets/vendors/youtube-popup/youtube-popup.css" />
+    <!-- template css -->
+    <link rel="stylesheet" href="assets/css/paroti.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
+<style>
+
+.home-icon {
+  color: black;
+  font-weight: 600;
+  text-decoration: none; /* Optional: Remove underline */
+  display: inline-block; /* Ensures proper padding and background effect */
+  padding: 5px; /* Add some padding for better appearance */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.home-icon:hover {
+  color: #ac5c31; /* Change text color on hover */
+  background-color: white; /* Add white background */
+  border-radius: 4px; /* Optional: Add a slight rounded corner */
+  text-decoration: none; /* Prevent underline */
+}
+
+
+#formSection{
+    width: 100%;
+}
+        
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0.5px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.25rem;
+        }
+
+        .section-description {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin: 1rem 0 0.25rem;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 0.5rem;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .inline-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .inline-options label {
+            margin-top: 0;
+        }
+
+        button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #4F46E5;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #4338CA;
+        }
+
+        /* Hide sections by default */
+        #artisanSection,
+        #businessSection,
+        #institutionSection {
+            display: none;
+        }
+
+        /* Hide dependent fields by default */
+        #sustainablePracticesDescriptionContainer,
+        #femalePercentageContainer,
+        #workplaceStandardsDescriptionContainer,
+        #fairTradeDocumentContainer,
+        #giCertificationContainer,
+        #blockchainCertificationContainer {
+            display: none;
+        }
+
+        /* Additional helper classes */
+        .hidden {
+            display: none !important;
+        }
+
+        .bold-question {
+            font-weight: 600;
+            margin-top: 1.25rem;
+        }
+
+        .options-container {
+            margin: 0.5rem 0 1rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            line-height: 1.2;
+        }
+
+        .evaluation-result {
+            margin: 1rem 0;
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 6px;
+        }
+
+        .submit-btn {
+            margin-top: 1rem;
+        }
+        .main-menu__list {
+              list-style: none;
+              /* Optional: Removes bullets */
+              padding: 0;
+              /* Optional: Removes default padding */
+              margin: 0;
+              /* Optional: Removes default margin */
+              text-align: left;
+              /* Ensures content aligns to the left */
+          }
+  
+          .menu-item-has-children {
+              text-align: left;
+              /* Aligns text to the left inside list items */
+          }
+  
+          .main-menu__list a {
+              text-decoration: none;
+              /* Optional: Removes underline from links */
+              color: #000;
+              /* Optional: Sets link color */
+          }
+      
+    </style>
+
+
+
+
+</head>
+
+<body>
+   
+    <div class="page-wrapper">
+        <header class="main-header">
+            <div class="topbar">
+              <div class="container-fluid">
+                <div class="topbar__inner">
+                  <ul class="list-unstyled topbar__info">
+                    <li class="topbar__title">
+                      <span> Hamadan Craft Revival Foundation </span>
+                    </li>
+            
+                    <li class="topbar__divider">
+                      <span> | </span>
+                    </li>
+            
+                    <li class="topbar__sub-title">
+                      <span>A Kashmir Craft Policy Think Tank - Shaping the Future of Artisans</span>
+                    </li>
+                  </ul>
+                  <!-- /.topbar__info -->
+            
+                  <ul class="list-unstyled topbar__links" id="topbar-links">
+                    <!-- Links will be injected here based on the user's login status -->
+                  </ul>
+            
+                        <!-- Left Section -->
+              <div class="col-md-3 text-center text-md-start mb-4 mb-md-0" style="margin-left: 20px; font-size: 20px;">
+                  <div class="site-footer__social d-flex justify-content-center justify-content-md-start">
+                    <a style="font-size: 15px;" href="https://x.com/artisanvoice?t=aQ_Monm6LFsvuZ8QQtqsaA&s=09" class=""><i
+                        class="fab fa-twitter"></i></a>
+                    <a style="font-size: 15px;" href="https://www.facebook.com/profile.php?id=61567325408681&mibextid=ZbWKwL" class=""><i
+                        class="fab fa-facebook"></i></a>
+                    <a style="font-size: 15px;" href="https://www.linkedin.com/company/105864580/" class="icon_footer"><i
+                        class="fa-brands fa-linkedin"></i></a>
+                    <a style="font-size: 15px;" href="https://www.instagram.com/kashmirhcrf/" class="icon_footer"><i class="fab fa-instagram"></i></a>
+                  </div>
+                  
+                </div>
+                </div>
+                <!-- /.topbar__inner -->
+              </div>
+              <!-- /.container-fluid -->
+            </div>
+            <!-- /.topbar -->
+            <nav class="main-menu sticky-header">
+              <div class="container-fluid">
+                <a href="index.html" class="main-header__logo">
+                  <img src="assets/images/hcrf_logo.png" />
+                </a>
+          
+                
+                <ul class="main-menu__list">
+                  <a href="index.html" class="home-icon" >
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                  </a>
+                  <li class="menu-item-has-children">
+                    <a href="">Research & Policy</a>
+                    <ul>
+                      <li><a href="industry_research.html">Industry Research</a></li>
+                      <li><a href="policy_insight.html">Policy In-Sights</a></li>
+                      <li><a href="Governance.html">Governance</a></li>
+                      <li><a href="Regulation.html">Regulations </a></li>
+                      <li><a href="Advocacy.html">Advocacy</a></li>
+                      <li><a href="Campaigns.html">Campaigns</a></li>
+                      <li><a href="legislative_lobby.html">Legislative Lobbying</a></li>
+                      <!-- <li><a href="index-3.html">Policy Publications</a></li> -->
+          
+                    </ul>
+                  </li>
+                  <li class="menu-item-has-children"><a href="">E Publications</a>
+                    <ul>
+          
+                      <li><a href="e_publication_best_practies.html">Best Practices</a></li>
+                      <li><a href="e_publication_case_studies.html">Case Studies</a></li>
+                      <li><a href="e_publication_research_papers.html">Research Papers</a></li>
+                      <li><a href="e_book.html">e Book</a></li>
+          
+          
+          
+                    </ul>
+                  </li>
+                  <li class="menu-item-has-children">
+                    <a href="">Business Support</a>
+                    <ul>
+                      <li><a href="networking.html">Evaulation & Ranking</a></li>
+                      <li><a href="grants.html">Grants</a></li>
+                      <!-- <li><a href="quality_control.html">Quality Control</a></li> -->
+                      <!-- <li><a href="accreditation.html">Accreditations</a></li> -->
+                      <li><a href="Accreditation_Badge.html">Accreditation Badge</a></li>
+                      <li><a href="entrepreneur_kits.html">Entrepreneurs Kit</a></li>
+          
+                      <!-- <li>
+                                          <a href="volunteers.html">Business Evaluation</a>
+                                        </li> -->
+                    </ul>
+                  </li>
+                  <li class="menu-item-has-children"><a href="">About HCRF</a>
+                    <ul>
+                      <li><a href="mission.html">Mission</a></li>
+                      <li><a href="complinance.html">Compliance</a></li>
+                      <li><a href="leadership.html">Leadership</a></li>
+                      <!-- <li><a href="#">Advisory Board</a></li> -->
+                      <li><a href="memberships.html">Memberships</a></li>
+                      <li><a href="donations.html">Donations</a></li>
+                      <li><a href="partner_network.html">Partner Network</a></li>
+                      <li><a href="hcrf_project.html">HCRF Projects</a></li>
+                      <li><a href="career.html">Career</a></li>
+                      <li><a href="apprenticeship.html">Apprenticeship</a></li>
+                      <li><a href="contact.html">Contact </a></li>
+          
+                    </ul>
+                  </li>
+                  <!-- <li class="menu-item-has-children">
+                                      <a href="events.html">HCRF Network</a>
+                                    </li>
+                      
+                                    <li class="menu-item-has-children">
+                                      <a href="events.html">HCRF People</a>
+                                    </li> -->
+                </ul>
+                <!-- /.main-menu__list -->
+          
+                <div class="main-menu__right">
+                  <div class="main-menu__cta">
+                    <div class="main-menu__cta__icon">
+                      <i class="paroti-icon-volunteer"></i>
+                    </div>
+                    <!-- /.main-menu__cta__icon -->
+                    <div class="main-menu__cta__text">
+                      <span>Join us now</span>
+                      <a href="memberships.html">Become a Member</a>
+                    </div>
+                    <!-- /.main-menu__cta__text -->
+                  </div>
+                  <!-- /.main-menu__cta -->
+                  <a href="donations.html" class="thm-btn thm-btn--two">
+                    <span>Donate Now</span></a>
+                  <!-- <i class="fa fa-donate"></i>  -->
+                  <!-- <img
+                                        src="assets/images/donate-icon.png"
+                                        style="z-index: 3"
+                                        alt="Donate Now"
+                                      /> </a -->
+                  <!-- /.thm-btn--two -->
+                  <a href="#" class="main-header__btn search-toggler">
+                    <!-- <i class="paroti-icon-magnifying-glass"></i> -->
+                  </a>
+                  <a href="#" class="main-header__toggler mobile-nav__toggler">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </a>
+                </div>
+                <!-- /.main-menu__right -->
+              </div>
+              <!-- /.container-fluid -->
+            </nav>
+          
+          </header>
+
+        <section class="slider-one" style="background-color: #9f5f37;">
+            <div class="thm-owl__carousel owl-carousel owl-theme" data-owl-options='{
+      				"loop": true,
+      				"autoplay": true,
+      				"autoplayTimeOut": 7000,
+      				"items": 1,
+      				"margin": 0,
+      				"animateIn": "fadeIn",
+      				"animateOut": "slideOutDown",
+      				"nav": true,
+      				"dots": true,
+      				"navText": ["<span class=\"paroti-icon-left-arrow\"></span>","<span class=\"paroti-icon-right-arrow\"></span>"]
+      			}'>
+
+                <div class="item" style="background-color: #9f5f37;">
+                    <div class="slider-one__item" style="background-color: #9f5f37;">
+                        <div class="slider-one__image"></div>
+                        <div class="container">
+                            <h2 class="slider-one__title">
+                                Assess Your Certification Readiness
+                            </h2>
+                            <p class="slider-one__text">
+                                Pre-screen your business for the ultimate industry certification pathway.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item" style="background-color: #9f5f37;">
+                    <div class="slider-one__item" style="background-color: #9f5f37;">
+                        <div class="slider-one__image"></div>
+                        <div class="container">
+                            <h2 class="slider-one__title">
+                                Optimize Your Certification Journey
+                            </h2>
+                            <p class="slider-one__text">
+                                Begin with a business evaluation to secure trusted industry certification.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item" style="background-color: #9f5f37;">
+                    <div class="slider-one__item" style="background-color: #9f5f37;">
+                        <div class="container">
+                            <h2 class="slider-one__title">Prepare for Industry Certification</h2>
+                            <p class="slider-one__text">
+                                Pre-screen your business and ensure certification success from the start.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item" style="background-color: #9f5f37;">
+                    <div class="slider-one__item" style="background-color: #9f5f37;">
+                        <div class="container">
+                            <h2 class="slider-one__title">
+                                Pre-Screen Your Business Today
+                            </h2>
+                            <p class="slider-one__text">
+                                Simplify your path to industry certification with a comprehensive evaluation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="item" style="background-color: #9f5f37;">
+                    <div class="slider-one__item" style="background-color: #9f5f37;">
+                        <div class="container">
+                            <h2 class="slider-one__title">
+                                Achieve Certification with Confidence
+                            </h2>
+                            <p class="slider-one__text">
+                                Complete your pre-screening and meet industry standards for certification
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="formSection" class="sec-pad sec-pad-bottom about-two">
+            <div class="container" style="display: flex; gap: 20px; width: 100%;">
+                <!-- <div class="textContainer" style="flex: 1; border: 0.5px solid #9f5f37; height: 600px; width: 600px; padding: 20px; color: black;margin-top: 150px;">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel consequuntur voluptas tempore illum culpa veritatis ipsum sint perspiciatis ratione totam excepturi quas, .
+                </div> -->
+            <div class="container">
+                <h3 class="title_page">Certification Evaluation</h3>
+                <!-- <h1 style="padding-left: 14vw;color: #9f5f37;">Registration Form</h1> -->
+        
+                <!-- form change by hannan  -->
+        
+                <form id="evaluationForm">
+                    <!-- ========== GENERAL INFORMATION ========== -->
+                    <!-- <div class="section">
+                        <div class="section-title">General Information</div>
+        
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" />
+        
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" />
+        
+                        <label for="phone">Contact Number</label>
+                        <input type="text" id="phone" name="phone" placeholder="Enter your phone number" />
+        
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address" placeholder="Enter your address" />
+        
+                        <label>Entity Type</label>
+                        <div class="inline-options">
+                            <div>
+                                <input type="radio" id="Artisan" name="registerType" value="Artisan">
+                                <label for="Artisan">Artisan</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="Business" name="registerType" value="Business">
+                                <label for="Business">Business</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="Institution" name="registerType" value="Institution">
+                                <label for="Institution">Institution</label>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="section-title" style="font-weight: bold; color: #9f5f37; font-size: x-large;"> 
+                        <span style="font-size:64px"> </span> Real Time Preliminary Self Evaluation Check
+                        <span style="color:#329ad5;"></span> </div>
+        
+                    <!-- Product Authenticity -->
+                    <div class="form-group criteria-group" style="border: 0.5px solid #beb6b1; border-radius: 5px; padding-left: 30px; margin-top: 30px;">
+                        <div style="font-weight: bold; color: #9f5f37; font-size: x-large; margin-top: 20px;"> <span style="color:#329ad5;">Section1:</span>
+                            Product Authenticity</div>
+        
+                        <label class="bold-question">
+                            <b>How do you ensure that the materials used in your products are authentic?</b>
+                            
+                        </label>
+                        <div class="options-container">
+                            <label><input type="radio" name="productAuthenticity" value="1"
+                                    onclick="updateEvaluation()"> Use mixed or synthetic materials</label>
+                            <label><input type="radio" name="productAuthenticity" value="4"
+                                    onclick="updateEvaluation()"> Use mostly authentic materials</label>
+                            <label><input type="radio" name="productAuthenticity" value="6"
+                                    onclick="updateEvaluation()"> Ensure full sourcing verification</label>
+                            <label><input type="radio" name="productAuthenticity" value="8"
+                                    onclick="updateEvaluation()"> Rely on certified suppliers and traceability</label>
+                            <label><input type="radio" name="productAuthenticity" value="10"
+                                    onclick="updateEvaluation()"> Use Block Chain-tagged materials with full
+                                certification</label>
+                        </div>
+                    </div>
+        
+                    <!-- Quality -->
+                    <div class="form-group criteria-group"  style="border: 0.5px solid #beb6b1; border-radius: 5px; padding-left: 30px; margin-top: 30px;">
+                        <div style="font-weight: bold; color: #9f5f37; font-size: x-large; margin-top: 20px;"> <span style="color:#329ad5;">Section2:</span>
+                            Quality</div>
+                        <label class="bold-question">
+                            <b>How would you rate the overall quality of your products?</b>
+                            </label>
+                        <div class="options-container">
+                            <label><input type="radio" name="quality" value="1" onclick="updateEvaluation()"> Quality is inconsistent and unreliable</label>
+                            <label><input type="radio" name="quality" value="4" onclick="updateEvaluation()"> Quality is
+                                generally acceptable with minor flaws</label>
+                            <label><input type="radio" name="quality" value="6" onclick="updateEvaluation()"> High
+                                quality with only minor imperfections</label>
+                            <label><input type="radio" name="quality" value="8" onclick="updateEvaluation()"> Meets
+                                industry standards with solid quality</label>
+                            <label><input type="radio" name="quality" value="10" onclick="updateEvaluation()"> Exceeds
+                                Indian standards with exceptional quality</label>
+                        </div>
+                    </div>
+        
+        
+                    <!-- Sustainability -->
+                    <div class="form-group criteria-group"  style="border: 0.5px solid #beb6b1; border-radius: 5px; padding-left: 30px; margin-top: 30px;">
+                        <div style="font-weight: bold; color: #9f5f37; font-size: x-large; margin-top: 20px;"> <span style="color:#329ad5;">Section3:</span>
+                            Sustainability</div>
+        
+                        <label class="bold-question">
+                            <b>How sustainable are your production processes?</b>
+                            </label>
+                        <div class="options-container">
+                            <label><input type="radio" name="sustainability" value="1" onclick="updateEvaluation()"> No
+                                focus on sustainability in production</label>
+                            <label><input type="radio" name="sustainability" value="4" onclick="updateEvaluation()"> Use
+                                some sustainable materials in production</label>
+                            <label><input type="radio" name="sustainability" value="6" onclick="updateEvaluation()">
+                                Significant portion of materials are sustainable</label>
+                            <label><input type="radio" name="sustainability" value="8" onclick="updateEvaluation()">
+                                Primarily eco-friendly materials used in production</label>
+                            <label><input type="radio" name="sustainability" value="10" onclick="updateEvaluation()">
+                                Fully committed to zero waste production practices</label>
+                        </div>
+                    </div>
+        
+                    <!-- Customer Experience -->
+                    <div class="form-group criteria-group"  style="border: 0.5px solid #beb6b1; border-radius: 5px; padding-left: 30px; margin-top: 30px;">
+                        <div style="font-weight: bold; color: #9f5f37; font-size: x-large; margin-top: 20px;"> <span style="color:#329ad5;">Section4:</span>
+                            Customer Experience</div>
+        
+                        <label class="bold-question">
+                            <b>How do you ensure a positive customer experience?</b>
+                            </label>
+                        <div class="options-container">
+                            <label><input type="radio" name="customerExperience" value="1" onclick="updateEvaluation()">
+                                No defined strategy for customer experience</label>
+                            <label><input type="radio" name="customerExperience" value="4" onclick="updateEvaluation()">
+                                Customer experience strategy needs improvement</label>
+                            <label><input type="radio" name="customerExperience" value="6" onclick="updateEvaluation()">
+                                Customer experience is generally satisfactory</label>
+                            <label><input type="radio" name="customerExperience" value="8" onclick="updateEvaluation()">
+                                Customer experience is well-managed with good communication</label>
+                            <label><input type="radio" name="customerExperience" value="10"
+                                    onclick="updateEvaluation()"> Provide exceptional and personalized customer
+                                service</label>
+                        </div>
+                    </div>
+        
+                    <!-- Fair Trade Practices -->
+                    <div class="form-group criteria-group"  style="border: 0.5px solid #beb6b1; border-radius: 5px; padding-left: 30px; margin-top: 30px;">
+                        <div style="font-weight: bold; color: #9f5f37; font-size: x-large; margin-top: 20px;"> <span style="color:#329ad5;">Section5:</span>
+                            Fair Trade Practices</div>
+                        <label class="bold-question">
+                            <b>How do you ensure fair wages and safe working conditions for your employees or artisans?</b>
+                            
+                        </label>
+                        <div class="options-container">
+                            <label><input type="radio" name="fairTradeWages" value="1" onclick="updateEvaluation()"> No
+                                clear policy for fair wages and safety</label>
+                            <label><input type="radio" name="fairTradeWages" value="4" onclick="updateEvaluation()"> Pay
+                                legal minimum wages with basic safety measures</label>
+                            <label><input type="radio" name="fairTradeWages" value="6" onclick="updateEvaluation()">
+                                Fair wages with some improvements needed in safety</label>
+                            <label><input type="radio" name="fairTradeWages" value="8" onclick="updateEvaluation()">
+                                Fair wages with safe working conditions for all</label>
+                            <label><input type="radio" name="fairTradeWages" value="10" onclick="updateEvaluation()">
+                                Standard market wages with safe, healthy working conditions</label>
+                        </div>
+                    </div>
+        
+                    <!-- Evaluation Result -->
+                    <div id="evaluationResult" class="evaluation-result hidden"  style="border: 0.5px solid #e6a67e; border-radius: 5px; padding-left: 30px; margin-top: 30px;">
+                        <h3 style="color:#229bd4">Your Evaluation Results:</h3>
+                        <p id="evaluationDetails"></p>
+                        <div id="eligibilityResult"></div>
+                    </div>
+        
+                    <div class="container">
+                      <!-- "Submit" button for demonstration -->
+                      <div class="form-group">
+                          <label>
+                              <input type="checkbox" id="confirmationCheckbox" />
+                              I confirm that the information provided is accurate.
+                          </label>
+                          <br>
+                          <button type="button" class="submit-btn" style="background-color: #9f5f37;" onclick="handleNextClick(event)">Next</button>
+                        </div>
+                  </div>
+                  
+                </form>
+                
+            </div>
+        </section>
+        
+
+        <section class="sec-pad-top sec-pad-bottom mission-section" style="background-color: #f2f2f2;">
+            <div class="container">
+                <div class="row gutter-y-60">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="sec-title">
+                            <p class="sec-title__tagline" style="color:#229bd4;">Elevate Your Business Standards</p>
+                            <h2 class="sec-title__title" style="color: #9f5f37;">Unlock Your Business Potential</h2>
+                            <br />
+                            <h4 class="sec-title__title" style="color: #000;">
+                                Achieve excellence through structured evaluation, industry rankings, and global
+                                market readiness. Boost credibility, trust, and market access through strategic
+                                rankings. Maximize growth, visibility, and market impact with HCRF's
+                                comprehensive evaluation, ranking, and global networking opportunities.
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-lg-9 col-sm-12">
+                        <div class="thm-owl__carousel owl-carousel owl-theme donation-two__carousel" data-owl-options='{
+                            "items": 1,
+                            "margin": 0,
+                            "loop": true,
+                            "nav": false,
+                            "dots": false,
+                            "autoplay": true,
+                            "responsive": {
+                                "0": {
+                                    "items": 1
+                                },
+                                "576": {
+                                    "items": 1,
+                                    "margin": 10
+                                },
+                                "768": {
+                                    "items": 1,
+                                    "margin": 10
+                                },
+                                "992": {
+                                    "items": 2,
+                                    "margin": 10
+                                }
+                            }
+                        }'>
+                            <div class="item">
+                                <div class="donation-card-two" style="--accent-color: #9f5f37">
+                                    <div class="donation-card-two__bg"></div>
+                                    <h3 class="donation-card-two__title" style="font-size: 20.5px;">
+                                        <a href="#">Why Evaluation & Ranking Matter</a>
+                                    </h3>
+                                    <p class="donation-card-two__text">
+                                    <ul class="donation-card-two__text">
+                                        <li>Businesses require more than craftsmanship.</li>
+                                        <li>Global markets demand sustainable practices.</li>
+                                        <li>Ensure sound business operations globally.</li>
+                                        <li>Showcase your excellence to markets.</li>
+                                        <li>Strengthen your brand with trust.</li>
+                                        <li>Improve market readiness and scalability.</li>
+                                        <li>Position yourself for global success.</li>
+                                    </ul>
+                                    </p>
+                                    <div class="donation-card-two__shape"></div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="donation-card-two" style="--accent-color: #9f5f37">
+                                    <div class="donation-card-two__bg"></div>
+                                    <h3 class="donation-card-two__title" style="font-size: 20.5px;">
+                                        <a href="#">Benefits of Ranking</a>
+                                    </h3>
+                                    <p class="donation-card-two__text">
+                                    <ul class="donation-card-two__text">
+                                        <li>Gain visibility on global platforms.</li>
+                                        <li>Build consumer trust and credibility.</li>
+                                        <li>Receive access to marketing campaigns.</li>
+                                        <li>Top-ranked businesses receive opportunities.</li>
+                                        <li>Position yourself as industry leader.</li>
+                                        <li>Increase partnerships with market influencers.</li>
+                                        <li>Enhance business exposure and growth.</li>
+                                    </ul>
+                                    </p>
+                                    <div class="donation-card-two__shape"></div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="donation-card-two" style="--accent-color: #9f5f37">
+                                    <div class="donation-card-two__bg"></div>
+                                    <h3 class="donation-card-two__title" style="font-size: 20.5px;">
+                                        <a href="#">HCRF Business Networking</a>
+                                    </h3>
+                                    <p class="donation-card-two__text">
+                                    <ul class="donation-card-two__text">
+                                        <li>Connect with leading global partners.</li>
+                                        <li>Build lasting relationships with suppliers.</li>
+                                        <li>Engage in exclusive trade opportunities.</li>
+                                        <li>Expand your market internationally.</li>
+                                        <li>Grow business with key partnerships.</li>
+                                        <li>Access a premier business database.</li>
+                                        <li>Position business for greater scalability.</li>
+                                    </ul>
+                                    </p>
+                                    <div class="donation-card-two__shape"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer footer-main">
+            <div class="site-footer__top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-duration="1500ms"
+                            data-wow-delay="000ms">
+                            <div class="site-footer__widget site-footer__widget__about">
+                                <a href="../index.html" class="site-footer__widget__logo">
+                                    <img src="assets/images/hcrf_logo.png" width="100px" height="100px" alt="" />
+                                </a>
+                                <p style="padding-right: 70px;">
+                                    HCRF, a pioneering Section 8 entity, is the first Craft Policy
+                                    Think Tank devoted to preserving, promoting, and sustainably advancing
+                                    Kashmir’s unique handicraft heritage and artisan empowerment
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl wow fadeInUp" data-wow-duration="1500ms"
+                            data-wow-delay="100ms">
+                            <div class="site-footer__widget">
+                                <h3 class="site-footer__widget__title">Policy Action</h3>
+                                <ul class="list-unstyled site-footer__widget__links">
+                                    <li><a href="Advocacy.html">Policy Advocacy</a></li>
+                                    <li><a href="Campaigns.html">Policy Campaign</a></li>
+                                    <li><a href="legislative_lobby.html">Policy Lobbying</a></li>
+
+                                    <br />
+                                    <h3 class="site-footer__widget__title_second">Publications</h3>
+                                    <li><a href="e_publication_best_practies.html">Best Practices</a></li>
+                                    <li><a href="e_publication_case_studies.html">Case Studies</a></li>
+                                    <li><a href="e_publication_research_papers.html">Research Papers</a></li>
+                                    <li><a href="e_book.html">e-Books</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl wow fadeInUp" data-wow-duration="1500ms"
+                            data-wow-delay="200ms">
+                            <div class="site-footer__widget">
+                                <h3 class="site-footer__widget__title">Business support</h3>
+                                <ul class="list-unstyled site-footer__widget__links text-start">
+                                    <li><a href="networking.html">Business Evaluation</a></li>
+                                    <li><a href="grants.html">Grants Support</a></li>
+                                    <li><a href="accreditation.html">Accreditation</a></li>
+                                    <li><a href="entrepreneur_kits.html">Entrepreneurs Kit</a></li>
+
+                                    <h3 class="site-footer__widget__title_second">About HCRF</h3>
+                                    <li><a href="partner_network.html">Partner Network</a></li>
+                                    <li><a href="hcrf_project.html">Projects</a></li>
+                                    <li><a href="career.html">Career</a></li>
+                                    <li><a href="apprenticeship.html">Apprenticeship</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl wow fadeInUp" data-wow-duration="1500ms"
+                            data-wow-delay="200ms">
+                            <div class="site-footer__widget">
+                                <h3 class="site-footer__widget__title">Membership</h3>
+                                <ul class="list-unstyled site-footer__widget__links">
+                                    <li><a href="memberships.html#membership_form">Artisan</a></li>
+                                    <li><a href="memberships.html#membership_form">Individual</a></li>
+                                    <li><a href="memberships.html#membership_form">Professional</a></li>
+                                    <li><a href="memberships.html#membership_form">Corporate Patron</a></li>
+                                    <h3 class="site-footer__widget__title_second">Donation</h3>
+                                    <li><a href="donations.html">Artisan Support Fund</a></li>
+                                    <li><a href="donations.html">In-Kind</a></li>
+                                    <li><a href="donations.html">Legacy & Planned Giving</a></li>
+                                    <li><a href="donations.html">Event Sponsorships</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl wow fadeInUp" data-wow-duration="1500ms"
+                            data-wow-delay="400ms">
+                            <div class="site-footer__widget site-footer__widget__cta">
+                                <h3 class="site-footer__widget__title">
+                                    <span>Let's come together to raise donations & help amplify the voices of
+                                        Kashmiri artisans.</span>
+                                </h3>
+                                <a href="donations.html" class="thm-btn thm-btn--two"
+                                    style="background-color: #9f5f37; margin: 0px;">
+                                    <span>Donate Now</span>
+                                </a>
+                            </div>
+                            <div style="height: 200px; width: 200px; position: relative; left: 0px;">
+                                <img src="assets/images/scan.png" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="site-footer__bottom  text-white py-4">
+                <div class="container">
+                    <div class="row">
+                        <!-- Left Section -->
+                        <div class="col-md-3 text-center text-md-start mb-4 mb-md-0">
+                            <p class="mb-2">© Copyright <span class="dynamic-year"></span> by HCRF</p>
+                            <div class="site-footer__social d-flex justify-content-center justify-content-md-start">
+                                <a href="https://x.com/artisanvoice?t=aQ_Monm6LFsvuZ8QQtqsaA&s=09" class=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=61567325408681&mibextid=ZbWKwL"
+                                    class=""><i class="fab fa-facebook"></i></a>
+                                <a href="https://www.linkedin.com/company/105864580/" class="icon_footer"><i
+                                        class="fa-brands fa-linkedin"></i></a>
+                                <a href="https://www.instagram.com/kashmirhcrf/" class="icon_footer"><i
+                                        class="fab fa-instagram"></i></a>
+                            </div>
+                            <div class="policy-links mt-3">
+                                <a href="terms.html" class="text-white me-2">Legal</a> |
+                                <a href="privacy.html" class="text-white ms-2">Privacy Policy</a>
+                            </div>
+                        </div>
+
+                        <!-- Right Section -->
+                        <div class="col-md-9 text-center text-md-end">
+                            <p class="mb-2">
+                                HCRF 2 Darul Zamrood - Gousia Colony Ext, Zakura - Srinagar, Jammu & Kashmir India
+                                190006
+                            </p>
+                            <p class="mb-0 footer_btm_txt">
+                                Website Developed & Maintained by
+                                <a href="https://primelogicsol.com" class="text-white">
+                                    Prime Logic Solutions -USA
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <div class="mobile-nav__content">
+            <a href="#" class="mobile-nav__close mobile-nav__toggler">
+                <span></span><span></span>
+            </a>
+            <div class="logo-box">
+                <a href="../index.html" aria-label="logo image"><img src="assets/images/hcrf_logo.png" width="127"
+                        height="127" alt="logo" /></a>
+            </div>
+            <div class="mobile-nav__container"></div>
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="fa fa-phone"></i>
+                    <a href="tel:+919419070707">+919419070707</a>
+                </li>
+                <li>
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:info@khcrf.org">info@khcrf.org</a>
+                </li>
+                <li>
+                    <i class="fa fa-map-marker-alt"></i>
+                    2 Gousia Colony Extension,
+                    <br />
+                    Zakura Srinagar, J&K India 190006
+                </li>
+            </ul>
+            <ul class="mobile-nav__social">
+                <li>
+                    <a href="https://x.com/artisanvoice?t=aQ_Monm6LFsvuZ8QQtqsaA&s=09"><i
+                            class="fab fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/profile.php?id=61567325408681&mibextid=ZbWKwL"><i
+                            class="fab fa-facebook-f"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/kashmirhcrf/"><i class="fab fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/company/105864580/"><i class="fa-brands fa-linkedin"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="search-popup">
+        <div class="search-popup__overlay search-toggler"></div>
+        <div class="search-popup__content">
+            <form action="#">
+                <label for="search" class="sr-only">search here</label>
+                <input type="text" id="search" placeholder="Search Here..." />
+                <button type="submit" aria-label="search submit" class="thm-btn">
+                    <span><i class="paroti-icon-magnifying-glass"></i></span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- plugins js -->
+    <script src="../styles/vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script src="../styles/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../styles/vendors/tiny-slider/dist/min/tiny-slider.js"></script>
+    <script src="../styles/vendors/jquery-validation/jquery.validate.min.js"></script>
+    <script src="../styles/vendors/wow/wow.js"></script>
+    <script src="../styles/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="../styles/vendors/jquery-appear/jquery.appear.min.js"></script>
+    <script src="../styles/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="../styles/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="../styles/vendors/youtube-popup/youtube-popup.jquery.js"></script>
+    <!-- template js -->
+    <script src="../script/paroti.js"></script>
+    <script src="../script/custom.js"></script>
+
+    <script>
+        // Function to check login status and update the topbar
+        const updateTopbar = () => {
+            const token = localStorage.getItem('authToken'); // Get the token from localStorage
+            const isAdmin = localStorage.getItem('isAdmin') === 'true'; // Get and parse the isAdmin field
+            const topbarLinks = document.getElementById('topbar-links');
+
+            if (token) {
+                // If logged in, check if the user is an admin
+                if (isAdmin) {
+                    topbarLinks.innerHTML = `
+                        <li><a href="dashboard.html">Admin Dashboard</a></li>
+                        <li><a href="#" onclick="logout()">Logout</a></li>`;
+                } else {
+                    // If the user is not an admin
+                    topbarLinks.innerHTML = `
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="#" onclick="logout()">Logout</a></li>`;
+                }
+            } else {
+                // If not logged in, show login and register links
+                topbarLinks.innerHTML = `
+                    <li><a href="login.html">Login</a></li>`;
+            }
+        };
+
+
+
+
+        
+        // Call updateTopbar on page load
+        window.onload = updateTopbar;
+
+        // Logout function
+        const logout = () => {
+            localStorage.removeItem('authToken'); // Clear token
+            localStorage.removeItem('isAdmin');   // Clear admin status
+            updateTopbar();                       // Update the top bar after logout
+            window.location.href = '../index.html';
+        };
+
+        // ========== EVALUATION LOGIC ==========
+        function updateEvaluation() {
+            let totalScore = 0;
+
+            // Add score based on each question
+            totalScore += calculateScore('productAuthenticity');
+            totalScore += calculateScore('quality');
+            totalScore += calculateScore('sustainability');
+            totalScore += calculateScore('customerExperience');
+            totalScore += calculateScore('fairTradeWages');
+
+            // Decide evaluation text
+            let evaluationText = '';
+            if (totalScore <= 20) {
+                evaluationText = 'Significant shortcomings identified. Urgent improvements are required.';
+            } else if (totalScore >= 20 && totalScore <= 40) {
+                evaluationText = 'Fair performance overall, but several areas still need focused development.';
+            } else if (totalScore >= 40 && totalScore <= 60) {
+                evaluationText = 'Good performance, meeting most expectations with some scope for enhancement.';
+            } else if (totalScore >= 60 && totalScore <= 70){
+                evaluationText = 'Very good, adheres to most industry standards.';
+            }
+            //  else {
+            //     evaluationText = 'Excellent performance, exceeds industry standards.';
+            // }
+
+            // Update the results
+    //         document.getElementById('evaluationDetails').innerHTML = 
+    // `<strong>Total Score:</strong> ${totalScore} points<br>${evaluationText}`;
+
+
+
+    //edited by hannan for color and bold of text
+    // Assume totalScore and evaluationText are defined above
+
+    let color;
+if (totalScore < 50) {
+  color = 'red';
+} else {
+  color = 'green';
+}
+
+document.getElementById('evaluationDetails').innerHTML = 
+  `<strong >Total Score:</strong> <span style="color:${color};"> ${totalScore} points</span><br>${evaluationText}`;
+
+
+            // Check eligibility
+            let eligibilityText = '';
+            if (totalScore >= 50) {
+                eligibilityText = `Congratulations! You've scored above 50%, reflecting a strong foundation and business practices that align with global standards.
+
+By maintaining a solid business niche, you've demonstrated your commitment to excellence in areas like product authenticity, quality, sustainability, and customer experience.
+
+Next Steps
+Submit Relevant Documents:
+While filling out the real-time assessment, you will need to provide documentation that proves your claims. These documents will help us tailor the certification process and packages to meet your specific business needs.
+
+Consent for Listing:
+Click here to give us your consent to initiate tailoring certification for you and submit your required documents for verification.
+
+Document Submission Requirement:
+Click here to give us your consent to list your business on CraftLore.`;
+            } else {
+                eligibilityText = `Your score is below 50%. To help you improve and prepare for the global trade environment, we recommend consulting with the HCRF Business Support Division.
+
+At HCRF, we provide personalized support at no cost to help you enhance your business practices, align with global standards, and elevate your potential for international market access. Our experts can guide you through areas needing improvement, from sustainability practices to product quality, customer experience, and fair trade certifications.
+
+Next Steps:
+
+Contact HCRF Business Support Division to schedule a consultation.
+Receive expert guidance on how to improve your business practices for global competitiveness.
+
+Let’s work together to prepare you for success in the global market!
+
+Contact Us Now for further assistance.`;
+            }
+
+            document.getElementById('eligibilityResult').innerText = eligibilityText;
+            document.getElementById('evaluationResult').classList.remove('hidden');
+        }
+
+        // Helper function to get the value from the selected radio button in a group
+        function calculateScore(groupName) {
+            const selectedAnswer = document.querySelector(`input[name="${groupName}"]:checked`);
+            if (!selectedAnswer) return 0; // No selection
+
+            const value = parseInt(selectedAnswer.value, 10);
+            // Example logic to scale best/worst answers, if desired
+            if (value === 10) {
+                return 0.8 * 15;  // Best answer: 70% of max
+            }
+            if (value === 1) {
+                return 0.05 * 20; // Worst answer: 5% of max
+            }
+            return value;         // Normal answers
+        }
+
+        function submitEvaluation() {
+            alert('Your evaluation has been submitted!');
+        }
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/67685880af5bfec1dbe01adf/1ifnpjeom';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+
+        // script added by hannan for registration form 
+        document.addEventListener('DOMContentLoaded', function() {
+      /***********************************************************
+       * 1) TOGGLE SECTION VISIBILITY (Artisan / Business / Institution)
+       ************************************************************/
+      const artisanSection = document.getElementById('artisanSection');
+      const businessSection = document.getElementById('businessSection');
+      const institutionSection = document.getElementById('institutionSection');
+
+      function onRegisterTypeChange(e) {
+        const regVal = e.target.value;
+        artisanSection.style.display = (regVal === 'Artisan') ? 'block' : 'none';
+        businessSection.style.display = (regVal === 'Business') ? 'block' : 'none';
+        institutionSection.style.display = (regVal === 'Institution') ? 'block' : 'none';
+      }
+
+      const registerTypeRadios = document.querySelectorAll('input[name="registerType"]');
+      registerTypeRadios.forEach(radio => {
+        radio.addEventListener('change', onRegisterTypeChange);
+      });
+
+      /***********************************************************
+       * 2) TOGGLE DEPENDENT FIELDS
+       ************************************************************/
+      // Sustainable Practices
+      const sustainablePractices = document.getElementById('sustainablePractices');
+      const sustainablePracticesDescriptionContainer = document.getElementById('sustainablePracticesDescriptionContainer');
+      function toggleSustainableDescription() {
+        sustainablePracticesDescriptionContainer.style.display =
+          sustainablePractices.checked ? 'block' : 'none';
+      }
+      sustainablePractices.addEventListener('change', toggleSustainableDescription);
+
+      // Gender Support
+      const genderSupport = document.getElementById('genderSupport');
+      const femalePercentageContainer = document.getElementById('femalePercentageContainer');
+      function toggleFemalePercentage() {
+        femalePercentageContainer.style.display =
+          genderSupport.checked ? 'block' : 'none';
+      }
+      genderSupport.addEventListener('change', toggleFemalePercentage);
+
+      // Workplace Standards
+      const workplaceStandards = document.getElementById('workplaceStandards');
+      const workplaceStandardsDescriptionContainer = document.getElementById('workplaceStandardsDescriptionContainer');
+      function toggleWorkplaceStandards() {
+        workplaceStandardsDescriptionContainer.style.display =
+          workplaceStandards.checked ? 'block' : 'none';
+      }
+      workplaceStandards.addEventListener('change', toggleWorkplaceStandards);
+
+      // Fair Trade Certification
+      const fairTradeCertification = document.getElementById('fairTradeCertification');
+      const fairTradeDocumentContainer = document.getElementById('fairTradeDocumentContainer');
+      function toggleFairTradeDocument() {
+        fairTradeDocumentContainer.style.display =
+          fairTradeCertification.checked ? 'block' : 'none';
+      }
+      fairTradeCertification.addEventListener('change', toggleFairTradeDocument);
+
+      // GI Certification
+      const giCertification = document.getElementById('giCertification');
+      const giCertificationContainer = document.getElementById('giCertificationContainer');
+      function toggleGiCertification() {
+        giCertificationContainer.style.display =
+          giCertification.checked ? 'block' : 'none';
+      }
+      giCertification.addEventListener('change', toggleGiCertification);
+
+      // Blockchain Certification
+      const blockchainCertification = document.getElementById('blockchainCertification');
+      const blockchainCertificationContainer = document.getElementById('blockchainCertificationContainer');
+      function toggleBlockchainCertification() {
+        blockchainCertificationContainer.style.display =
+          blockchainCertification.checked ? 'block' : 'none';
+      }
+      blockchainCertification.addEventListener('change', toggleBlockchainCertification);
+
+      /***********************************************************
+       * 3) FORM SUBMISSION - PREVENT PAGE RELOAD & BUILD JSON
+       ************************************************************/
+      const myForm = document.getElementById('register-form');
+      myForm.addEventListener('submit', handleFormSubmit);
+    });
+
+    /*********************************************************************
+     * 4) HANDLE FORM SUBMISSION
+     *********************************************************************/
+    async function handleFormSubmit(event) {
+      // Prevent the default form reload behavior
+      event.preventDefault();
+
+      // Grab all values
+      const fullName = document.getElementById("fullName").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      const registerType = document.querySelector('input[name="registerType"]:checked')?.value || "";
+
+      // Artisan fields
+      const craftSpecialty = document.getElementById("craftSpecialty")?.value.trim() || "";
+      const craftSkill = document.querySelector('input[name="craftSkill"]:checked')?.value || "";
+      const craftExperience = +document.getElementById("craftExperience")?.value || 0;
+      const craftAward = document.getElementById("craftAward")?.value.trim() || "";
+      const craftCatalog = document.getElementById("craftCatalog")?.value.trim() || "";
+
+      // Business fields
+      const businessName = document.getElementById("businessName")?.value.trim() || "";
+      const businessEmail = document.getElementById("businessEmail")?.value.trim() || "";
+      const businessAddress = document.getElementById("businessAddress")?.value.trim() || "";
+      const businessYear = +document.getElementById("businessYear")?.value || 0;
+      const businessType = document.getElementById("businessType")?.value || "";
+      const businessLink = document.getElementById("businessLink")?.value.trim() || "";
+      const businessSold = document.getElementById("businessSold")?.value.trim() || "";
+      const marketBusiness = document.querySelector('input[name="marketBusiness"]:checked')?.value || "";
+      const businessEmployee = +document.getElementById("businessEmployee")?.value || 0;
+      const businessLicense = document.getElementById("businessLicense")?.value.trim() || "";
+
+      // Institution fields
+      const instituteName = document.getElementById("instituteName")?.value.trim() || "";
+      const instituteEmail = document.getElementById("instituteEmail")?.value.trim() || "";
+      const instituteAddress = document.getElementById("instituteAddress")?.value.trim() || "";
+      const instituteRep = document.getElementById("instituteRep")?.value.trim() || "";
+      const repPost = document.getElementById("repPost")?.value.trim() || "";
+      const instituteType = document.querySelector('input[name="instituteType"]:checked')?.value || "";
+      const instituteLink = document.getElementById("instituteLink")?.value.trim() || "";
+      const instituteMission = document.getElementById("instituteMission")?.value.trim() || "";
+
+      // Market reach for Artisan or Business
+      const marketArtisan = document.querySelector('input[name="marketArtisan"]:checked')?.value || "";
+
+      // Quality & Authenticity
+      const triditionalTraining = document.getElementById("triditionalTraining").checked;
+      const materialSource = document.getElementById("materialSource")?.value || "";
+      const craftingProcess = document.getElementById("craftingProcess")?.value || "";
+
+      const sustainablePractices = document.getElementById("sustainablePractices").checked;
+      const sustainablePracticesDescription = document.getElementById("sustainablePracticesDescription")?.value.trim() || "";
+
+      const fairWage = document.getElementById("fairWage").checked;
+      const genderSupport = document.getElementById("genderSupport").checked;
+      const femalePercentage = +document.getElementById("femalePercentage")?.value || 0;
+
+      const workplaceStandards = document.getElementById("workplaceStandards").checked;
+      const workplaceStandardsDescription = document.getElementById("workplaceStandardsDescription")?.value.trim() || "";
+
+      const childLaborPolicy = document.getElementById("childLaborPolicy").checked;
+      const fairTradeCertification = document.getElementById("fairTradeCertification").checked;
+      const fairTradeDocument = document.getElementById("fairTradeDocument")?.value.trim() || "";
+
+      const giCertification = document.getElementById("giCertification").checked;
+      const giCertificationNumber = document.getElementById("giCertificationNumber")?.value.trim() || "";
+      const giCertificationDocument = document.getElementById("giCertificationDocument")?.value.trim() || "";
+
+      const blockchainCertification = document.getElementById("blockchainCertification").checked;
+      const blockchainCertificationDocument = document.getElementById("blockchainCertificationDocument")?.value.trim() || "";
+
+      const qualityReviewConsent = document.querySelector('input[name="qualityReviewConsent"]:checked')?.value || "no";
+      const profileDisplayConsent = document.querySelector('input[name="profileDisplayConsent"]:checked')?.value || "no";
+      const complianceAcknowledgement = document.querySelector('input[name="complianceAcknowledgement"]:checked')?.value || "no";
+
+      // Build final object
+      const user = {
+        fullName,
+        phone,
+        email,
+        address,
+        password,
+        registerType
+      };
+
+      const listingCriteria = {
+        sourceOfMaterial: materialSource || undefined,
+        craftingProcess: craftingProcess || undefined,
+        sustainablePractices: sustainablePractices || undefined,
+        sustainabledescription: sustainablePracticesDescription || undefined,
+        fairWage: fairWage || undefined,
+        genderSuport: genderSupport || undefined,
+        womenPercentage: genderSupport ? femalePercentage : undefined,
+        workplaceuphold: workplaceStandards || undefined,
+        workplaceDescription: workplaceStandardsDescription || undefined,
+        childLabour: childLaborPolicy || undefined,
+        fairTrade: fairTradeCertification || undefined,
+        fairtradeDoc: fairTradeCertification && fairTradeDocument ? [fairTradeDocument] : undefined,
+        giHold: giCertification || undefined,
+        giNumber: giCertificationNumber || undefined,
+        giDoc: giCertificationDocument || undefined,
+        blockChain: blockchainCertification || undefined,
+        blockChainDoc: blockchainCertification && blockchainCertificationDocument
+          ? [blockchainCertificationDocument]
+          : undefined,
+        ethics: triditionalTraining || undefined,
+        // Convert 'yes'/'no' to boolean
+        qualityReview: (qualityReviewConsent === "yes"),
+        profilePermission: (profileDisplayConsent === "yes"),
+        complianceAcknowledgement: (complianceAcknowledgement === "yes"),
+      };
+
+      // Decide market
+      let market = "";
+      if (registerType === "Artisan") {
+        market = marketArtisan;
+      } else if (registerType === "Business") {
+        market = marketBusiness;
+      }
+
+      let artisan = undefined;
+      if (registerType === "Artisan") {
+        artisan = {
+          craftSpecialty: craftSpecialty || undefined,
+          craftSkill: craftSkill || undefined,
+          craftExperience: craftExperience || undefined,
+          craftAward: craftAward || undefined,
+          documents: craftCatalog ? [craftCatalog] : undefined,
+        };
+      }
+
+      let business = undefined;
+      if (registerType === "Business") {
+        business = {
+          businessName: businessName || undefined,
+          businessEmail: businessEmail || undefined,
+          businessAddress: businessAddress || undefined,
+          businessType: businessType || undefined,
+          businessSold: businessSold || undefined,
+          businessEmployee: businessEmployee || undefined,
+          documents: businessLicense ? [businessLicense] : undefined,
+        };
+      }
+
+      let institute = undefined;
+      if (registerType === "Institution") {
+        institute = {
+          instituteName: instituteName || undefined,
+          instituteEmail: instituteEmail || undefined,
+          instituteAddress: instituteAddress || undefined,
+          instituteRep: instituteRep || undefined,
+          repPost: repPost || undefined,
+          instituteType: instituteType || undefined,
+          instituteMission: instituteMission || undefined,
+          documents: instituteLink ? [instituteLink] : undefined,
+        };
+      }
+
+      const payload = {
+        user,
+        listingCriteria,
+        market: market || undefined,
+        artisan,
+        business,
+        institute
+      };
+
+      // For demo: log to the console
+      console.log("Form data =>", JSON.stringify(payload, null, 2));
+
+      /***********************************************************
+       * 5) SEND DATA TO YOUR BACKEND
+       ************************************************************/
+      try {
+        const response = await fetch("https://craftlore.vercel.app/api/v1/listing", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        // // Convert response to JSON
+        // const data = await response.json();
+
+        // if (!response.ok) {
+        //   // If server responded with an error
+        //   console.error("Server Error:", data);
+        //   alert("Something went wrong. Check console for details.");
+        // } else {
+        //   // Success
+        //   console.log("Success:", data);
+        //   alert("Data submitted successfully!");
+        // }
+      } catch (error) {
+        console.error("Network Error:", error);
+        alert("Unable to submit data. Check console for details.");
+      }
+    }
+
+
+
+    
+   
+
+    </script>
+
+
+<script>
+function handleNextClick(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const sections = document.querySelectorAll('.criteria-group'); // Get all 5 sections
+    const confirmationCheckbox = document.getElementById('confirmationCheckbox'); // Get the checkbox
+    let allFieldsValid = true; // Flag for validation
+
+    // Validate each section (radio button selection)
+    sections.forEach(section => {
+        const radios = section.querySelectorAll('input[type="radio"]'); // Get radio buttons in the section
+        const isAnySelected = Array.from(radios).some(radio => radio.checked); // Check if at least one is selected
+
+        // Highlight the section if no radio button is selected
+        if (!isAnySelected) {
+            allFieldsValid = false;
+            section.style.borderColor = 'red'; // Highlight the section with a red border
+        } else {
+            section.style.borderColor = '#e6a67e'; // Reset border to default
+        }
+    });
+
+    // Validate the confirmation checkbox
+    if (!confirmationCheckbox.checked) {
+        allFieldsValid = false;
+        confirmationCheckbox.parentElement.style.color = 'red'; // Highlight the checkbox label
+    } else {
+        confirmationCheckbox.parentElement.style.color = 'black'; // Reset label color
+    }
+
+    // If validation fails, show an alert and stop further action
+    if (!allFieldsValid) {
+        alert('Please complete all sections and check the confirmation box before proceeding.');
+        return; // Stop execution here
+    }
+
+    // If everything is valid, navigate to the next page (change URL here)
+    window.location.href = "certification_packages.html"; // Navigate to the next page
+}
+
+
+
+</script>
+
+
+    <!--End of Tawk.to Script-->
+</body>
+
+</html>

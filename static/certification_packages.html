@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HCR Foundation</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon.png" />
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- plugins css -->
+    <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="assets/vendors/tiny-slider/dist/tiny-slider.css" />
+    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="assets/vendors/animate/animate.min.css" />
+    <link rel="stylesheet" href="assets/vendors/paroti-icons/style.css" />
+    <link rel="stylesheet" href="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="assets/vendors/youtube-popup/youtube-popup.css" />
+    <!-- template css -->
+    <link rel="stylesheet" href="assets/css/paroti.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
+</head>
+<style>
+  :root {
+            --primary: #a2633a;
+            --secondary: #329ad5;
+            --light-bg: #f8f8f8;
+            --border: #e2e2e2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background: var(--light-bg);
+            /* padding: 2rem; */
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--primary);
+        }
+
+        .header h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .filter-tab {
+            padding: 1rem 2rem;
+            background: var(--light-bg);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            white-space: nowrap;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .filter-tab.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .cert-type {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            /* background: rgba(255,255,255,0.2); */
+            background: var(--secondary);
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .cert-name {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .price-info {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            background: var(--light-bg);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .price-label {
+            color: #666;
+        }
+
+        .price-value {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .req-list {
+            margin: 1.5rem 0;
+        }
+
+        .req-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            border-left: 3px solid var(--secondary);
+            background: var(--light-bg);
+            margin-bottom: 0.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .select-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        /* .select-btn:hover {
+            background: var(--secondary);
+        } */
+
+        .cart-panel {
+            /* position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0; */
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: white;
+            padding: 1.5rem;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-total {
+            color: var(--primary);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .checkout-btn {
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 1rem; }
+            .cert-grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 2rem; }
+        }
+
+
+/* Default button style */
+/* .select-btn {
+    background-color: #a2633a;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+} */
+
+/* Hover effect */
+/* .select-btn:hover {
+    background-color: #0056b3;
+} */
+
+/* Selected button style */
+.select-btn.selected {
+    background-color: #28a745;
+    color: white;
+}
+
+  
+
+  
+</style>
+
+
+<body>
+  
+  <div class="page-wrapper">
+    <header class="main-header">
+      <div class="topbar">
+        <div class="container-fluid">
+          <div class="topbar__inner">
+            <ul class="list-unstyled topbar__info">
+              <li class="topbar__title">
+                <span> Hamadan Craft Revival Foundation </span>
+              </li>
+      
+              <li class="topbar__divider">
+                <span> | </span>
+              </li>
+      
+              <li class="topbar__sub-title">
+                <span>A Kashmir Craft Policy Think Tank - Shaping the Future of Artisans</span>
+              </li>
+            </ul>
+            <!-- /.topbar__info -->
+      
+            <ul class="list-unstyled topbar__links" id="topbar-links">
+              <!-- Links will be injected here based on the user's login status -->
+            </ul>
+      
+                  <!-- Left Section -->
+        <div class="col-md-3 text-center text-md-start mb-4 mb-md-0" style="margin-left: 20px; font-size: 20px;">
+			<div class="site-footer__social d-flex justify-content-center justify-content-md-start">
+			  <a style="font-size: 15px;" href="https://x.com/artisanvoice?t=aQ_Monm6LFsvuZ8QQtqsaA&s=09" class=""><i
+				  class="fab fa-twitter"></i></a>
+			  <a style="font-size: 15px;" href="https://www.facebook.com/profile.php?id=61567325408681&mibextid=ZbWKwL" class=""><i
+				  class="fab fa-facebook"></i></a>
+			  <a style="font-size: 15px;" href="https://www.linkedin.com/company/105864580/" class="icon_footer"><i
+				  class="fa-brands fa-linkedin"></i></a>
+			  <a style="font-size: 15px;" href="https://www.instagram.com/kashmirhcrf/" class="icon_footer"><i class="fab fa-instagram"></i></a>
+			</div>
+			
+		  </div>
+          </div>
+          <!-- /.topbar__inner -->
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- /.topbar -->
+      <nav class="main-menu sticky-header">
+        <div class="container-fluid">
+          <a href="index.html" class="main-header__logo">
+            <img src="assets/images/hcrf_logo.png" />
+          </a>
+    
+          
+          <ul class="main-menu__list">
+            <a href="index.html" class="home-icon" >
+              <i class="fa fa-home" aria-hidden="true"></i>
+            </a>
+            <li class="menu-item-has-children">
+              <a href="">Research & Policy</a>
+              <ul>
+                <li><a href="industry_research.html">Industry Research</a></li>
+                <li><a href="policy_insight.html">Policy In-Sights</a></li>
+                <li><a href="Governance.html">Governance</a></li>
+                <li><a href="Regulation.html">Regulations </a></li>
+                <li><a href="Advocacy.html">Advocacy</a></li>
+                <li><a href="Campaigns.html">Campaigns</a></li>
+                <li><a href="legislative_lobby.html">Legislative Lobbying</a></li>
+                <!-- <li><a href="index-3.html">Policy Publications</a></li> -->
+    
+              </ul>
+            </li>
+            <li class="menu-item-has-children"><a href="">E Publications</a>
+              <ul>
+    
+                <li><a href="e_publication_best_practies.html">Best Practices</a></li>
+                <li><a href="e_publication_case_studies.html">Case Studies</a></li>
+                <li><a href="e_publication_research_papers.html">Research Papers</a></li>
+                <li><a href="e_book.html">e Book</a></li>
+    
+    
+    
+              </ul>
+            </li>
+            <li class="menu-item-has-children">
+              <a href="">Business Support</a>
+              <ul>
+                <li><a href="networking.html">Evaulation & Ranking</a></li>
+                <li><a href="grants.html">Grants</a></li>
+                <!-- <li><a href="quality_control.html">Quality Control</a></li> -->
+                <!-- <li><a href="accreditation.html">Accreditations</a></li> -->
+                <li><a href="Accreditation_Badge.html">Accreditation Badge</a></li>
+                <li><a href="entrepreneur_kits.html">Entrepreneurs Kit</a></li>
+    
+                <!-- <li>
+                                    <a href="volunteers.html">Business Evaluation</a>
+                                  </li> -->
+              </ul>
+            </li>
+            <li class="menu-item-has-children"><a href="">About HCRF</a>
+              <ul>
+                <li><a href="mission.html">Mission</a></li>
+                <li><a href="complinance.html">Compliance</a></li>
+                <li><a href="leadership.html">Leadership</a></li>
+                <!-- <li><a href="#">Advisory Board</a></li> -->
+                <li><a href="memberships.html">Memberships</a></li>
+                <li><a href="donations.html">Donations</a></li>
+                <li><a href="partner_network.html">Partner Network</a></li>
+                <li><a href="hcrf_project.html">HCRF Projects</a></li>
+                <li><a href="career.html">Career</a></li>
+                <li><a href="apprenticeship.html">Apprenticeship</a></li>
+                <li><a href="contact.html">Contact </a></li>
+    
+              </ul>
+            </li>
+            <!-- <li class="menu-item-has-children">
+                                <a href="events.html">HCRF Network</a>
+                              </li>
+                
+                              <li class="menu-item-has-children">
+                                <a href="events.html">HCRF People</a>
+                              </li> -->
+          </ul>
+          <!-- /.main-menu__list -->
+    
+          <div class="main-menu__right">
+            <div class="main-menu__cta">
+              <div class="main-menu__cta__icon">
+                <i class="paroti-icon-volunteer"></i>
+              </div>
+              <!-- /.main-menu__cta__icon -->
+              <div class="main-menu__cta__text">
+                <span>Join us now</span>
+                <a href="memberships.html">Become a Member</a>
+              </div>
+              <!-- /.main-menu__cta__text -->
+            </div>
+            <!-- /.main-menu__cta -->
+            <a href="donations.html" class="thm-btn thm-btn--two">
+              <span>Donate Now</span></a>
+            <!-- <i class="fa fa-donate"></i>  -->
+            <!-- <img
+                                  src="assets/images/donate-icon.png"
+                                  style="z-index: 3"
+                                  alt="Donate Now"
+                                /> </a -->
+            <!-- /.thm-btn--two -->
+            <a href="#" class="main-header__btn search-toggler">
+              <!-- <i class="paroti-icon-magnifying-glass"></i> -->
+            </a>
+            <a href="#" class="main-header__toggler mobile-nav__toggler">
+              <span></span>
+              <span></span>
+              <span></span>
+            </a>
+          </div>
+          <!-- /.main-menu__right -->
+        </div>
+        <!-- /.container-fluid -->
+      </nav>
+    
+    </header>
+
+
+    <div class="container">
+        <header class="header">
+            <h1>Kashmir Handicrafts Certifications Portal</h1>
+            <p>Complete Certification Directory</p>
+        </header>
+
+        <div class="filter-tabs">
+            <button class="filter-tab active">All Certifications</button>
+            <button class="filter-tab">Fair Trade</button>
+            <button class="filter-tab">Organic</button>
+            <button class="filter-tab">Environmental</button>
+            <button class="filter-tab">Quality</button>
+            <button class="filter-tab">Social</button>
+        </div>
+
+        <div class="cert-grid">
+            <!-- Fair Trade -->
+            <div class="cert-card">
+                <div class="card-header">
+                    <span class="cert-type">Fair Trade</span>
+                    <!-- <h3 class="cert-name">Fair Trade Certification</h3> -->
+                    <h1 class="cert-name" style="font-size: 18px;">FLO International / SA8000 / ETI Base Code</h1>
+                    
+                </div>
+                <div class="card-content">
+                    <div class="price-info">
+                        <span class="price-label">Initial Cost</span>
+                        <span class="price" data-price="400000 ">₹4,00,000</span>
+                    </div>
+                    <div class="price-info">
+                        <span class="price-label">Annual Fee</span>
+                        <span class="price-value">₹2,00,000</span>
+                    </div>
+                    <div class="req-list">
+                        <div class="req-item">Fair wages documentation</div>
+                        <div class="req-item">Working conditions compliance</div>
+                        <div class="req-item">Environmental standards</div>
+                    </div>
+                    <button class="select-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- GOTS -->
+            <div class="cert-card">
+                <div class="card-header">
+                    <span class="cert-type">Organic</span>
+                    <h1 class="cert-name" style="font-size: 18px;">GOTS / OEKO-TEX / OCS</h1>
+                    <!-- <h3 class="cert-name">Organic and Sustainable</h3> -->
+                </div>
+                <div class="card-content">
+                    <div class="price-info">
+                        <span class="price-label" >Initial Cost</span>
+                        <span class="price" data-price="350000">₹3,50,000</span>
+                    </div>
+                    <div class="price-info">
+                        <span class="price-label">Annual Fee</span>
+                        <span class="price-value">₹1,50,000</span>
+                    </div>
+                    <div class="req-list">
+                        <div class="req-item">Organic material verification</div>
+                        <div class="req-item">Chemical testing</div>
+                        <div class="req-item">Process certification</div>
+                    </div>
+                    <button class="select-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- ISO 14001 -->
+            <div class="cert-card">
+                <div class="card-header">
+                    <span class="cert-type">Environmental</span>
+                    <!-- <h3 class="cert-name">ISO 14001</h3> -->
+                    <h1 class="cert-name" style="font-size: 18px;">ISO 14001 / SAN / FSC</h1>
+                    
+                </div>
+                <div class="card-content">
+                    <div class="price-info">
+                        <span class="price-label" >Initial Cost</span>
+                        <span class="price" data-price="450000">₹4,50,000</span>
+                    </div>
+                    <div class="price-info">
+                        <span class="price-label">Annual Fee</span>
+                        <span class="price-value">₹2,25,000</span>
+                    </div>
+                    <div class="req-list">
+                        <div class="req-item">Environmental management system</div>
+                        <div class="req-item">Impact assessment</div>
+                        <div class="req-item">Compliance monitoring</div>
+                    </div>
+                    <button class="select-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- SA8000 -->
+            <div class="cert-card" >
+                <div class="card-header">
+                    <span class="cert-type">Social</span>
+                    <h1 class="cert-name" style="font-size: 18px;">SA8000 / Fair for Life Certification</h1>
+                </div>
+                <div class="card-content">
+                    <div class="price-info">
+                        <span class="price-label">Initial Cost</span>
+                        <span class="price" data-price="350000">₹3,50,000</span>
+                    </div>
+                    <div class="price-info">
+                        <span class="price-label">Annual Fee</span>
+                        <span class="price-value">₹1,75,000</span>
+                    </div>
+                    <div class="req-list">
+                        <div class="req-item">Labor standards compliance</div>
+                        <div class="req-item">Health and safety measures</div>
+                        <div class="req-item">Management systems</div>
+                    </div>
+                    <button class="select-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- FSC -->
+            <div class="cert-card" >
+                <div class="card-header">
+                    <span class="cert-type">Sustainability</span>
+                    <h1 class="cert-name" style="font-size: 18px;">Higg Index / RWS / RCS / GRS</h1>
+                </div>
+                <div class="card-content">
+                    <div class="price-info">
+                        <span class="price-label">Initial Cost</span>
+                        <span class="price" data-price="622500">₹6,22,500</span>
+                    </div>
+                    <div class="price-info">
+                        <span class="price-label">Annual Fee</span>
+                        <span class="price-value">₹1,66,000</span>
+                    </div>
+                    <div class="req-list">
+                        <div class="req-item">Chain of custody</div>
+                        <div class="req-item">Sustainable sourcing</div>
+                        <div class="req-item">Material tracking</div>
+                    </div>
+                    <button class="select-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Handmade -->
+            <div class="cert-card">
+                <div class="card-header">
+                    <span class="cert-type">Quality</span>
+                    <h1 class="cert-name" style="font-size: 18px;">Handloom Mark / Woolmark</h1>
+                </div>
+
+
+                <div class="card-content">
+                    <div class="price-info">
+                        <span class="price-label">Initial Cost</span>
+                        <span class="price" data-price="13000">₹13,000</span>
+                    </div>
+                    <div class="price-info">
+                        <span class="price-label">Annual Fee</span>
+                        <span class="price-value">₹6,500</span>
+                    </div>
+                    <div class="req-list">
+                        <div class="req-item">Process documentation</div>
+                        <div class="req-item">Artisan verification</div>
+                        <div class="req-item">Quality standards</div>
+                    </div>
+                    <button class="select-btn">Add to Cart</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cart-panel">
+            <div class="cart-total">
+                Selected: 0 certifications | total cost <span id="total-cost">0</span>
+            </div>
+            <button class="checkout-btn">
+                <i class="fas fa-shopping-cart"></i>
+                Proceed to Payment
+            </button>
+        </div>
+    </div>
+
+
+
+    <section class="about-six about-six--pad-top about-six--pad-bottom">
+        <div class="about-six__bg">
+        </div><!-- /.about-six__bg -->
+        <div class="about-six__shape float-bob-x"></div>
+        <!-- /.about-six__shape -->
+        <div class="container">
+          <div class="row gutter-y-60">
+            <div class="col-lg-6">
+              <div class="about-six__images">
+                <img src="assets/images/certifications.png" alt="">
+                <!-- <img src="assets/images/advocy_side.png" alt=""> -->
+              </div><!-- /.about-six__images -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+              <div class="about-six__content">
+                <div class="sec-title text-start">
+                  <p class="sec-title__tagline">Certifications require big financial commitments</p>
+                  <!-- /.sec-title__tagline -->
+                  <h2 class="sec-title__title">Can't Pay? Partner with De Koshur Crafts USA!</h2>
+                </div><!-- /.sec-title -->
+                <div class="about-six__content__text">Obtaining certifications and handling the associated fees can be financially overwhelming. However, De Koshur Crafts USA offers a solution through white labeling, allowing you to leverage their existing certifications without the need for costly registration or renewal fees.</div>
+                <!-- /.about-six__content__text -->
+  
+  
+                <ul class="list-unstyled ">
+                  <li class="about-six__list__item">
+                    <h3 class="about-six__list__title" style="color: #a2633a; margin-left: -30px; margin-bottom: 20px;">
+                      How It Works:</h3>
+                  </li>
+                  <li class="about-six__list__item">
+                    <i class="about-six__list__icon fa fa-check-circle" style="color: #229bd4;"></i>
+                    <h3 class="about-six__list__title" style="color: #229bd4;">Register with De Koshur Crafts USA as White Label: </h3>
+                    <!-- /.about-six__list__title -->
+                    <p class="about-six__list__text">Allows you to meet the highest Industry quality,ethical and environmental standards.</p>
+                    <!-- /.about-six__list__text -->
+                  </li>
+                  <li class="about-six__list__item">
+                    <i class="about-six__list__icon fa fa-check-circle" style="color: #229bd4;"></i>
+                    <h3 class="about-six__list__title" style="color: #229bd4;">Take DKC's Leverage of Established Certifications:</h3>
+                    <!-- /.about-six__list__title -->
+                    <p class="about-six__list__text">Benefit from their established global certifications, all without any costs..</p><!-- /.about-six__list__text -->
+                  </li>
+                  <li class="about-six__list__item">
+                    <i class="about-six__list__icon fa fa-check-circle" style="color: #229bd4;"></i>
+                    <h3 class="about-six__list__title" style="color: #229bd4;">Evaluate Your Eligibility for DKC USA Partnership:</h3>
+                    <!-- /.about-six__list__title -->
+                    <p class="about-six__list__text">Check and see if your business qualifies to leverage DKC's established certifications!</p>
+                    <!-- /.about-six__list__text -->
+                  </li>
+  
+                  
+                </ul><!-- /.list-unstyled about-six__list -->
+                <div class="cta-three__btns mt-lg-0 mt-4">
+                  <a href="http://www.b2b.dekoshurcrafts.com/" class="thm-btn cta-three__btn">
+                    <span>Register</span>
+                  </a><!-- /.thm-btn cta-three__btn -->
+                </div>
+                <div class="about-six__btns">
+                  <!-- <a href="about.html" class="thm-btn about-six__btn" style="background-color: #9f5f37;">
+                      <span>Discover More</span>
+                    </a> -->
+                  <!-- /.thm-btn about-six__btn -->
+                </div><!-- /.about-six__btns -->
+              </div><!-- /.about-six__content -->
+            </div><!-- /.col-lg-6 -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </section>
+
+
+
+
+
+
+
+
+    <script>
+        
+      const filterTabs = document.querySelectorAll('.filter-tab');
+      const certCards = document.querySelectorAll('.cert-card');
+
+      filterTabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+              // Remove active class from all tabs
+              filterTabs.forEach(t => t.classList.remove('active'));
+              // Add active class to the clicked tab
+              tab.classList.add('active');
+
+              // Get the filter type from the button text
+              const filterType = tab.textContent.trim();
+
+              // Show or hide certifications based on the filter
+              certCards.forEach(card => {
+                  if (filterType === 'All Certifications') {
+                      card.style.display = 'block';
+                  } else {
+                      const certType = card.querySelector('.cert-type').textContent.trim();
+                      if (certType === filterType) {
+                          card.style.display = 'block';
+                      } else {
+                          card.style.display = 'none';
+                      }
+                  }
+              });
+          });
+      });
+
+
+
+        const payButton=document.querySelector('.checkout-btn');
+        payButton.addEventListener('click',()=>{
+            alert("We are Working on it ");
+        })
+
+
+
+        // Select necessary elements
+        const selectButtons = document.querySelectorAll('.select-btn');
+        const totalCostElement = document.getElementById('total-cost');
+        const cartPanel = document.querySelector('.cart-total');
+
+        // Initialize cart state
+        let totalCost = 0;
+        let itemCount = 0;
+
+        // Add event listeners to all 'Select Certification' buttons
+        selectButtons.forEach(button => {
+            button.addEventListener('click', () => {
+        // Get the price from the button's parent card
+        const priceElement = button.closest('.cert-card').querySelector('.price');
+        const price = parseInt(priceElement.getAttribute('data-price'));
+        
+        // Check if the item is already added
+        if (!button.classList.contains('selected')) {
+            // Add the price to the total and increment the item count
+            totalCost += price;
+            itemCount++;
+
+            // Mark the button as selected
+            button.classList.add('selected');
+            button.textContent = 'Remove from Cart';
+        } else {
+            // Remove the price from the total and decrement the item count
+            totalCost -= price;
+            itemCount--;
+
+            // Unmark the button as selected
+            button.classList.remove('selected');
+            button.textContent = 'Add to Cart';
+        }
+
+        // Update the cart panel
+        totalCostElement.textContent = `₹${totalCost.toLocaleString()}`;
+        cartPanel.textContent = `Selected: ${itemCount} certifications | total cost ₹${totalCost.toLocaleString()}`;
+        });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+    
+
+    <footer class="site-footer footer-main">
+      <div class="site-footer__top">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-duration="1500ms"
+              data-wow-delay="000ms">
+              <div class="site-footer__widget site-footer__widget__about">
+                <a href="../index.html" class="site-footer__widget__logo">
+                  <img src="assets/images/hcrf_logo.png" width="100px" height="100px" alt="">
+                </a>
+                <p class="" style="padding-right: 70px;">HCRF, a pioneering Section 8 entity, is the first Craft Policy
+                  Think Tank devoted
+                  to preserving, promoting, and sustainably advancing Kashmir’s unique handicraft heritage and artisan
+                  empowerment
+
+
+                </p>
+                <!-- <h3 class="site-footer__widget__title"><a href="mailto:info@khcrf.org"></a></h3> -->
+
+              </div><!-- /.site-footer__widget -->
+            </div><!-- /.col-sm-12 col-md-6 col-lg-6 col-xl-3 wow fadeInUp -->
+
+
+
+
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl wow fadeInUp" data-wow-duration="1500ms"
+              data-wow-delay="100ms">
+              <div class="site-footer__widget">
+                <h3 class="site-footer__widget__title">Policy Action</h3><!-- /.site-footer__widget__title -->
+                <ul class="list-unstyled site-footer__widget__links">
+                  <li><a href="Advocacy.html">Policy Advocacy</a></li>
+                  <li><a href="Campaigns.html">Policy Campaign</a></li>
+                  <li><a href="legislative_lobby.html">Policy Lobbying</a></li>
+
+
+                  <br>
+                  <h3 class="site-footer__widget__title_second">Publications</h3><!-- /.site-footer__widget__title -->
+                  <li><a href="e_publication_best_practies.html">Best Practices</a></li>
+                  <li><a href="e_publication_case_studies.html">Case Studies</a></li>
+                  <li><a href="e_publication_research_papers.html">Research Papers<a></li>
+                  <li><a href="e_book.html">e-Books</a></li>
+                  <!-- <li><a href="about.html">HCRF People</a></li> -->
+                </ul><!-- /.list-unstyled site-footer__widget__links -->
+              </div><!-- /.site-footer__widget -->
+            </div><!-- /.col-sm-12 col-md-6 col-lg-6 col-xl-2 wow fadeInUp -->
+
+
+
+
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl wow fadeInUp" data-wow-duration="1500ms"
+              data-wow-delay="200ms">
+              <div class="site-footer__widget">
+                <h3 class="site-footer__widget__title">Business support</h3>
+                <!-- /.site-footer__widget__title -->
+                <ul class="list-unstyled site-footer__widget__links text-start">
+                  <li><a href="networking.html">Business Evaluation</a></li>
+                  <li><a href="grants.html">Grants Support</a></li>
+                  <li><a href="accreditation.html">Accreditation</a></li>
+                  <li><a href="entrepreneur_kits.html">Entrepreneurs Kit</a></li>
+
+
+                  <h3 class="site-footer__widget__title_second">About HCRF</h3><!-- /.site-footer__widget__title -->
+                  <li><a href="partner_network.html">Partner Network</a></li>
+                  <li><a href="hcrf_project.html">Projects</a></li>
+                  <li><a href="career.html">Career</a></li>
+                  <li><a href="apprenticeship.html">Apprenticeship</a></li>
+                </ul><!-- /.list-unstyled site-footer__widget__links -->
+              </div><!-- /.site-footer__widget -->
+            </div><!-- /.col-sm-12 col-md-6 col-lg-6 col-xl-2 wow fadeInUp -->
+
+
+
+
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl wow fadeInUp" data-wow-duration="1500ms"
+              data-wow-delay="200ms">
+              <div class="site-footer__widget">
+                <h3 class="site-footer__widget__title">Membership<h3>
+                    <!-- /.site-footer__widget__title -->
+                    <ul class="list-unstyled site-footer__widget__links">
+                      <li><a href="memberships.html#membership_form">Artisan</a></li>
+                      <li><a href="memberships.html#membership_form">Individual</a></li>
+                      <li><a href="memberships.html#membership_form">Professional</a></li>
+                      <li><a href="memberships.html#membership_form">Corporate Patron</a></li>
+                      <h3 class="site-footer__widget__title_second">Donation </h3><!-- /.site-footer__widget__title -->
+                      <li><a href="donations.html">Artisan Support Fund</a></li>
+                      <li><a href="donations.html">In-Kind</a></li>
+                      <!-- <li><a href="donations.html">In-Kind</a></li> -->
+                      <li><a href="donations.html">Legacy & Planned Giving</a></li>
+                      <li><a href="donations.html">Event Sponsorships</a></li>
+                    </ul><!-- /.list-unstyled site-footer__widget__links -->
+              </div>
+            </div>
+
+
+
+
+
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl wow fadeInUp" data-wow-duration="1500ms"
+              data-wow-delay="400ms">
+              <div class="site-footer__widget site-footer__widget__cta">
+                <h3 class="site-footer__widget__title"><span>Let's come together to raise donations & help amplify the
+                    voices of Kashmiri artisans.</span></h3>
+                <!-- /.site-footer__widget__title -->
+                <a href="donations.html" class="thm-btn thm-btn--two" style="background-color: #9f5f37; margin: 0px;">
+                  <span>Donate Now</span>
+                </a><!-- /.thm-btn--two -->
+              </div><!-- /.site-footer__widget -->
+              <div style="height: 200px; width: 200px; position: relative; left: 0px;">
+                <!-- <div style="height: 60px;">
+                        Hamadan Craft Revival Foundation
+                        <small>tm 001415319@jkb
+                          0005040100006000
+                        </small> -->
+                <img src="assets/images/scan.png" alt="">
+              </div>
+
+            </div>
+
+          </div><!-- /.site-footer__widget -->
+
+
+
+
+
+        </div>
+      </div><!-- /.col-sm-12 col-md-6 col-lg-6 col-xl-3 wow fadeInUp -->
+      <!-- /.container -->
+      <!-- /.site-footer__top -->
+
+
+
+
+
+
+      <div class="site-footer__bottom  text-white py-4">
+        <div class="container">
+          <div class="row">
+            <!-- Left Section -->
+            <div class="col-md-3 text-center text-md-start mb-4 mb-md-0">
+              <p class="mb-2">© Copyright <span class="dynamic-year"></span> by HCRF</p>
+              <div class="site-footer__social d-flex justify-content-center justify-content-md-start">
+                <a href="https://x.com/artisanvoice?t=aQ_Monm6LFsvuZ8QQtqsaA&s=09" class=""><i
+                    class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61567325408681&mibextid=ZbWKwL" class=""><i
+                    class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/company/105864580/" class="icon_footer"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/kashmirhcrf/" class="icon_footer"><i
+                    class="fab fa-instagram"></i></a>
+              </div>
+              <div class="policy-links mt-3">
+                <a href="terms.html" class="text-white me-2">Legal</a> |
+                <a href="privacy.html" class="text-white ms-2">Privacy Policy</a>
+              </div>
+            </div>
+
+            <!-- Right Section -->
+            <div class="col-md-9 text-center text-md-end">
+              <p class="mb-2">
+                HCRF 2 Darul Zamrood - Gousia Colony Ext, Zakura - Srinagar, Jammu & Kashmir India 190006
+              </p>
+              <p class="mb-0 footer_btm_txt">
+                Website Developed & Maintained by
+                <a href="https://primelogicsol.com" class="text-white">
+                  Prime Logic Solutions -USA
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+      <!-- /.container -->
+      <!-- /.site-footer__bottom -->
+    </footer>
+  </div>
+
+
+
+  <div class="mobile-nav__wrapper">
+    <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+
+    <div class="mobile-nav__content">
+      <a href="#" class="mobile-nav__close mobile-nav__toggler">
+        <span></span>
+        <span></span>
+      </a>
+
+      <div class="logo-box">
+        <a href="../index.html" aria-label="logo image"><img src="assets/images/hcrf_logo.png" width="127" height="127"
+            alt="logo" /></a>
+      </div>
+      <!-- /.logo-box -->
+      <div class="mobile-nav__container"></div>
+      <!-- /.mobile-nav__container -->
+
+      <ul class="mobile-nav__contact list-unstyled">
+        <li>
+          <i class="fa fa-phone"></i>
+          <a href="tel:+919419070707">+919419070707</a>
+        </li>
+        <li>
+          <i class="fa fa-envelope"></i>
+          <a href="mailto:info@khcrf.org">info@khcrf.org</a>
+        </li>
+        <li>
+          <i class="fa fa-map-marker-alt"></i>
+          2 Gousia Colony Extension,
+
+          <br />
+          Zakura Srinagar, J&K India 190006
+        </li>
+      </ul>
+      <!-- /.mobile-nav__contact -->
+      <ul class="mobile-nav__social">
+        <li>
+          <a href="https://x.com/artisanvoice?t=aQ_Monm6LFsvuZ8QQtqsaA&s=09"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/profile.php?id=61567325408681&mibextid=ZbWKwL"><i
+              class="fab fa-facebook-f"></i></a>
+        </li>
+
+        <li>
+          <a href="https://www.instagram.com/kashmirhcrf/"><i class="fab fa-instagram"></i></a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/company/105864580/"><i class="fa-brands fa-linkedin"></i></a>
+        </li>
+      </ul>
+      <!-- /.mobile-nav__social -->
+    </div>
+    <!-- /.mobile-nav__content -->
+  </div>
+  <!-- /.mobile-nav__wrapper -->
+
+  <div class="search-popup">
+    <div class="search-popup__overlay search-toggler"></div>
+    <!-- /.search-popup__overlay -->
+    <div class="search-popup__content">
+      <form action="#">
+        <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
+        <input type="text" id="search" placeholder="Search Here..." />
+        <button type="submit" aria-label="search submit" class="thm-btn">
+          <span><i class="paroti-icon-magnifying-glass"></i></span>
+        </button>
+      </form>
+    </div>
+    <!-- /.search-popup__content -->
+  </div>
+  <!-- /.search-popup -->
+
+  <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+
+  <!-- plugins js -->
+  <script src="../styles/vendors/jquery/jquery-3.6.1.min.js"></script>
+  <script src="../styles/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../styles/vendors/tiny-slider/dist/min/tiny-slider.js"></script>
+  <script src="../styles/vendors/jquery-validation/jquery.validate.min.js"></script>
+  <script src="../styles/vendors/wow/wow.js"></script>
+  <script src="../styles/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+  <script src="../styles/vendors/jquery-appear/jquery.appear.min.js"></script>
+  <script src="../styles/vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="../styles/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="../styles/vendors/youtube-popup/youtube-popup.jquery.js"></script>
+  <!-- template js -->
+  <script src="../script/paroti.js"></script>
+  <script src="../script/custom.js"></script>
+  <script>
+    // Function to check login status and update the topbar
+    const updateTopbar = () => {
+      const token = localStorage.getItem('authToken'); // Get the token from localStorage
+      const isAdmin = localStorage.getItem('isAdmin') === 'true'; // Get and parse the isAdmin field
+      const topbarLinks = document.getElementById('topbar-links');
+
+      if (token) {
+        // If logged in, check if the user is an admin
+        if (isAdmin) {
+          topbarLinks.innerHTML = `
+            <li><a href="dashboard.html">Admin Dashboard</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+          `;
+        } else {
+          // If the user is not an admin
+          topbarLinks.innerHTML = `
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+          `;
+        }
+      } else {
+        // If not logged in, show login and register links
+        topbarLinks.innerHTML = `
+          <li><a href="login.html">Login</a></li>
+        `;
+      }
+    };
+
+    // Call updateTopbar on page load
+    window.onload = updateTopbar;
+
+    // Logout function to clear the token and role
+    const logout = () => {
+      localStorage.removeItem('authToken'); // Clear token
+      localStorage.removeItem('isAdmin'); // Clear admin status
+      updateTopbar();  // Update the top bar after logout
+      window.location.href = '../index.html';  // Redirect to the homepage after logout
+    };
+
+  </script>
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/67685880af5bfec1dbe01adf/1ifnpjeom';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
+
+</body>
+
+</html>
