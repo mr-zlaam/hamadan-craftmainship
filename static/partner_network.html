@@ -1315,7 +1315,8 @@
     
 
 <script>
-  document.getElementById('collaborationForm').addEventListener('submit', async (e) => {
+
+document.getElementById('collaborationForm').addEventListener('submit', async (e) => {
     e.preventDefault(); // Prevent default form submission
 
     // Collect form data
@@ -1343,6 +1344,10 @@
 
       if (res.ok) {
         alert('Collaboration form submitted successfully!');
+
+        // Show success popup
+        createCollaborationPopup();
+
         // Optionally reset the form or redirect the user
         e.target.reset();
       } else {
@@ -1353,6 +1358,155 @@
       alert('Something went wrong during form submission.');
     }
   });
+
+  function createCollaborationPopup() {
+    console.log("Creating collaboration success popup...");
+
+    // Remove existing popup if present
+    const existingPopup = document.querySelector('#collaboration-popup');
+    if (existingPopup) existingPopup.remove();
+
+    // Create the popup container
+    const popup = document.createElement('div');
+    popup.id = 'collaboration-popup';
+    popup.style.position = 'fixed';
+    popup.style.top = '0';
+    popup.style.left = '0';
+    popup.style.width = '100%';
+    popup.style.height = '100%';
+    popup.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    popup.style.display = 'flex';
+    popup.style.justifyContent = 'center';
+    popup.style.alignItems = 'center';
+    popup.style.zIndex = '9999';
+
+    // Create the popup content
+    const popupContent = document.createElement('div');
+    popupContent.style.backgroundColor = '#fff';
+    popupContent.style.padding = '20px';
+    popupContent.style.borderRadius = '10px';
+    popupContent.style.maxWidth = '600px';
+    popupContent.style.width = '90%';
+    popupContent.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+    popupContent.style.textAlign = 'left';
+    popupContent.style.fontFamily = 'Arial, sans-serif';
+    popupContent.style.lineHeight = '1.5';
+
+    // Add content to the popup
+    popupContent.innerHTML = `
+      <h2 style="color: #2c3e50; font-size: 24px; margin-bottom: 10px;">
+        Thank You for Submitting Your HCRF Partner Network Form
+      </h2>
+      <p>Dear user,</p>
+      <p>Thank you for successfully submitting your application for the HCRF Partner Network! 
+         We appreciate your interest in collaborating with the Hamadan Craft Revival Foundation 
+         and contributing to the growth and development of Kashmiri craftsmanship.</p>
+      <p>Your application is now under review. Once evaluated, you will be notified of the 
+         next steps in joining our esteemed Partner Network. This partnership will allow you 
+         to engage with like-minded businesses, share resources, and help us further promote 
+         the sustainability and global recognition of Kashmiri crafts.</p>
+      <p>We look forward to the opportunity of working together and achieving great things 
+         through our partnership.</p>
+      <p>Best regards,<br>
+         Director Partner Network<br>
+         Hamadan Craft Revival Foundation (HCRF)
+      </p>
+    `;
+
+    // Create the close button
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'Close';
+    closeButton.style.marginTop = '20px';
+    closeButton.style.padding = '10px 20px';
+    closeButton.style.backgroundColor = '#3498db';
+    closeButton.style.color = '#fff';
+    closeButton.style.border = 'none';
+    closeButton.style.borderRadius = '5px';
+    closeButton.style.cursor = 'pointer';
+    closeButton.style.fontSize = '16px';
+    closeButton.addEventListener('click', () => {
+      popup.remove();
+      console.log("Collaboration popup closed.");
+    });
+
+    closeButton.addEventListener('mouseover', () => {
+      closeButton.style.backgroundColor = '#2980b9';
+    });
+
+    closeButton.addEventListener('mouseout', () => {
+      closeButton.style.backgroundColor = '#3498db';
+    });
+
+    // Append content and close button to the popup content
+    popupContent.appendChild(closeButton);
+
+    // Append the popup content to the popup container
+    popup.appendChild(popupContent);
+
+    // Append the popup to the body
+    document.body.appendChild(popup);
+    console.log("Collaboration popup appended to body.");
+  }
+
+
+
+
+
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('collaborationForm');
+  const steps = document.querySelectorAll('.form-step');
+  let currentStep = 0;
+
+  // Show the current step
+  const showStep = (stepIndex) => {
+    steps.forEach((step, index) => {
+      step.classList.toggle('active', index === stepIndex);
+    });
+  };
+
+  // Validate the current step
+  const validateStep = () => {
+    const currentFields = steps[currentStep].querySelectorAll('input, select, textarea');
+    for (const field of currentFields) {
+      if (!field.checkValidity()) {
+        field.reportValidity();
+        return false; // Stop if validation fails
+      }
+    }
+    return true;
+  };
+
+  // Handle Next button click
+  document.querySelectorAll('.next-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (validateStep()) {
+        currentStep++;
+        if (currentStep < steps.length) showStep(currentStep);
+      }
+    });
+  });
+
+  // Handle Previous button click
+  document.querySelectorAll('.prev-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      currentStep--;
+      if (currentStep >= 0) showStep(currentStep);
+    });
+  });
+
+  // Handle form submission
+  form.addEventListener('submit', (e) => {
+    if (!validateStep()) {
+      e.preventDefault();
+    }
+  });
+
+  // Show the first step initially
+  showStep(currentStep);
+});
+
 </script>
 
   </body>
