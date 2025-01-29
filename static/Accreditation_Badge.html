@@ -1505,51 +1505,120 @@
 
 <script>
     document.getElementById('singleStepForm').addEventListener('submit', async function (event) {
-    event.preventDefault(); // Prevent default form submission
+        event.preventDefault(); // Prevent default form submission
 
-    const formData = new FormData(this);
+        const formData = new FormData(this);
 
-    // Combine checkbox values into arrays
-    const badges = formData.getAll('badge');
-    const documentation = formData.getAll('documentation');
+        // Combine checkbox values into arrays
+        const badges = formData.getAll('badge');
+        const documentation = formData.getAll('documentation');
 
-    // Add the arrays back to the formData as JSON strings
-    formData.set('badges', JSON.stringify(badges));
-    formData.set('documentation', JSON.stringify(documentation));
+        // Add the arrays back to the formData as JSON strings
+        formData.set('badges', JSON.stringify(badges));
+        formData.set('documentation', JSON.stringify(documentation));
 
-    // Log the processed formData to verify
-    console.log('Processed Form Data:');
-    for (let [key, value] of formData.entries()) {
-        console.log(`${key}:`, value); // Logs each form field
-    }
+        // Ensure at least one file is uploaded
+        const uploadedFiles = formData.getAll('uploadedFiles');
+        if (uploadedFiles.length === 0 || uploadedFiles[0].size === 0) {
+            alert('Please upload at least one file.');
+            return;
+        }
 
-    // Ensure at least one file is uploaded
-    const uploadedFiles = formData.getAll('uploadedFiles');
-    if (uploadedFiles.length === 0 || uploadedFiles[0].size === 0) {
-        alert('Please upload at least one file.');
-        return;
-    }
+        try {
+            const res = await fetch(`${API_BASE}/api/badge-application/submit`, {
+                method: 'POST',
+                body: formData, // Send formData directly
+            });
 
-    try {
-        const res = await fetch(`${API_BASE}/api/badge-application/submit`, {
-            method: 'POST',
-            body: formData, // Send formData directly
+            const data = await res.json();
+            if (res.ok) {
+                createPopup(formData.get('name')); // Show success popup
+                console.log('Response Data:', data);
+            } else {
+                alert('Failed to submit the application. Please try again.');
+                console.error('Error Response:', data);
+            }
+        } catch (error) {
+            alert('An error occurred while submitting the application.');
+            console.error('Submission Error:', error);
+        }
+    });
+
+    function createPopup(userName) {
+        // Remove existing popup if present
+        const existingPopup = document.querySelector('#success-popup');
+        if (existingPopup) existingPopup.remove();
+
+        // Create the popup container
+        const popup = document.createElement('div');
+        popup.id = 'success-popup';
+        popup.style.position = 'fixed';
+        popup.style.top = '0';
+        popup.style.left = '0';
+        popup.style.width = '100%';
+        popup.style.height = '100%';
+        popup.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+        popup.style.display = 'flex';
+        popup.style.justifyContent = 'center';
+        popup.style.alignItems = 'center';
+        popup.style.zIndex = '9999';
+
+        // Create the popup content
+        const popupContent = document.createElement('div');
+        popupContent.style.backgroundColor = '#fff';
+        popupContent.style.padding = '20px';
+        popupContent.style.borderRadius = '10px';
+        popupContent.style.maxWidth = '600px';
+        popupContent.style.width = '90%';
+        popupContent.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+        popupContent.style.textAlign = 'left';
+        popupContent.style.fontFamily = 'Arial, sans-serif';
+        popupContent.style.lineHeight = '1.5';
+
+        // Add content to the popup
+        popupContent.innerHTML = `
+            <h2 style="color: #2c3e50; font-size: 24px; margin-bottom: 10px;">
+                Congratulations! Your HCRF Badge Application Has Been Successfully Submitted
+            </h2>
+            <p>Dear User,</p>
+            <p>We are excited to inform you that your application for the HCRF Badge has been successfully submitted! 
+               Your dedication to craftsmanship and commitment to the principles of the Hamadan Craft Revival Foundation are highly commendable.</p>
+            <p>Your application is currently under review. You will receive an update once your application has been evaluated, and we look forward to awarding you a badge that recognizes your excellence in the Kashmiri Handicrafts Industry.</p>
+            <p>Best regards,<br>Hamadan Craft Revival Foundation (HCRF)</p>
+        `;
+
+        // Create the close button
+        const closeButton = document.createElement('button');
+        closeButton.textContent = 'Close';
+        closeButton.style.marginTop = '20px';
+        closeButton.style.padding = '10px 20px';
+        closeButton.style.backgroundColor = '#3498db';
+        closeButton.style.color = '#fff';
+        closeButton.style.border = 'none';
+        closeButton.style.borderRadius = '5px';
+        closeButton.style.cursor = 'pointer';
+        closeButton.style.fontSize = '16px';
+        closeButton.addEventListener('click', () => {
+            popup.remove();
         });
 
-        const data = await res.json();
-        if (res.ok) {
-            alert('Application submitted successfully!');
-            console.log('Response Data:', data);
-        } else {
-            alert('Failed to submit the application. Please try again.');
-            console.error('Error Response:', data);
-        }
-    } catch (error) {
-        alert('An error occurred while submitting the application.');
-        console.error('Submission Error:', error);
-    }
-});
+        closeButton.addEventListener('mouseover', () => {
+            closeButton.style.backgroundColor = '#2980b9';
+        });
 
+        closeButton.addEventListener('mouseout', () => {
+            closeButton.style.backgroundColor = '#3498db';
+        });
+
+        // Append content and close button to the popup content
+        popupContent.appendChild(closeButton);
+
+        // Append the popup content to the popup container
+        popup.appendChild(popupContent);
+
+        // Append the popup to the body
+        document.body.appendChild(popup);
+    }
 </script>
 
 
