@@ -4502,15 +4502,17 @@ h4.sec-title__title {
 
 .donation-card-two {
   padding: 30px;
-  /* position: relative; */
   background-color: #fff;
   -webkit-box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.05);
   box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.05);
   --accent-color: var(--paroti-base, #df5311);
   height: 350px;
 
-
+  @media (max-width: 768px) {
+    height: 550px;
+  }
 }
+
 
 .donation-card-two.impact-card {
   /* width: 400px; */
