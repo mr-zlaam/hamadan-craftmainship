@@ -804,81 +804,56 @@
 
 
     <section class="funfact-two sec-pad-top sec-pad-bottom">
-      <!-- <div class="funfact-two__shape"></div> -->
-      <!-- /.funfact-two__shape -->
       <div class="container">
         <div class="sec-title text-center">
-          <p class="sec-title__tagline">Crafting a Future - Reviving Kashmir's Craft Heritage Together</p>
-          <!-- /.sec-title__tagline -->
+          <p class="sec-title__tagline">
+            Crafting a Future - Reviving Kashmir's Craft Heritage Together
+          </p>
           <h2 class="sec-title__title">
-            Join our network for a better future <br>of our Artisans and Craft Industry
+            Join our network for a better future <br />of our Artisans and Craft Industry
           </h2>
         </div>
-        <!-- /.sec-title -->
         <ul class="list-unstyled funfact-two__list">
           <li class="funfact-two__list__item" style="--accent-color: #229bd4">
             <div class="funfact-two__list__icon">
-              <!-- <i class="paroti-icon-campaign"></i> -->
-              <img src="assets/images/icons_/1.png" alt="">
+              <img src="assets/images/icons_/1.png" alt="" />
             </div>
-            <!-- /.funfact-two__list__icon -->
             <h3 class="funfact-two__list__count count-box">
-              <span class="count-text" data-stop="21556" data-speed="1500"></span><!-- /.count-text -->
+              <span id="craft-artisans" class="count-text"></span>
             </h3>
-            <!-- /.funfact-two__list__count count-box -->
             <p class="funfact-two__list__text">Craft Artisans</p>
-            <!-- /.funfact-two__list__text -->
           </li>
-          <!-- /.funfact-two__list__item -->
           <li class="funfact-two__list__item" style="--accent-color: #229bd4">
             <div class="funfact-two__list__icon">
-              <!-- <i class="paroti-icon-craft"></i> -->
-              <img src="assets/images/icons_/2.png" alt="">
+              <img src="assets/images/icons_/2.png" alt="" />
             </div>
-            <!-- /.funfact-two__list__icon -->
             <h3 class="funfact-two__list__count count-box">
-              <span class="count-text" data-stop="18" data-speed="1500"></span><!-- /.count-text -->
+              <span id="craft-associations" class="count-text"></span>
             </h3>
-            <!-- /.funfact-two__list__count count-box -->
             <p class="funfact-two__list__text">Craft Associations</p>
-            <!-- /.funfact-two__list__text -->
           </li>
-          <!-- /.funfact-two__list__item -->
-
-          <!-- /.funfact-two__list__item -->
           <li class="funfact-two__list__item" style="--accent-color: #229bd4">
             <div class="funfact-two__list__icon">
-              <!-- <i class="paroti-icon-help"></i> -->
-              <img src="assets/images/icons_/3.png" alt="">
+              <img src="assets/images/icons_/3.png" alt="" />
             </div>
-            <!-- /.funfact-two__list__icon -->
             <h3 class="funfact-two__list__count count-box">
-              <span class="count-text" data-stop="5" data-speed="2"></span><!-- /.count-text -->
+              <span id="craft-institutions" class="count-text"></span>
             </h3>
-            <!-- /.funfact-two__list__count count-box -->
             <p class="funfact-two__list__text">Craft Institutions</p>
-            <!-- /.funfact-two__list__text -->
           </li>
-
           <li class="funfact-two__list__item" style="--accent-color: #229bd4">
             <div class="funfact-two__list__icon">
-              <!-- <i class="paroti-icon-help"></i> -->
-              <img src="assets/images/icons_/4.png" alt="">
+              <img src="assets/images/icons_/4.png" alt="" />
             </div>
-            <!-- /.funfact-two__list__icon -->
             <h3 class="funfact-two__list__count count-box">
-              <span class="count-text" data-stop="4" data-speed="2"></span><!-- /.count-text -->
+              <span id="donors" class="count-text"></span>
             </h3>
-            <!-- /.funfact-two__list__count count-box -->
             <p class="funfact-two__list__text">Donors</p>
-            <!-- /.funfact-two__list__text -->
           </li>
-          <!-- /.funfact-two__list__item -->
         </ul>
-        <!-- /.list-unstyled -->
       </div>
-      <!-- /.container -->
     </section>
+    
 
 
 
@@ -1558,6 +1533,37 @@
   <!-- template js -->
   <script src="assets/js/paroti.js"></script>
   <script src="assets/js/custom.js"></script>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const startDate = new Date(2025, 1, 1); // February 2, 2025
+  const today = new Date();
+  const daysPassed = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+  const monthsPassed = Math.floor(daysPassed / 30);
+  const twoMonthsPassed = Math.floor(daysPassed / 60);
+
+  // Base values
+  let craftArtisans = 12000 + daysPassed * 10;
+  craftArtisans = Math.min(craftArtisans, 310000); // Apply max limit
+
+  let craftAssociations = 18 + monthsPassed * 4;
+  let craftInstitutions = 5 + twoMonthsPassed * 1;
+  let donors = 4; // No change
+
+  // Update the HTML dynamically
+  document.getElementById("craft-artisans").textContent = craftArtisans;
+  document.getElementById("craft-associations").textContent = craftAssociations;
+  document.getElementById("craft-institutions").textContent = craftInstitutions;
+  document.getElementById("donors").textContent = donors;
+});
+
+</script>
+
+
+
+
   <script>
     // Function to check login status and update the topbar
 const updateTopbar = () => {
@@ -1599,7 +1605,22 @@ const logout = () => {
   window.location.href = 'index.html';  // Redirect to the homepage after logout
 };
 
+
   </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
@@ -1614,6 +1635,8 @@ const logout = () => {
       })();
     </script>
     <!--End of Tawk.to Script-->
+    
+
     
 </body>
 
