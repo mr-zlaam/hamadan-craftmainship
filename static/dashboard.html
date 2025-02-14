@@ -1279,123 +1279,129 @@ function renderNestedField(title, field) {
 
 
 
-<!-- <script src="config.js"></script> -->
+<script>
+  // Fetch and display books
+  async function fetchBooks() {
+      try {
+          const response = await fetch(`${API_BASE}/api/ebook`);
+          if (!response.ok) throw new Error('Failed to fetch books');
+          const books = await response.json();
+          displayBooks(books);
+      } catch (error) {
+          console.error('Error fetching books:', error);
+          document.getElementById('message').textContent = 'Failed to load books';
+      }
+  }
 
-    <script>
-        // const API_BASE = 'https://api.khcrf.org/api/ebook';
+  // Display books
+  function displayBooks(books) {
+      const container = document.getElementById('bookContainer');
+      container.innerHTML = '';
 
-        // Fetch and display books
-        async function fetchBooks() {
-            try {
-                const response = await fetch(API_BASE);
-                if (!response.ok) throw new Error('Failed to fetch books');
-                const books = await response.json();
-                displayBooks(books);
-            } catch (error) {
-                console.error('Error fetching books:', error);
-                document.getElementById('message').textContent = 'Failed to load books';
-            }
-        }
+      books.forEach(book => {
+          if (!book.id) {
+              console.error("Skipping book with missing ID:", book);
+              return;
+          }
 
-        // Display books
-        function displayBooks(books) {
-            const container = document.getElementById('bookContainer');
-            container.innerHTML = '';
+          const bookCard = document.createElement('div');
+          bookCard.className = 'book-card';
+          bookCard.innerHTML = `
+              <img src="${API_BASE}/${book.coverImage}" alt="${book.title}">
+              <h3>${book.title}</h3>
+              <p><i class="fas fa-user"></i> Author: ${book.author}</p>
+              <p><i class="fas fa-tags"></i> Category: ${book.category}</p>
+              <a href="${API_BASE}/${book.pdfFile}" target="_blank"><i class="fas fa-file-pdf"></i> View PDF</a>
+              <div class="actions">
+                  <button onclick="loadEditForm('${book.id}')"><i class="fas fa-edit"></i> Edit</button>
+                  <button onclick="deleteBook('${book.id}')"><i class="fas fa-trash"></i> Delete</button>
+              </div>
+          `;
+          container.appendChild(bookCard);
+      });
+  }
 
-            books.forEach(book => {
-                if (!book.id) {
-                    console.error("Skipping book with missing ID:", book);
-                    return;
-                }
+  // Handle book upload
+  document.getElementById('uploadBookForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      try {
+          const response = await fetch(`${API_BASE}/api/ebook`, {
+              method: 'POST',
+              body: formData,
+          });
+          const result = await response.json();
+          document.getElementById('message').textContent = result.message || "Book uploaded successfully!";
+          this.reset();
+          fetchBooks();
+      } catch (error) {
+          console.error('Error uploading book:', error);
+      }
+  });
 
-                const bookCard = document.createElement('div');
-                bookCard.className = 'book-card';
-                bookCard.innerHTML = `
-                    <img src="https://api.khcrf.org/${book.coverImage}" alt="${book.title}">
-                    <h3>${book.title}</h3>
-                    <p><i class="fas fa-user"></i> Author: ${book.author}</p>
-                    <p><i class="fas fa-tags"></i> Category: ${book.category}</p>
-                    <a href="https://api.khcrf.org/${book.pdfFile}" target="_blank"><i class="fas fa-file-pdf"></i> View PDF</a>
-                    <div class="actions">
-                        <button onclick="loadEditForm('${book.id}')"><i class="fas fa-edit"></i> Edit</button>
-                        <button onclick="deleteBook('${book.id}')"><i class="fas fa-trash"></i> Delete</button>
-                    </div>
-                `;
-                container.appendChild(bookCard);
-            });
-        }
+  // Load book details into edit form
+  async function loadEditForm(id) {
+      try {
+          const response = await fetch(`${API_BASE}/api/ebook/details/${id}`, {
+              method: 'GET',
+              headers: { 'Content-Type': 'application/json' },
+          });
 
-        // Handle book upload
-        document.getElementById('uploadBookForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            try {
-                const response = await fetch(API_BASE, { method: 'POST', body: formData });
-                const result = await response.json();
-                document.getElementById('message').textContent = result.message || "Book uploaded successfully!";
-                this.reset();
-                fetchBooks();
-            } catch (error) {
-                console.error('Error uploading book:', error);
-            }
-        });
+          if (!response.ok) throw new Error('Failed to fetch book details');
 
-        // Load book details into edit form
-        async function loadEditForm(id) {
-            try {
-                const response = await fetch(`${API_BASE}/details/${id}`, {
-                    method: 'GET',
-                    headers: { 'Content-Type': 'application/json' }
-                });
+          const book = await response.json();
+          document.getElementById('editBookId').value = book.id;
+          document.getElementById('editTitle').value = book.title;
+          document.getElementById('editAuthor').value = book.author;
+          document.getElementById('editCategory').value = book.category;
 
-                if (!response.ok) throw new Error('Failed to fetch book details');
+          document.getElementById('editFormOverlay').style.display = "flex";
+      } catch (error) {
+          console.error('Error loading edit form:', error);
+      }
+  }
 
-                const book = await response.json();
-                document.getElementById('editBookId').value = book.id;
-                document.getElementById('editTitle').value = book.title;
-                document.getElementById('editAuthor').value = book.author;
-                document.getElementById('editCategory').value = book.category;
+  // Handle book update
+  document.getElementById('editBookForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const bookId = document.getElementById('editBookId').value;
+      const formData = new FormData(this);
 
-                document.getElementById('editFormOverlay').style.display = "flex";
-            } catch (error) {
-                console.error('Error loading edit form:', error);
-            }
-        }
+      try {
+          const response = await fetch(`${API_BASE}/api/ebook/${bookId}`, {
+              method: 'PUT',
+              body: formData,
+          });
+          const result = await response.json();
+          document.getElementById('message').textContent = result.message || "Book updated successfully!";
+          cancelEdit();
+          fetchBooks();
+      } catch (error) {
+          console.error('Error updating book:', error);
+      }
+  });
 
-        // Handle book update
-        document.getElementById('editBookForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const bookId = document.getElementById('editBookId').value;
-            const formData = new FormData(this);
+  // Delete book
+  async function deleteBook(id) {
+      try {
+          await fetch(`${API_BASE}/api/ebook/${id}`, { method: 'DELETE' });
+          fetchBooks();
+      } catch (error) {
+          console.error('Error deleting book:', error);
+      }
+  }
 
-            try {
-                const response = await fetch(`${API_BASE}/${bookId}`, { method: 'PUT', body: formData });
-                const result = await response.json();
-                document.getElementById('message').textContent = result.message || "Book updated successfully!";
-                cancelEdit();
-                fetchBooks();
-            } catch (error) {
-                console.error('Error updating book:', error);
-            }
-        });
+  // Cancel edit
+  function cancelEdit() {
+      document.getElementById('editFormOverlay').style.display = "none";
+      document.getElementById('editBookForm').reset();
+  }
 
-        // Delete book
-        async function deleteBook(id) {
-            try {
-                await fetch(`${API_BASE}/${id}`, { method: 'DELETE' });
-                fetchBooks();
-            } catch (error) {
-                console.error('Error deleting book:', error);
-            }
-        }
-
-        // Cancel edit
-        function cancelEdit() {
-            document.getElementById('editFormOverlay').style.display = "none";
-            document.getElementById('editBookForm').reset();
-        }
-
-        document.addEventListener('DOMContentLoaded', fetchBooks);
-    </script>
+  // Fetch books when the page loads
+  document.addEventListener('DOMContentLoaded', fetchBooks);
+</script>
   </body>
 </html>
+
+
+
