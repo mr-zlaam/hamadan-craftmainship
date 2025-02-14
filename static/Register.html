@@ -31,12 +31,52 @@
       display: flex;
       flex-direction: column;
     }
-    input {
+    .input-group {
+      position: relative;
       margin-bottom: 1rem;
+    }
+    .input-group input {
+      width: 100%;
       padding: 0.8rem;
       font-size: 1rem;
-      border: 1px solid #ddd;
+      border: none;
+      border-bottom: 1px solid #ddd;
+      outline: none;
+      background: transparent;
+      transition: border-color 0.3s ease;
+    }
+    .input-group input:focus {
+      border: 1px solid #9f5f37;
       border-radius: 5px;
+    }
+    .input-group label {
+      position: absolute;
+      top: 0.8rem;
+      left: 0.8rem;
+      font-size: 1rem;
+      color: #999;
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+    .input-group input:focus + label,
+    .input-group input:not(:placeholder-shown) + label {
+      top: -0.5rem;
+      left: 0.5rem;
+      font-size: 0.8rem;
+      color: #9f5f37;
+      background: #fff;
+      padding: 0 0.2rem;
+    }
+    .password-toggle {
+      position: absolute;
+      right: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #999;
+    }
+    .password-toggle:hover {
+      color: #9f5f37;
     }
     button {
       background: #9f5f37;
@@ -68,20 +108,38 @@
   <div class="container" id="form-container">
     <!-- Forms will be dynamically injected here -->
   </div>
-
-  <script src="config.js"></script> <!-- API_BASE configuration -->
-
+<script src="config.js"></script>
   <script>
+
     const renderForm = (html) => {
       document.getElementById('form-container').innerHTML = html;
+    };
+
+    const togglePasswordVisibility = (inputId, toggleId) => {
+      const passwordInput = document.getElementById(inputId);
+      const toggleIcon = document.getElementById(toggleId);
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.textContent = '👁️';
+      } else {
+        passwordInput.type = 'password';
+        toggleIcon.textContent = '👁️‍🗨️';
+      }
     };
 
     const showLoginForm = () => {
       renderForm(`
         <h1>Login HCRF</h1>
         <form id="login-form">
-          <input type="email" id="email" placeholder="Email" required />
-          <input type="password" id="password" placeholder="Password" required />
+          <div class="input-group">
+            <input type="email" id="email" placeholder=" " required />
+            <label for="email">Email</label>
+          </div>
+          <div class="input-group">
+            <input type="password" id="password" placeholder=" " required />
+            <label for="password">Password</label>
+            <span id="toggle-password" class="password-toggle" onclick="togglePasswordVisibility('password', 'toggle-password')">👁️‍🗨️</span>
+          </div>
           <button type="submit">Login</button>
         </form>
         <div class="link">
@@ -105,7 +163,7 @@
             localStorage.setItem('authToken', data.token);
             localStorage.setItem('isAdmin', data.user.isAdmin);
             localStorage.setItem('isMember', data.user.isMember); 
-            window.location.href = "index.html";
+            window.location.href = "index.html"; 
           } else {
             alert(data.message || 'Login failed');
           }
@@ -120,7 +178,10 @@
       renderForm(`
         <h1>Forgot Password</h1>
         <form id="forgot-password-form">
-          <input type="email" id="email" placeholder="Enter your email" required />
+          <div class="input-group">
+            <input type="email" id="email" placeholder=" " required />
+            <label for="email">Email</label>
+          </div>
           <button type="submit">Send Reset Link</button>
         </form>
         <div class="link">
@@ -151,13 +212,71 @@
       });
     };
 
+    const showResetPasswordForm = (token) => {
+      renderForm(`
+        <h1>Reset Password</h1>
+        <form id="reset-password-form">
+          <div class="input-group">
+            <input type="password" id="password" placeholder=" " required />
+            <label for="password">New Password</label>
+            <span id="toggle-password" class="password-toggle" onclick="togglePasswordVisibility('password', 'toggle-password')">👁️‍🗨️</span>
+          </div>
+          <div class="input-group">
+            <input type="password" id="confirm-password" placeholder=" " required />
+            <label for="confirm-password">Confirm New Password</label>
+            <span id="toggle-confirm-password" class="password-toggle" onclick="togglePasswordVisibility('confirm-password', 'toggle-confirm-password')">👁️‍🗨️</span>
+          </div>
+          <button type="submit">Reset Password</button>
+        </form>
+      `);
+
+      document.getElementById('reset-password-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+
+        if (password !== confirmPassword) {
+          alert('Passwords do not match!');
+          return;
+        }
+
+        try {
+          const res = await fetch(`${API_BASE}/api/auth/reset-password`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ token, password }),
+          });
+          const data = await res.json();
+          if (res.ok) {
+            alert('Password reset successfully!');
+            showLoginForm();
+          } else {
+            alert(data.message || 'Failed to reset password');
+          }
+        } catch (error) {
+          console.error(error);
+          alert('Something went wrong!');
+        }
+      });
+    };
+
     const showRegisterForm = () => {
       renderForm(`
         <h1>Register HCRF</h1>
         <form id="register-form">
-          <input type="text" id="name" placeholder="Full Name" required />
-          <input type="email" id="email" placeholder="Email" required />
-          <input type="password" id="password" placeholder="Password" required />
+          <div class="input-group">
+            <input type="text" id="name" placeholder=" " required />
+            <label for="name">Full Name</label>
+          </div>
+          <div class="input-group">
+            <input type="email" id="email" placeholder=" " required />
+            <label for="email">Email</label>
+          </div>
+          <div class="input-group">
+            <input type="password" id="password" placeholder=" " required />
+            <label for="password">Password</label>
+            <span id="toggle-password" class="password-toggle" onclick="togglePasswordVisibility('password', 'toggle-password')">👁️‍🗨️</span>
+          </div>
           <button type="submit">Register</button>
         </form>
         <div class="link">
@@ -194,7 +313,10 @@
       renderForm(`
         <h1>Verify OTP</h1>
         <form id="otp-form">
-          <input type="text" id="otp" placeholder="Enter OTP" required />
+          <div class="input-group">
+            <input type="text" id="otp" placeholder=" " required />
+            <label for="otp">Enter OTP</label>
+          </div>
           <button type="submit">Verify</button>
         </form>
         <div class="link">
