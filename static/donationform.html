@@ -1126,7 +1126,7 @@ button[type="button"]:hover {
                   key: "rzp_live_0Imfta5OKjsu0J", 
                   amount: order.amount,
                   currency: order.currency,
-                  name: "Hamdan craft",
+                  name: "HAMADAN CRAFT REVIVAL FOUNDATION",
                   description: "Donation Payment",
                   order_id: order.id,
                   handler: async function (response) {
@@ -1183,74 +1183,6 @@ button[type="button"]:hover {
   </script>
   
 
-<script>
-// public/payment.js
-
-document.getElementById("rzp-button").addEventListener("click", async function () {
-    // Get donation details
-    let amount = document.querySelector('input[name="amount"]:checked')?.value || document.getElementById("customAmount").value;
-    if (!amount) {
-        alert("Please select a donation amount.");
-        return;
-    }
-    amount = parseInt(amount) * 100; // Convert to paise
-
-    let name = document.getElementById("firstName").value + " " + document.getElementById("lastName").value;
-    let email = document.getElementById("email").value;
-    let phone = document.getElementById("phone").value;
-
-    if (!name || !email || !phone) {
-        alert("Please fill in all required fields.");
-        return;
-    }
-
-    // Send donation details to the backend
-    let response = await fetch("/create-order", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount, name, email, phone })
-    });
-
-    let order = await response.json();
-    if (!order.id) {
-        alert("Error creating order. Please try again.");
-        return;
-    }
-
-    // Razorpay checkout options
-    let options = {
-        key: "rzp_live_0Imfta5OKjsu0J",
-        amount: order.amount,
-        currency: "INR",
-        name: "HAMADAN CRAFT REVIVAL FOUNDATION",
-        description: "Donation Payment",
-        order_id: order.id,
-        prefill: { name, email, contact: phone },
-        handler: function (response) {
-            // After payment, verify it on the backend
-            fetch("/verify-payment", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(response)
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    alert("Payment successful! Thank you for your donation.");
-                    document.querySelector("form").submit(); // Submit form after successful payment
-                } else {
-                    alert("Payment verification failed. Please contact support.");
-                }
-            });
-        },
-        theme: { color: "#3399cc" }
-    };
-
-    let rzp = new Razorpay(options);
-    rzp.open();
-});
-
-</script>
     <script>
       // Function to check login status and update the topbar
       const updateTopbar = () => {
