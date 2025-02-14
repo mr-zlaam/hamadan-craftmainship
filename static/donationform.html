@@ -63,6 +63,9 @@
     <link rel="stylesheet" href="assets/css/paroti.css" />
     <link rel="stylesheet" href="assets/css/common.css" />
     <link rel="stylesheet" href="assets/css/index.css" />
+    <!-- Razor pay  -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
     <style>
       .home-icon {
   color: black;
@@ -80,12 +83,17 @@
   text-decoration: none; /* Prevent underline */
 }
 
+
  /* General styling for the page */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
 }
+
+
+
+
 
 h1 {
     text-align: center;
@@ -187,6 +195,43 @@ h2 {
     outline: none;
 }
 
+
+
+    .form-group {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: none;
+        font-size: 16px;
+    }
+
+    .form-group label {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        background: white;
+        padding: 0 5px;
+        transition: 0.3s ease;
+        font-size: 16px;
+        color: #999;
+    }
+
+    .form-group input:focus + label,
+    .form-group input:not(:placeholder-shown) + label {
+        top: 0;
+        left: 10px;
+        font-size: 12px;
+        color: #333;
+    }
+
+
 /* Mobile Styles */
 @media (max-width: 768px) {
     .form-row {
@@ -271,21 +316,7 @@ button[type="button"]:hover {
   </head>
 
   <body>
-    <div class="preloader">
-      <div class="preloader__inner">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <!-- /.preloader__inner -->
-    </div>
-    <!-- /.preloader -->
-
+   
     <div class="page-wrapper" >
       <header class="main-header">
         <div class="topbar">
@@ -445,402 +476,330 @@ button[type="button"]:hover {
       
       </header>
 
-    
       <h1>Donation Form</h1>
-    <form action="/donations" method="POST">
-        <!-- Section 1: Donation Amount -->
-        <h2>Donation Amount</h2>
-        <label>Select Amount (required):</label><br>
-        <input type="radio" id="amount25" name="amount" value="25" required>
-        <label for="amount25">₹25</label><br>
-
-        <input type="radio" id="amount50" name="amount" value="50">
-        <label for="amount50">₹50</label><br>
-
-        <input type="radio" id="amount100" name="amount" value="100">
-        <label for="amount100">₹100</label><br>
-
-        <input type="radio" id="amount250" name="amount" value="250">
-        <label for="amount250">₹250</label><br>
-
-        <input type="radio" id="customAmountRadio" name="amount" value="custom">
-        <label for="customAmountRadio">Custom Amount:</label>
-        <input type="number" id="customAmount" name="customAmount" step="0.01" placeholder="Enter custom amount" disabled>
-        <br><br>
-
-        <!-- Section 2: Donation Type -->
-        <h2>Donation Type</h2>
-        <div class="form-groups">
-            <label>Choose a Donation Type:</label>
-            <select name="donationType" required>
-                <option value="oneTime">One-Time Donation</option>
-                <option value="monthly">Monthly Giving</option>
-                <option value="artisanSupport">Artisan Support Fund</option>
-                <option value="legacyGiving">Legacy & Planned Giving</option>
-                <option value="eventSponsorship">Event Sponsorship</option>
-            </select>
-        </div>
-        <br>
-
-
-        <!-- Section 3: Donation Pool Category -->
-<h2>Donation Pool Category</h2>
-<div id="donationPoolCategory">
-    <!-- Tools -->
-    <fieldset>
-        <legend>Tools</legend>
-        <label>
-            <input type="checkbox" name="tools" value='{"type": "Handlooms", "amount": 80000}'>
-            Weaving and Textile Crafts - Handlooms: ₹80,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="tools" value='{"type": "Powerlooms", "amount": 400000}'>
-            Powerlooms: ₹4,00,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="tools" value='{"type": "Spinning Wheels", "amount": 8000}'>
-            Spinning Wheels: ₹8,000
-        </label><br>
-    </fieldset>
-
-    <!-- Carpentry and Wood Carving -->
-    <fieldset>
-        <legend>Carpentry and Wood Carving</legend>
-        <label>
-            <input type="checkbox" name="tools" value='{"type": "Chisels", "amount": 8000}'>
-            Chisels: ₹8,000 (per set)
-        </label><br>
-        <label>
-            <input type="checkbox" name="tools" value='{"type": "Gouges", "amount": 3200}'>
-            Gouges: ₹3,200
-        </label><br>
-        <label>
-            <input type="checkbox" name="tools" value='{"type": "Lathes", "amount": 200000}'>
-            Lathes: ₹2,00,000
-        </label><br>
-    </fieldset>
-
-    <!-- Papier-Mâché -->
-    <fieldset>
-        <legend>Papier-Mâché</legend>
-        <label>
-            <input type="checkbox" name="tools" value='{"type": "Molds", "amount": 4000}'>
-            Molds: ₹4,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="tools" value='{"type": "Forms", "amount": 2000}'>
-            Forms: ₹2,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="tools" value='{"type": "Drying Racks", "amount": 20000}'>
-            Drying Racks: ₹20,000
-        </label><br>
-    </fieldset>
-
-    <!-- Textile Eco Dyeing -->
-    <fieldset>
-        <legend>Textile Eco Dyeing</legend>
-        <label>
-            <input type="checkbox" name="tools" value='{"type": "Screen Frames", "amount": 12500}'>
-            Screen Frames: ₹12,500
-        </label><br>
-        <label>
-            <input type="checkbox" name="tools" value='{"type": "Dye Trays", "amount": 2000}'>
-            Dye Trays: ₹2,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="tools" value='{"type": "Brushes", "amount": 2000}'>
-            Brushes: ₹2,000
-        </label><br>
-    </fieldset>
-</div>
-<!-- Section 4: Enhanced Workshop Conditions -->
-<h2>Enhanced Workshop Conditions</h2>
-<div id="enhancedWorkshopConditions">
-    <fieldset>
-        <legend>Select Workshop Enhancements:</legend>
-        <label>
-            <input type="checkbox" name="enhancedWorkshop" value='{"type": "Ventilation Systems (Exhausts)", "amount": 1000}'>
-            Ventilation Systems (Exhausts): ₹1,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="enhancedWorkshop" value='{"type": "Lighting Systems (Solar)", "amount": 13000}'>
-            Lighting Systems (Solar): ₹13,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="enhancedWorkshop" value='{"type": "Waste Management Bins", "amount": 5000}'>
-            Waste Management Bins: ₹5,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="enhancedWorkshop" value='{"type": "Ergonomic Furniture", "amount": 13000}'>
-            Ergonomic Furniture: ₹13,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="enhancedWorkshop" value='{"type": "Fire Safety Equipment", "amount": 5000}'>
-            Fire Safety Equipment: ₹5,000
-        </label><br>
-    </fieldset>
-</div>
-
-
-<!-- Section 5: Craft Innovation Support -->
-<h2>Craft Innovation Support</h2>
-<div id="craftInnovationSupport">
-    <fieldset>
-        <legend>Select Craft Innovation Support:</legend>
-        <label>
-            <input type="checkbox" name="craftInnovation" value='{"type": "Drawing Kits (basic)", "amount": 750}'>
-            Drawing Kits (basic): ₹750
-        </label><br>
-        <label>
-            <input type="checkbox" name="craftInnovation" value='{"type": "Professional Artist Kits", "amount": 2500}'>
-            Professional Artist Kits: ₹2,500
-        </label><br>
-        <label>
-            <input type="checkbox" name="craftInnovation" value='{"type": "Entry-Level DSLR", "amount": 35000}'>
-            Entry-Level DSLR: ₹35,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="craftInnovation" value='{"type": "Basic 3D Printers", "amount": 100000}'>
-            Basic 3D Printers: ₹1,00,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="craftInnovation" value='{"type": "CAD Software Licenses", "amount": 25000}'>
-            CAD Software Licenses: ₹25,000
-        </label><br>
-    </fieldset>
-</div>
-
-
-
-<!-- Section 6: Product Photography & Catalogs -->
-<h2>Product Photography & Catalogs</h2>
-<div id="productPhotographyCatalogs">
-    <fieldset>
-        <legend>Select Photography & Catalog Options:</legend>
-        <label>
-            <input type="checkbox" name="productPhotography" value='{"type": "Entry-Level DSLR", "amount": 35000}'>
-            Entry-Level DSLR: ₹35,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="productPhotography" value='{"type": "Professional DSLR/Mirrorless", "amount": 150000}'>
-            Professional DSLR/Mirrorless: ₹1,50,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="productPhotography" value='{"type": "Smartphone Cameras", "amount": 40000}'>
-            Smartphone Cameras: ₹40,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="productPhotography" value='{"type": "Reflectors", "amount": 1500}'>
-            Reflectors: ₹1,500
-        </label><br>
-        <label>
-            <input type="checkbox" name="productPhotography" value='{"type": "LED Lights", "amount": 5000}'>
-            LED Lights: ₹5,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="productPhotography" value='{"type": "Softboxes", "amount": 4000}'>
-            Softboxes: ₹4,000
-        </label><br>
-    </fieldset>
-</div>
-
-<!-- Section 7: Craft Documentaries & Storytelling -->
-<h2>Craft Documentaries & Storytelling</h2>
-<div id="craftDocumentariesStorytelling">
-    <fieldset>
-        <legend>Select Documentary Support:</legend>
-        <label>
-            <input type="checkbox" name="craftDocumentaries" value='{"type": "Professional Video Cameras", "amount": 250000}'>
-            Professional Video Cameras: ₹2,50,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="craftDocumentaries" value='{"type": "Lavalier Microphones", "amount": 10000}'>
-            Lavalier Microphones: ₹10,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="craftDocumentaries" value='{"type": "Final Cut Pro (Mac)", "amount": 25000}'>
-            Final Cut Pro (Mac): ₹25,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="craftDocumentaries" value='{"type": "Tripods/Stabilizers", "amount": 10000}'>
-            Tripods/Stabilizers: ₹10,000
-        </label><br>
-    </fieldset>
-</div>
-
-
-<!-- Section 8: Craft Research & Development -->
-<h2>Craft Research & Development</h2>
-<div id="craftResearchDevelopment">
-    <fieldset>
-        <legend>Select Research & Development Support:</legend>
-        <label>
-            <input type="checkbox" name="craftResearch" value='{"type": "Design Libraries", "amount": 25000}'>
-            Design Libraries: ₹25,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="craftResearch" value='{"type": "Manuals on Design", "amount": 25000}'>
-            Manuals on Design: ₹25,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="craftResearch" value='{"type": "Workshops for Artisans", "amount": 25000}'>
-            Workshops for Artisans: ₹25,000
-        </label><br>
-        <label>
-            <input type="checkbox" name="craftResearch" value='{"type": "Hiring design researchers", "amount": 25000}'>
-            Hiring design researchers: ₹25,000
-        </label><br>
-    </fieldset>
-</div>
-
-
-
-
-<!-- Section 3: Personal Information -->
-<h2>Personal Information</h2>
-<div class="personal-info">
-    <div class="form-row">
-        <div class="form-group">
-            <label for="firstName">First Name (required):</label>
-            <input type="text" id="firstName" name="firstName" required>
-        </div>
-        <div class="form-group">
-            <label for="lastName">Last Name (required):</label>
-            <input type="text" id="lastName" name="lastName" required>
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-group">
-            <label for="email">Email (required):</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="phone">Phone (required):</label>
-            <input type="text" id="phone" name="phone" required>
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-group">
-            <label for="streetAddress">Street Address:(required):</label>
-            <input type="text" id="streetAddress" name="streetAddress" required>
-        </div>
-        <div class="form-group">
-            <label for="city">City:(required):</label>
-            <input type="text" id="city" name="city"required>
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-group">
-            <label for="state">State:(required):</label>
-            <input type="text" id="state" name="state"required>
-        </div>
-        <div class="form-group">
-            <label for="zip">Zip Code:(required):</label>
-            <input type="text" id="zip" name="zip"required>
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-group">
-            <label for="country">Country:(required):</label>
-            <input type="text" id="country" name="country"required>
-        </div>
-        <div class="form-group" style="display: flex; align-items: center; margin-top: 30px;">
-            <label for="isAnonymous" style="margin-right: 10px; font-weight: bold;">Donate Anonymously:</label>
-            <input type="checkbox" id="isAnonymous" name="isAnonymous" style="width: auto;">
-        </div>
-        
-    </div>
-</div>
-
-
-        
-       <!-- Section 10: Matching Gifts -->
-<h2>Matching Gifts</h2>
-<div class="matching-gift">
-    <label for="matchingGiftCheckbox">
-        <input type="checkbox" id="matchingGiftCheckbox" name="matchingGift" onclick="toggleEmployerField()"> Does your employer match gifts?
-    </label>
-    <br>
-
-    <!-- Employer Name Field (Initially Hidden) -->
-    <div id="employerNameField" style="display: none;">
-        <label for="employerName">Employer Name:</label>
-        <input type="text" id="employerName" name="employerName">
-    </div>
-</div>
-
-
-<!-- Section 9: Payment Information -->
-<h2>Payment Information</h2>
-<fieldset>
-    <legend>Payment Information</legend>
-
-    <!-- Payment Method Selection -->
-    <div class="payment-method">
-        <label>
-            <input type="radio" name="paymentMethod" value="upi" onclick="togglePaymentDetails()"> UPI Payment
-        </label>
-        <label>
-            <input type="radio" name="paymentMethod" value="bank" onclick="togglePaymentDetails()"> Bank Transfer
-        </label>
-    </div>
-
-    <!-- UPI Payment Information -->
-    <div class="upi-section hidden" id="upi-details">
-        <div class="upi-info">
-            <div>
-                <h3>UPI Payment Details</h3>
-                <p>UPI ID: <span id="upi-id">JKBMERC00558651@jkb</span></p>
-                <p>
-                    Payee Name: <strong>HAMADAN CRAFT REVIVAL FOUNDATION</strong>
-                </p>
-                <button type="button" onclick="copyToClipboard('upi-id')">
-                    Copy UPI ID
-                </button>
-            </div>
-            <div class="scanner">
-                <h5>PAN AAHCH4663A</h5>
-                <img src="https://i.ibb.co/jH2DxNn/Untitled-200-x-200-px.png" alt="Scan QR Code" />
-            </div>
-        </div>
-    </div>
-
-    <!-- Bank Account Details -->
-    <div class="bank-section hidden" id="bank-details">
-        <h3>Bank Account Details</h3>
-        <p>
-            Account Holder:
-            <strong>HAMADAN CRAFT REVIVAL FOUNDATION</strong>
-        </p>
-        <p>
-            Account Number:
-            <span id="account-number">0440010100001057</span>
-        </p>
-        <p>MICR Code: <span id="micr-code">190051029</span></p>
-        <p>Branch Code: <span id="branch-code">INTDIV</span></p>
-        <p>Branch: <strong>INTERNATIONAL BANKING DIV SRINAGAR</strong></p>
-        <button type="button" onclick="copyToClipboard('account-number')">
-            Copy Account Number
-        </button>
-        <button type="button" onclick="copyToClipboard('micr-code')">
-            Copy MICR Code
-        </button>
-        <button type="button" onclick="copyToClipboard('branch-code')">
-            Copy Branch Code
-        </button>
-    </div>
-</fieldset>
-
-
-
-        <button type="submit">Proceed to Payment</button>
-    </form>
-
+      <form id="donationForm">
+          <!-- Section 1: Donation Amount -->
+          <div style="border: 0.5px solid #ccc; padding: 20px; position: relative;">
+              <h2 style="position: absolute; top: -12px; left: 15px; background: white; padding: 0 10px;">Donation Amount</h2>
+              <label>Select Amount </label><br>
+              <input type="radio" id="amount25" name="amount" value="25" required>
+              <label for="amount25">₹25</label><br>
+              <input type="radio" id="amount50" name="amount" value="50">
+              <label for="amount50">₹50</label><br>
+              <input type="radio" id="amount100" name="amount" value="100">
+              <label for="amount100">₹100</label><br>
+              <input type="radio" id="amount250" name="amount" value="250">
+              <label for="amount250">₹250</label><br>
+              <input type="radio" id="customAmountRadio" name="amount" value="custom">
+              <label for="customAmountRadio">Custom Amount:</label>
+              <input type="number" id="customAmount" name="customAmount" step="0.01" placeholder="Enter custom amount" disabled>
+          </div>
+  
+          <!-- Section 2: Donation Type -->
+          <h2>Donation Type</h2>
+          <div class="form-groups">
+              <label>Choose a Donation Type:</label>
+              <select name="donationType" required>
+                  <option value="oneTime">One-Time Donation</option>
+                  <option value="monthly">Monthly Giving</option>
+                  <option value="artisanSupport">Artisan Support Fund</option>
+                  <option value="legacyGiving">Legacy & Planned Giving</option>
+                  <option value="eventSponsorship">Event Sponsorship</option>
+              </select>
+          </div>
+  
+          <!-- Section 3: Donation Pool Category -->
+          <h2>Donation Pool Category</h2>
+          <h2>Choose where your donation will make the most impact.</h2>
+          <div id="donationPoolCategory">
+              <!-- Tools -->
+              <fieldset>
+                  <legend>Tools</legend>
+                  <label>
+                      <input type="checkbox" name="tools" value='{"type": "Handlooms"}'>
+                      Handlooms
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="tools" value='{"type": "Powerlooms"}'>
+                      Powerlooms
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="tools" value='{"type": "Spinning Wheels"}'>
+                      Spinning Wheels
+                  </label><br>
+              </fieldset>
+  
+              <!-- Carpentry and Wood Carving -->
+              <fieldset>
+                  <legend>Carpentry and Wood Carving</legend>
+                  <label>
+                      <input type="checkbox" name="tools" value='{"type": "Chisels"}'>
+                      Chisels (per set)
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="tools" value='{"type": "Gouges"}'>
+                      Gouges
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="tools" value='{"type": "Lathes"}'>
+                      Lathes
+                  </label><br>
+              </fieldset>
+  
+              <!-- Papier-Mâché -->
+              <fieldset>
+                  <legend>Papier-Mâché</legend>
+                  <label>
+                      <input type="checkbox" name="tools" value='{"type": "Molds"}'>
+                      Molds
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="tools" value='{"type": "Forms"}'>
+                      Forms
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="tools" value='{"type": "Drying Racks"}'>
+                      Drying Racks
+                  </label><br>
+              </fieldset>
+  
+              <!-- Textile Eco Dyeing -->
+              <fieldset>
+                  <legend>Textile Eco Dyeing</legend>
+                  <label>
+                      <input type="checkbox" name="tools" value='{"type": "Screen Frames"}'>
+                      Screen Frames
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="tools" value='{"type": "Dye Trays"}'>
+                      Dye Trays
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="tools" value='{"type": "Brushes"}'>
+                      Brushes
+                  </label><br>
+              </fieldset>
+          </div>
+  
+          <!-- Section 4: Enhanced Workshop Conditions -->
+          <h2>Enhanced Workshop Conditions</h2>
+          <div id="enhancedWorkshopConditions">
+              <fieldset>
+                  <legend>Select Workshop Enhancements:</legend>
+                  <label>
+                      <input type="checkbox" name="enhancedWorkshop" value='{"type": "Ventilation Systems (Exhausts)"}'>
+                      Ventilation Systems (Exhausts)
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="enhancedWorkshop" value='{"type": "Lighting Systems (Solar)"}'>
+                      Lighting Systems (Solar)
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="enhancedWorkshop" value='{"type": "Waste Management Bins"}'>
+                      Waste Management Bins
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="enhancedWorkshop" value='{"type": "Ergonomic Furniture"}'>
+                      Ergonomic Furniture
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="enhancedWorkshop" value='{"type": "Fire Safety Equipment"}'>
+                      Fire Safety Equipment
+                  </label><br>
+              </fieldset>
+          </div>
+  
+          <!-- Section 5: Craft Innovation Support -->
+          <h2>Craft Innovation Support</h2>
+          <div id="craftInnovationSupport">
+              <fieldset>
+                  <legend>Select Craft Innovation Support:</legend>
+                  <label>
+                      <input type="checkbox" name="craftInnovation" value='{"type": "Drawing Kits (basic)"}'>
+                      Drawing Kits (basic)
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="craftInnovation" value='{"type": "Professional Artist Kits"}'>
+                      Professional Artist Kits
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="craftInnovation" value='{"type": "Entry-Level DSLR"}'>
+                      Entry-Level DSLR
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="craftInnovation" value='{"type": "Basic 3D Printers"}'>
+                      Basic 3D Printers
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="craftInnovation" value='{"type": "CAD Software Licenses"}'>
+                      CAD Software Licenses
+                  </label><br>
+              </fieldset>
+          </div>
+  
+          <!-- Section 6: Product Photography & Catalogs -->
+          <h2>Product Photography & Catalogs</h2>
+          <div id="productPhotographyCatalogs">
+              <fieldset>
+                  <legend>Select Photography & Catalog Options:</legend>
+                  <label>
+                      <input type="checkbox" name="productPhotography" value='{"type": "Entry-Level DSLR"}'>
+                      Entry-Level DSLR
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="productPhotography" value='{"type": "Professional DSLR/Mirrorless"}'>
+                      Professional DSLR/Mirrorless
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="productPhotography" value='{"type": "Smartphone Cameras"}'>
+                      Smartphone Cameras
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="productPhotography" value='{"type": "Reflectors"}'>
+                      Reflectors
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="productPhotography" value='{"type": "LED Lights"}'>
+                      LED Lights
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="productPhotography" value='{"type": "Softboxes"}'>
+                      Softboxes
+                  </label><br>
+              </fieldset>
+          </div>
+  
+          <!-- Section 7: Craft Documentaries & Storytelling -->
+          <h2>Craft Documentaries & Storytelling</h2>
+          <div id="craftDocumentariesStorytelling">
+              <fieldset>
+                  <legend>Select Documentary Support:</legend>
+                  <label>
+                      <input type="checkbox" name="craftDocumentaries" value='{"type": "Professional Video Cameras"}'>
+                      Professional Video Cameras
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="craftDocumentaries" value='{"type": "Lavalier Microphones"}'>
+                      Lavalier Microphones
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="craftDocumentaries" value='{"type": "Final Cut Pro (Mac)"}'>
+                      Final Cut Pro (Mac)
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="craftDocumentaries" value='{"type": "Tripods/Stabilizers"}'>
+                      Tripods/Stabilizers
+                  </label><br>
+              </fieldset>
+          </div>
+  
+          <!-- Section 8: Craft Research & Development -->
+          <h2>Craft Research & Development</h2>
+          <div id="craftResearchDevelopment">
+              <fieldset>
+                  <legend>Select Research & Development Support:</legend>
+                  <label>
+                      <input type="checkbox" name="craftResearch" value='{"type": "Design Libraries"}'>
+                      Design Libraries
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="craftResearch" value='{"type": "Manuals on Design"}'>
+                      Manuals on Design
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="craftResearch" value='{"type": "Workshops for Artisans"}'>
+                      Workshops for Artisans
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="craftResearch" value='{"type": "Hiring design researchers"}'>
+                      Hiring design researchers
+                  </label><br>
+              </fieldset>
+          </div>
+  
+          <!-- Section 9: Personal Information -->
+          <h2>Personal Information</h2>
+          <div class="personal-info">
+              <div class="form-row">
+                  <div class="form-group">
+                      <input type="text" id="firstName" name="firstName" required>
+                      <label for="firstName">First Name </label>
+                  </div>
+                  <div class="form-group">
+                      <input type="text" id="lastName" name="lastName" required>
+                      <label for="lastName">Last Name </label>
+                  </div>
+              </div>
+              <div class="form-row">
+                  <div class="form-group">
+                      <input type="email" id="email" name="email" required>
+                      <label for="email">Email </label>
+                  </div>
+                  <div class="form-group">
+                      <input type="text" id="phone" name="phone" required>
+                      <label for="phone">Phone </label>
+                  </div>
+              </div>
+              <div class="form-row">
+                  <div class="form-group">
+                      <input type="text" id="streetAddress" name="streetAddress" required>
+                      <label for="streetAddress">Street Address </label>
+                  </div>
+                  <div class="form-group">
+                      <input type="text" id="city" name="city" required>
+                      <label for="city">City </label>
+                  </div>
+              </div>
+              <div class="form-row">
+                  <div class="form-group">
+                      <input type="text" id="state" name="state" required>
+                      <label for="state">State </label>
+                  </div>
+                  <div class="form-group">
+                      <input type="text" id="zip" name="zip" required>
+                      <label for="zip">Zip Code </label>
+                  </div>
+              </div>
+              <div class="form-row">
+                  <div class="form-group">
+                      <input type="text" id="country" name="country" required>
+                      <label for="country">Country </label>
+                  </div>
+                  <div class="form-group" style="display: flex; align-items: center; margin-top: 30px;">
+                      <label for="isAnonymous" style="margin-left: 10px; font-weight: bold;">Donate Anonymously:</label>
+                      <input type="checkbox" id="isAnonymous" name="isAnonymous" style="width: auto;">
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Section 10: Matching Gifts -->
+          <h2>Matching Gifts</h2>
+          <div class="matching-gift">
+              <label for="matchingGiftCheckbox">
+                  <input type="checkbox" id="matchingGiftCheckbox" name="matchingGift" onclick="toggleEmployerField()"> Does your employer match gifts?
+              </label>
+              <br>
+              <!-- Employer Name Field (Initially Hidden) -->
+              <div id="employerNameField" style="display: none;">
+                  <label for="employerName">Employer Name:</label>
+                  <input type="text" id="employerName" name="employerName">
+              </div>
+          </div>
+  
+          <!-- Section 11: Payment Information -->
+          <h2>Payment Information</h2>
+          <fieldset>
+              <legend>Payment Information</legend>
+              <div class="payment-method">
+                  <label>
+                      <input type="radio" name="paymentMethod" value="razorpay" checked> Razorpay (Credit/Debit/UPI)
+                  </label>
+              </div>
+          </fieldset>
+  
+          <button type="button" id="rzp-button">Proceed to Payment</button>
+      </form>
+  
        
     <footer class="site-footer footer-main">
       <div class="site-footer__top">
@@ -1116,207 +1075,182 @@ button[type="button"]:hover {
 
     <script src="config.js"></script>
     <script>
-      // Toggle custom donation amount field
+  
+      // Enable custom amount input when selected
       document.getElementById('customAmountRadio').addEventListener('change', function() {
-          const customAmountField = document.getElementById('customAmount');
-          if (this.checked) {
-              customAmountField.disabled = false;
+          document.getElementById('customAmount').disabled = !this.checked;
+      });
+  
+      // Calculate total donation amount
+      function calculateTotalAmount() {
+          let totalAmount = 0;
+  
+          // Add selected donation amount
+          const selectedAmount = document.querySelector('input[name="amount"]:checked').value;
+          if (selectedAmount === 'custom') {
+              totalAmount += parseFloat(document.getElementById('customAmount').value) || 0;
           } else {
-              customAmountField.disabled = true;
-              customAmountField.value = ''; // Clear the value when disabled
+              totalAmount += parseFloat(selectedAmount);
+          }
+  
+          return totalAmount * 100; // Convert to paise for Razorpay
+      }
+  
+      // Razorpay Payment Integration
+      document.getElementById('rzp-button').addEventListener('click', async function() {
+          const totalAmount = calculateTotalAmount();
+          if (totalAmount <= 0) {
+              alert('Please select a valid donation amount.');
+              return;
+          }
+  
+          const donorDetails = {
+              firstName: document.getElementById('firstName').value,
+              lastName: document.getElementById('lastName').value,
+              email: document.getElementById('email').value,
+              phone: document.getElementById('phone').value,
+              donationType: document.querySelector('select[name="donationType"]').value,
+              paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value 
+          };
+  
+          try {
+              const response = await fetch(`${API_BASE}/api/payment/create-order`, {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ amount: totalAmount, currency: "INR", type: "donation", metadata: donorDetails })
+              });
+  
+              const { order } = await response.json();
+  
+              const options = {
+                  key: "rzp_live_0Imfta5OKjsu0J", 
+                  amount: order.amount,
+                  currency: order.currency,
+                  name: "Hamdan craft",
+                  description: "Donation Payment",
+                  order_id: order.id,
+                  handler: async function (response) {
+                      const paymentData = {
+                          razorpay_order_id: response.razorpay_order_id,
+                          razorpay_payment_id: response.razorpay_payment_id,
+                          razorpay_signature: response.razorpay_signature
+                      };
+  
+                      // Send for verification
+                      await verifyPayment(paymentData);
+                  },
+                  prefill: {
+                      name: donorDetails.firstName + " " + donorDetails.lastName,
+                      email: donorDetails.email,
+                      contact: donorDetails.phone
+                  }
+              };
+  
+              const rzp = new Razorpay(options);
+              rzp.open();
+          } catch (error) {
+              console.error("Error in payment:", error);
           }
       });
   
-      // Toggle Employer Name field for matching gifts
+      // Verify Payment
+      async function verifyPayment(paymentData) {
+          try {
+              const verifyRes = await fetch(`${API_BASE}/api/payment/verify`, {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(paymentData)
+              });
+  
+              const result = await verifyRes.json();
+              console.log("Payment Verification Response:", result);
+  
+              if (result.success) {
+                  alert("Payment Verified Successfully!");
+              } else {
+                  alert("Payment Verification Failed!");
+              }
+          } catch (error) {
+              console.error("Verification Error:", error);
+          }
+      }
+  
+      // Toggle employer name field for matching gifts
       function toggleEmployerField() {
           const employerField = document.getElementById('employerNameField');
-          const isChecked = document.getElementById('matchingGiftCheckbox').checked;
-  
-          if (isChecked) {
-              employerField.style.display = 'block';
-          } else {
-              employerField.style.display = 'none';
-          }
-      }
-  
-      // Toggle payment method details based on selected payment method
-      function togglePaymentDetails() {
-          const upiSection = document.getElementById('upi-details');
-          const bankSection = document.getElementById('bank-details');
-          
-          // Reset both sections first
-          upiSection.style.display = 'none';
-          bankSection.style.display = 'none';
-  
-          // Show selected payment method details
-          if (document.querySelector('input[name="paymentMethod"]:checked').value === 'upi') {
-              upiSection.style.display = 'block';
-          } else if (document.querySelector('input[name="paymentMethod"]:checked').value === 'bank') {
-              bankSection.style.display = 'block';
-          }
-      }
-  
-      // Copy content to clipboard
-      function copyToClipboard(elementId) {
-          const text = document.getElementById(elementId).textContent || document.getElementById(elementId).innerText;
-          const textarea = document.createElement('textarea');
-          textarea.value = text;
-          document.body.appendChild(textarea);
-          textarea.select();
-          document.execCommand('copy');
-          document.body.removeChild(textarea);
-          alert('Copied: ' + text);
+          employerField.style.display = document.getElementById('matchingGiftCheckbox').checked ? 'block' : 'none';
       }
   </script>
-
-
-<script>
-  // Function to toggle custom amount field visibility
-  function toggleCustomAmountField() {
-      var customAmountField = document.getElementById('customAmount');
-      var customAmountRadio = document.getElementById('customAmountRadio');
-      
-      // Enable the custom amount field if the custom radio is selected, otherwise disable it
-      if (customAmountRadio.checked) {
-          customAmountField.disabled = false;
-          customAmountField.placeholder = "Enter custom amount";
-      } else {
-          customAmountField.disabled = true;
-          customAmountField.value = ""; // Clear the input if disabled
-      }
-  }
-
-  // Attach event listener to donation amount radio buttons
-  document.querySelectorAll('input[name="amount"]').forEach(function(radio) {
-      radio.addEventListener('change', toggleCustomAmountField);
-  });
-
-  // Initial call to set up the custom amount field on page load
-  window.onload = toggleCustomAmountField;
-</script>
-
+  
 
 <script>
-  const donationForm = document.querySelector('form');
+// public/payment.js
 
-  donationForm.addEventListener('submit', async (event) => {
-      event.preventDefault(); // Prevent default form submission behavior
+document.getElementById("rzp-button").addEventListener("click", async function () {
+    // Get donation details
+    let amount = document.querySelector('input[name="amount"]:checked')?.value || document.getElementById("customAmount").value;
+    if (!amount) {
+        alert("Please select a donation amount.");
+        return;
+    }
+    amount = parseInt(amount) * 100; // Convert to paise
 
-      const formData = new FormData(donationForm);
+    let name = document.getElementById("firstName").value + " " + document.getElementById("lastName").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
 
-      // Serialize form data into a JSON object
-      const data = {};
-      for (const [key, value] of formData.entries()) {
-          if (key === 'amount' && value === 'custom') {
-              data.amount = formData.get('customAmount') || null;
-          } else if (key in data) {
-              if (!Array.isArray(data[key])) {
-                  data[key] = [data[key]];
-              }
-              data[key].push(value);
-          } else {
-              try {
-                  data[key] = JSON.parse(value);
-              } catch (e) {
-                  data[key] = value;
-              }
-          }
-      }
+    if (!name || !email || !phone) {
+        alert("Please fill in all required fields.");
+        return;
+    }
 
-      try {
-          const response = await fetch(`${API_BASE}/api/donations`, {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(data),
-          });
+    // Send donation details to the backend
+    let response = await fetch("/create-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount, name, email, phone })
+    });
 
-          if (!response.ok) {
-              throw new Error(`HTTP error! Status: ${response.status}`);
-          }
+    let order = await response.json();
+    if (!order.id) {
+        alert("Error creating order. Please try again.");
+        return;
+    }
 
-          const result = await response.json();
-          console.log('Donation successful:', result);
+    // Razorpay checkout options
+    let options = {
+        key: "rzp_live_0Imfta5OKjsu0J",
+        amount: order.amount,
+        currency: "INR",
+        name: "HAMADAN CRAFT REVIVAL FOUNDATION",
+        description: "Donation Payment",
+        order_id: order.id,
+        prefill: { name, email, contact: phone },
+        handler: function (response) {
+            // After payment, verify it on the backend
+            fetch("/verify-payment", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(response)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Payment successful! Thank you for your donation.");
+                    document.querySelector("form").submit(); // Submit form after successful payment
+                } else {
+                    alert("Payment verification failed. Please contact support.");
+                }
+            });
+        },
+        theme: { color: "#3399cc" }
+    };
 
-          // Create and show the popup
-          createPopup(data.name || 'Valued Donor');
-      } catch (error) {
-          console.error('Error submitting donation:', error);
-          alert('An error occurred while submitting your donation. Please try again.');
-      }
-  });
+    let rzp = new Razorpay(options);
+    rzp.open();
+});
 
-  function createPopup(userName) {
-      // Remove existing popup if present
-      const existingPopup = document.querySelector('#success-popup');
-      if (existingPopup) existingPopup.remove();
-
-      // Create the popup container
-      const popup = document.createElement('div');
-      popup.id = 'success-popup';
-      popup.style.position = 'fixed';
-      popup.style.top = '0';
-      popup.style.left = '0';
-      popup.style.width = '100%';
-      popup.style.height = '100%';
-      popup.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-      popup.style.display = 'flex';
-      popup.style.justifyContent = 'center';
-      popup.style.alignItems = 'center';
-      popup.style.zIndex = '9999';
-
-      // Create the popup content
-      const popupContent = document.createElement('div');
-      popupContent.style.backgroundColor = '#fff';
-      popupContent.style.padding = '20px';
-      popupContent.style.borderRadius = '10px';
-      popupContent.style.maxWidth = '600px';
-      popupContent.style.width = '90%';
-      popupContent.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-      popupContent.style.textAlign = 'left';
-      popupContent.style.fontFamily = 'Arial, sans-serif';
-      popupContent.style.lineHeight = '1.5';
-
-      // Add content to the popup
-      popupContent.innerHTML = `
-          We regret the inconvenience; payment gateway is under verification. Stay tuned for updates.
-      `;
-
-      // Create the close button
-      const closeButton = document.createElement('button');
-      closeButton.textContent = 'Close';
-      closeButton.style.marginTop = '20px';
-      closeButton.style.padding = '10px 20px';
-      closeButton.style.backgroundColor = '#3498db';
-      closeButton.style.color = '#fff';
-      closeButton.style.border = 'none';
-      closeButton.style.borderRadius = '5px';
-      closeButton.style.cursor = 'pointer';
-      closeButton.style.fontSize = '16px';
-      closeButton.addEventListener('click', () => {
-          popup.remove();
-      });
-
-      closeButton.addEventListener('mouseover', () => {
-          closeButton.style.backgroundColor = '#2980b9';
-      });
-
-      closeButton.addEventListener('mouseout', () => {
-          closeButton.style.backgroundColor = '#3498db';
-      });
-
-      // Append content and close button to the popup content
-      popupContent.appendChild(closeButton);
-
-      // Append the popup content to the popup container
-      popup.appendChild(popupContent);
-
-      // Append the popup to the body
-      document.body.appendChild(popup);
-  }
 </script>
- 
     <script>
       // Function to check login status and update the topbar
       const updateTopbar = () => {
@@ -1493,16 +1427,16 @@ function validateMembershipType() {
 }
 
 // Validate Payment Method
-function validatePaymentMethod() {
-    const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
-    if (!paymentMethod) {
-        showError(document.querySelector(".payment-method"), "Please select a payment method.");
-        return false;
-    } else {
-        clearError(document.querySelector(".payment-method"));
-        return true;
-    }
-}
+// function validatePaymentMethod() {
+//     const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+//     if (!paymentMethod) {
+//         showError(document.querySelector(".payment-method"), "Please select a payment method.");
+//         return false;
+//     } else {
+//         clearError(document.querySelector(".payment-method"));
+//         return true;
+//     }
+// }
 
 // Function to validate step 1
 function validateStep1() {
