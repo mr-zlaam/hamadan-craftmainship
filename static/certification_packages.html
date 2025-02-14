@@ -253,7 +253,121 @@
     
       
     
-      
+/* Floating form styling */
+.floating-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: fadeIn 0.3s ease-in-out;
+    border-top: 4px solid var(--primary);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-container h2 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Input group */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Fixed label positioning */
+.input-group label {
+    position: absolute;
+    top: -8px; /* Always above input */
+    left: 12px;
+    background: white;
+    padding: 0 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Asterisk for required fields */
+.input-group label::after {
+    content: " ";
+    /* color: red; */
+    font-weight: bold;
+}
+
+/* Input field styling */
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Focus effect */
+.input-group input:focus {
+    border-color: var(--secondary);
+    outline: none;
+    box-shadow: 0 0 8px rgba(50, 154, 213, 0.2);
+}
+
+.form-container button {
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 10px 5px 0 5px;
+}
+
+.form-container button[type="submit"] {
+    background: var(--primary);
+    color: white;
+    border: none;
+}
+
+.form-container button[type="submit"]:hover {
+    background: #8a5334;
+    transform: translateY(-2px);
+}
+
+.form-container button[type="button"] {
+    background: var(--secondary);
+    color: white;
+    border: none;
+}
+
+.form-container button[type="button"]:hover {
+    background: #2b85b8;
+    transform: translateY(-2px);
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
     </style>
     
 
@@ -494,189 +608,318 @@
         </section>
         
         
-
-    <div class="container" style="margin-top: 100px;">
-      <header class="header">
-          <h1>Kashmir Handicrafts Certifications Portal</h1>
-          <p>Complete Certification Directory</p>
-      </header>
-
-      <div class="filter-tabs">
-          <button class="filter-tab active">All Certifications</button>
-          <button class="filter-tab">Fair Trade</button>
-          <button class="filter-tab">Organic</button>
-          <button class="filter-tab">Environmental</button>
-          <button class="filter-tab">Quality</button>
-          <button class="filter-tab">Social</button>
-      </div>
-
-      <div class="cert-grid">
-          <!-- Fair Trade -->
-          <div class="cert-card">
-              <div class="card-header">
-                  <span class="cert-type">Fair Trade</span>
-                  <!-- <h3 class="cert-name">Fair Trade Certification</h3> -->
-                  <h1 class="cert-name" style="font-size: 18px;">FLO International / SA8000 / ETI Base Code</h1>
-                  
-              </div>
-              <div class="card-content">
-                  <div class="price-info">
-                      <span class="price-label">Initial Cost</span>
-                      <span class="price" data-price="400000 ">₹4,00,000</span>
-                  </div>
-                  <div class="price-info">
-                      <span class="price-label">Annual Fee</span>
-                      <span class="price-value">₹2,00,000</span>
-                  </div>
-                  <div class="req-list">
-                      <div class="req-item">Fair wages documentation</div>
-                      <div class="req-item">Working conditions compliance</div>
-                      <div class="req-item">Environmental standards</div>
-                  </div>
-                  <button class="select-btn">Add to Cart</button>
-              </div>
-          </div>
-
-          <!-- GOTS -->
-          <div class="cert-card">
-              <div class="card-header">
-                  <span class="cert-type">Organic</span>
-                  <h1 class="cert-name" style="font-size: 18px;">GOTS / OEKO-TEX / OCS</h1>
-                  <!-- <h3 class="cert-name">Organic and Sustainable</h3> -->
-              </div>
-              <div class="card-content">
-                  <div class="price-info">
-                      <span class="price-label" >Initial Cost</span>
-                      <span class="price" data-price="350000">₹3,50,000</span>
-                  </div>
-                  <div class="price-info">
-                      <span class="price-label">Annual Fee</span>
-                      <span class="price-value">₹1,50,000</span>
-                  </div>
-                  <div class="req-list">
-                      <div class="req-item">Organic material verification</div>
-                      <div class="req-item">Chemical testing</div>
-                      <div class="req-item">Process certification</div>
-                  </div>
-                  <button class="select-btn">Add to Cart</button>
-              </div>
-          </div>
-
-          <!-- ISO 14001 -->
-          <div class="cert-card">
-              <div class="card-header">
-                  <span class="cert-type">Environmental</span>
-                  <!-- <h3 class="cert-name">ISO 14001</h3> -->
-                  <h1 class="cert-name" style="font-size: 18px;">ISO 14001 / SAN / FSC</h1>
-                  
-              </div>
-              <div class="card-content">
-                  <div class="price-info">
-                      <span class="price-label" >Initial Cost</span>
-                      <span class="price" data-price="450000">₹4,50,000</span>
-                  </div>
-                  <div class="price-info">
-                      <span class="price-label">Annual Fee</span>
-                      <span class="price-value">₹2,25,000</span>
-                  </div>
-                  <div class="req-list">
-                      <div class="req-item">Environmental management system</div>
-                      <div class="req-item">Impact assessment</div>
-                      <div class="req-item">Compliance monitoring</div>
-                  </div>
-                  <button class="select-btn">Add to Cart</button>
-              </div>
-          </div>
-
-          <!-- SA8000 -->
-          <div class="cert-card" >
-              <div class="card-header">
-                  <span class="cert-type">Social</span>
-                  <h1 class="cert-name" style="font-size: 18px;">SA8000 / Fair for Life Certification</h1>
-              </div>
-              <div class="card-content">
-                  <div class="price-info">
-                      <span class="price-label">Initial Cost</span>
-                      <span class="price" data-price="350000">₹3,50,000</span>
-                  </div>
-                  <div class="price-info">
-                      <span class="price-label">Annual Fee</span>
-                      <span class="price-value">₹1,75,000</span>
-                  </div>
-                  <div class="req-list">
-                      <div class="req-item">Labor standards compliance</div>
-                      <div class="req-item">Health and safety measures</div>
-                      <div class="req-item">Management systems</div>
-                  </div>
-                  <button class="select-btn">Add to Cart</button>
-              </div>
-          </div>
-
-          <!-- FSC -->
-          <div class="cert-card" >
-              <div class="card-header">
-                  <span class="cert-type">Sustainability</span>
-                  <h1 class="cert-name" style="font-size: 18px;">Higg Index / RWS / RCS / GRS</h1>
-              </div>
-              <div class="card-content">
-                  <div class="price-info">
-                      <span class="price-label">Initial Cost</span>
-                      <span class="price" data-price="622500">₹6,22,500</span>
-                  </div>
-                  <div class="price-info">
-                      <span class="price-label">Annual Fee</span>
-                      <span class="price-value">₹1,66,000</span>
-                  </div>
-                  <div class="req-list">
-                      <div class="req-item">Chain of custody</div>
-                      <div class="req-item">Sustainable sourcing</div>
-                      <div class="req-item">Material tracking</div>
-                  </div>
-                  <button class="select-btn">Add to Cart</button>
-              </div>
-          </div>
-
-          <!-- Handmade -->
-          <div class="cert-card">
-              <div class="card-header">
-                  <span class="cert-type">Quality</span>
-                  <h1 class="cert-name" style="font-size: 18px;">Handloom Mark / Woolmark</h1>
-              </div>
-
-
-              <div class="card-content">
-                  <div class="price-info">
-                      <span class="price-label">Initial Cost</span>
-                      <span class="price" data-price="13000">₹13,000</span>
-                  </div>
-                  <div class="price-info">
-                      <span class="price-label">Annual Fee</span>
-                      <span class="price-value">₹6,500</span>
-                  </div>
-                  <div class="req-list">
-                      <div class="req-item">Process documentation</div>
-                      <div class="req-item">Artisan verification</div>
-                      <div class="req-item">Quality standards</div>
-                  </div>
-                  <button class="select-btn">Add to Cart</button>
-              </div>
-          </div>
-
-      </div>
-
-      <div class="cart-panel">
-          <div class="cart-total">
-              Selected: 0 certifications | total cost <span id="total-cost">0</span>
-          </div>
-          <button class="checkout-btn">
-              <i class="fas fa-shopping-cart"></i>
-              Proceed to Payment
-          </button>
-      </div>
-  </div>
-
-
-
+        <div class="container" style="margin-top: 100px;">
+            <header class="header">
+                <h1>Kashmir Handicrafts Certifications Portal</h1>
+                <p>Complete Certification Directory</p>
+            </header>
+    
+            <div class="filter-tabs">
+                <button class="filter-tab active">All Certifications</button>
+                <button class="filter-tab">Fair Trade</button>
+                <button class="filter-tab">Organic</button>
+                <button class="filter-tab">Environmental</button>
+                <button class="filter-tab">Quality</button>
+                <button class="filter-tab">Social</button>
+            </div>
+    
+            <div class="cert-grid">
+                <!-- Fair Trade -->
+                <div class="cert-card">
+                    <div class="card-header">
+                        <span class="cert-type">Fair Trade</span>
+                        <h1 class="cert-name" style="font-size: 18px;">FLO International / SA8000 / ETI Base Code</h1>
+                    </div>
+                    <div class="card-content">
+                        <div class="price-info">
+                            <span class="price-label">Initial Cost</span>
+                            <span class="price" data-price="400000">₹4,00,000</span>
+                        </div>
+                        <div class="price-info">
+                            <span class="price-label">Annual Fee</span>
+                            <span class="price-value">₹2,00,000</span>
+                        </div>
+                        <div class="req-list">
+                            <div class="req-item">Fair wages documentation</div>
+                            <div class="req-item">Working conditions compliance</div>
+                            <div class="req-item">Environmental standards</div>
+                        </div>
+                        <button class="select-btn" data-cert-type="Fair Trade" data-cert-name="FLO International/SA8000/ETI Base Code" data-amount="400000">Proceed to payment</button>
+                    </div>
+                </div>
+    
+                <!-- Organic -->
+                <div class="cert-card">
+                    <div class="card-header">
+                        <span class="cert-type">Organic</span>
+                        <h1 class="cert-name" style="font-size: 18px;">GOTS / OEKO-TEX / OCS</h1>
+                    </div>
+                    <div class="card-content">
+                        <div class="price-info">
+                            <span class="price-label">Initial Cost</span>
+                            <span class="price" data-price="350000">₹3,50,000</span>
+                        </div>
+                        <div class="price-info">
+                            <span class="price-label">Annual Fee</span>
+                            <span class="price-value">₹1,50,000</span>
+                        </div>
+                        <div class="req-list">
+                            <div class="req-item">Organic material verification</div>
+                            <div class="req-item">Chemical testing</div>
+                            <div class="req-item">Process certification</div>
+                        </div>
+                        <button class="select-btn" data-cert-type="Organic" data-cert-name="GOTS/OEKO-TEX/OCS" data-amount="350000">Proceed to payment</button>
+                    </div>
+                </div>
+    
+                <!-- Environmental -->
+                <div class="cert-card">
+                    <div class="card-header">
+                        <span class="cert-type">Environmental</span>
+                        <h1 class="cert-name" style="font-size: 18px;">ISO 14001 / SAN / FSC</h1>
+                    </div>
+                    <div class="card-content">
+                        <div class="price-info">
+                            <span class="price-label">Initial Cost</span>
+                            <span class="price" data-price="450000">₹4,50,000</span>
+                        </div>
+                        <div class="price-info">
+                            <span class="price-label">Annual Fee</span>
+                            <span class="price-value">₹2,25,000</span>
+                        </div>
+                        <div class="req-list">
+                            <div class="req-item">Environmental management system</div>
+                            <div class="req-item">Impact assessment</div>
+                            <div class="req-item">Compliance monitoring</div>
+                        </div>
+                        <button class="select-btn" data-cert-type="Environmental" data-cert-name="ISO 14001/SAN/FSC" data-amount="450000">Proceed to payment</button>
+                    </div>
+                </div>
+    
+                <!-- Social -->
+                <div class="cert-card">
+                    <div class="card-header">
+                        <span class="cert-type">Social</span>
+                        <h1 class="cert-name" style="font-size: 18px;">SA8000 / Fair for Life Certification</h1>
+                    </div>
+                    <div class="card-content">
+                        <div class="price-info">
+                            <span class="price-label">Initial Cost</span>
+                            <span class="price" data-price="350000">₹3,50,000</span>
+                        </div>
+                        <div class="price-info">
+                            <span class="price-label">Annual Fee</span>
+                            <span class="price-value">₹1,75,000</span>
+                        </div>
+                        <div class="req-list">
+                            <div class="req-item">Labor standards compliance</div>
+                            <div class="req-item">Health and safety measures</div>
+                            <div class="req-item">Management systems</div>
+                        </div>
+                        <button class="select-btn" data-cert-type="Social" data-cert-name="SA8000/Fair for Life" data-amount="350000">Proceed to payment</button>
+                    </div>
+                </div>
+    
+                <!-- Sustainability -->
+                <div class="cert-card">
+                    <div class="card-header">
+                        <span class="cert-type">Sustainability</span>
+                        <h1 class="cert-name" style="font-size: 18px;">Higg Index / RWS / RCS / GRS</h1>
+                    </div>
+                    <div class="card-content">
+                        <div class="price-info">
+                            <span class="price-label">Initial Cost</span>
+                            <span class="price" data-price="622500">₹6,22,500</span>
+                        </div>
+                        <div class="price-info">
+                            <span class="price-label">Annual Fee</span>
+                            <span class="price-value">₹1,66,000</span>
+                        </div>
+                        <div class="req-list">
+                            <div class="req-item">Chain of custody</div>
+                            <div class="req-item">Sustainable sourcing</div>
+                            <div class="req-item">Material tracking</div>
+                        </div>
+                        <button class="select-btn" data-cert-type="Sustainability" data-cert-name="Higg Index/RWS/RCS/GRS" data-amount="622500">Proceed to payment</button>
+                    </div>
+                </div>
+    
+                <!-- Quality -->
+                <div class="cert-card">
+                    <div class="card-header">
+                        <span class="cert-type">Quality</span>
+                        <h1 class="cert-name" style="font-size: 18px;">Handloom Mark / Woolmark</h1>
+                    </div>
+                    <div class="card-content">
+                        <div class="price-info">
+                            <span class="price-label">Initial Cost</span>
+                            <span class="price" data-price="13000">₹13,000</span>
+                        </div>
+                        <div class="price-info">
+                            <span class="price-label">Annual Fee</span>
+                            <span class="price-value">₹6,500</span>
+                        </div>
+                        <div class="req-list">
+                            <div class="req-item">Process documentation</div>
+                            <div class="req-item">Artisan verification</div>
+                            <div class="req-item">Quality standards</div>
+                        </div>
+                        <button class="select-btn" data-cert-type="Quality" data-cert-name="Handloom Mark/Woolmark" data-amount="13000">Proceed to payment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Floating Form -->
+        <div id="floatingForm" class="floating-form" style="display: none;">
+            <div class="form-container">
+                <h2>Enter Your Details</h2>
+                <form id="certificationForm">
+                    <div class="input-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+        
+                    <div class="input-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+        
+                    <div class="input-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+        
+                    <div class="input-group">
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+        
+                    <button type="button" id="cancelForm">Cancel</button>
+                    <button type="submit">Proceed to Payment</button>
+                </form>
+            </div>
+        </div>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <script>
+            let selectedCertType, selectedCertName, selectedAmount;
+        
+            document.querySelectorAll('.select-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    selectedCertType = this.dataset.certType;
+                    selectedCertName = this.dataset.certName;
+                    selectedAmount = parseInt(this.dataset.amount) * 100; // Convert to paise
+        
+                    // Show the floating form
+                    document.getElementById('floatingForm').style.display = 'block';
+                });
+            });
+        
+            document.getElementById('cancelForm').addEventListener('click', function () {
+                // Hide the floating form
+                document.getElementById('floatingForm').style.display = 'none';
+            });
+        
+            document.getElementById('certificationForm').addEventListener('submit', async function (event) {
+                event.preventDefault();
+        
+                const firstName = document.getElementById('firstName').value.trim();
+                const lastName = document.getElementById('lastName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+        
+                if (!firstName || !lastName || !email || !phone || !selectedCertType || !selectedCertName || !selectedAmount) {
+                    alert("Please fill in all required fields.");
+                    return;
+                }
+        
+                // Prepare metadata for the backend
+                const certDetails = {
+                    firstName,
+                    lastName,
+                    email,
+                    phone,
+                    certType: selectedCertType,
+                    certName: selectedCertName,
+                    paymentMethod: "razorpay",
+                };
+        
+                try {
+                    // Create an order with the backend
+                    const response = await fetch("http://localhost:5000/api/payment/create-order", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            amount: selectedAmount,
+                            currency: "INR",
+                            type: "certification",
+                            metadata: certDetails
+                        }),
+                    });
+        
+                    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        
+                    const data = await response.json();
+                    if (!data.order) throw new Error("Order data not found in response");
+        
+                    // Initialize Razorpay with the generated order
+                    const options = {
+                        key: "rzp_live_0Imfta5OKjsu0J",
+                        amount: data.order.amount,
+                        currency: data.order.currency,
+                        name: "Kashmir Handicrafts Certification",
+                        description: `${selectedCertType} Certification - ${selectedCertName}`,
+                        order_id: data.order.id, // Use backend order ID
+                        handler: async function (paymentData) {
+                            await verifyPayment(paymentData);
+                        },
+                        prefill: {
+                            name: `${firstName} ${lastName}`,
+                            email: email,
+                            contact: phone,
+                        },
+                        notes: certDetails,
+                        theme: {
+                            color: "#3399cc"
+                        }
+                    };
+        
+                    const rzp = new Razorpay(options);
+                    rzp.open();
+        
+                    // Hide the form after initiating payment
+                    document.getElementById('floatingForm').style.display = 'none';
+        
+                } catch (error) {
+                    console.error("Error creating order:", error);
+                    alert("An error occurred while processing your payment. Please try again.");
+                }
+            });
+        
+            // Verify Payment
+            async function verifyPayment(paymentData) {
+                try {
+                    const verifyRes = await fetch("http://localhost:5000/api/payment/verify", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(paymentData),
+                    });
+        
+                    const result = await verifyRes.json();
+                    console.log("Payment Verification Response:", result);
+        
+                    if (result.success) {
+                        alert("Payment Verified Successfully!");
+                    } else {
+                        alert("Payment Verification Failed!");
+                    }
+                } catch (error) {
+                    console.error("Verification Error:", error);
+                    alert("An error occurred while verifying your payment. Please contact support.");
+                }
+            }
+        </script>
+        
   <section class="about-six about-six--pad-top about-six--pad-bottom">
       <div class="about-six__bg">
       </div><!-- /.about-six__bg -->
@@ -753,88 +996,42 @@
 
 
 
-  <script>
-      
-    const filterTabs = document.querySelectorAll('.filter-tab');
-    const certCards = document.querySelectorAll('.cert-card');
-
-    filterTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            // Remove active class from all tabs
-            filterTabs.forEach(t => t.classList.remove('active'));
-            // Add active class to the clicked tab
-            tab.classList.add('active');
-
-            // Get the filter type from the button text
-            const filterType = tab.textContent.trim();
-
-            // Show or hide certifications based on the filter
-            certCards.forEach(card => {
-                if (filterType === 'All Certifications') {
-                    card.style.display = 'block';
-                } else {
-                    const certType = card.querySelector('.cert-type').textContent.trim();
-                    if (certType === filterType) {
+    <script>
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const certCards = document.querySelectorAll('.cert-card');
+    
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                filterTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to the clicked tab
+                tab.classList.add('active');
+    
+                // Get the filter type from the button text
+                const filterType = tab.textContent.trim();
+    
+                // Show or hide certifications based on the filter
+                certCards.forEach(card => {
+                    if (filterType === 'All Certifications') {
                         card.style.display = 'block';
                     } else {
-                        card.style.display = 'none';
+                        const certType = card.querySelector('.cert-type').textContent.trim();
+                        if (certType === filterType) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
                     }
-                }
+                });
             });
         });
-    });
-
-
-
-      const payButton=document.querySelector('.checkout-btn');
-      payButton.addEventListener('click',()=>{
-          alert("We are Working on it ");
-      })
-
-
-
-      // Select necessary elements
-      const selectButtons = document.querySelectorAll('.select-btn');
-      const totalCostElement = document.getElementById('total-cost');
-      const cartPanel = document.querySelector('.cart-total');
-
-      // Initialize cart state
-      let totalCost = 0;
-      let itemCount = 0;
-
-      // Add event listeners to all 'Select Certification' buttons
-      selectButtons.forEach(button => {
-          button.addEventListener('click', () => {
-      // Get the price from the button's parent card
-      const priceElement = button.closest('.cert-card').querySelector('.price');
-      const price = parseInt(priceElement.getAttribute('data-price'));
-      
-      // Check if the item is already added
-      if (!button.classList.contains('selected')) {
-          // Add the price to the total and increment the item count
-          totalCost += price;
-          itemCount++;
-
-          // Mark the button as selected
-          button.classList.add('selected');
-          button.textContent = 'Remove from Cart';
-      } else {
-          // Remove the price from the total and decrement the item count
-          totalCost -= price;
-          itemCount--;
-
-          // Unmark the button as selected
-          button.classList.remove('selected');
-          button.textContent = 'Add to Cart';
-      }
-
-      // Update the cart panel
-      totalCostElement.textContent = `₹${totalCost.toLocaleString()}`;
-      cartPanel.textContent = `Selected: ${itemCount} certifications | total cost ₹${totalCost.toLocaleString()}`;
-      });
-      });
-  </script>
-
+    
+        const payButton = document.querySelector('.checkout-btn');
+        payButton.addEventListener('click', () => {
+            alert("We are Working on it");
+        });
+    </script>
+    
 
 
 
@@ -1051,6 +1248,10 @@
     <!-- template js -->
     <script src="assets/js/paroti.js"></script>
     <script src="assets/js/custom.js"></script>
+
+
+
+    
 
     <script>
         // Function to check login status and update the topbar
