@@ -82,95 +82,120 @@
   border-radius: 4px; /* Optional: Add a slight rounded corner */
   text-decoration: none; /* Prevent underline */
 }
+.form-container {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #beb6b1;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-      .form-container {
-        background: white;
-        border-radius: 8px;
-        padding: 20px;
-        max-width: 600px;
-        margin: 0 auto;
-        border: 1px solid #beb6b1;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
-    
-      h2 {
-        margin-bottom: 10px;
-      }
-    
-      label {
-        display: block;
-        margin-top: 10px;
-        font-weight: bold;
-      }
-    
-      input,
-      select,
-      textarea {
-        width: 100%;
-        padding: 8px;
-        margin-top: 5px;
-        margin-bottom: 15px;
-        border: 1px solid #beb6b1;
-        border-radius: 4px;
-      }
-    
-      input[type="checkbox"],
-      input[type="radio"] {
-        width: auto;
-        margin-right: 10px;
-      }
-    
-      button {
-        background-color: #229bd4;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-    
-      button:hover {
-        background-color: #9f5f37;
-      }
-    
-      .prev-btn,
-      .next-btn {
-        margin-top: 20px;
-      }
-    
-      button.prev-btn {
-        background-color: #229bd4;
-      }
-    
-      button.prev-btn:hover {
-        background-color: #9f5f37;
-      }
-    
-      .form-step {
-        display: none;
-      }
-    
-      .form-step.active {
-        display: block;
-      }
+h2 {
+  margin-bottom: 10px;
+}
+
+/* Floating Labels */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #beb6b1;
+  border-radius: 4px;
+  background: transparent;
+  font-size: 16px;
+  outline: none;
+}
+
+/* Floating effect for labels */
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  transition: all 0.3s ease-in-out;
+  background: white;
+  padding: 0 5px;
+  font-size: 16px;
+  color: #666;
+  pointer-events: none;
+}
+
+/* Float label when input is focused or has value */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:focus + label,
+.input-group textarea:not(:placeholder-shown) + label,
+.input-group select:focus + label,
+.input-group select:not([value=""]) + label {
+  top: 0;
+  left: 10px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Dropdown styling */
+.input-group select {
+  appearance: none;
+  background-color: transparent;
+  padding-right: 30px;
+}
+
+/* Checkbox & Radio Buttons */
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+/* Button Styles */
+button {
+  background-color: #229bd4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #9f5f37;
+}
+
+.prev-btn,
+.next-btn {
+  margin-top: 20px;
+}
+
+button.prev-btn {
+  background-color: #229bd4;
+}
+
+button.prev-btn:hover {
+  background-color: #9f5f37;
+}
+
+/* Hide inactive form steps */
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
     </style>
   </head>
 
   <body>
-    <div class="preloader">
-      <div class="preloader__inner">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <!-- /.preloader__inner -->
-    </div>
-    <!-- /.preloader -->
+    
 
     <div class="page-wrapper" >
       <header class="main-header">
@@ -657,149 +682,150 @@
       
 
 
-   <section class="sec-pad-top sec-pad-bottom" >
-  <div class="form-container">
-    <form id="collaborationForm">
-      <!-- Step 1: Organization Information -->
-      <div class="form-step active">
-        <h2>Step 1: Organization Information</h2>
-        <label for="orgName">Organization Name:</label>
-        <input type="text" id="orgName" name="orgName" required>
-  
-        <label for="website">Website (Optional):</label>
-        <input type="url" id="website" name="website">
-  
-        <label for="contactName">Point of Contact Name:</label>
-        <input type="text" id="contactName" name="contactName" required>
-  
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" required>
-  
-        <label for="phone">Phone Number (Optional):</label>
-        <input type="tel" id="phone" name="phone">
-  
-        <label for="country">Country:</label>
-        <select id="country" name="country" required>
-          <option value="" disabled selected>Select your country</option>
-          <option value="USA">USA</option>
-          <option value="India">India</option>
-          <option value="UK">UK</option>
-          <!-- Add more countries as needed -->
-        </select>
-  
-        <button type="button" class="next-btn">Next</button>
-      </div>
-  
-      <!-- Step 2: Areas of Collaboration -->
-      <div class="form-step">
-        <h2>Step 2: Areas of Collaboration</h2>
-        <p>Please select the areas you are interested in collaborating on (you may choose more than one):</p>
-  
-        <label>
-          <input type="checkbox" name="collaborationAreas" value="Sustainability"> Sustainability and Ethical
-          Trade
-        </label>
-        <label>
-          <input type="checkbox" name="collaborationAreas" value="Innovation"> Innovation and Technology
-          (Blockchain, E-commerce, Traceability)
-        </label>
-        <label>
-          <input type="checkbox" name="collaborationAreas" value="Research"> Academic Research and Scholarly
-          Work
-        </label>
-        <label>
-          <input type="checkbox" name="collaborationAreas" value="Artisan"> Artisan Welfare and Capacity
-          Building
-        </label>
-        <label>
-          <input type="checkbox" name="collaborationAreas" value="Cultural"> Cultural Preservation
-          (Exhibitions, Museums, Global Education)
-        </label>
-        <label>
-          <input type="checkbox" name="collaborationAreas" value="Policy"> Policy and Advocacy for Kashmiri
-          Handicrafts
-        </label>
-        <label for="otherArea">Other (Please Specify):</label>
-        <input type="text" id="otherArea" name="otherArea">
-  
-        <button type="button" class="prev-btn">Previous</button>
-        <button type="button" class="next-btn">Next</button>
-      </div>
-  
-      <!-- Step 3: Collaboration Proposal -->
-      <div class="form-step">
-        <h2>Step 3: Collaboration Proposal</h2>
-        <label for="projectTitle">Project Title:</label>
-        <input type="text" id="projectTitle" name="projectTitle">
-  
-        <label for="projectDescription">Project Description:</label>
-        <textarea id="projectDescription" name="projectDescription" rows="4"></textarea>
-  
-        <label for="expectedOutcomes">Expected Outcomes (Optional):</label>
-        <textarea id="expectedOutcomes" name="expectedOutcomes" rows="2"></textarea>
-  
-        <button type="button" class="prev-btn">Previous</button>
-        <button type="button" class="next-btn">Next</button>
-      </div>
-  
-      <!-- Step 4: Collaboration Type -->
-      <div class="form-step">
-        <h2>Step 4: Collaboration Type</h2>
-        <p>How would you like to collaborate with us?</p>
-  
-        <label>
-          <input type="checkbox" name="collaborationType" value="Financial"> Financial Support (Grants,
-          Donations, etc.)
-        </label>
-        <label>
-          <input type="checkbox" name="collaborationType" value="ResearchAndDev"> Research and Development
-        </label>
-        <label>
-          <input type="checkbox" name="collaborationType" value="Events"> Joint Events and Exhibitions
-        </label>
-        <label>
-          <input type="checkbox" name="collaborationType" value="Product"> Product or Service Development
-        </label>
-        <label>
-          <input type="checkbox" name="collaborationType" value="Partnership"> Long-term Partnership
-          (Strategic Partner, Ongoing Projects)
-        </label>
-        <label for="otherCollaboration">Other (Please Specify):</label>
-        <input type="text" id="otherCollaboration" name="otherCollaboration">
-  
-        <button type="button" class="prev-btn">Previous</button>
-        <button type="button" class="next-btn">Next</button>
-      </div>
-  
-      <!-- Step 5: Supporting Documents -->
-      <div class="form-step">
-        <h2>Step 5: Supporting Documents (Optional)</h2>
-        <p>If applicable, please upload any documents that support your collaboration proposal (e.g., research
-          papers, project proposals, brochures):</p>
-        <input type="file" name="supportingDocuments" id="supportingDocuments">
-  
-        <button type="button" class="prev-btn">Previous</button>
-        <button type="button" class="next-btn">Next</button>
-      </div>
-  
-      <!-- Step 6: Terms of Collaboration -->
-      <div class="form-step">
-        <h2>Step 6: Terms of Collaboration</h2>
-        <label>
-          <input type="checkbox" name="agreeTerms" required> I agree to the terms and conditions of
-          collaborating with HCRF
-        </label>
-        <label>
-          <input type="checkbox" name="futureComm"> I agree to receive updates and further communication from
-          HCRF
-        </label>
-  
-        <button type="button" class="prev-btn">Previous</button>
-        <button type="submit">Submit</button>
-      </div>
-    </form>
-  </div>
-   </section>
+      <section class="sec-pad-top sec-pad-bottom">
+        <div class="form-container">
+          <form id="collaborationForm">
+            
+            <!-- Step 1: Organization Information -->
+            <div class="form-step active">
+              <h2>Step 1: Organization Information</h2>
+      
+              <div class="input-group">
+                <input type="text" id="orgName" name="orgName" required>
+                <label for="orgName">Organization Name</label>
+              </div>
+      
+              <div class="input-group">
+                <input type="url" id="website" name="website">
+                <label for="website">Website (Optional)</label>
+              </div>
+      
+              <div class="input-group">
+                <input type="text" id="contactName" name="contactName" required>
+                <label for="contactName">Point of Contact Name</label>
+              </div>
+      
+              <div class="input-group">
+                <input type="email" id="email" name="email" required>
+                <label for="email">Email Address</label>
+              </div>
+      
+              <div class="input-group">
+                <input type="tel" id="phone" name="phone">
+                <label for="phone">Phone Number (Optional)</label>
+              </div>
+      
+              <div class="input-group">
+                <select id="country" name="country" required>
+                  <option value="" disabled selected></option>
+                  <option value="USA">USA</option>
+                  <option value="India">India</option>
+                  <option value="UK">UK</option>
+                </select>
+                <label for="country">Country</label>
+              </div>
+      
+              <button type="button" class="next-btn">Next</button>
+            </div>
+      
+            <!-- Step 2: Areas of Collaboration -->
+            <div class="form-step">
+              <h2>Step 2: Areas of Collaboration</h2>
+              <p>Select the areas you are interested in collaborating on:</p>
+      
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="collaborationAreas" value="Sustainability"> Sustainability and Ethical Trade</label>
+                <label><input type="checkbox" name="collaborationAreas" value="Innovation"> Innovation and Technology</label>
+                <label><input type="checkbox" name="collaborationAreas" value="Research"> Academic Research</label>
+                <label><input type="checkbox" name="collaborationAreas" value="Artisan"> Artisan Welfare</label>
+                <label><input type="checkbox" name="collaborationAreas" value="Cultural"> Cultural Preservation</label>
+                <label><input type="checkbox" name="collaborationAreas" value="Policy"> Policy and Advocacy</label>
+              </div>
+      
+              <div class="input-group">
+                <input type="text" id="otherArea" name="otherArea">
+                <label for="otherArea">Other (Please Specify)</label>
+              </div>
+      
+              <button type="button" class="prev-btn">Previous</button>
+              <button type="button" class="next-btn">Next</button>
+            </div>
+      
+            <!-- Step 3: Collaboration Proposal -->
+            <div class="form-step">
+              <h2>Step 3: Collaboration Proposal</h2>
+      
+              <div class="input-group">
+                <input type="text" id="projectTitle" name="projectTitle">
+                <label for="projectTitle">Project Title</label>
+              </div>
+      
+              <div class="input-group">
+                <textarea id="projectDescription" name="projectDescription" rows="4"></textarea>
+                <label for="projectDescription">Project Description</label>
+              </div>
+      
+              <div class="input-group">
+                <textarea id="expectedOutcomes" name="expectedOutcomes" rows="2"></textarea>
+                <label for="expectedOutcomes">Expected Outcomes (Optional)</label>
+              </div>
+      
+              <button type="button" class="prev-btn">Previous</button>
+              <button type="button" class="next-btn">Next</button>
+            </div>
+      
+            <!-- Step 4: Collaboration Type -->
+            <div class="form-step">
+              <h2>Step 4: Collaboration Type</h2>
+              <p>How would you like to collaborate with us?</p>
+      
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="collaborationType" value="Financial"> Financial Support</label>
+                <label><input type="checkbox" name="collaborationType" value="ResearchAndDev"> Research and Development</label>
+                <label><input type="checkbox" name="collaborationType" value="Events"> Joint Events</label>
+                <label><input type="checkbox" name="collaborationType" value="Product"> Product or Service Development</label>
+                <label><input type="checkbox" name="collaborationType" value="Partnership"> Long-term Partnership</label>
+              </div>
+      
+              <div class="input-group">
+                <input type="text" id="otherCollaboration" name="otherCollaboration">
+                <label for="otherCollaboration">Other (Please Specify)</label>
+              </div>
+      
+              <button type="button" class="prev-btn">Previous</button>
+              <button type="button" class="next-btn">Next</button>
+            </div>
+      
+            <!-- Step 5: Supporting Documents -->
+            <div class="form-step">
+              <h2>Step 5: Supporting Documents (Optional)</h2>
+              <p>Upload any supporting documents:</p>
+      
+              <div class="input-group file-upload">
+                <input type="file" name="supportingDocuments" id="supportingDocuments">
+                <label for="supportingDocuments">Choose File</label>
+              </div>
+      
+              <button type="button" class="prev-btn">Previous</button>
+              <button type="button" class="next-btn">Next</button>
+            </div>
+      
+            <!-- Step 6: Terms of Collaboration -->
+            <div class="form-step">
+              <h2>Step 6: Terms of Collaboration</h2>
+      
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="agreeTerms" required> I agree to the terms</label>
+                <label><input type="checkbox" name="futureComm"> I agree to receive updates</label>
+              </div>
+      
+              <button type="button" class="prev-btn">Previous</button>
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      
   
   
  
