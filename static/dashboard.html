@@ -47,34 +47,57 @@
           Home
         </button>
         <button class="btn" onclick="showContent('users', this)">Users</button>
+
+
         <button class="btn" onclick="showContent('messages', this)">
           Messages
         </button>
+
+
+
         <button class="btn" onclick="showContent('memberships', this)">
           Memberships
         </button>
+
+
         <button class="btn" onclick="showContent('collaborations', this)">
           Collaborations
         </button>
+
 
         <button class="btn" onclick="showContent('donations', this)">
           Donations
         </button>
 
+
         <button class="btn" onclick="showContent('badgeApplications', this)">
           Badge Applications
+        </button>
+
+
+
+        <button class="btn" onclick="showContent('manageBooks', this)">
+          Manage Books
         </button>
         
 
         <button class="btn" onclick="showContent('settings', this)">
           Settings
         </button>
+
+
         <button class="btn" onclick="showContent('reports', this)">
           Reports
         </button>
+
+        
         <button class="btn" onclick="showContent('logout', this)">
           Logout
         </button>
+
+
+
+
       </div>
       <div class="content">
         <div id="home" class="content-item active">
@@ -173,6 +196,76 @@
         
 
 
+        <div id="manageBooks" class="content-item">
+          <h2><i class="fas fa-book"></i> Upload a Book</h2>
+          <form id="uploadBookForm" enctype="multipart/form-data">
+            <label for="title"><i class="fas fa-heading"></i> Title:</label>
+            <input type="text" id="title" name="title" required>
+        
+            <label for="author"><i class="fas fa-user"></i> Author:</label>
+            <input type="text" id="author" name="author" required>
+        
+            <label for="category"><i class="fas fa-tags"></i> Category:</label>
+            <select id="category" name="category" required>
+              <option value="best_practices">Best Practices</option>
+              <option value="case_studies">Case Studies</option>
+              <option value="research_papers">Research Papers</option>
+              <option value="e_book">E-Book</option>
+            </select>
+        
+            <label for="cover"><i class="fas fa-image"></i> Cover Image:</label>
+            <input type="file" id="cover" name="cover" accept="image/*" required>
+        
+            <label for="pdf"><i class="fas fa-file-pdf"></i> PDF File:</label>
+            <input type="file" id="pdf" name="pdf" accept="application/pdf" required>
+        
+            <button type="submit"><i class="fas fa-upload"></i> Upload Book</button>
+          </form>
+          <p id="message"></p>
+        
+          <h2><i class="fas fa-book-open"></i> Available Books</h2>
+          <div id="bookContainer"></div>
+        
+          <!-- Edit Book Form (Popup Overlay) -->
+          <div id="editFormOverlay">
+            <div id="editFormContainer">
+              <button id="closeEditForm" onclick="cancelEdit()">&times;</button>
+              <h2><i class="fas fa-edit"></i> Edit Book</h2>
+              <form id="editBookForm">
+                <input type="hidden" id="editBookId"> <!-- Stores book ID -->
+        
+                <label for="editTitle"><i class="fas fa-heading"></i> Title:</label>
+                <input type="text" id="editTitle" name="title" required>
+        
+                <label for="editAuthor"><i class="fas fa-user"></i> Author:</label>
+                <input type="text" id="editAuthor" name="author" required>
+        
+                <label for="editCategory"><i class="fas fa-tags"></i> Category:</label>
+                <select id="editCategory" name="category" required>
+                  <option value="best_practices">Best Practices</option>
+                  <option value="case_studies">Case Studies</option>
+                  <option value="research_papers">Research Papers</option>
+                  <option value="e_book">E-Book</option>
+                </select>
+        
+                <label for="editCover"><i class="fas fa-image"></i> New Cover Image (Optional):</label>
+                <input type="file" id="editCover" name="cover" accept="image/*">
+        
+                <label for="editPdf"><i class="fas fa-file-pdf"></i> New PDF File (Optional):</label>
+                <input type="file" id="editPdf" name="pdf" accept="application/pdf">
+        
+                <button type="submit"><i class="fas fa-save"></i> Update Book</button>
+                <button type="button" onclick="cancelEdit()"><i class="fas fa-times"></i> Cancel</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
 
 
 
@@ -195,32 +288,36 @@
     <script defer>
       // Show content function
       function showContent(page, button) {
-        const buttons = document.querySelectorAll(".btn");
-        buttons.forEach((btn) => btn.classList.remove("active"));
-        button.classList.add("active");
+  const buttons = document.querySelectorAll(".btn");
+  buttons.forEach((btn) => btn.classList.remove("active"));
+  button.classList.add("active");
 
-        const contentItems = document.querySelectorAll(".content-item");
-        contentItems.forEach((item) => (item.style.display = "none"));
+  const contentItems = document.querySelectorAll(".content-item");
+  contentItems.forEach((item) => (item.style.display = "none"));
 
-        const selectedContent = document.getElementById(page);
-        if (selectedContent) {
-          selectedContent.style.display = "block";
-        }
+  const selectedContent = document.getElementById(page);
+  if (selectedContent) {
+    selectedContent.style.display = "block";
+  }
 
-        if (page === "users") {
-          fetchUsers();
-        } else if (page === "messages") {
-          fetchMessages();
-        } else if (page === "memberships") {
-          fetchMemberships();
-        } else if (page === "collaborations") {
-          fetchCollaborations();
-        } else if (page === "donations") {
-          fetchDonations();
-        }else if (page === "badgeApplications") {
-          fetchBadges();
-        }
-      }
+  if (page === "users") {
+    fetchUsers();
+  } else if (page === "messages") {
+    fetchMessages();
+  } else if (page === "memberships") {
+    fetchMemberships();
+  } else if (page === "collaborations") {
+    fetchCollaborations();
+  } else if (page === "donations") {
+    fetchDonations();
+  } else if (page === "badgeApplications") {
+    fetchBadges();
+  } else if (page === "manageBooks") {
+    fetchBooks(); // Fetch books when the manageBooks section is shown
+  }
+}
+     
+     
       // Fetch and display users
       async function fetchUsers() {
         const usersList = document.getElementById("users-list");
@@ -864,7 +961,7 @@ async function rejectCollaboration(collaborationId) {
 
 
 
-API_BASE = "http://localhost:5000";
+// API_BASE = "https://api.khcrf.org";
 
 async function fetchBadges() {
   const badgesList = document.getElementById("badges-list");
@@ -1178,6 +1275,126 @@ function renderNestedField(title, field) {
       }
 
     </script>
+
+
+
+<script>
+  const API_BASE = 'https://api.khcrf.org';
+  const apiUrl = `${API_BASE}/api/books`; // Base API URL for books
+
+  // Fetch and display books
+  async function fetchBooks() {
+      try {
+          const response = await fetch(apiUrl);
+          if (!response.ok) throw new Error('Failed to fetch books');
+          const books = await response.json();
+          displayBooks(books);
+      } catch (error) {
+          console.error('Error fetching books:', error);
+          document.getElementById('message').textContent = 'Failed to load books';
+      }
+  }
+
+  // Display books
+  function displayBooks(books) {
+      const container = document.getElementById('bookContainer');
+      container.innerHTML = '';
+
+      books.forEach(book => {
+          if (!book.id) {
+              console.error("Skipping book with missing ID:", book);
+              return;
+          }
+
+          const bookCard = document.createElement('div');
+          bookCard.className = 'book-card';
+          bookCard.innerHTML = `
+              <img src="${API_BASE}/${book.coverImage}" alt="${book.title}">
+              <h3>${book.title}</h3>
+              <p><i class="fas fa-user"></i> Author: ${book.author}</p>
+              <p><i class="fas fa-tags"></i> Category: ${book.category}</p>
+              <a href="${API_BASE}/${book.pdfFile}" target="_blank"><i class="fas fa-file-pdf"></i> View PDF</a>
+              <div class="actions">
+                  <button onclick="loadEditForm('${book.id}')"><i class="fas fa-edit"></i> Edit</button>
+                  <button onclick="deleteBook('${book.id}')"><i class="fas fa-trash"></i> Delete</button>
+              </div>
+          `;
+          container.appendChild(bookCard);
+      });
+  }
+
+  // Handle book upload
+  document.getElementById('uploadBookForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      try {
+          const response = await fetch(apiUrl, { method: 'POST', body: formData });
+          const result = await response.json();
+          document.getElementById('message').textContent = result.message || "Book uploaded successfully!";
+          this.reset();
+          fetchBooks();
+      } catch (error) {
+          console.error('Error uploading book:', error);
+      }
+  });
+
+  // Load book details into edit form
+  async function loadEditForm(id) {
+      try {
+          const response = await fetch(`${apiUrl}/details/${id}`, {
+              method: 'GET',
+              headers: { 'Content-Type': 'application/json' }
+          });
+
+          if (!response.ok) throw new Error('Failed to fetch book details');
+
+          const book = await response.json();
+          document.getElementById('editBookId').value = book.id;
+          document.getElementById('editTitle').value = book.title;
+          document.getElementById('editAuthor').value = book.author;
+          document.getElementById('editCategory').value = book.category;
+
+          document.getElementById('editFormOverlay').style.display = "flex";
+      } catch (error) {
+          console.error('Error loading edit form:', error);
+      }
+  }
+
+  // Handle book update
+  document.getElementById('editBookForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const bookId = document.getElementById('editBookId').value;
+      const formData = new FormData(this);
+
+      try {
+          const response = await fetch(`${apiUrl}/${bookId}`, { method: 'PUT', body: formData });
+          const result = await response.json();
+          document.getElementById('message').textContent = result.message || "Book updated successfully!";
+          cancelEdit();
+          fetchBooks();
+      } catch (error) {
+          console.error('Error updating book:', error);
+      }
+  });
+
+  // Delete book
+  async function deleteBook(id) {
+      try {
+          await fetch(`${apiUrl}/${id}`, { method: 'DELETE' });
+          fetchBooks();
+      } catch (error) {
+          console.error('Error deleting book:', error);
+      }
+  }
+
+  // Cancel edit
+  function cancelEdit() {
+      document.getElementById('editFormOverlay').style.display = "none";
+      document.getElementById('editBookForm').reset();
+  }
+
+  document.addEventListener('DOMContentLoaded', fetchBooks);
+</script>
 
   </body>
 </html>
