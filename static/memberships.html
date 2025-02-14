@@ -63,6 +63,9 @@
     <link rel="stylesheet" href="assets/css/paroti.css" />
     <link rel="stylesheet" href="assets/css/common.css" />
     <link rel="stylesheet" href="assets/css/index.css" />
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
     <style>
       .home-icon {
   color: black;
@@ -80,141 +83,131 @@
   text-decoration: none; /* Prevent underline */
 }
 
-      .gender_form div {
-        display: inline-block;
-        width: 46%;
-    
-      }
-    
-      .con_nat div {
-        display: inline-block;
-        width: 48%;
-    
-      }
-    
-      .street_city div {
-        display: inline-block;
-        width: 48%;
-      }
-    
-      .form-container {
-        max-width: 40%;
-        margin: 50px auto;
-        background: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        /* box-shadow: 0 0 30px #9f5f37 */
-        border: 0.5px solid #beb6b1;
-      }
-    
-      fieldset {
-        margin-bottom: 20px;
-      }
-    
-      legend {
-        font-size: 1.2em;
-        margin-bottom: 10px;
-      }
-    
-      label {
-        display: block;
-        margin-top: 10px;
 
-      }
-    
-      input[type="text"],
-      input[type="email"],
-      input[type="date"],
-      input[type="tel"],
-      input[type="url"],
-      input[type="number"],
-      input[type="month"],
-      textarea {
-        width: 95%;
-        padding: 8px;
-        margin-top: 5px;
-        border-top:1px solid #beb6b1;
-        border-bottom:1px solid #beb6b1;
+/* Form Container */
+.form-container {
+    max-width: 40%;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    /* border: 0.5px solid #beb6b1; */
+}
 
-        border-left:1px solid #beb6b1;
-        border-right:1px solid #beb6b1;
-    
-      }
-    
-      .form_next {
-        padding: 10px 15px;
-        background-color: #3498db;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        border-radius: 3px;
-        margin-top: 10px;
-      }
-    
-      .form_next:hover {
-        background-color: #9f5f37;
-      }
-    
-      .hidden {
-        display: none;
-      }
-    
-      .form-step {
-        display: none;
-      }
-    
-      .form-step.active {
-        display: block;
-      }
+/* Fieldset and Legend */
+fieldset {
+    margin-bottom: 20px;
+}
 
-      
+legend {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
 
-      /* Styles for the .form-container to be 100% width on mobile devices */
+/* Floating Label Styling */
+.floating-label {
+    position: relative;
+    margin-top: 15px;
+}
+
+.floating-label input,
+.floating-label textarea {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #beb6b1;
+    border-radius: 3px;
+    background: transparent;
+    font-size: 1em;
+}
+
+.floating-label label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    background: white;
+    padding: 0 5px;
+    transition: 0.3s ease-in-out;
+    color: #888;
+    font-size: 1em;
+}
+
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label,
+.floating-label textarea:focus + label,
+.floating-label textarea:not(:placeholder-shown) + label {
+    top: 0;
+    font-size: 0.85em;
+    color: #333;
+}
+
+/* Gender, Country, and Address Form */
+.gender_form div,
+.con_nat div,
+.street_city div {
+    display: inline-block;
+    width: 48%;
+}
+
+/* Navigation Buttons */
+.form_next {
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+
+.form_next:hover {
+    background-color: #9f5f37;
+}
+
+/* Hidden Elements */
+.hidden {
+    display: none;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+/* Mobile Responsive */
 @media (max-width: 768px) {
     .form-container {
         max-width: 100%;
-        margin: 20px auto; /* Adjusted margin for smaller screens */
-        padding: 15px; /* Optional: Adjust padding for better spacing */
+        margin: 20px auto;
+        padding: 15px;
     }
 
     .gender_form div,
     .con_nat div,
     .street_city div {
-        width: 100%; /* Make child divs take full width on mobile */
+        width: 100%;
     }
 
-    input[type="text"],
-    input[type="email"],
-    input[type="date"],
-    input[type="tel"],
-    input[type="url"],
-    input[type="number"],
-    input[type="month"],
-    textarea {
-        width: 100%; /* Ensure inputs are full-width */
+    .floating-label input,
+    .floating-label textarea {
+        width: 100%;
     }
 }
 
 
+
+
+
     </style>
+
+
   </head>
 
   <body>
-    <div class="preloader">
-      <div class="preloader__inner">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <!-- /.preloader__inner -->
-    </div>
-    <!-- /.preloader -->
-
+   
     <div class="page-wrapper" >
       <header class="main-header">
         <div class="topbar">
@@ -902,253 +895,251 @@
      
 
 
-
-      <!-- <section style="padding: 30px;" id="membership_form"> -->
+      <section style="padding: 30px;" id="membership_form">
         <div class="form-container">
-          <h1 style="color: #333;">Membership Form</h1>
-    
-          <form id="multi-step-form">
-            <!-- Step 1: Personal Information -->
-            <div class="form-step active">
-              <fieldset>
-                <legend>Personal Information</legend>
-                <label for="full-name">Full Name: *</label>
-                <input type="text" id="full-name" name="fullName" required />
-    
-                <label for="dob">Date of Birth: *</label>
-                <input type="date" id="dob" name="dob" required />
-    
-                <label>Gender:</label>
-                <div class="gender_form">
-                  <div>
-                    <label
-                      ><input type="radio" name="gender" value="male" required />
-                      Male</label
-                    >
-                  </div>
-                  <div>
-                    <label
-                      ><input type="radio" name="gender" value="female" required />
-                      Female</label
-                    >
-                  </div>
+            <h1 style="color: #333;">Membership Form</h1>
+
+            <form id="multi-step-form">
+                <!-- Step 1: Personal Information -->
+                <div class="form-step active">
+                    <fieldset>
+                        <legend>Personal Information</legend>
+
+                        <div class="floating-label">
+                            <input type="text" id="full-name" name="fullName" required />
+                            <label for="full-name">Full Name: *</label>
+                        </div>
+
+                        <div class="floating-label">
+                            <input type="date" id="dob" name="dob" required />
+                            <label for="dob">Date of Birth: *</label>
+                        </div>
+
+                        <label>Gender:</label>
+                        <div class="gender_form">
+                            <label><input type="radio" name="gender" value="male" required /> Male</label>
+                            <label><input type="radio" name="gender" value="female" required /> Female</label>
+                        </div>
+
+                        <div class="floating-label">
+                            <input type="email" id="email" name="email" required />
+                            <label for="email">Email Address: *</label>
+                        </div>
+
+                        <div class="floating-label">
+                            <input type="tel" id="phone" name="phone" required />
+                            <label for="phone">Phone Number: *</label>
+                        </div>
+
+                        <div class="floating-label">
+                            <input type="text" id="country" name="country" />
+                            <label for="country">Country:</label>
+                        </div>
+
+                        <div class="floating-label">
+                            <input type="text" id="nationality" name="nationality" required />
+                            <label for="nationality">Nationality: *</label>
+                        </div>
+
+                        <div class="floating-label">
+                            <input type="text" id="state" name="state" />
+                            <label for="state">State/Province:</label>
+                        </div>
+
+                        <div class="floating-label">
+                            <input type="text" id="city" name="city" />
+                            <label for="city">City:</label>
+                        </div>
+
+                        <div class="floating-label">
+                            <input type="text" id="postal" name="postalCode" />
+                            <label for="postal">Postal Code:</label>
+                        </div>
+
+                        <div class="floating-label">
+                            <input type="text" id="street" name="streetAddress" />
+                            <label for="street">Address:</label>
+                        </div>
+                    </fieldset>
+                    <button class="form_next" type="button" onclick="nextStep()">Next</button>
                 </div>
-    
-                <label for="email">Email Address: *</label>
-                <input type="email" id="email" name="email" required />
-    
-                <label for="phone">Phone Number: *</label>
-                <input type="tel" id="phone" name="phone" required />
-    
-                <div class="con_nat">
-                  <div>
-                    <label for="country">Country:</label>
-                    <input type="text" id="country" name="country" />
-                  </div>
-                  <div style="margin-left: 5px">
-                    <label for="nationality">Nationality: *</label>
-                    <input
-                      type="text"
-                      id="nationality"
-                      name="nationality"
-                      required
-                    />
-                  </div>
+
+                <!-- Step 2: Membership Category -->
+                <div class="form-step">
+                    <fieldset>
+                        <legend>Membership Category and Fees</legend>
+                        <label>
+                            <input type="radio" name="membershipType" value="artisan" required />
+                            Artisan — ₹50
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="membershipType" value="individual" required />
+                            Individual — ₹75
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="membershipType" value="professional" required />
+                            Professional — ₹150
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="membershipType" value="corporate" required />
+                            Corporate — ₹500
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="membershipType" value="patron" required />
+                            Patron — ₹1,000
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="membershipType" value="student" required />
+                            Student — ₹30
+                        </label>
+                    </fieldset>
+                    <button class="form_next" type="button" onclick="previousStep()">Previous</button>
+                    <button class="form_next" type="button" onclick="nextStep()">Next</button>
                 </div>
-    
-                <div class="street_city">
-                  <div>
-                    <label for="state">State/Province:</label>
-                    <input type="text" id="state" name="state" />
-                  </div>
-                  <div style="margin-left: 5px">
-                    <label for="city">City:</label>
-                    <input type="text" id="city" name="city" />
-                  </div>
+
+                <!-- Step 3: Payment Information with Razorpay -->
+                <div class="form-step">
+                    <fieldset>
+                        <legend>Payment Information</legend>
+                        <p>Proceed to pay using Razorpay:</p>
+                        <button type="button" id="rzp-button">Pay Now</button>
+                    </fieldset>
+                    <button class="form_next" type="button" onclick="previousStep()">Previous</button>
                 </div>
-    
-                <label for="postal">Postal Code:</label>
-                <input type="text" id="postal" name="postalCode" />
-    
-                <label for="street">Address:</label>
-                <input type="text" id="street" name="streetAddress" />
-              </fieldset>
-              <button class="form_next" type="button" onclick="nextStep()">
-                Next
-              </button>
-            </div>
-    
-            <!-- Step 2: Membership Category -->
-            <div class="form-step">
-              <fieldset>
-                <legend>Membership Category and Fees</legend>
-                <label
-                  ><input
-                    type="radio"
-                    name="membershipType"
-                    value="artisan"
-                    required
-                  />
-                  Artisan — ₹50</label
-                >
-                <label
-                  ><input
-                    type="radio"
-                    name="membershipType"
-                    value="individual"
-                    required
-                  />
-                  Individual — ₹75</label
-                >
-                <label
-                  ><input
-                    type="radio"
-                    name="membershipType"
-                    value="professional"
-                    required
-                  />
-                  Professional — ₹150</label
-                >
-                <label
-                  ><input
-                    type="radio"
-                    name="membershipType"
-                    value="corporate"
-                    required
-                  />
-                  Corporate — ₹500</label
-                >
-                <label
-                  ><input
-                    type="radio"
-                    name="membershipType"
-                    value="patron"
-                    required
-                  />
-                  Patron — ₹1,000</label
-                >
-                <label
-                  ><input
-                    type="radio"
-                    name="membershipType"
-                    value="student"
-                    required
-                  />
-                  Student — ₹30</label
-                >
-              </fieldset>
-              <button class="form_next" type="button" onclick="previousStep()">
-                Previous
-              </button>
-              <button class="form_next" type="button" onclick="nextStep()">
-                Next
-              </button>
-            </div>
-    
-           <!-- Step 3: Payment Information -->
-    <div class="form-step">
-        <fieldset>
-          <legend>Payment Information</legend>
-      
-         <!-- Payment Method Selection -->
-    <div class="payment-method">
-      <label>
-        <input type="radio" name="paymentMethod" value="upi" onclick="togglePaymentDetails()"> UPI Payment
-      </label>
-      <label>
-        <input type="radio" name="paymentMethod" value="bankTransfer" onclick="togglePaymentDetails()"> Bank Transfer
-      </label>
-    </div>
-    
-      
-          <!-- UPI Payment Information -->
-          <div class="upi-section hidden" id="upi-details">
-            <h3>UPI Payment Details</h3>
-            <p>UPI ID: <span id="upi-id">JKBMERC00558651@jkb</span></p>
-            <p>
-              Payee Name: <strong>HAMADAN CRAFT REVIVAL FOUNDATION</strong>
-            </p>
-            <button type="button" onclick="copyToClipboard('upi-id')">
-              Copy UPI ID
-            </button>
-          </div>
-      
-          <!-- Bank Account Details -->
-          <div class="bank-section hidden" id="bank-details">
-            <h3>Bank Account Details</h3>
-            <p>
-              Account Holder:
-              <strong>HAMADAN CRAFT REVIVAL FOUNDATION</strong>
-            </p>
-            <p>
-              Account Number:
-              <span id="account-number">0440010100001057</span>
-            </p>
-            <p>MICR Code: <span id="micr-code">190051029</span></p>
-            <p>Branch Code: <span id="branch-code">INTDIV</span></p>
-            <p>Branch: <strong>INTERNATIONAL BANKING DIV SRINAGAR</strong></p>
-            <button type="button" onclick="copyToClipboard('account-number')">
-              Copy Account Number
-            </button>
-            <button type="button" onclick="copyToClipboard('micr-code')">
-              Copy MICR Code
-            </button>
-            <button type="button" onclick="copyToClipboard('branch-code')">
-              Copy Branch Code
-            </button>
-          </div>
-        </fieldset>
-      
-        <!-- Navigation Buttons -->
-        <button class="form_next" type="button" onclick="previousStep()">
-          Previous
-        </button>
-        <button class="form_next" type="submit">Submit</button>
-      </div>
-      
-          </form>
+            </form>
         </div>
+    </section>
 
         <script src="config.js"></script>
         <script>
-          // Form submission with API integration
-          document
-              .getElementById("multi-step-form")
-              .addEventListener("submit", async function (e) {
-                  e.preventDefault();
       
-                  const formData = new FormData(this);
-                  const data = Object.fromEntries(formData);
+          document.getElementById("rzp-button").addEventListener("click", async function () {
+              // Collect form data
+              const membershipType = document.querySelector('input[name="membershipType"]:checked')?.value;
+              const fullName = document.getElementById("full-name").value;
+              const email = document.getElementById("email").value;
+              const phone = document.getElementById("phone").value;
+              const dob = document.getElementById("dob").value;
+              const nationality = document.getElementById("nationality").value;
+              const gender = document.querySelector('input[name="gender"]:checked')?.value;
       
-                  console.log("Form Data:", data); // Debugging: Log payload before sending
+              // Additional address fields
+              const country = document.getElementById("country").value;
+              const state = document.getElementById("state").value;
+              const city = document.getElementById("city").value;
+              const postalCode = document.getElementById("postal").value;
+              const streetAddress = document.getElementById("street").value;
       
-                  try {
-                      const response = await fetch(`${API_BASE}/api/form/register`, {
-                          method: "POST",
-                          headers: { "Content-Type": "application/json" },
-                          body: JSON.stringify(data),
-                      });
+              // Validate required fields
+              if (!membershipType || !fullName || !email || !phone || !dob || !nationality || !gender) {
+                  alert("Please fill in all required fields.");
+                  return;
+              }
       
-                      const result = await response.json();
-                      if (response.ok) {
-                          alert("Form submitted successfully!");
-                          
-                          // Show success popup
-                          createMembershipPopup(formData.get("name"));
+              // Membership pricing (amount in paise)
+              const membershipAmounts = {
+                  artisan: 5000,
+                  individual: 7500,
+                  professional: 15000,
+                  corporate: 50000,
+                  patron: 100000,
+                  student: 3000
+              };
       
-                          this.reset();
-                          currentStep = 0;
-                          showStep(currentStep);
-                      } else {
-                          console.error("API Error:", result);
-                          alert(result.error || "Error submitting the form.");
-                      }
-                  } catch (error) {
-                      console.error("Error:", error);
-                      alert("An error occurred while submitting the form.");
+              const amount = membershipAmounts[membershipType];
+              if (!amount) {
+                  alert("Invalid membership type selected.");
+                  return;
+              }
+      
+              // Split full name
+              const [firstName, ...lastNameParts] = fullName.split(" ");
+              const lastName = lastNameParts.join(" ") || "N/A";
+      
+              // Construct member details object
+              const memberDetails = {
+                  firstName,
+                  lastName,
+                  fullName, // Include fullName explicitly
+                  email,
+                  phone,
+                  dob,
+                  gender,
+                  nationality,
+                  membershipType,
+                  address: `${streetAddress}, ${city}, ${state}, ${country} - ${postalCode}`,
+                  paymentMethod: 'razorpay',
+                  type: "membership"
+              };
+      
+              try {
+                  // Create the order
+                  const response = await fetch(`${API_BASE}/api/payment/create-order`, {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({ amount, currency: "INR", type: "membership", metadata: memberDetails })
+                  });
+      
+                  if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+                  const data = await response.json();
+                  if (!data.order) throw new Error("Order data not found in response");
+      
+                  // Initialize Razorpay payment
+                  const options = {
+                      key: "rzp_live_0Imfta5OKjsu0J",
+                      amount: data.order.amount,
+                      currency: data.order.currency,
+                      name: "HAMADAN CRAFT REVIVAL FOUNDATION",
+                      description: "Membership Fee",
+                      order_id: data.order.id,
+                      handler: async function (response) {
+                          await verifyPayment(response);
+                      },
+                      prefill: { name: fullName, email, contact: phone },
+                      theme: { color: "#3399cc" },
+                  };
+      
+                  const rzp = new Razorpay(options);
+                  rzp.open();
+              } catch (error) {
+                  console.error("Error in payment:", error);
+                  alert("An error occurred while processing your payment. Please try again.");
+              }
+          });
+      
+          // Verify Payment Function
+          async function verifyPayment(paymentData) {
+              try {
+                  const verifyRes = await fetch(`${API_BASE}/api/payment/verify`, {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify(paymentData),
+                  });
+      
+                  const result = await verifyRes.json();
+                  console.log("Payment Verification Response:", result);
+      
+                  if (result.success) {
+                      alert("Payment Verified Successfully!");
+                      document.getElementById("multi-step-form").submit();
+                  } else {
+                      alert("Payment Verification Failed!");
                   }
-              });
+              } catch (error) {
+                  console.error("Verification Error:", error);
+                  alert("An error occurred while verifying your payment. Please contact support.");
+              }
+          }
+      </script>
       
+        
+        <script>
+        
           document.addEventListener("DOMContentLoaded", () => {
               const token = localStorage.getItem("authToken"); // Use the same token key as in the working script
               const isAdmin = localStorage.getItem("isAdmin") === "true"; // Check admin status
@@ -1666,13 +1657,13 @@
   const sixMonthsPassed = Math.floor(daysPassed / 180);
 
   // Base values
-  let artisanMembership = 21556 + daysPassed * 10;
+  let artisanMembership = 156 + daysPassed * 10;
   artisanMembership = Math.min(artisanMembership, 310000); // Max limit applied
 
-  let individualMembership = 18 + monthsPassed * 40;
-  let professionalMembership = 321 + monthsPassed * 2;
-  let patronMembership = 5 + sixMonthsPassed * 1;
-  let studentMembership = 4 + weeksPassed * 2;
+  let individualMembership = 8 + monthsPassed * 40;
+  let professionalMembership = 21 + monthsPassed * 2;
+  let patronMembership = 2 + sixMonthsPassed * 1;
+  let studentMembership = 14 + weeksPassed * 2;
 
   // Update the HTML dynamically
   document.getElementById("artisan-membership").textContent = artisanMembership;
