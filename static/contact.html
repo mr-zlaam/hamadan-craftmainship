@@ -46,6 +46,56 @@
     border-radius: 4px; /* Optional: Add a slight rounded corner */
     text-decoration: none; /* Prevent underline */
   }
+
+
+
+  
+  </style>
+
+
+<style>
+  .input-container {
+      position: relative;
+      margin-bottom: 15px;
+  }
+  
+  .input-container label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 16px;
+      color: #beb6b1;
+      transition: all 0.3s ease;
+      pointer-events: none;
+  }
+  
+  .input-container input:focus ~ label,
+  .input-container input:not(:placeholder-shown) ~ label,
+  .input-container textarea:focus ~ label,
+  .input-container textarea:not(:placeholder-shown) ~ label {
+      top: -10px;
+      left: 10px;
+      font-size: 12px;
+      color: #333;
+      background-color: #f9f9f9;
+      padding: 0 5px;
+  }
+  
+  .input-container input,
+  .input-container textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #beb6b1;
+      border-radius: 5px;
+      font-size: 16px;
+      color: black;
+      background-color: #fff;
+  }
+  
+  .input-container textarea {
+      resize: none;
+      height: 120px;
+  }
   </style>
   
 </head>
@@ -299,29 +349,43 @@
 						</p>
 					</div>
 				</div>
-				<div class="form-container" style="max-width: 600px; margin: 0 auto; padding: 30px; background-color: #f9f9f9; border: 0.5px solid #beb6b1; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); font-family: Arial, sans-serif;">
-					<h1 style="text-align: center; font-size: 24px; margin-bottom: 20px; color: #333;">Contact Us</h1>
-					<form id="contact-form">
-						<div class="row" style="display: flex; flex-wrap: wrap; gap: 15px;">
-							<div class="col-md-6" style="width: calc(50% - 7.5px);">
-								<input type="text" id="name" placeholder="Your name" name="name" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #beb6b1; border-radius: 5px; font-size: 16px; color: black; background-color: #fff;">
-							</div>
-							<div class="col-md-6" style="width: calc(50% - 7.5px);">
-								<input type="text" id="phone" placeholder="Phone Number" name="phone" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #beb6b1; border-radius: 5px; font-size: 16px; color: black; background-color: #fff;">
-							</div>
-							<div class="col-md-12" style="width: 100%;">
-								<input type="email" id="email" placeholder="Email address" name="email" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #beb6b1; border-radius: 5px; font-size: 16px; color: black; background-color: #fff;">
-							</div>
-							<div class="col-md-12" style="width: 100%;">
-								<textarea name="message" id="message" placeholder="Write a message" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #beb6b1; border-radius: 5px; font-size: 16px; color: black; background-color: #fff; resize: none; height: 120px;"></textarea>
-							</div>
-							<div class="col-md-12" style="width: 100%;">
-								<button type="submit" class="thm-btn contact-one__btn" style="display: block; width: 200px; padding: 12px 20px; font-size: 16px; color: #fff; border: none; border-radius: 5px; cursor: pointer; background-color: #9f5f37; transition: background-color 0.3s ease;"><span>Send message</span></button>
-							</div>
-						</div>
-					</form>
-					<div class="result"></div>
-				</div>
+				
+
+        <div class="form-container" style="max-width: 600px; margin: 0 auto; padding: 30px; background-color: #f9f9f9; border: 0.5px solid #beb6b1; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); font-family: Arial, sans-serif;">
+          <h1 style="text-align: center; font-size: 24px; margin-bottom: 20px; color: #333;">Contact Us</h1>
+          <form id="contact-form">
+              <div class="row" style="display: flex; flex-wrap: wrap; gap: 15px;">
+                  <div class="col-md-6" style="width: calc(50% - 7.5px);">
+                      <div class="input-container">
+                          <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #beb6b1; border-radius: 5px; font-size: 16px; color: black; background-color: #fff;">
+                          <label for="name">Your name</label>
+                      </div>
+                  </div>
+                  <div class="col-md-6" style="width: calc(50% - 7.5px);">
+                      <div class="input-container">
+                          <input type="text" id="phone" name="phone" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #beb6b1; border-radius: 5px; font-size: 16px; color: black; background-color: #fff;">
+                          <label for="phone">Phone Number</label>
+                      </div>
+                  </div>
+                  <div class="col-md-12" style="width: 100%;">
+                      <div class="input-container">
+                          <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #beb6b1; border-radius: 5px; font-size: 16px; color: black; background-color: #fff;">
+                          <label for="email">Email address</label>
+                      </div>
+                  </div>
+                  <div class="col-md-12" style="width: 100%;">
+                      <div class="input-container">
+                          <textarea name="message" id="message" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #beb6b1; border-radius: 5px; font-size: 16px; color: black; background-color: #fff; resize: none; height: 120px;"></textarea>
+                          <label for="message">Write a message</label>
+                      </div>
+                  </div>
+                  <div class="col-md-12" style="width: 100%;">
+                      <button type="submit" class="thm-btn contact-one__btn" style="display: block; width: 200px; padding: 12px 20px; font-size: 16px; color: #fff; border: none; border-radius: 5px; cursor: pointer; background-color: #9f5f37; transition: background-color 0.3s ease;"><span>Send message</span></button>
+                  </div>
+              </div>
+          </form>
+          <div class="result"></div>
+      </div>
 			</div>
 		</div>
 	</section>
