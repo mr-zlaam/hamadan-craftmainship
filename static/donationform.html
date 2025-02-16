@@ -451,7 +451,7 @@ button[type="button"]:hover {
                 <!-- /.main-menu__cta__text -->
               </div>
               <!-- /.main-menu__cta -->
-              <a href="donations.html" class="thm-btn thm-btn--two">
+              <a href="donationform.html" class="thm-btn thm-btn--two">
                 <span>Donate Now</span></a>
               <!-- <i class="fa fa-donate"></i>  -->
               <!-- <img
@@ -797,7 +797,7 @@ button[type="button"]:hover {
               </div>
           </fieldset>
   
-          <button type="button" id="rzp-button">Proceed to Payment</button>
+          <button type="button" id="rzp-button" onclick="this.textContent='Loading....' ">Proceed to Payment</button>
       </form>
   
        
@@ -900,7 +900,7 @@ button[type="button"]:hover {
                 <h3 class="site-footer__widget__title"><span>Let's come together to raise donations & help amplify the
                     voices of Kashmiri artisans.</span></h3>
                 <!-- /.site-footer__widget__title -->
-                <a href="donations.html" class="thm-btn thm-btn--two" style="background-color: #9f5f37; margin: 0px;">
+                <a href="donationform.html" class="thm-btn thm-btn--two" style="background-color: #9f5f37; margin: 0px;">
                   <span>Donate Now</span>
                 </a><!-- /.thm-btn--two -->
               </div><!-- /.site-footer__widget -->
@@ -943,10 +943,11 @@ button[type="button"]:hover {
                 <a href="#" class="icon_footer"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="#" class="icon_footer"><i class="fab fa-instagram"></i></a>
               </div>
-              <div class="policy-links mt-3">
-                <a href="terms.html" class="text-white me-2">Legal</a> |
-                <a href="privacy.html" class="text-white ms-2">Privacy Policy</a>
-              </div>
+              <div class="policy-links mt-3" style="width: 300px;">
+            <a href="terms.html" class="text-white me-2">Legal</a> |
+            <a href="privacy.html" class="text-white ms-2">Privacy Policy</a>
+            | <a href="refund_policy.html" class="text-white ms-2">Refund Policy</a>
+          </div>
             </div>
     
             <!-- Right Section -->
@@ -1074,115 +1075,7 @@ button[type="button"]:hover {
 
 
     <script src="config.js"></script>
-    <script>
-  
-      // Enable custom amount input when selected
-      document.getElementById('customAmountRadio').addEventListener('change', function() {
-          document.getElementById('customAmount').disabled = !this.checked;
-      });
-  
-      // Calculate total donation amount
-      function calculateTotalAmount() {
-          let totalAmount = 0;
-  
-          // Add selected donation amount
-          const selectedAmount = document.querySelector('input[name="amount"]:checked').value;
-          if (selectedAmount === 'custom') {
-              totalAmount += parseFloat(document.getElementById('customAmount').value) || 0;
-          } else {
-              totalAmount += parseFloat(selectedAmount);
-          }
-  
-          return totalAmount * 100; // Convert to paise for Razorpay
-      }
-  
-      // Razorpay Payment Integration
-      document.getElementById('rzp-button').addEventListener('click', async function() {
-          const totalAmount = calculateTotalAmount();
-          if (totalAmount <= 0) {
-              alert('Please select a valid donation amount.');
-              return;
-          }
-  
-          const donorDetails = {
-              firstName: document.getElementById('firstName').value,
-              lastName: document.getElementById('lastName').value,
-              email: document.getElementById('email').value,
-              phone: document.getElementById('phone').value,
-              donationType: document.querySelector('select[name="donationType"]').value,
-              paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value 
-          };
-  
-          try {
-              const response = await fetch(`${API_BASE}/api/payment/create-order`, {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({ amount: totalAmount, currency: "INR", type: "donation", metadata: donorDetails })
-              });
-  
-              const { order } = await response.json();
-  
-              const options = {
-                  key: "rzp_live_0Imfta5OKjsu0J", 
-                  amount: order.amount,
-                  currency: order.currency,
-                  name: "HAMADAN CRAFT REVIVAL FOUNDATION",
-                  description: "Donation Payment",
-                  order_id: order.id,
-                  handler: async function (response) {
-                      const paymentData = {
-                          razorpay_order_id: response.razorpay_order_id,
-                          razorpay_payment_id: response.razorpay_payment_id,
-                          razorpay_signature: response.razorpay_signature
-                      };
-  
-                      // Send for verification
-                      await verifyPayment(paymentData);
-                  },
-                  prefill: {
-                      name: donorDetails.firstName + " " + donorDetails.lastName,
-                      email: donorDetails.email,
-                      contact: donorDetails.phone
-                  }
-              };
-  
-              const rzp = new Razorpay(options);
-              rzp.open();
-          } catch (error) {
-              console.error("Error in payment:", error);
-          }
-      });
-  
-      // Verify Payment
-      async function verifyPayment(paymentData) {
-          try {
-              const verifyRes = await fetch(`${API_BASE}/api/payment/verify`, {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(paymentData)
-              });
-  
-              const result = await verifyRes.json();
-              console.log("Payment Verification Response:", result);
-  
-              if (result.success) {
-                  alert("Payment Verified Successfully!");
-              } else {
-                  alert("Payment Verification Failed!");
-              }
-          } catch (error) {
-              console.error("Verification Error:", error);
-          }
-      }
-  
-      // Toggle employer name field for matching gifts
-      function toggleEmployerField() {
-          const employerField = document.getElementById('employerNameField');
-          employerField.style.display = document.getElementById('matchingGiftCheckbox').checked ? 'block' : 'none';
-      }
-  </script>
-  
-
+   
     <script>
       // Function to check login status and update the topbar
       const updateTopbar = () => {
