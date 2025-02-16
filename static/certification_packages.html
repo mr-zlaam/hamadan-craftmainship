@@ -510,7 +510,7 @@
                     <!-- /.main-menu__cta__text -->
                   </div>
                   <!-- /.main-menu__cta -->
-                  <a href="donations.html" class="thm-btn thm-btn--two">
+                  <a href="donationform.html" class="thm-btn thm-btn--two">
                     <span>Donate Now</span></a>
                   <!-- <i class="fa fa-donate"></i>  -->
                   <!-- <img
@@ -796,130 +796,12 @@
                     </div>
         
                     <button type="button" id="cancelForm">Cancel</button>
-                    <button type="submit">Proceed to Payment</button>
+                    <button type="submit" onclick="this.textContent='Loading...'">Proceed to Payment</button>
                 </form>
             </div>
         </div>
         <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-        <script>
-            let selectedCertType, selectedCertName, selectedAmount;
-        
-            document.querySelectorAll('.select-btn').forEach(button => {
-                button.addEventListener('click', function () {
-                    selectedCertType = this.dataset.certType;
-                    selectedCertName = this.dataset.certName;
-                    selectedAmount = parseInt(this.dataset.amount) * 100; // Convert to paise
-        
-                    // Show the floating form
-                    document.getElementById('floatingForm').style.display = 'block';
-                });
-            });
-        
-            document.getElementById('cancelForm').addEventListener('click', function () {
-                // Hide the floating form
-                document.getElementById('floatingForm').style.display = 'none';
-            });
-        
-            document.getElementById('certificationForm').addEventListener('submit', async function (event) {
-                event.preventDefault();
-        
-                const firstName = document.getElementById('firstName').value.trim();
-                const lastName = document.getElementById('lastName').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const phone = document.getElementById('phone').value.trim();
-        
-                if (!firstName || !lastName || !email || !phone || !selectedCertType || !selectedCertName || !selectedAmount) {
-                    alert("Please fill in all required fields.");
-                    return;
-                }
-        
-                // Prepare metadata for the backend
-                const certDetails = {
-                    firstName,
-                    lastName,
-                    email,
-                    phone,
-                    certType: selectedCertType,
-                    certName: selectedCertName,
-                    paymentMethod: "razorpay",
-                };
-        
-                try {
-                    // Create an order with the backend
-                    const response = await fetch("https://api.khcrf.org/api/payment/create-order", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                            amount: selectedAmount,
-                            currency: "INR",
-                            type: "certification",
-                            metadata: certDetails
-                        }),
-                    });
-        
-                    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-        
-                    const data = await response.json();
-                    if (!data.order) throw new Error("Order data not found in response");
-        
-                    // Initialize Razorpay with the generated order
-                    const options = {
-                        key: "rzp_live_0Imfta5OKjsu0J",
-                        amount: data.order.amount,
-                        currency: data.order.currency,
-                        name: "Kashmir Handicrafts Certification",
-                        description: `${selectedCertType} Certification - ${selectedCertName}`,
-                        order_id: data.order.id, // Use backend order ID
-                        handler: async function (paymentData) {
-                            await verifyPayment(paymentData);
-                        },
-                        prefill: {
-                            name: `${firstName} ${lastName}`,
-                            email: email,
-                            contact: phone,
-                        },
-                        notes: certDetails,
-                        theme: {
-                            color: "#3399cc"
-                        }
-                    };
-        
-                    const rzp = new Razorpay(options);
-                    rzp.open();
-        
-                    // Hide the form after initiating payment
-                    document.getElementById('floatingForm').style.display = 'none';
-        
-                } catch (error) {
-                    console.error("Error creating order:", error);
-                    alert("An error occurred while processing your payment. Please try again.");
-                }
-            });
-        
-            // Verify Payment
-            async function verifyPayment(paymentData) {
-                try {
-                    const verifyRes = await fetch("https://api.khcrf.org/api/payment/verify", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(paymentData),
-                    });
-        
-                    const result = await verifyRes.json();
-                    console.log("Payment Verification Response:", result);
-        
-                    if (result.success) {
-                        alert("Payment Verified Successfully!");
-                    } else {
-                        alert("Payment Verification Failed!");
-                    }
-                } catch (error) {
-                    console.error("Verification Error:", error);
-                    alert("An error occurred while verifying your payment. Please contact support.");
-                }
-            }
-        </script>
-        
+      
   <section class="about-six about-six--pad-top about-six--pad-bottom">
       <div class="about-six__bg">
       </div><!-- /.about-six__bg -->
@@ -1119,7 +1001,7 @@
                                     <span>Let's come together to raise donations & help amplify the voices of
                                         Kashmiri artisans.</span>
                                 </h3>
-                                <a href="donations.html" class="thm-btn thm-btn--two"
+                                <a href="donationform.html" class="thm-btn thm-btn--two"
                                     style="background-color: #9f5f37; margin: 0px;">
                                     <span>Donate Now</span>
                                 </a>
@@ -1148,10 +1030,11 @@
                                 <a href="https://www.instagram.com/kashmirhcrf/" class="icon_footer"><i
                                         class="fab fa-instagram"></i></a>
                             </div>
-                            <div class="policy-links mt-3">
-                                <a href="terms.html" class="text-white me-2">Legal</a> |
-                                <a href="privacy.html" class="text-white ms-2">Privacy Policy</a>
-                            </div>
+                             <div class="policy-links mt-3" style="width: 300px;">
+            <a href="terms.html" class="text-white me-2">Legal</a> |
+            <a href="privacy.html" class="text-white ms-2">Privacy Policy</a>
+            | <a href="refund_policy.html" class="text-white ms-2">Refund Policy</a>
+          </div>
                         </div>
 
                         <!-- Right Section -->
