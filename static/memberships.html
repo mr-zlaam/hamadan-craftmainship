@@ -341,7 +341,7 @@ legend {
                 <!-- /.main-menu__cta__text -->
               </div>
               <!-- /.main-menu__cta -->
-              <a href="donations.html" class="thm-btn thm-btn--two">
+              <a href="donationform.html" class="thm-btn thm-btn--two">
                 <span>Donate Now</span></a>
               <!-- <i class="fa fa-donate"></i>  -->
               <!-- <img
@@ -964,178 +964,53 @@ legend {
                     <button class="form_next" type="button" onclick="nextStep()">Next</button>
                 </div>
 
-                <!-- Step 2: Membership Category -->
-                <div class="form-step">
-                    <fieldset>
-                        <legend>Membership Category and Fees</legend>
-                        <label>
-                            <input type="radio" name="membershipType" value="artisan" required />
-                            Artisan — ₹50
-                        </label>
-                        <br>
-                        <label>
-                            <input type="radio" name="membershipType" value="individual" required />
-                            Individual — ₹75
-                        </label>
-                        <br>
-                        <label>
-                            <input type="radio" name="membershipType" value="professional" required />
-                            Professional — ₹150
-                        </label>
-                        <br>
-                        <label>
-                            <input type="radio" name="membershipType" value="corporate" required />
-                            Corporate — ₹500
-                        </label>
-                        <br>
-                        <label>
-                            <input type="radio" name="membershipType" value="patron" required />
-                            Patron — ₹1,000
-                        </label>
-                        <br>
-                        <label>
-                            <input type="radio" name="membershipType" value="student" required />
-                            Student — ₹30
-                        </label>
-                    </fieldset>
-                    <button class="form_next" type="button" onclick="previousStep()">Previous</button>
-                    <button class="form_next" type="button" onclick="nextStep()">Next</button>
-                </div>
+               <!-- Step 2: Membership Category and Payment -->
+          <div class="form-step">
+            <fieldset>
+              <legend>Membership Category and Fees</legend>
+              <!-- Membership Category Selection -->
+              <label>
+                <input type="radio" name="membershipType" value="artisan" required />
+                Artisan — ₹50
+              </label>
+              <br>
+              <label>
+                <input type="radio" name="membershipType" value="individual" required />
+                Individual — ₹75
+              </label>
+              <br>
+              <label>
+                <input type="radio" name="membershipType" value="professional" required />
+                Professional — ₹150
+              </label>
+              <br>
+              <label>
+                <input type="radio" name="membershipType" value="corporate" required />
+                Corporate — ₹500
+              </label>
+              <br>
+              <label>
+                <input type="radio" name="membershipType" value="patron" required />
+                Patron — ₹1,000
+              </label>
+              <br>
+              <label>
+                <input type="radio" name="membershipType" value="student" required />
+                Student — ₹30
+              </label>
 
-                <!-- Step 3: Payment Information with Razorpay -->
-                <div class="form-step">
-                    <fieldset>
-                        <legend>Payment Information</legend>
-                        <p>Proceed to pay using Razorpay:</p>
-                        <button type="button" id="rzp-button">Pay Now</button>
-                    </fieldset>
-                    <button class="form_next" type="button" onclick="previousStep()">Previous</button>
-                </div>
+              <!-- Payment Information -->
+              <div id="payment-section">
+                <button type="button" id="rzp-button" onclick="this.textContent='Loading...'">Proceed to Payment</button>
+              </div>
+            </fieldset>
+            <button class="form_next" type="button" onclick="previousStep()">Previous</button>
+          </div>
             </form>
         </div>
     </section>
 
         <script src="config.js"></script>
-        <script>
-      
-          document.getElementById("rzp-button").addEventListener("click", async function () {
-              // Collect form data
-              const membershipType = document.querySelector('input[name="membershipType"]:checked')?.value;
-              const fullName = document.getElementById("full-name").value;
-              const email = document.getElementById("email").value;
-              const phone = document.getElementById("phone").value;
-              const dob = document.getElementById("dob").value;
-              const nationality = document.getElementById("nationality").value;
-              const gender = document.querySelector('input[name="gender"]:checked')?.value;
-      
-              // Additional address fields
-              const country = document.getElementById("country").value;
-              const state = document.getElementById("state").value;
-              const city = document.getElementById("city").value;
-              const postalCode = document.getElementById("postal").value;
-              const streetAddress = document.getElementById("street").value;
-      
-              // Validate required fields
-              if (!membershipType || !fullName || !email || !phone || !dob || !nationality || !gender) {
-                  alert("Please fill in all required fields.");
-                  return;
-              }
-      
-              // Membership pricing (amount in paise)
-              const membershipAmounts = {
-                  artisan: 5000,
-                  individual: 7500,
-                  professional: 15000,
-                  corporate: 50000,
-                  patron: 100000,
-                  student: 3000
-              };
-      
-              const amount = membershipAmounts[membershipType];
-              if (!amount) {
-                  alert("Invalid membership type selected.");
-                  return;
-              }
-      
-              // Split full name
-              const [firstName, ...lastNameParts] = fullName.split(" ");
-              const lastName = lastNameParts.join(" ") || "N/A";
-      
-              // Construct member details object
-              const memberDetails = {
-                  firstName,
-                  lastName,
-                  fullName, // Include fullName explicitly
-                  email,
-                  phone,
-                  dob,
-                  gender,
-                  nationality,
-                  membershipType,
-                  address: `${streetAddress}, ${city}, ${state}, ${country} - ${postalCode}`,
-                  paymentMethod: 'razorpay',
-                  type: "membership"
-              };
-      
-              try {
-                  // Create the order
-                  const response = await fetch(`${API_BASE}/api/payment/create-order`, {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify({ amount, currency: "INR", type: "membership", metadata: memberDetails })
-                  });
-      
-                  if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-                  const data = await response.json();
-                  if (!data.order) throw new Error("Order data not found in response");
-      
-                  // Initialize Razorpay payment
-                  const options = {
-                      key: "rzp_live_0Imfta5OKjsu0J",
-                      amount: data.order.amount,
-                      currency: data.order.currency,
-                      name: "HAMADAN CRAFT REVIVAL FOUNDATION",
-                      description: "Membership Fee",
-                      order_id: data.order.id,
-                      handler: async function (response) {
-                          await verifyPayment(response);
-                      },
-                      prefill: { name: fullName, email, contact: phone },
-                      theme: { color: "#3399cc" },
-                  };
-      
-                  const rzp = new Razorpay(options);
-                  rzp.open();
-              } catch (error) {
-                  console.error("Error in payment:", error);
-                  alert("An error occurred while processing your payment. Please try again.");
-              }
-          });
-      
-          // Verify Payment Function
-          async function verifyPayment(paymentData) {
-              try {
-                  const verifyRes = await fetch(`${API_BASE}/api/payment/verify`, {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify(paymentData),
-                  });
-      
-                  const result = await verifyRes.json();
-                  console.log("Payment Verification Response:", result);
-      
-                  if (result.success) {
-                      alert("Payment Verified Successfully!");
-                      document.getElementById("multi-step-form").submit();
-                  } else {
-                      alert("Payment Verification Failed!");
-                  }
-              } catch (error) {
-                  console.error("Verification Error:", error);
-                  alert("An error occurred while verifying your payment. Please contact support.");
-              }
-          }
-      </script>
       
         
         <script>
@@ -1476,7 +1351,7 @@ legend {
                 <h3 class="site-footer__widget__title"><span>Let's come together to raise donations & help amplify the
                     voices of Kashmiri artisans.</span></h3>
                 <!-- /.site-footer__widget__title -->
-                <a href="donations.html" class="thm-btn thm-btn--two" style="background-color: #9f5f37; margin: 0px;">
+                <a href="donationform.html" class="thm-btn thm-btn--two" style="background-color: #9f5f37; margin: 0px;">
                   <span>Donate Now</span>
                 </a><!-- /.thm-btn--two -->
               </div><!-- /.site-footer__widget -->
@@ -1519,10 +1394,11 @@ legend {
                 <a href="#" class="icon_footer"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="#" class="icon_footer"><i class="fab fa-instagram"></i></a>
               </div>
-              <div class="policy-links mt-3">
-                <a href="terms.html" class="text-white me-2">Legal</a> |
-                <a href="privacy.html" class="text-white ms-2">Privacy Policy</a>
-              </div>
+              <div class="policy-links mt-3" style="width: 300px;">
+            <a href="terms.html" class="text-white me-2">Legal</a> |
+            <a href="privacy.html" class="text-white ms-2">Privacy Policy</a>
+            | <a href="refund_policy.html" class="text-white ms-2">Refund Policy</a>
+          </div>
             </div>
     
             <!-- Right Section -->
